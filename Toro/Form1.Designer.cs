@@ -28,12 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            label1 = new Label();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.BackColor = SystemColors.Highlight;
+            label1.Dock = DockStyle.Top;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(800, 22);
+            label1.TabIndex = 0;
+            label1.Text = "Toro- Strumenti per Windows - Gestione Hardware ";
+            label1.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Text = "Form1";
+            Controls.Add(label1);
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Tools - Strumento per Windows e varie funzionalità";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Label label1;
     }
 }
