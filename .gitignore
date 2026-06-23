@@ -361,3 +361,15 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+Codice
+# Escludo eseguibili
+*.exe
+
+# Escludo file di debug
+*.pdb
+
+# Escludo cartelle di build
+bin/
+obj/
+
