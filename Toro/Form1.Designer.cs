@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             label1 = new Label();
+            mnsMenu = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            mniChiudi = new ToolStripMenuItem();
+            sistemaToolStripMenuItem = new ToolStripMenuItem();
+            funzionalitàToolStripMenuItem = new ToolStripMenuItem();
+            informazioniPCToolStripMenuItem = new ToolStripMenuItem();
+            mnsMenu.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -37,12 +44,54 @@
             label1.Dock = DockStyle.Top;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(0, 0);
+            label1.Location = new Point(0, 24);
             label1.Name = "label1";
             label1.Size = new Size(800, 22);
             label1.TabIndex = 0;
             label1.Text = "Toro- Strumenti per Windows - Gestione Hardware ";
             label1.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // mnsMenu
+            // 
+            mnsMenu.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, sistemaToolStripMenuItem, funzionalitàToolStripMenuItem });
+            mnsMenu.Location = new Point(0, 0);
+            mnsMenu.Name = "mnsMenu";
+            mnsMenu.Size = new Size(800, 24);
+            mnsMenu.TabIndex = 1;
+            mnsMenu.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mniChiudi });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(37, 20);
+            fileToolStripMenuItem.Text = "File";
+            // 
+            // mniChiudi
+            // 
+            mniChiudi.Name = "mniChiudi";
+            mniChiudi.Size = new Size(180, 22);
+            mniChiudi.Text = "Chiudi";
+            mniChiudi.Click += mniChiudi_Click;
+            // 
+            // sistemaToolStripMenuItem
+            // 
+            sistemaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { informazioniPCToolStripMenuItem });
+            sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
+            sistemaToolStripMenuItem.Size = new Size(60, 20);
+            sistemaToolStripMenuItem.Text = "Sistema";
+            // 
+            // funzionalitàToolStripMenuItem
+            // 
+            funzionalitàToolStripMenuItem.Name = "funzionalitàToolStripMenuItem";
+            funzionalitàToolStripMenuItem.Size = new Size(83, 20);
+            funzionalitàToolStripMenuItem.Text = "Funzionalità";
+            // 
+            // informazioniPCToolStripMenuItem
+            // 
+            informazioniPCToolStripMenuItem.Name = "informazioniPCToolStripMenuItem";
+            informazioniPCToolStripMenuItem.Size = new Size(180, 22);
+            informazioniPCToolStripMenuItem.Text = "Informazioni PC";
             // 
             // Form1
             // 
@@ -50,14 +99,25 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
+            Controls.Add(mnsMenu);
+            MainMenuStrip = mnsMenu;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tools - Strumento per Windows e varie funzionalità";
+            mnsMenu.ResumeLayout(false);
+            mnsMenu.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Label label1;
+        private MenuStrip mnsMenu;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem mniChiudi;
+        private ToolStripMenuItem sistemaToolStripMenuItem;
+        private ToolStripMenuItem funzionalitàToolStripMenuItem;
+        private ToolStripMenuItem informazioniPCToolStripMenuItem;
     }
 }

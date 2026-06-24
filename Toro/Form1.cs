@@ -6,5 +6,10 @@ namespace Toro
         {
             InitializeComponent();
         }
+
+        private void mniChiudi_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
