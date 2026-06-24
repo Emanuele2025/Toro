@@ -33,8 +33,9 @@
             fileToolStripMenuItem = new ToolStripMenuItem();
             mniChiudi = new ToolStripMenuItem();
             sistemaToolStripMenuItem = new ToolStripMenuItem();
-            funzionalitàToolStripMenuItem = new ToolStripMenuItem();
             informazioniPCToolStripMenuItem = new ToolStripMenuItem();
+            funzionalitàToolStripMenuItem = new ToolStripMenuItem();
+            convertitoriToolStripMenuItem = new ToolStripMenuItem();
             mnsMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -81,17 +82,25 @@
             sistemaToolStripMenuItem.Size = new Size(60, 20);
             sistemaToolStripMenuItem.Text = "Sistema";
             // 
-            // funzionalitàToolStripMenuItem
-            // 
-            funzionalitàToolStripMenuItem.Name = "funzionalitàToolStripMenuItem";
-            funzionalitàToolStripMenuItem.Size = new Size(83, 20);
-            funzionalitàToolStripMenuItem.Text = "Funzionalità";
-            // 
             // informazioniPCToolStripMenuItem
             // 
             informazioniPCToolStripMenuItem.Name = "informazioniPCToolStripMenuItem";
             informazioniPCToolStripMenuItem.Size = new Size(180, 22);
             informazioniPCToolStripMenuItem.Text = "Informazioni PC";
+            // 
+            // funzionalitàToolStripMenuItem
+            // 
+            funzionalitàToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { convertitoriToolStripMenuItem });
+            funzionalitàToolStripMenuItem.Name = "funzionalitàToolStripMenuItem";
+            funzionalitàToolStripMenuItem.Size = new Size(83, 20);
+            funzionalitàToolStripMenuItem.Text = "Funzionalità";
+            // 
+            // convertitoriToolStripMenuItem
+            // 
+            convertitoriToolStripMenuItem.Name = "convertitoriToolStripMenuItem";
+            convertitoriToolStripMenuItem.Size = new Size(180, 22);
+            convertitoriToolStripMenuItem.Text = "Convertitori";
+            convertitoriToolStripMenuItem.ToolTipText = "Permettono di convertire numeri in testo, numeri in valori rumani ed altro";
             // 
             // Form1
             // 
@@ -119,5 +128,6 @@
         private ToolStripMenuItem sistemaToolStripMenuItem;
         private ToolStripMenuItem funzionalitàToolStripMenuItem;
         private ToolStripMenuItem informazioniPCToolStripMenuItem;
+        private ToolStripMenuItem convertitoriToolStripMenuItem;
     }
 }
