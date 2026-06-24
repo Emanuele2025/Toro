@@ -19,5 +19,18 @@ namespace Toro
         {
             this.Close();
         }
+
+        private void BtnConverti_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }
