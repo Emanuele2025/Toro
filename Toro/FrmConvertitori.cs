@@ -32,5 +32,10 @@ namespace Toro
                 throw;
             }
         }
+
+        private void TxtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

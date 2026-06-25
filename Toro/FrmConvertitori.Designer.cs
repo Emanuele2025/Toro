@@ -31,12 +31,12 @@
             label1 = new Label();
             tbcConvertitori = new TabControl();
             tbpNumeroToRomano = new TabPage();
-            tabPage2 = new TabPage();
-            BtnChiudi = new Button();
-            label2 = new Label();
-            TxtNumero = new TextBox();
-            BtnConverti = new Button();
             TxtNumeroRomanoRisultato = new TextBox();
+            BtnConverti = new Button();
+            TxtNumero = new TextBox();
+            label2 = new Label();
+            tbpDaNumeroRomano = new TabPage();
+            BtnChiudi = new Button();
             tbcConvertitori.SuspendLayout();
             tbpNumeroToRomano.SuspendLayout();
             SuspendLayout();
@@ -57,7 +57,7 @@
             // tbcConvertitori
             // 
             tbcConvertitori.Controls.Add(tbpNumeroToRomano);
-            tbcConvertitori.Controls.Add(tabPage2);
+            tbcConvertitori.Controls.Add(tbpDaNumeroRomano);
             tbcConvertitori.Dock = DockStyle.Top;
             tbcConvertitori.Location = new Point(0, 22);
             tbcConvertitori.Name = "tbcConvertitori";
@@ -79,43 +79,13 @@
             tbpNumeroToRomano.Text = "Da numerico a Romano";
             tbpNumeroToRomano.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // TxtNumeroRomanoRisultato
             // 
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(818, 237);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // BtnChiudi
-            // 
-            BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            BtnChiudi.Location = new Point(739, 216);
-            BtnChiudi.Name = "BtnChiudi";
-            BtnChiudi.Size = new Size(75, 23);
-            BtnChiudi.TabIndex = 3;
-            BtnChiudi.Text = "Chiudi";
-            BtnChiudi.UseVisualStyleBackColor = true;
-            BtnChiudi.Click += BtnChiudi_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(13, 16);
-            label2.Name = "label2";
-            label2.Size = new Size(120, 15);
-            label2.TabIndex = 0;
-            label2.Text = "Da numero a romano";
-            // 
-            // TxtNumero
-            // 
-            TxtNumero.Location = new Point(17, 32);
-            TxtNumero.MaxLength = 5;
-            TxtNumero.Name = "TxtNumero";
-            TxtNumero.Size = new Size(190, 23);
-            TxtNumero.TabIndex = 1;
+            TxtNumeroRomanoRisultato.Location = new Point(233, 32);
+            TxtNumeroRomanoRisultato.Name = "TxtNumeroRomanoRisultato";
+            TxtNumeroRomanoRisultato.ReadOnly = true;
+            TxtNumeroRomanoRisultato.Size = new Size(301, 23);
+            TxtNumeroRomanoRisultato.TabIndex = 3;
             // 
             // BtnConverti
             // 
@@ -127,13 +97,44 @@
             BtnConverti.UseVisualStyleBackColor = true;
             BtnConverti.Click += BtnConverti_Click;
             // 
-            // TxtNumeroRomanoRisultato
+            // TxtNumero
             // 
-            TxtNumeroRomanoRisultato.Location = new Point(233, 32);
-            TxtNumeroRomanoRisultato.Name = "TxtNumeroRomanoRisultato";
-            TxtNumeroRomanoRisultato.ReadOnly = true;
-            TxtNumeroRomanoRisultato.Size = new Size(301, 23);
-            TxtNumeroRomanoRisultato.TabIndex = 3;
+            TxtNumero.Location = new Point(17, 32);
+            TxtNumero.MaxLength = 5;
+            TxtNumero.Name = "TxtNumero";
+            TxtNumero.Size = new Size(190, 23);
+            TxtNumero.TabIndex = 1;
+            TxtNumero.KeyPress += TxtNumero_KeyPress;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(13, 16);
+            label2.Name = "label2";
+            label2.Size = new Size(120, 15);
+            label2.TabIndex = 0;
+            label2.Text = "Da numero a romano";
+            // 
+            // tbpDaNumeroRomano
+            // 
+            tbpDaNumeroRomano.Location = new Point(4, 24);
+            tbpDaNumeroRomano.Name = "tbpDaNumeroRomano";
+            tbpDaNumeroRomano.Padding = new Padding(3);
+            tbpDaNumeroRomano.Size = new Size(818, 134);
+            tbpDaNumeroRomano.TabIndex = 1;
+            tbpDaNumeroRomano.Text = "Da Romano a Numerico";
+            tbpDaNumeroRomano.UseVisualStyleBackColor = true;
+            // 
+            // BtnChiudi
+            // 
+            BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BtnChiudi.Location = new Point(739, 216);
+            BtnChiudi.Name = "BtnChiudi";
+            BtnChiudi.Size = new Size(75, 23);
+            BtnChiudi.TabIndex = 3;
+            BtnChiudi.Text = "Chiudi";
+            BtnChiudi.UseVisualStyleBackColor = true;
+            BtnChiudi.Click += BtnChiudi_Click;
             // 
             // FrmConvertitori
             // 
@@ -160,7 +161,7 @@
         private Label label1;
         private TabControl tbcConvertitori;
         private TabPage tbpNumeroToRomano;
-        private TabPage tabPage2;
+        private TabPage tbpDaNumeroRomano;
         private Button BtnChiudi;
         private TextBox TxtNumeroRomanoRisultato;
         private Button BtnConverti;

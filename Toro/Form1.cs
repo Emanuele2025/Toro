@@ -11,5 +11,12 @@ namespace Toro
         {
             this.Close();
         }
+
+        private void convertitoriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConvertitori convertitori = new FrmConvertitori();
+            convertitori.ShowDialog();
+
+        }
     }
 }

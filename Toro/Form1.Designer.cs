@@ -71,7 +71,7 @@
             // mniChiudi
             // 
             mniChiudi.Name = "mniChiudi";
-            mniChiudi.Size = new Size(180, 22);
+            mniChiudi.Size = new Size(109, 22);
             mniChiudi.Text = "Chiudi";
             mniChiudi.Click += mniChiudi_Click;
             // 
@@ -85,7 +85,7 @@
             // informazioniPCToolStripMenuItem
             // 
             informazioniPCToolStripMenuItem.Name = "informazioniPCToolStripMenuItem";
-            informazioniPCToolStripMenuItem.Size = new Size(180, 22);
+            informazioniPCToolStripMenuItem.Size = new Size(159, 22);
             informazioniPCToolStripMenuItem.Text = "Informazioni PC";
             // 
             // funzionalitàToolStripMenuItem
@@ -101,6 +101,7 @@
             convertitoriToolStripMenuItem.Size = new Size(180, 22);
             convertitoriToolStripMenuItem.Text = "Convertitori";
             convertitoriToolStripMenuItem.ToolTipText = "Permettono di convertire numeri in testo, numeri in valori rumani ed altro";
+            convertitoriToolStripMenuItem.Click += convertitoriToolStripMenuItem_Click;
             // 
             // Form1
             // 
