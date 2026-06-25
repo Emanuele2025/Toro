@@ -36,9 +36,14 @@
             TxtNumero = new TextBox();
             label2 = new Label();
             tbpDaNumeroRomano = new TabPage();
+            TxtRomaNumeroRisultato = new TextBox();
+            BtnConvertiRomanoNumero = new Button();
+            TxtRomanoNumero = new TextBox();
+            label3 = new Label();
             BtnChiudi = new Button();
             tbcConvertitori.SuspendLayout();
             tbpNumeroToRomano.SuspendLayout();
+            tbpDaNumeroRomano.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -89,7 +94,7 @@
             // 
             // BtnConverti
             // 
-            BtnConverti.Location = new Point(21, 62);
+            BtnConverti.Location = new Point(18, 62);
             BtnConverti.Name = "BtnConverti";
             BtnConverti.Size = new Size(75, 23);
             BtnConverti.TabIndex = 2;
@@ -117,6 +122,10 @@
             // 
             // tbpDaNumeroRomano
             // 
+            tbpDaNumeroRomano.Controls.Add(TxtRomaNumeroRisultato);
+            tbpDaNumeroRomano.Controls.Add(BtnConvertiRomanoNumero);
+            tbpDaNumeroRomano.Controls.Add(TxtRomanoNumero);
+            tbpDaNumeroRomano.Controls.Add(label3);
             tbpDaNumeroRomano.Location = new Point(4, 24);
             tbpDaNumeroRomano.Name = "tbpDaNumeroRomano";
             tbpDaNumeroRomano.Padding = new Padding(3);
@@ -124,6 +133,41 @@
             tbpDaNumeroRomano.TabIndex = 1;
             tbpDaNumeroRomano.Text = "Da Romano a Numerico";
             tbpDaNumeroRomano.UseVisualStyleBackColor = true;
+            // 
+            // TxtRomaNumeroRisultato
+            // 
+            TxtRomaNumeroRisultato.Location = new Point(224, 33);
+            TxtRomaNumeroRisultato.Name = "TxtRomaNumeroRisultato";
+            TxtRomaNumeroRisultato.ReadOnly = true;
+            TxtRomaNumeroRisultato.Size = new Size(301, 23);
+            TxtRomaNumeroRisultato.TabIndex = 7;
+            // 
+            // BtnConvertiRomanoNumero
+            // 
+            BtnConvertiRomanoNumero.Location = new Point(12, 63);
+            BtnConvertiRomanoNumero.Name = "BtnConvertiRomanoNumero";
+            BtnConvertiRomanoNumero.Size = new Size(75, 23);
+            BtnConvertiRomanoNumero.TabIndex = 6;
+            BtnConvertiRomanoNumero.Text = "Converti";
+            BtnConvertiRomanoNumero.UseVisualStyleBackColor = true;
+            BtnConvertiRomanoNumero.Click += BtnConvertiRomanoNumero_Click;
+            // 
+            // TxtRomanoNumero
+            // 
+            TxtRomanoNumero.Location = new Point(8, 33);
+            TxtRomanoNumero.MaxLength = 5;
+            TxtRomanoNumero.Name = "TxtRomanoNumero";
+            TxtRomanoNumero.Size = new Size(190, 23);
+            TxtRomanoNumero.TabIndex = 5;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(8, 15);
+            label3.Name = "label3";
+            label3.Size = new Size(120, 15);
+            label3.TabIndex = 4;
+            label3.Text = "Da numero a romano";
             // 
             // BtnChiudi
             // 
@@ -153,6 +197,8 @@
             tbcConvertitori.ResumeLayout(false);
             tbpNumeroToRomano.ResumeLayout(false);
             tbpNumeroToRomano.PerformLayout();
+            tbpDaNumeroRomano.ResumeLayout(false);
+            tbpDaNumeroRomano.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -167,5 +213,9 @@
         private Button BtnConverti;
         private TextBox TxtNumero;
         private Label label2;
+        private TextBox TxtRomaNumeroRisultato;
+        private Button BtnConvertiRomanoNumero;
+        private TextBox TxtRomanoNumero;
+        private Label label3;
     }
 }

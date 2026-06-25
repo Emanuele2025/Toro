@@ -25,6 +25,10 @@ namespace Toro
             try
             {
 
+                if (TxtNumero.Text.Trim() == "") return;
+
+
+
             }
             catch (Exception ex)
             {
@@ -41,6 +45,23 @@ namespace Toro
                 e.Handled = true; // Blocca il carattere
             }
 
+        }
+
+        private void BtnConvertiRomanoNumero_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (TxtRomanoNumero.Text.Trim() == "") return;
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }
