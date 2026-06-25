@@ -15,6 +15,15 @@ namespace Toro
             InitializeComponent();
         }
 
+        //campi
+        private static readonly int[] valori =
+           {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        private static readonly string[] simboli =
+            {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+
+
+
         private void BtnChiudi_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -26,7 +35,13 @@ namespace Toro
             {
 
                 if (TxtNumero.Text.Trim() == "") return;
-
+                if (!int.TryParse(TxtNumero.Text, out int anno))
+                {
+                    MessageBox.Show("Errore: inserire un numero intero valido.");
+                    return;
+                }
+                string numeroRomano = ConvertiInNumeriRomano(anno);
+                TxtNumeroRomanoRisultato.Text = numeroRomano;
 
 
             }
@@ -63,5 +78,45 @@ namespace Toro
                 throw;
             }
         }
+
+
+
+
+        #region Funzioni
+
+        private  string ConvertiInNumeriRomano(int numero)
+        {
+            if (numero < 1 || numero > 2100)
+                throw new ArgumentOutOfRangeException(nameof(numero),
+                    "Il numero deve essere compreso tra 1 e 2100.");
+
+            var risultato = string.Empty;
+
+            for (int i = 0; i < valori.Length; i++)
+            {
+                while (numero >= valori[i])
+                {
+                    numero -= valori[i];
+                    risultato += simboli[i];
+                }
+            }
+
+            return risultato;
+        }
+        #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
