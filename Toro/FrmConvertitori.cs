@@ -35,6 +35,11 @@ namespace Toro
 
         private void TxtNumero_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //Solo numeri (0-9), backspace e cancel
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\r' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Blocca il carattere
+            }
 
         }
     }
