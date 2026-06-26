@@ -84,7 +84,7 @@ namespace Toro
 
         #region Funzioni
 
-        private  string ConvertiInNumeriRomano(int numero)
+        private string ConvertiInNumeriRomano(int numero)
         {
             if (numero < 1 || numero > 2100)
                 throw new ArgumentOutOfRangeException(nameof(numero),
@@ -110,13 +110,20 @@ namespace Toro
 
 
 
+        private void TxtCaselle_Enter(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.Yellow;
+        }
+
+        private void TxtCaselle_Leave(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.White;
+        }
 
 
 
 
 
-
-
-
+        
     }
 }

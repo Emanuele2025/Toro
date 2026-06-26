@@ -109,7 +109,9 @@
             TxtNumero.Name = "TxtNumero";
             TxtNumero.Size = new Size(190, 23);
             TxtNumero.TabIndex = 1;
+            TxtNumero.Enter += TxtCaselle_Enter;
             TxtNumero.KeyPress += TxtNumero_KeyPress;
+            TxtNumero.Leave += TxtCaselle_Leave;
             // 
             // label2
             // 
