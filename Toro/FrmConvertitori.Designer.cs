@@ -86,7 +86,7 @@
             // 
             // TxtNumeroRomanoRisultato
             // 
-            TxtNumeroRomanoRisultato.Location = new Point(233, 32);
+            TxtNumeroRomanoRisultato.Location = new Point(230, 32);
             TxtNumeroRomanoRisultato.Name = "TxtNumeroRomanoRisultato";
             TxtNumeroRomanoRisultato.ReadOnly = true;
             TxtNumeroRomanoRisultato.Size = new Size(301, 23);
@@ -94,7 +94,7 @@
             // 
             // BtnConverti
             // 
-            BtnConverti.Location = new Point(18, 62);
+            BtnConverti.Location = new Point(15, 62);
             BtnConverti.Name = "BtnConverti";
             BtnConverti.Size = new Size(75, 23);
             BtnConverti.TabIndex = 2;
@@ -104,7 +104,7 @@
             // 
             // TxtNumero
             // 
-            TxtNumero.Location = new Point(17, 32);
+            TxtNumero.Location = new Point(14, 32);
             TxtNumero.MaxLength = 5;
             TxtNumero.Name = "TxtNumero";
             TxtNumero.Size = new Size(190, 23);
@@ -116,7 +116,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(13, 16);
+            label2.Location = new Point(10, 16);
             label2.Name = "label2";
             label2.Size = new Size(120, 15);
             label2.TabIndex = 0;

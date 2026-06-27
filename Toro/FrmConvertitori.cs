@@ -67,14 +67,21 @@ namespace Toro
             {
 
                 if (TxtRomanoNumero.Text.Trim() == "") return;
+                int numero = ConvertiRomanoInNumero(TxtRomanoNumero.Text);
+                TxtRomaNumeroRisultato.Text = numero.ToString();
 
-
-
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Utility.MessaggioErrore("Errore:" + ex.Message);
             }
             catch (Exception ex)
             {
                 Utility.MessaggioErrore(ex.Message);
             }
+
+ 
+             
         }
 
 
@@ -101,6 +108,62 @@ namespace Toro
 
             return risultato;
         }
+
+
+
+        private int ConvertiRomanoInNumero(string romano)
+        {
+            if (string.IsNullOrWhiteSpace(romano))
+                throw new ArgumentException("Il numero romano non può essere vuoto.");
+
+            romano = romano.ToUpper();
+
+            //Associo simboli a numeri
+            var mappa = new Dictionary<char, int>
+        {
+            {'I', 1}, {'V', 5}, {'X', 10}, {'L', 50},
+            {'C', 100}, {'D', 500}, {'M', 1000}
+        };
+
+            int totale = 0;
+            int valorePrecedente = 0;
+
+            foreach (char c in romano)
+            {
+                if (!mappa.ContainsKey(c))
+                    throw new ArgumentException($"Simbolo romano non valido: {c}");
+
+                int valore = mappa[c];
+
+                //Se il valore attuale è maggiore del precedente, significa sottrazione
+                if (valore > valorePrecedente)
+                {
+                    totale += valore - 2 * valorePrecedente;
+                }
+                else
+                {
+                    totale += valore;
+                }
+
+                valorePrecedente = valore;
+            }
+
+            //Valido se la conversine è andata a buon fine, trasformandolo in numero romano
+            string ricostruito = ConvertiInNumeriRomano(totale);
+            if (ricostruito != romano)
+                throw new ArgumentException("Numero romano non valido o formato scorretto.");
+
+            return totale;
+        }
+
+
+
+
+
+
+
+
+
         #endregion
 
 
