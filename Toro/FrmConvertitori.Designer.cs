@@ -157,10 +157,12 @@
             // TxtRomanoNumero
             // 
             TxtRomanoNumero.Location = new Point(8, 33);
-            TxtRomanoNumero.MaxLength = 5;
+            TxtRomanoNumero.MaxLength = 20;
             TxtRomanoNumero.Name = "TxtRomanoNumero";
             TxtRomanoNumero.Size = new Size(190, 23);
             TxtRomanoNumero.TabIndex = 5;
+            TxtRomanoNumero.Enter += TxtCaselle_Enter;
+            TxtRomanoNumero.Leave += TxtCaselle_Leave;
             // 
             // label3
             // 

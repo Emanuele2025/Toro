@@ -89,6 +89,13 @@ namespace Toro
 
         #region Funzioni
 
+
+        /// <summary>
+        /// Funzione che permette di cambiare numeri in numeri dell'antica Roma
+        /// </summary>
+        /// <param name="numero"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         private string ConvertiInNumeriRomano(int numero)
         {
             if (numero < 1 || numero > 2100)
@@ -110,7 +117,12 @@ namespace Toro
         }
 
 
-
+        /// <summary>
+        /// Funzione per convertire un valore romano in numero
+        /// </summary>
+        /// <param name="romano"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         private int ConvertiRomanoInNumero(string romano)
         {
             if (string.IsNullOrWhiteSpace(romano))
