@@ -14,5 +14,86 @@ namespace Toro
         {
             InitializeComponent();
         }
+
+        private void BtnChiudi_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FrmInformazioniPC_Load(object sender, EventArgs e)
+        {
+            Video();
+        }
+
+
+
+
+
+        #region Funzioni
+
+
+        private void Video()
+        {
+            
+            try
+            {
+                var risoluzione = Screen.PrimaryScreen?.Bounds;
+
+
+                txtRisoluzioneVideo.Text = risoluzione?.Width + "x" + risoluzione?.Height;
+                var risoluzioneSenzaBarra = Screen.PrimaryScreen?.WorkingArea;
+
+                TxtRisoluzioneSenzaBarra.Text = risoluzioneSenzaBarra?.Width + "x" + risoluzioneSenzaBarra?.Height;
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
+        
+        
+        
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

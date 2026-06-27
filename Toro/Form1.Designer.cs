@@ -88,6 +88,7 @@
             informazioniPCToolStripMenuItem.Name = "informazioniPCToolStripMenuItem";
             informazioniPCToolStripMenuItem.Size = new Size(180, 22);
             informazioniPCToolStripMenuItem.Text = "Informazioni PC";
+            informazioniPCToolStripMenuItem.Click += informazioniPCToolStripMenuItem_Click;
             // 
             // funzionalitàToolStripMenuItem
             // 

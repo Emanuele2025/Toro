@@ -24,5 +24,11 @@ namespace Toro
             FrmVerifichecs verifiche = new FrmVerifichecs();
             verifiche.ShowDialog();
         }
+
+        private void informazioniPCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmInformazioniPC infoPc = new FrmInformazioniPC();
+            infoPc.ShowDialog();
+        }
     }
 }
