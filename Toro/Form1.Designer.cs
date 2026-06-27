@@ -36,6 +36,7 @@
             informazioniPCToolStripMenuItem = new ToolStripMenuItem();
             funzionalitàToolStripMenuItem = new ToolStripMenuItem();
             convertitoriToolStripMenuItem = new ToolStripMenuItem();
+            mniVerifiche = new ToolStripMenuItem();
             mnsMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -85,12 +86,12 @@
             // informazioniPCToolStripMenuItem
             // 
             informazioniPCToolStripMenuItem.Name = "informazioniPCToolStripMenuItem";
-            informazioniPCToolStripMenuItem.Size = new Size(159, 22);
+            informazioniPCToolStripMenuItem.Size = new Size(180, 22);
             informazioniPCToolStripMenuItem.Text = "Informazioni PC";
             // 
             // funzionalitàToolStripMenuItem
             // 
-            funzionalitàToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { convertitoriToolStripMenuItem });
+            funzionalitàToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { convertitoriToolStripMenuItem, mniVerifiche });
             funzionalitàToolStripMenuItem.Name = "funzionalitàToolStripMenuItem";
             funzionalitàToolStripMenuItem.Size = new Size(83, 20);
             funzionalitàToolStripMenuItem.Text = "Funzionalità";
@@ -102,6 +103,13 @@
             convertitoriToolStripMenuItem.Text = "Convertitori";
             convertitoriToolStripMenuItem.ToolTipText = "Permettono di convertire numeri in testo, numeri in valori rumani ed altro";
             convertitoriToolStripMenuItem.Click += convertitoriToolStripMenuItem_Click;
+            // 
+            // mniVerifiche
+            // 
+            mniVerifiche.Name = "mniVerifiche";
+            mniVerifiche.Size = new Size(180, 22);
+            mniVerifiche.Text = "Verifiche";
+            mniVerifiche.Click += mniVerifiche_Click;
             // 
             // Form1
             // 
@@ -130,5 +138,6 @@
         private ToolStripMenuItem funzionalitàToolStripMenuItem;
         private ToolStripMenuItem informazioniPCToolStripMenuItem;
         private ToolStripMenuItem convertitoriToolStripMenuItem;
+        private ToolStripMenuItem mniVerifiche;
     }
 }

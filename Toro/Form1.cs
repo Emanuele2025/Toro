@@ -18,5 +18,11 @@ namespace Toro
             convertitori.ShowDialog();
 
         }
+
+        private void mniVerifiche_Click(object sender, EventArgs e)
+        {
+            FrmVerifichecs verifiche = new FrmVerifichecs();
+            verifiche.ShowDialog();
+        }
     }
 }

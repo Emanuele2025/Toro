@@ -34,15 +34,15 @@
             BtnVerificaIban = new Button();
             TxtIBan = new TextBox();
             label2 = new Label();
-            tbpDaNumeroRomano = new TabPage();
-            TxtRomaNumeroRisultato = new TextBox();
-            BtnConvertiRomanoNumero = new Button();
-            TxtRomanoNumero = new TextBox();
+            tbpPalindromo = new TabPage();
+            TxtPalindromoRisultato = new TextBox();
+            BtnVerificaPalindromo = new Button();
+            TxtPalindromo = new TextBox();
             label3 = new Label();
             BtnChiudi = new Button();
             tbcConvertitori.SuspendLayout();
             tbpNumeroToRomano.SuspendLayout();
-            tbpDaNumeroRomano.SuspendLayout();
+            tbpPalindromo.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -61,7 +61,7 @@
             // tbcConvertitori
             // 
             tbcConvertitori.Controls.Add(tbpNumeroToRomano);
-            tbcConvertitori.Controls.Add(tbpDaNumeroRomano);
+            tbcConvertitori.Controls.Add(tbpPalindromo);
             tbcConvertitori.Dock = DockStyle.Top;
             tbcConvertitori.Location = new Point(0, 22);
             tbcConvertitori.Name = "tbcConvertitori";
@@ -88,13 +88,14 @@
             BtnVerificaIban.Name = "BtnVerificaIban";
             BtnVerificaIban.Size = new Size(75, 23);
             BtnVerificaIban.TabIndex = 2;
-            BtnVerificaIban.Text = "Converti";
+            BtnVerificaIban.Text = "Verifica";
             BtnVerificaIban.UseVisualStyleBackColor = true;
+            BtnVerificaIban.Click += BtnVerificaIban_Click;
             // 
             // TxtIBan
             // 
             TxtIBan.Location = new Point(17, 32);
-            TxtIBan.MaxLength = 5;
+            TxtIBan.MaxLength = 30;
             TxtIBan.Name = "TxtIBan";
             TxtIBan.Size = new Size(190, 23);
             TxtIBan.TabIndex = 1;
@@ -108,53 +109,55 @@
             label2.TabIndex = 0;
             label2.Text = "IBAN";
             // 
-            // tbpDaNumeroRomano
+            // tbpPalindromo
             // 
-            tbpDaNumeroRomano.Controls.Add(TxtRomaNumeroRisultato);
-            tbpDaNumeroRomano.Controls.Add(BtnConvertiRomanoNumero);
-            tbpDaNumeroRomano.Controls.Add(TxtRomanoNumero);
-            tbpDaNumeroRomano.Controls.Add(label3);
-            tbpDaNumeroRomano.Location = new Point(4, 24);
-            tbpDaNumeroRomano.Name = "tbpDaNumeroRomano";
-            tbpDaNumeroRomano.Padding = new Padding(3);
-            tbpDaNumeroRomano.Size = new Size(818, 134);
-            tbpDaNumeroRomano.TabIndex = 1;
-            tbpDaNumeroRomano.Text = "Da Romano a Numerico";
-            tbpDaNumeroRomano.UseVisualStyleBackColor = true;
+            tbpPalindromo.Controls.Add(TxtPalindromoRisultato);
+            tbpPalindromo.Controls.Add(BtnVerificaPalindromo);
+            tbpPalindromo.Controls.Add(TxtPalindromo);
+            tbpPalindromo.Controls.Add(label3);
+            tbpPalindromo.Location = new Point(4, 24);
+            tbpPalindromo.Name = "tbpPalindromo";
+            tbpPalindromo.Padding = new Padding(3);
+            tbpPalindromo.Size = new Size(792, 134);
+            tbpPalindromo.TabIndex = 1;
+            tbpPalindromo.Text = "Palindromo";
+            tbpPalindromo.UseVisualStyleBackColor = true;
             // 
-            // TxtRomaNumeroRisultato
+            // TxtPalindromoRisultato
             // 
-            TxtRomaNumeroRisultato.Location = new Point(224, 33);
-            TxtRomaNumeroRisultato.Name = "TxtRomaNumeroRisultato";
-            TxtRomaNumeroRisultato.ReadOnly = true;
-            TxtRomaNumeroRisultato.Size = new Size(301, 23);
-            TxtRomaNumeroRisultato.TabIndex = 7;
+            TxtPalindromoRisultato.Location = new Point(224, 33);
+            TxtPalindromoRisultato.Name = "TxtPalindromoRisultato";
+            TxtPalindromoRisultato.ReadOnly = true;
+            TxtPalindromoRisultato.Size = new Size(301, 23);
+            TxtPalindromoRisultato.TabIndex = 7;
             // 
-            // BtnConvertiRomanoNumero
+            // BtnVerificaPalindromo
             // 
-            BtnConvertiRomanoNumero.Location = new Point(12, 63);
-            BtnConvertiRomanoNumero.Name = "BtnConvertiRomanoNumero";
-            BtnConvertiRomanoNumero.Size = new Size(75, 23);
-            BtnConvertiRomanoNumero.TabIndex = 6;
-            BtnConvertiRomanoNumero.Text = "Converti";
-            BtnConvertiRomanoNumero.UseVisualStyleBackColor = true;
+            BtnVerificaPalindromo.Location = new Point(12, 63);
+            BtnVerificaPalindromo.Name = "BtnVerificaPalindromo";
+            BtnVerificaPalindromo.Size = new Size(75, 23);
+            BtnVerificaPalindromo.TabIndex = 6;
+            BtnVerificaPalindromo.Text = "Verifica";
+            BtnVerificaPalindromo.UseVisualStyleBackColor = true;
+            BtnVerificaPalindromo.Click += BtnVerificaPalindromo_Click;
             // 
-            // TxtRomanoNumero
+            // TxtPalindromo
             // 
-            TxtRomanoNumero.Location = new Point(8, 33);
-            TxtRomanoNumero.MaxLength = 5;
-            TxtRomanoNumero.Name = "TxtRomanoNumero";
-            TxtRomanoNumero.Size = new Size(190, 23);
-            TxtRomanoNumero.TabIndex = 5;
+            TxtPalindromo.Location = new Point(8, 33);
+            TxtPalindromo.MaxLength = 50;
+            TxtPalindromo.Name = "TxtPalindromo";
+            TxtPalindromo.Size = new Size(190, 23);
+            TxtPalindromo.TabIndex = 5;
+            TxtPalindromo.KeyPress += TxtPalindromo_KeyPress;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Location = new Point(11, 18);
             label3.Name = "label3";
-            label3.Size = new Size(120, 15);
+            label3.Size = new Size(144, 15);
             label3.TabIndex = 4;
-            label3.Text = "Da numero a romano";
+            label3.Text = "Verifica nome Palindromo";
             // 
             // BtnChiudi
             // 
@@ -184,8 +187,8 @@
             tbcConvertitori.ResumeLayout(false);
             tbpNumeroToRomano.ResumeLayout(false);
             tbpNumeroToRomano.PerformLayout();
-            tbpDaNumeroRomano.ResumeLayout(false);
-            tbpDaNumeroRomano.PerformLayout();
+            tbpPalindromo.ResumeLayout(false);
+            tbpPalindromo.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -198,10 +201,10 @@
         private Button BtnVerificaIban;
         private TextBox TxtIBan;
         private Label label2;
-        private TabPage tbpDaNumeroRomano;
-        private TextBox TxtRomaNumeroRisultato;
-        private Button BtnConvertiRomanoNumero;
-        private TextBox TxtRomanoNumero;
+        private TabPage tbpPalindromo;
+        private TextBox TxtPalindromoRisultato;
+        private Button BtnVerificaPalindromo;
+        private TextBox TxtPalindromo;
         private Label label3;
         private Button BtnChiudi;
     }
