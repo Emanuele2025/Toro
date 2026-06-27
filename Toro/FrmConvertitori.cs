@@ -47,8 +47,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore(ex.Message);
             }
         }
 
@@ -74,8 +73,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore(ex.Message);
             }
         }
 
@@ -124,6 +122,6 @@ namespace Toro
 
 
 
-        
+
     }
 }
