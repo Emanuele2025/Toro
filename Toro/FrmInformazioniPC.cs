@@ -23,6 +23,8 @@ namespace Toro
         private void FrmInformazioniPC_Load(object sender, EventArgs e)
         {
             Video();
+            TxtNomePC.Text =   Environment.MachineName;
+            txtNomeUtente.Text = Environment.UserName;
         }
 
 

@@ -30,5 +30,11 @@ namespace Toro
             FrmInformazioniPC infoPc = new FrmInformazioniPC();
             infoPc.ShowDialog();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+
+        }
     }
 }

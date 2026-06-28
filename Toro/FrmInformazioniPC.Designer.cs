@@ -30,12 +30,18 @@
         {
             label1 = new Label();
             groupBox1 = new GroupBox();
+            TxtRisoluzioneSenzaBarra = new TextBox();
+            label3 = new Label();
             txtRisoluzioneVideo = new TextBox();
             label2 = new Label();
             BtnChiudi = new Button();
-            TxtRisoluzioneSenzaBarra = new TextBox();
-            label3 = new Label();
+            groupBox2 = new GroupBox();
+            txtNomeUtente = new TextBox();
+            label4 = new Label();
+            TxtNomePC = new TextBox();
+            label5 = new Label();
             groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -63,6 +69,23 @@
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Video";
+            // 
+            // TxtRisoluzioneSenzaBarra
+            // 
+            TxtRisoluzioneSenzaBarra.Location = new Point(175, 50);
+            TxtRisoluzioneSenzaBarra.Name = "TxtRisoluzioneSenzaBarra";
+            TxtRisoluzioneSenzaBarra.ReadOnly = true;
+            TxtRisoluzioneSenzaBarra.Size = new Size(177, 23);
+            TxtRisoluzioneSenzaBarra.TabIndex = 3;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(4, 50);
+            label3.Name = "label3";
+            label3.Size = new Size(165, 15);
+            label3.TabIndex = 2;
+            label3.Text = "Risoluzione Video senza barra:";
             // 
             // txtRisoluzioneVideo
             // 
@@ -92,28 +115,59 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
-            // TxtRisoluzioneSenzaBarra
+            // groupBox2
             // 
-            TxtRisoluzioneSenzaBarra.Location = new Point(175, 50);
-            TxtRisoluzioneSenzaBarra.Name = "TxtRisoluzioneSenzaBarra";
-            TxtRisoluzioneSenzaBarra.ReadOnly = true;
-            TxtRisoluzioneSenzaBarra.Size = new Size(177, 23);
-            TxtRisoluzioneSenzaBarra.TabIndex = 3;
+            groupBox2.Controls.Add(txtNomeUtente);
+            groupBox2.Controls.Add(label4);
+            groupBox2.Controls.Add(TxtNomePC);
+            groupBox2.Controls.Add(label5);
+            groupBox2.Location = new Point(388, 47);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(364, 100);
+            groupBox2.TabIndex = 6;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Sistema";
             // 
-            // label3
+            // txtNomeUtente
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(4, 50);
-            label3.Name = "label3";
-            label3.Size = new Size(165, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Risoluzione Video senza barra:";
+            txtNomeUtente.Location = new Point(175, 50);
+            txtNomeUtente.Name = "txtNomeUtente";
+            txtNomeUtente.ReadOnly = true;
+            txtNomeUtente.Size = new Size(177, 23);
+            txtNomeUtente.TabIndex = 3;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(4, 50);
+            label4.Name = "label4";
+            label4.Size = new Size(81, 15);
+            label4.TabIndex = 2;
+            label4.Text = "Nome Utente:";
+            // 
+            // TxtNomePC
+            // 
+            TxtNomePC.Location = new Point(175, 21);
+            TxtNomePC.Name = "TxtNomePC";
+            TxtNomePC.ReadOnly = true;
+            TxtNomePC.Size = new Size(177, 23);
+            TxtNomePC.TabIndex = 1;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(4, 21);
+            label5.Name = "label5";
+            label5.Size = new Size(61, 15);
+            label5.TabIndex = 0;
+            label5.Text = "Nome PC:";
             // 
             // FrmInformazioniPC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(groupBox2);
             Controls.Add(BtnChiudi);
             Controls.Add(groupBox1);
             Controls.Add(label1);
@@ -126,6 +180,8 @@
             Load += FrmInformazioniPC_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -138,5 +194,10 @@
         private Button BtnChiudi;
         private TextBox TxtRisoluzioneSenzaBarra;
         private Label label3;
+        private GroupBox groupBox2;
+        private TextBox txtNomeUtente;
+        private Label label4;
+        private TextBox TxtNomePC;
+        private Label label5;
     }
 }
