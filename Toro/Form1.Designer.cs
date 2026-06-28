@@ -71,8 +71,9 @@
             // 
             // mniChiudi
             // 
+            mniChiudi.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             mniChiudi.Name = "mniChiudi";
-            mniChiudi.Size = new Size(109, 22);
+            mniChiudi.Size = new Size(180, 22);
             mniChiudi.Text = "Chiudi";
             mniChiudi.Click += mniChiudi_Click;
             // 
@@ -85,9 +86,10 @@
             // 
             // informazioniPCToolStripMenuItem
             // 
+            informazioniPCToolStripMenuItem.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             informazioniPCToolStripMenuItem.Name = "informazioniPCToolStripMenuItem";
             informazioniPCToolStripMenuItem.Size = new Size(180, 22);
-            informazioniPCToolStripMenuItem.Text = "Informazioni PC";
+            informazioniPCToolStripMenuItem.Text = "Informazioni PC...";
             informazioniPCToolStripMenuItem.Click += informazioniPCToolStripMenuItem_Click;
             // 
             // funzionalitàToolStripMenuItem
@@ -99,17 +101,19 @@
             // 
             // convertitoriToolStripMenuItem
             // 
+            convertitoriToolStripMenuItem.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             convertitoriToolStripMenuItem.Name = "convertitoriToolStripMenuItem";
             convertitoriToolStripMenuItem.Size = new Size(180, 22);
-            convertitoriToolStripMenuItem.Text = "Convertitori";
+            convertitoriToolStripMenuItem.Text = "Convertitori...";
             convertitoriToolStripMenuItem.ToolTipText = "Permettono di convertire numeri in testo, numeri in valori rumani ed altro";
             convertitoriToolStripMenuItem.Click += convertitoriToolStripMenuItem_Click;
             // 
             // mniVerifiche
             // 
+            mniVerifiche.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             mniVerifiche.Name = "mniVerifiche";
             mniVerifiche.Size = new Size(180, 22);
-            mniVerifiche.Text = "Verifiche";
+            mniVerifiche.Text = "Verifiche...";
             mniVerifiche.Click += mniVerifiche_Click;
             // 
             // Form1

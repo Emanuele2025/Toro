@@ -198,6 +198,7 @@
             Name = "FrmConvertitori";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Convertitori";
+            Load += FrmConvertitori_Load;
             tbcConvertitori.ResumeLayout(false);
             tbpNumeroToRomano.ResumeLayout(false);
             tbpNumeroToRomano.PerformLayout();

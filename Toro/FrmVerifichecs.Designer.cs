@@ -99,6 +99,8 @@
             TxtIBan.Name = "TxtIBan";
             TxtIBan.Size = new Size(190, 23);
             TxtIBan.TabIndex = 1;
+            TxtIBan.Enter += TxtCaselle_Enter;
+            TxtIBan.Leave += TxtCaselle_Leave;
             // 
             // label2
             // 
@@ -148,7 +150,9 @@
             TxtPalindromo.Name = "TxtPalindromo";
             TxtPalindromo.Size = new Size(190, 23);
             TxtPalindromo.TabIndex = 5;
+            TxtPalindromo.Enter += TxtCaselle_Enter;
             TxtPalindromo.KeyPress += TxtPalindromo_KeyPress;
+            TxtPalindromo.Leave += TxtCaselle_Leave;
             // 
             // label3
             // 

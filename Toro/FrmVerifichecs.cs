@@ -22,7 +22,14 @@ namespace Toro
 
         private void BtnVerificaIban_Click(object sender, EventArgs e)
         {
-
+            if (System.Text.RegularExpressions.Regex.IsMatch(TxtIBan.Text, @"^IT\d{2}[ ][a-zA-Z]\d{3}[ ]\d{4}[ ]\d{4}[ ]\d{4}[ ]\d{4}[ ]\d{3}|IT\d{2}[a-zA-Z]\d{22}"))
+            {
+                Utility.MessaggioInfo("IBAN valido");
+            }
+            else
+            {
+                Utility.MessaggioInfo("IBAN non valido");
+            }
         }
 
         private void BtnVerificaPalindromo_Click(object sender, EventArgs e)
@@ -80,7 +87,15 @@ namespace Toro
 
         #endregion
 
+        private void TxtCaselle_Enter(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.Yellow;
+        }
 
+        private void TxtCaselle_Leave(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.White;
+        }
 
 
         private void TxtPalindromo_KeyPress(object sender, KeyPressEventArgs e)

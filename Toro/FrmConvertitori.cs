@@ -80,8 +80,8 @@ namespace Toro
                 Utility.MessaggioErrore(ex.Message);
             }
 
- 
-             
+
+
         }
 
 
@@ -193,10 +193,9 @@ namespace Toro
             ((TextBox)sender).BackColor = Color.White;
         }
 
+        private void FrmConvertitori_Load(object sender, EventArgs e)
+        {
 
-
-
-
-
+        }
     }
 }
