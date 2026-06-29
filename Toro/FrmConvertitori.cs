@@ -281,7 +281,7 @@ namespace Toro
         {
             try
             {
-                txtNumeroTestoRisultato.Text = ConvertiEuroInLettere(decimal.Parse(txtNumeroTesto.Text), true);
+                txtNumeroTestoRisultato.Text = ConvertiEuroInLettere( nudNumeroTesto.Value, true);
             }
             catch (Exception)
             {

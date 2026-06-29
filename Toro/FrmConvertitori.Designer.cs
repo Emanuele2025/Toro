@@ -40,16 +40,17 @@
             BtnConvertiRomanoNumero = new Button();
             TxtRomanoNumero = new TextBox();
             label3 = new Label();
-            BtnChiudi = new Button();
             tbpNumeroTesto = new TabPage();
             txtNumeroTestoRisultato = new TextBox();
             BtnConvertiNumeroTesto = new Button();
-            txtNumeroTesto = new TextBox();
             label4 = new Label();
+            BtnChiudi = new Button();
+            nudNumeroTesto = new NumericUpDown();
             tbcConvertitori.SuspendLayout();
             tbpNumeroToRomano.SuspendLayout();
             tbpDaNumeroRomano.SuspendLayout();
             tbpNumeroTesto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudNumeroTesto).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -180,22 +181,11 @@
             label3.TabIndex = 4;
             label3.Text = "Da numero a romano";
             // 
-            // BtnChiudi
-            // 
-            BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            BtnChiudi.Location = new Point(739, 216);
-            BtnChiudi.Name = "BtnChiudi";
-            BtnChiudi.Size = new Size(75, 23);
-            BtnChiudi.TabIndex = 3;
-            BtnChiudi.Text = "Chiudi";
-            BtnChiudi.UseVisualStyleBackColor = true;
-            BtnChiudi.Click += BtnChiudi_Click;
-            // 
             // tbpNumeroTesto
             // 
+            tbpNumeroTesto.Controls.Add(nudNumeroTesto);
             tbpNumeroTesto.Controls.Add(txtNumeroTestoRisultato);
             tbpNumeroTesto.Controls.Add(BtnConvertiNumeroTesto);
-            tbpNumeroTesto.Controls.Add(txtNumeroTesto);
             tbpNumeroTesto.Controls.Add(label4);
             tbpNumeroTesto.Location = new Point(4, 24);
             tbpNumeroTesto.Name = "tbpNumeroTesto";
@@ -223,16 +213,6 @@
             BtnConvertiNumeroTesto.UseVisualStyleBackColor = true;
             BtnConvertiNumeroTesto.Click += BtnConvertiNumeroTesto_Click;
             // 
-            // txtNumeroTesto
-            // 
-            txtNumeroTesto.Location = new Point(8, 33);
-            txtNumeroTesto.MaxLength = 20;
-            txtNumeroTesto.Name = "txtNumeroTesto";
-            txtNumeroTesto.Size = new Size(190, 23);
-            txtNumeroTesto.TabIndex = 9;
-            txtNumeroTesto.Enter += TxtCaselle_Enter;
-            txtNumeroTesto.Leave += TxtCaselle_Leave;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -241,6 +221,28 @@
             label4.Size = new Size(104, 15);
             label4.TabIndex = 8;
             label4.Text = "Da numero a testo";
+            // 
+            // BtnChiudi
+            // 
+            BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BtnChiudi.Location = new Point(739, 216);
+            BtnChiudi.Name = "BtnChiudi";
+            BtnChiudi.Size = new Size(75, 23);
+            BtnChiudi.TabIndex = 3;
+            BtnChiudi.Text = "Chiudi";
+            BtnChiudi.UseVisualStyleBackColor = true;
+            BtnChiudi.Click += BtnChiudi_Click;
+            // 
+            // nudNumeroTesto
+            // 
+            nudNumeroTesto.DecimalPlaces = 2;
+            nudNumeroTesto.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
+            nudNumeroTesto.Location = new Point(8, 33);
+            nudNumeroTesto.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            nudNumeroTesto.Name = "nudNumeroTesto";
+            nudNumeroTesto.Size = new Size(193, 23);
+            nudNumeroTesto.TabIndex = 12;
+            nudNumeroTesto.ThousandsSeparator = true;
             // 
             // FrmConvertitori
             // 
@@ -264,6 +266,7 @@
             tbpDaNumeroRomano.PerformLayout();
             tbpNumeroTesto.ResumeLayout(false);
             tbpNumeroTesto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudNumeroTesto).EndInit();
             ResumeLayout(false);
         }
 
@@ -285,7 +288,7 @@
         private TabPage tbpNumeroTesto;
         private TextBox txtNumeroTestoRisultato;
         private Button BtnConvertiNumeroTesto;
-        private TextBox txtNumeroTesto;
         private Label label4;
+        private NumericUpDown nudNumeroTesto;
     }
 }
