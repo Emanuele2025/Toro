@@ -41,9 +41,15 @@
             TxtRomanoNumero = new TextBox();
             label3 = new Label();
             BtnChiudi = new Button();
+            tbpNumeroTesto = new TabPage();
+            txtNumeroTestoRisultato = new TextBox();
+            BtnConvertiNumeroTesto = new Button();
+            txtNumeroTesto = new TextBox();
+            label4 = new Label();
             tbcConvertitori.SuspendLayout();
             tbpNumeroToRomano.SuspendLayout();
             tbpDaNumeroRomano.SuspendLayout();
+            tbpNumeroTesto.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -63,6 +69,7 @@
             // 
             tbcConvertitori.Controls.Add(tbpNumeroToRomano);
             tbcConvertitori.Controls.Add(tbpDaNumeroRomano);
+            tbcConvertitori.Controls.Add(tbpNumeroTesto);
             tbcConvertitori.Dock = DockStyle.Top;
             tbcConvertitori.Location = new Point(0, 22);
             tbcConvertitori.Name = "tbcConvertitori";
@@ -86,7 +93,7 @@
             // 
             // TxtNumeroRomanoRisultato
             // 
-            TxtNumeroRomanoRisultato.Location = new Point(230, 32);
+            TxtNumeroRomanoRisultato.Location = new Point(229, 32);
             TxtNumeroRomanoRisultato.Name = "TxtNumeroRomanoRisultato";
             TxtNumeroRomanoRisultato.ReadOnly = true;
             TxtNumeroRomanoRisultato.Size = new Size(301, 23);
@@ -94,7 +101,7 @@
             // 
             // BtnConverti
             // 
-            BtnConverti.Location = new Point(15, 62);
+            BtnConverti.Location = new Point(14, 62);
             BtnConverti.Name = "BtnConverti";
             BtnConverti.Size = new Size(75, 23);
             BtnConverti.TabIndex = 2;
@@ -104,7 +111,7 @@
             // 
             // TxtNumero
             // 
-            TxtNumero.Location = new Point(14, 32);
+            TxtNumero.Location = new Point(13, 32);
             TxtNumero.MaxLength = 5;
             TxtNumero.Name = "TxtNumero";
             TxtNumero.Size = new Size(190, 23);
@@ -116,7 +123,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(10, 16);
+            label2.Location = new Point(9, 16);
             label2.Name = "label2";
             label2.Size = new Size(120, 15);
             label2.TabIndex = 0;
@@ -184,6 +191,57 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
+            // tbpNumeroTesto
+            // 
+            tbpNumeroTesto.Controls.Add(txtNumeroTestoRisultato);
+            tbpNumeroTesto.Controls.Add(BtnConvertiNumeroTesto);
+            tbpNumeroTesto.Controls.Add(txtNumeroTesto);
+            tbpNumeroTesto.Controls.Add(label4);
+            tbpNumeroTesto.Location = new Point(4, 24);
+            tbpNumeroTesto.Name = "tbpNumeroTesto";
+            tbpNumeroTesto.Padding = new Padding(3);
+            tbpNumeroTesto.Size = new Size(818, 134);
+            tbpNumeroTesto.TabIndex = 2;
+            tbpNumeroTesto.Text = "Da numero a testo";
+            tbpNumeroTesto.UseVisualStyleBackColor = true;
+            // 
+            // txtNumeroTestoRisultato
+            // 
+            txtNumeroTestoRisultato.Location = new Point(224, 33);
+            txtNumeroTestoRisultato.Name = "txtNumeroTestoRisultato";
+            txtNumeroTestoRisultato.ReadOnly = true;
+            txtNumeroTestoRisultato.Size = new Size(301, 23);
+            txtNumeroTestoRisultato.TabIndex = 11;
+            // 
+            // BtnConvertiNumeroTesto
+            // 
+            BtnConvertiNumeroTesto.Location = new Point(12, 63);
+            BtnConvertiNumeroTesto.Name = "BtnConvertiNumeroTesto";
+            BtnConvertiNumeroTesto.Size = new Size(75, 23);
+            BtnConvertiNumeroTesto.TabIndex = 10;
+            BtnConvertiNumeroTesto.Text = "Converti";
+            BtnConvertiNumeroTesto.UseVisualStyleBackColor = true;
+            BtnConvertiNumeroTesto.Click += BtnConvertiNumeroTesto_Click;
+            // 
+            // txtNumeroTesto
+            // 
+            txtNumeroTesto.Location = new Point(8, 33);
+            txtNumeroTesto.MaxLength = 20;
+            txtNumeroTesto.Name = "txtNumeroTesto";
+            txtNumeroTesto.Size = new Size(190, 23);
+            txtNumeroTesto.TabIndex = 9;
+            txtNumeroTesto.Enter += TxtCaselle_Enter;
+            txtNumeroTesto.Leave += TxtCaselle_Leave;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(8, 15);
+            label4.Name = "label4";
+            label4.Size = new Size(104, 15);
+            label4.TabIndex = 8;
+            label4.Text = "Da numero a testo";
+            // 
             // FrmConvertitori
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -204,6 +262,8 @@
             tbpNumeroToRomano.PerformLayout();
             tbpDaNumeroRomano.ResumeLayout(false);
             tbpDaNumeroRomano.PerformLayout();
+            tbpNumeroTesto.ResumeLayout(false);
+            tbpNumeroTesto.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -222,5 +282,10 @@
         private Button BtnConvertiRomanoNumero;
         private TextBox TxtRomanoNumero;
         private Label label3;
+        private TabPage tbpNumeroTesto;
+        private TextBox txtNumeroTestoRisultato;
+        private Button BtnConvertiNumeroTesto;
+        private TextBox txtNumeroTesto;
+        private Label label4;
     }
 }

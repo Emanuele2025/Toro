@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Toro
 {
@@ -21,8 +22,13 @@ namespace Toro
         private static readonly string[] simboli =
             {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
+        private static readonly string[] Unita = { "zero", "uno", "due", "tre", "quattro", "cinque", "sei", "sette", "otto", "nove" };
 
+        private static readonly string[] Decine = { "", "dieci", "venti", "trenta", "quaranta", "cinquanta", "sessanta", "settanta", "ottanta", "novanta" };
 
+        private static readonly string[] DecineSpeciali = { "dieci", "undici", "dodici", "tredici", "quattordici", "quindici", "sedici", "diciassette", "diciotto", "diciannove" };
+
+        //Fine campi
 
         private void BtnChiudi_Click(object sender, EventArgs e)
         {
@@ -173,6 +179,79 @@ namespace Toro
 
 
 
+        public string ConvertiEuroInLettere(decimal importo, bool centesimiTesto = false)
+
+        {
+
+            if (importo == 0)
+
+                return "zero euro";
+
+
+
+            string euroParte = ConvertiNumeroInLettere((long)importo);
+
+            int centesimiParte = (int)((importo - Math.Floor(importo)) * 100);
+
+            if (centesimiTesto == false)
+
+                return $"{euroParte} euro /{centesimiParte:00}";
+
+            else
+
+            {
+
+                //tutto lettere
+
+                string centesimiParteTesto = ConvertiNumeroInLettere((long)((importo - Math.Floor(importo)) * 100));
+
+
+
+                return $"{euroParte} euro e {centesimiParteTesto} centesimi";
+
+            }
+
+
+
+        }
+
+
+
+        private string ConvertiNumeroInLettere(long numero)
+
+        {
+
+            if (numero < 10)
+
+                return Unita[numero];
+
+            if (numero < 20)
+
+                return DecineSpeciali[numero - 10];
+
+            if (numero < 100)
+
+                return Decine[numero / 10] + (numero % 10 > 0 ? Unita[numero % 10] : "");
+
+            if (numero < 1000)
+
+                return (numero / 100 == 1 ? "cento" : Unita[numero / 100] + "cento") + (numero % 100 > 0 ? ConvertiNumeroInLettere(numero % 100) : "");
+
+            if (numero < 1000000)
+
+                return (numero / 1000 == 1 ? "mille" : ConvertiNumeroInLettere(numero / 1000) + "mila") + (numero % 1000 > 0 ? ConvertiNumeroInLettere(numero % 1000) : "");
+
+            if (numero < 1000000000)
+
+                return (numero / 1000000 == 1 ? "un milione" : ConvertiNumeroInLettere(numero / 1000000) + " milioni") + (numero % 1000000 > 0 ? ConvertiNumeroInLettere(numero % 1000000) : "");
+
+
+
+            return (numero / 1000000000 == 1 ? "un miliardo" : ConvertiNumeroInLettere(numero / 1000000000) + " miliardi") + (numero % 1000000000 > 0 ? ConvertiNumeroInLettere(numero % 1000000000) : "");
+
+        }
+
+
 
 
 
@@ -196,6 +275,20 @@ namespace Toro
         private void FrmConvertitori_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnConvertiNumeroTesto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtNumeroTestoRisultato.Text = ConvertiEuroInLettere(decimal.Parse(txtNumeroTesto.Text), true);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
     }
 }
