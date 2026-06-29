@@ -41,16 +41,23 @@
             TxtRomanoNumero = new TextBox();
             label3 = new Label();
             tbpNumeroTesto = new TabPage();
+            nudNumeroTesto = new NumericUpDown();
             txtNumeroTestoRisultato = new TextBox();
             BtnConvertiNumeroTesto = new Button();
             label4 = new Label();
+            tbpDollari = new TabPage();
+            nudDollari = new NumericUpDown();
+            TxtImportoDollariRisultato = new TextBox();
+            BtnDollariTesto = new Button();
+            label5 = new Label();
             BtnChiudi = new Button();
-            nudNumeroTesto = new NumericUpDown();
             tbcConvertitori.SuspendLayout();
             tbpNumeroToRomano.SuspendLayout();
             tbpDaNumeroRomano.SuspendLayout();
             tbpNumeroTesto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudNumeroTesto).BeginInit();
+            tbpDollari.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudDollari).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -71,6 +78,7 @@
             tbcConvertitori.Controls.Add(tbpNumeroToRomano);
             tbcConvertitori.Controls.Add(tbpDaNumeroRomano);
             tbcConvertitori.Controls.Add(tbpNumeroTesto);
+            tbcConvertitori.Controls.Add(tbpDollari);
             tbcConvertitori.Dock = DockStyle.Top;
             tbcConvertitori.Location = new Point(0, 22);
             tbcConvertitori.Name = "tbcConvertitori";
@@ -192,15 +200,26 @@
             tbpNumeroTesto.Padding = new Padding(3);
             tbpNumeroTesto.Size = new Size(818, 134);
             tbpNumeroTesto.TabIndex = 2;
-            tbpNumeroTesto.Text = "Da numero a testo";
+            tbpNumeroTesto.Text = "Da Euro a testo";
             tbpNumeroTesto.UseVisualStyleBackColor = true;
+            // 
+            // nudNumeroTesto
+            // 
+            nudNumeroTesto.DecimalPlaces = 2;
+            nudNumeroTesto.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
+            nudNumeroTesto.Location = new Point(8, 33);
+            nudNumeroTesto.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            nudNumeroTesto.Name = "nudNumeroTesto";
+            nudNumeroTesto.Size = new Size(193, 23);
+            nudNumeroTesto.TabIndex = 12;
+            nudNumeroTesto.ThousandsSeparator = true;
             // 
             // txtNumeroTestoRisultato
             // 
             txtNumeroTestoRisultato.Location = new Point(224, 33);
             txtNumeroTestoRisultato.Name = "txtNumeroTestoRisultato";
             txtNumeroTestoRisultato.ReadOnly = true;
-            txtNumeroTestoRisultato.Size = new Size(301, 23);
+            txtNumeroTestoRisultato.Size = new Size(586, 23);
             txtNumeroTestoRisultato.TabIndex = 11;
             // 
             // BtnConvertiNumeroTesto
@@ -218,9 +237,60 @@
             label4.AutoSize = true;
             label4.Location = new Point(8, 15);
             label4.Name = "label4";
-            label4.Size = new Size(104, 15);
+            label4.Size = new Size(86, 15);
             label4.TabIndex = 8;
-            label4.Text = "Da numero a testo";
+            label4.Text = "Da Euro a testo";
+            // 
+            // tbpDollari
+            // 
+            tbpDollari.Controls.Add(nudDollari);
+            tbpDollari.Controls.Add(TxtImportoDollariRisultato);
+            tbpDollari.Controls.Add(BtnDollariTesto);
+            tbpDollari.Controls.Add(label5);
+            tbpDollari.Location = new Point(4, 24);
+            tbpDollari.Name = "tbpDollari";
+            tbpDollari.Size = new Size(818, 134);
+            tbpDollari.TabIndex = 3;
+            tbpDollari.Text = "Da Dollari a Testo";
+            tbpDollari.UseVisualStyleBackColor = true;
+            // 
+            // nudDollari
+            // 
+            nudDollari.DecimalPlaces = 2;
+            nudDollari.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
+            nudDollari.Location = new Point(9, 33);
+            nudDollari.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            nudDollari.Name = "nudDollari";
+            nudDollari.Size = new Size(193, 23);
+            nudDollari.TabIndex = 16;
+            nudDollari.ThousandsSeparator = true;
+            // 
+            // TxtImportoDollariRisultato
+            // 
+            TxtImportoDollariRisultato.Location = new Point(225, 33);
+            TxtImportoDollariRisultato.Name = "TxtImportoDollariRisultato";
+            TxtImportoDollariRisultato.ReadOnly = true;
+            TxtImportoDollariRisultato.Size = new Size(585, 23);
+            TxtImportoDollariRisultato.TabIndex = 15;
+            // 
+            // BtnDollariTesto
+            // 
+            BtnDollariTesto.Location = new Point(13, 63);
+            BtnDollariTesto.Name = "BtnDollariTesto";
+            BtnDollariTesto.Size = new Size(75, 23);
+            BtnDollariTesto.TabIndex = 14;
+            BtnDollariTesto.Text = "Converti";
+            BtnDollariTesto.UseVisualStyleBackColor = true;
+            BtnDollariTesto.Click += BtnDollariTesto_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(9, 15);
+            label5.Name = "label5";
+            label5.Size = new Size(95, 15);
+            label5.TabIndex = 13;
+            label5.Text = "Da dollari a testo";
             // 
             // BtnChiudi
             // 
@@ -232,17 +302,6 @@
             BtnChiudi.Text = "Chiudi";
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
-            // 
-            // nudNumeroTesto
-            // 
-            nudNumeroTesto.DecimalPlaces = 2;
-            nudNumeroTesto.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            nudNumeroTesto.Location = new Point(8, 33);
-            nudNumeroTesto.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
-            nudNumeroTesto.Name = "nudNumeroTesto";
-            nudNumeroTesto.Size = new Size(193, 23);
-            nudNumeroTesto.TabIndex = 12;
-            nudNumeroTesto.ThousandsSeparator = true;
             // 
             // FrmConvertitori
             // 
@@ -267,6 +326,9 @@
             tbpNumeroTesto.ResumeLayout(false);
             tbpNumeroTesto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudNumeroTesto).EndInit();
+            tbpDollari.ResumeLayout(false);
+            tbpDollari.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudDollari).EndInit();
             ResumeLayout(false);
         }
 
@@ -290,5 +352,10 @@
         private Button BtnConvertiNumeroTesto;
         private Label label4;
         private NumericUpDown nudNumeroTesto;
+        private TabPage tbpDollari;
+        private NumericUpDown nudDollari;
+        private TextBox TxtImportoDollariRisultato;
+        private Button BtnDollariTesto;
+        private Label label5;
     }
 }

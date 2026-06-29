@@ -15,6 +15,8 @@ namespace Toro
         {
             InitializeComponent();
         }
+        #region Campi
+
 
         //campi
         private static readonly int[] valori =
@@ -28,7 +30,20 @@ namespace Toro
 
         private static readonly string[] DecineSpeciali = { "dieci", "undici", "dodici", "tredici", "quattordici", "quindici", "sedici", "diciassette", "diciotto", "diciannove" };
 
+
+        private static string[] ones = { "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
+
+
+
+        private static string[] tens = { "", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
+
+
+
+        private static string[] thousands = { "", "Thousand", "Million", "Billion" };
+
         //Fine campi
+        #endregion
+
 
         private void BtnChiudi_Click(object sender, EventArgs e)
         {
@@ -253,6 +268,135 @@ namespace Toro
 
 
 
+        public   string ConvertNumberToWords(decimal number)
+
+        {
+
+            if (number == 0)
+
+                return "Zero Dollars";
+
+
+
+            int intPart = (int)number;
+
+
+
+            int decimalPart = (int)((number - intPart) * 100);
+
+
+
+            string words = "";
+
+
+
+            int thousandCounter = 0;
+
+
+
+            while (intPart > 0)
+
+            {
+
+                if (intPart % 1000 != 0)
+
+                {
+
+                    words = ConvertHundreds(intPart % 1000) + thousands[thousandCounter] + " " + words;
+
+                }
+
+                intPart /= 1000;
+
+                thousandCounter++;
+
+            }
+
+
+
+            words = words.Trim();
+
+
+
+
+
+            if (decimalPart > 0)
+
+            {
+
+                words += " and " + ConvertHundreds(decimalPart) + " Cents";
+
+            }
+
+
+
+            words += " Dollars";
+
+            return words;
+
+
+
+        }
+
+        private   string ConvertHundreds(int number)
+
+        {
+
+            string result = "";
+
+            if (number >= 100)
+
+            {
+
+                result += ones[number / 100] + " Hundred ";
+
+                number %= 100;
+
+            }
+
+
+
+            if (number >= 20)
+
+            {
+
+                result += tens[number / 10] + " ";
+
+                number %= 10;
+
+            }
+
+
+
+
+
+            if (number > 0)
+
+            {
+
+                result += ones[number] + " ";
+
+            }
+
+
+
+            return result.Trim();
+
+
+
+        }
+
+ 
+
+ 
+
+ 
+
+     
+
+
+
+
 
 
         #endregion
@@ -281,14 +425,19 @@ namespace Toro
         {
             try
             {
-                txtNumeroTestoRisultato.Text = ConvertiEuroInLettere( nudNumeroTesto.Value, true);
+                txtNumeroTestoRisultato.Text = ConvertiEuroInLettere(nudNumeroTesto.Value, true);
             }
             catch (Exception)
             {
 
                 throw;
             }
-            
+
+        }
+
+        private void BtnDollariTesto_Click(object sender, EventArgs e)
+        {
+            TxtImportoDollariRisultato.Text = ConvertNumberToWords(nudDollari.Value);
         }
     }
 }
