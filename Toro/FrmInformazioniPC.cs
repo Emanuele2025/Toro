@@ -25,6 +25,7 @@ namespace Toro
             Video();
             TxtNomePC.Text =   Environment.MachineName;
             txtNomeUtente.Text = Environment.UserName;
+            VarieInformazioni();
         }
 
 
@@ -52,6 +53,32 @@ namespace Toro
             {
                 Utility.MessaggioErrore(ex.Message);
             }
+        
+        
+        
+        }
+
+        private void VarieInformazioni()
+        {
+
+            try
+            {
+                PowerStatus statoBatteria = SystemInformation.PowerStatus;
+                float percentualeStatoBatteria = statoBatteria.BatteryLifePercent * 100;
+                TxtLivelloBatteria.Text = percentualeStatoBatteria + "%";
+
+
+                TxtCollegata.Text = statoBatteria.PowerLineStatus == PowerLineStatus.Online ? "Sì" : "No";
+
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
+        
+        
+        
         
         
         

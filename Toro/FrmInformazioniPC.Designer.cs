@@ -40,6 +40,10 @@
             label4 = new Label();
             TxtNomePC = new TextBox();
             label5 = new Label();
+            TxtCollegata = new TextBox();
+            label6 = new Label();
+            TxtLivelloBatteria = new TextBox();
+            label7 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -117,13 +121,17 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(TxtCollegata);
+            groupBox2.Controls.Add(label6);
+            groupBox2.Controls.Add(TxtLivelloBatteria);
+            groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(txtNomeUtente);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(TxtNomePC);
             groupBox2.Controls.Add(label5);
-            groupBox2.Location = new Point(388, 47);
+            groupBox2.Location = new Point(393, 37);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(364, 100);
+            groupBox2.Size = new Size(364, 139);
             groupBox2.TabIndex = 6;
             groupBox2.TabStop = false;
             groupBox2.Text = "Sistema";
@@ -162,6 +170,40 @@
             label5.TabIndex = 0;
             label5.Text = "Nome PC:";
             // 
+            // TxtCollegata
+            // 
+            TxtCollegata.Location = new Point(175, 110);
+            TxtCollegata.Name = "TxtCollegata";
+            TxtCollegata.ReadOnly = true;
+            TxtCollegata.Size = new Size(177, 23);
+            TxtCollegata.TabIndex = 7;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(4, 110);
+            label6.Name = "label6";
+            label6.Size = new Size(60, 15);
+            label6.TabIndex = 6;
+            label6.Text = "Collegata:";
+            // 
+            // TxtLivelloBatteria
+            // 
+            TxtLivelloBatteria.Location = new Point(175, 81);
+            TxtLivelloBatteria.Name = "TxtLivelloBatteria";
+            TxtLivelloBatteria.ReadOnly = true;
+            TxtLivelloBatteria.Size = new Size(177, 23);
+            TxtLivelloBatteria.TabIndex = 5;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(4, 81);
+            label7.Name = "label7";
+            label7.Size = new Size(87, 15);
+            label7.TabIndex = 4;
+            label7.Text = "Livello Batteria:";
+            // 
             // FrmInformazioniPC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -199,5 +241,9 @@
         private Label label4;
         private TextBox TxtNomePC;
         private Label label5;
+        private TextBox TxtCollegata;
+        private Label label6;
+        private TextBox TxtLivelloBatteria;
+        private Label label7;
     }
 }
