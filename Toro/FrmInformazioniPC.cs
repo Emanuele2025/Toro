@@ -34,7 +34,9 @@ namespace Toro
 
         #region Funzioni
 
-
+        /// <summary>
+        /// Fornisce informazioni sul video
+        /// </summary>
         private void Video()
         {
             
@@ -58,6 +60,10 @@ namespace Toro
         
         }
 
+
+        /// <summary>
+        /// Fornisce informazioni di vario genere
+        /// </summary>
         private void VarieInformazioni()
         {
 
