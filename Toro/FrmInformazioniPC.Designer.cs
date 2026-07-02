@@ -36,16 +36,30 @@
             label2 = new Label();
             BtnChiudi = new Button();
             groupBox2 = new GroupBox();
-            txtNomeUtente = new TextBox();
-            label4 = new Label();
-            TxtNomePC = new TextBox();
-            label5 = new Label();
             TxtCollegata = new TextBox();
             label6 = new Label();
             TxtLivelloBatteria = new TextBox();
             label7 = new Label();
+            txtNomeUtente = new TextBox();
+            label4 = new Label();
+            TxtNomePC = new TextBox();
+            label5 = new Label();
+            groupBox3 = new GroupBox();
+            textBox1 = new TextBox();
+            label8 = new Label();
+            textBox2 = new TextBox();
+            label9 = new Label();
+            textBox3 = new TextBox();
+            label10 = new Label();
+            txtTipo = new TextBox();
+            label11 = new Label();
+            label12 = new Label();
+            cmbUnita = new ComboBox();
+            textBox4 = new TextBox();
+            label13 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -69,7 +83,7 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Location = new Point(6, 37);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(364, 100);
+            groupBox1.Size = new Size(364, 139);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Video";
@@ -136,40 +150,6 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Sistema";
             // 
-            // txtNomeUtente
-            // 
-            txtNomeUtente.Location = new Point(175, 50);
-            txtNomeUtente.Name = "txtNomeUtente";
-            txtNomeUtente.ReadOnly = true;
-            txtNomeUtente.Size = new Size(177, 23);
-            txtNomeUtente.TabIndex = 3;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(4, 50);
-            label4.Name = "label4";
-            label4.Size = new Size(81, 15);
-            label4.TabIndex = 2;
-            label4.Text = "Nome Utente:";
-            // 
-            // TxtNomePC
-            // 
-            TxtNomePC.Location = new Point(175, 21);
-            TxtNomePC.Name = "TxtNomePC";
-            TxtNomePC.ReadOnly = true;
-            TxtNomePC.Size = new Size(177, 23);
-            TxtNomePC.TabIndex = 1;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(4, 21);
-            label5.Name = "label5";
-            label5.Size = new Size(61, 15);
-            label5.TabIndex = 0;
-            label5.Text = "Nome PC:";
-            // 
             // TxtCollegata
             // 
             TxtCollegata.Location = new Point(175, 110);
@@ -204,11 +184,170 @@
             label7.TabIndex = 4;
             label7.Text = "Livello Batteria:";
             // 
+            // txtNomeUtente
+            // 
+            txtNomeUtente.Location = new Point(175, 50);
+            txtNomeUtente.Name = "txtNomeUtente";
+            txtNomeUtente.ReadOnly = true;
+            txtNomeUtente.Size = new Size(177, 23);
+            txtNomeUtente.TabIndex = 3;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(4, 50);
+            label4.Name = "label4";
+            label4.Size = new Size(81, 15);
+            label4.TabIndex = 2;
+            label4.Text = "Nome Utente:";
+            // 
+            // TxtNomePC
+            // 
+            TxtNomePC.Location = new Point(175, 21);
+            TxtNomePC.Name = "TxtNomePC";
+            TxtNomePC.ReadOnly = true;
+            TxtNomePC.Size = new Size(177, 23);
+            TxtNomePC.TabIndex = 1;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(4, 21);
+            label5.Name = "label5";
+            label5.Size = new Size(61, 15);
+            label5.TabIndex = 0;
+            label5.Text = "Nome PC:";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(textBox4);
+            groupBox3.Controls.Add(label13);
+            groupBox3.Controls.Add(cmbUnita);
+            groupBox3.Controls.Add(label12);
+            groupBox3.Controls.Add(textBox1);
+            groupBox3.Controls.Add(label8);
+            groupBox3.Controls.Add(textBox2);
+            groupBox3.Controls.Add(label9);
+            groupBox3.Controls.Add(textBox3);
+            groupBox3.Controls.Add(label10);
+            groupBox3.Controls.Add(txtTipo);
+            groupBox3.Controls.Add(label11);
+            groupBox3.Location = new Point(10, 198);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(364, 230);
+            groupBox3.TabIndex = 7;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Unità Disco PC";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(175, 144);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(177, 23);
+            textBox1.TabIndex = 7;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(6, 144);
+            label8.Name = "label8";
+            label8.Size = new Size(66, 15);
+            label8.TabIndex = 6;
+            label8.Text = "Utilizzabile:";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(175, 115);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(177, 23);
+            textBox2.TabIndex = 5;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(6, 114);
+            label9.Name = "label9";
+            label9.Size = new Size(69, 15);
+            label9.TabIndex = 4;
+            label9.Text = "File System:";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(175, 86);
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.Size = new Size(177, 23);
+            textBox3.TabIndex = 3;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(6, 86);
+            label10.Name = "label10";
+            label10.Size = new Size(56, 15);
+            label10.TabIndex = 2;
+            label10.Text = "Etichetta:";
+            // 
+            // txtTipo
+            // 
+            txtTipo.Location = new Point(175, 57);
+            txtTipo.Name = "txtTipo";
+            txtTipo.ReadOnly = true;
+            txtTipo.Size = new Size(177, 23);
+            txtTipo.TabIndex = 1;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(3, 60);
+            label11.Name = "label11";
+            label11.Size = new Size(34, 15);
+            label11.TabIndex = 0;
+            label11.Text = "Tipo:";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(4, 28);
+            label12.Name = "label12";
+            label12.Size = new Size(38, 15);
+            label12.TabIndex = 8;
+            label12.Text = "Unità:";
+            // 
+            // cmbUnita
+            // 
+            cmbUnita.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbUnita.FormattingEnabled = true;
+            cmbUnita.Location = new Point(175, 25);
+            cmbUnita.Name = "cmbUnita";
+            cmbUnita.Size = new Size(173, 23);
+            cmbUnita.TabIndex = 9;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(175, 174);
+            textBox4.Name = "textBox4";
+            textBox4.ReadOnly = true;
+            textBox4.Size = new Size(177, 23);
+            textBox4.TabIndex = 11;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(6, 174);
+            label13.Name = "label13";
+            label13.Size = new Size(79, 15);
+            label13.TabIndex = 10;
+            label13.Text = "Spazio Totale:";
+            // 
             // FrmInformazioniPC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(BtnChiudi);
             Controls.Add(groupBox1);
@@ -224,6 +363,8 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -245,5 +386,18 @@
         private Label label6;
         private TextBox TxtLivelloBatteria;
         private Label label7;
+        private GroupBox groupBox3;
+        private TextBox textBox4;
+        private Label label13;
+        private ComboBox cmbUnita;
+        private Label label12;
+        private TextBox textBox1;
+        private Label label8;
+        private TextBox textBox2;
+        private Label label9;
+        private TextBox textBox3;
+        private Label label10;
+        private TextBox txtTipo;
+        private Label label11;
     }
 }

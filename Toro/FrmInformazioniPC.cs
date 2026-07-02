@@ -75,6 +75,15 @@ namespace Toro
 
 
                 TxtCollegata.Text = statoBatteria.PowerLineStatus == PowerLineStatus.Online ? "Sì" : "No";
+                DriveInfo[] drives = DriveInfo.GetDrives();
+
+                foreach (DriveInfo drive in drives)
+                {
+                    cmbUnita.Items.Add(drive.Name);
+
+                }
+                if (cmbUnita.Items.Count > 0)
+                    cmbUnita.SelectedIndex = 0;
 
 
             }
