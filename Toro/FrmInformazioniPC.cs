@@ -92,9 +92,7 @@ namespace Toro
                 Utility.MessaggioErrore(ex.Message);
             }
         
-        
-        
-        
+
         
         
         }
