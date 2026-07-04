@@ -178,6 +178,13 @@ namespace Toro
                 else
                 {
                     TxtUtilizzabile.Text = "No";
+
+                    TxtSpazioTotale.Text = "";
+                    TxtSpazioLibero.Text = "";
+                    TxtOccupato.Text = "";
+                    txtTipo.Text = "";
+                    TxtFileSystem.Text = "";
+                    TxtEtichetta.Text = "";
                 }
 
 
