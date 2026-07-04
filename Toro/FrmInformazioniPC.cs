@@ -23,7 +23,7 @@ namespace Toro
         private void FrmInformazioniPC_Load(object sender, EventArgs e)
         {
             Video();
-            TxtNomePC.Text =   Environment.MachineName;
+            TxtNomePC.Text = Environment.MachineName;
             txtNomeUtente.Text = Environment.UserName;
             VarieInformazioni();
         }
@@ -39,7 +39,7 @@ namespace Toro
         /// </summary>
         private void Video()
         {
-            
+
             try
             {
                 var risoluzione = Screen.PrimaryScreen?.Bounds;
@@ -55,9 +55,9 @@ namespace Toro
             {
                 Utility.MessaggioErrore(ex.Message);
             }
-        
-        
-        
+
+
+
         }
 
 
@@ -91,10 +91,10 @@ namespace Toro
             {
                 Utility.MessaggioErrore(ex.Message);
             }
-        
 
-        
-        
+
+
+
         }
 
 
@@ -152,5 +152,44 @@ namespace Toro
 
 
 
+        private void cmbUnita_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DriveInfo unita = new DriveInfo(driveName: cmbUnita?.SelectedItem?.ToString());
+                if (unita.IsReady)
+                {
+                    long totalSize = unita.TotalSize;
+                    long freeSpace = unita.AvailableFreeSpace;
+                    long usedSpace = totalSize - freeSpace;
+                    double usedPercentage = (totalSize > 0)
+                        ? (usedSpace / (double)totalSize) * 100
+                        : 0;
+
+                    TxtSpazioTotale.Text = FormatoUnita(totalSize);
+                    TxtSpazioLibero.Text = FormatoUnita(freeSpace);
+                    TxtOccupato.Text = $"  Spazio usato: {FormatoUnita(usedSpace)} ({usedPercentage:F2}%)";
+                    txtTipo.Text = unita.DriveType.ToString();
+                    TxtFileSystem.Text = unita.DriveFormat;
+                    TxtEtichetta.Text = unita.VolumeLabel;
+                    TxtUtilizzabile.Text = "Si";
+                    
+                }
+                else
+                {
+                    TxtUtilizzabile.Text = "No";
+                }
+
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Errore: " + ex.Message);
+            }
+        }
     }
 }

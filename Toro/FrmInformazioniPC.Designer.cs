@@ -45,6 +45,10 @@
             TxtNomePC = new TextBox();
             label5 = new Label();
             groupBox3 = new GroupBox();
+            TxtOccupato = new TextBox();
+            label15 = new Label();
+            TxtSpazioLibero = new TextBox();
+            label14 = new Label();
             TxtSpazioTotale = new TextBox();
             label13 = new Label();
             cmbUnita = new ComboBox();
@@ -57,10 +61,6 @@
             label10 = new Label();
             txtTipo = new TextBox();
             label11 = new Label();
-            TxtSpazioLibero = new TextBox();
-            label14 = new Label();
-            TxtOccupato = new TextBox();
-            label15 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -247,6 +247,40 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Unità Disco PC";
             // 
+            // TxtOccupato
+            // 
+            TxtOccupato.Location = new Point(175, 235);
+            TxtOccupato.Name = "TxtOccupato";
+            TxtOccupato.ReadOnly = true;
+            TxtOccupato.Size = new Size(177, 23);
+            TxtOccupato.TabIndex = 15;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(6, 235);
+            label15.Name = "label15";
+            label15.Size = new Size(99, 15);
+            label15.TabIndex = 14;
+            label15.Text = "Spazio Occupato:";
+            // 
+            // TxtSpazioLibero
+            // 
+            TxtSpazioLibero.Location = new Point(175, 203);
+            TxtSpazioLibero.Name = "TxtSpazioLibero";
+            TxtSpazioLibero.ReadOnly = true;
+            TxtSpazioLibero.Size = new Size(177, 23);
+            TxtSpazioLibero.TabIndex = 13;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(6, 203);
+            label14.Name = "label14";
+            label14.Size = new Size(80, 15);
+            label14.TabIndex = 12;
+            label14.Text = "Spazio Libero:";
+            // 
             // TxtSpazioTotale
             // 
             TxtSpazioTotale.Location = new Point(175, 174);
@@ -272,6 +306,7 @@
             cmbUnita.Name = "cmbUnita";
             cmbUnita.Size = new Size(173, 23);
             cmbUnita.TabIndex = 9;
+            cmbUnita.SelectedIndexChanged += cmbUnita_SelectedIndexChanged;
             // 
             // label12
             // 
@@ -349,40 +384,6 @@
             label11.Size = new Size(34, 15);
             label11.TabIndex = 0;
             label11.Text = "Tipo:";
-            // 
-            // TxtSpazioLibero
-            // 
-            TxtSpazioLibero.Location = new Point(175, 203);
-            TxtSpazioLibero.Name = "TxtSpazioLibero";
-            TxtSpazioLibero.ReadOnly = true;
-            TxtSpazioLibero.Size = new Size(177, 23);
-            TxtSpazioLibero.TabIndex = 13;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(6, 203);
-            label14.Name = "label14";
-            label14.Size = new Size(80, 15);
-            label14.TabIndex = 12;
-            label14.Text = "Spazio Libero:";
-            // 
-            // TxtOccupato
-            // 
-            TxtOccupato.Location = new Point(175, 235);
-            TxtOccupato.Name = "TxtOccupato";
-            TxtOccupato.ReadOnly = true;
-            TxtOccupato.Size = new Size(177, 23);
-            TxtOccupato.TabIndex = 15;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(6, 235);
-            label15.Name = "label15";
-            label15.Size = new Size(99, 15);
-            label15.TabIndex = 14;
-            label15.Text = "Spazio Occupato:";
             // 
             // FrmInformazioniPC
             // 
