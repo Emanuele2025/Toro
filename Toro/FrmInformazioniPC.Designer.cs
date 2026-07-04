@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             label1 = new Label();
+            BtnChiudi = new Button();
+            tbcSezioni = new TabControl();
+            tbpVideo = new TabPage();
+            tbpSistema = new TabPage();
             groupBox1 = new GroupBox();
             TxtRisoluzioneSenzaBarra = new TextBox();
             label3 = new Label();
             txtRisoluzioneVideo = new TextBox();
             label2 = new Label();
-            BtnChiudi = new Button();
             groupBox2 = new GroupBox();
             TxtCollegata = new TextBox();
             label6 = new Label();
@@ -44,6 +47,7 @@
             label4 = new Label();
             TxtNomePC = new TextBox();
             label5 = new Label();
+            tbpUnita = new TabPage();
             groupBox3 = new GroupBox();
             TxtOccupato = new TextBox();
             label15 = new Label();
@@ -61,8 +65,12 @@
             label10 = new Label();
             txtTipo = new TextBox();
             label11 = new Label();
+            tbcSezioni.SuspendLayout();
+            tbpVideo.SuspendLayout();
+            tbpSistema.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            tbpUnita.SuspendLayout();
             groupBox3.SuspendLayout();
             SuspendLayout();
             // 
@@ -79,18 +87,63 @@
             label1.Text = "Toro- Informazioni sul pc";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
+            // BtnChiudi
+            // 
+            BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BtnChiudi.Location = new Point(704, 415);
+            BtnChiudi.Name = "BtnChiudi";
+            BtnChiudi.Size = new Size(75, 23);
+            BtnChiudi.TabIndex = 5;
+            BtnChiudi.Text = "Chiudi";
+            BtnChiudi.UseVisualStyleBackColor = true;
+            BtnChiudi.Click += BtnChiudi_Click;
+            // 
+            // tbcSezioni
+            // 
+            tbcSezioni.Controls.Add(tbpVideo);
+            tbcSezioni.Controls.Add(tbpSistema);
+            tbcSezioni.Controls.Add(tbpUnita);
+            tbcSezioni.Location = new Point(0, 25);
+            tbcSezioni.Name = "tbcSezioni";
+            tbcSezioni.SelectedIndex = 0;
+            tbcSezioni.Size = new Size(800, 384);
+            tbcSezioni.TabIndex = 8;
+            // 
+            // tbpVideo
+            // 
+            tbpVideo.Controls.Add(groupBox1);
+            tbpVideo.Location = new Point(4, 24);
+            tbpVideo.Name = "tbpVideo";
+            tbpVideo.Padding = new Padding(3);
+            tbpVideo.Size = new Size(792, 356);
+            tbpVideo.TabIndex = 0;
+            tbpVideo.Text = "Video";
+            tbpVideo.UseVisualStyleBackColor = true;
+            // 
+            // tbpSistema
+            // 
+            tbpSistema.Controls.Add(groupBox2);
+            tbpSistema.Location = new Point(4, 24);
+            tbpSistema.Name = "tbpSistema";
+            tbpSistema.Padding = new Padding(3);
+            tbpSistema.Size = new Size(792, 356);
+            tbpSistema.TabIndex = 1;
+            tbpSistema.Text = "Sistema";
+            tbpSistema.UseVisualStyleBackColor = true;
+            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(TxtRisoluzioneSenzaBarra);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(txtRisoluzioneVideo);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(6, 37);
+            groupBox1.Dock = DockStyle.Fill;
+            groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(364, 139);
-            groupBox1.TabIndex = 4;
+            groupBox1.Size = new Size(786, 350);
+            groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Video";
+            groupBox1.Text = "Informaioni Video";
             // 
             // TxtRisoluzioneSenzaBarra
             // 
@@ -126,17 +179,6 @@
             label2.TabIndex = 0;
             label2.Text = "Risoluzione Video:";
             // 
-            // BtnChiudi
-            // 
-            BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            BtnChiudi.Location = new Point(704, 415);
-            BtnChiudi.Name = "BtnChiudi";
-            BtnChiudi.Size = new Size(75, 23);
-            BtnChiudi.TabIndex = 5;
-            BtnChiudi.Text = "Chiudi";
-            BtnChiudi.UseVisualStyleBackColor = true;
-            BtnChiudi.Click += BtnChiudi_Click;
-            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(TxtCollegata);
@@ -147,12 +189,13 @@
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(TxtNomePC);
             groupBox2.Controls.Add(label5);
-            groupBox2.Location = new Point(393, 37);
+            groupBox2.Dock = DockStyle.Fill;
+            groupBox2.Location = new Point(3, 3);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(364, 139);
-            groupBox2.TabIndex = 6;
+            groupBox2.Size = new Size(786, 350);
+            groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Sistema";
+            groupBox2.Text = "Informaioni Sistema ";
             // 
             // TxtCollegata
             // 
@@ -222,6 +265,17 @@
             label5.TabIndex = 0;
             label5.Text = "Nome PC:";
             // 
+            // tbpUnita
+            // 
+            tbpUnita.Controls.Add(groupBox3);
+            tbpUnita.Location = new Point(4, 24);
+            tbpUnita.Name = "tbpUnita";
+            tbpUnita.Padding = new Padding(3);
+            tbpUnita.Size = new Size(792, 356);
+            tbpUnita.TabIndex = 2;
+            tbpUnita.Text = "Unità";
+            tbpUnita.UseVisualStyleBackColor = true;
+            // 
             // groupBox3
             // 
             groupBox3.Controls.Add(TxtOccupato);
@@ -240,10 +294,11 @@
             groupBox3.Controls.Add(label10);
             groupBox3.Controls.Add(txtTipo);
             groupBox3.Controls.Add(label11);
-            groupBox3.Location = new Point(10, 177);
+            groupBox3.Dock = DockStyle.Fill;
+            groupBox3.Location = new Point(3, 3);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(364, 272);
-            groupBox3.TabIndex = 7;
+            groupBox3.Size = new Size(786, 350);
+            groupBox3.TabIndex = 8;
             groupBox3.TabStop = false;
             groupBox3.Text = "Unità Disco PC";
             // 
@@ -306,7 +361,6 @@
             cmbUnita.Name = "cmbUnita";
             cmbUnita.Size = new Size(173, 23);
             cmbUnita.TabIndex = 9;
-            cmbUnita.SelectedIndexChanged += cmbUnita_SelectedIndexChanged;
             // 
             // label12
             // 
@@ -390,10 +444,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(groupBox3);
-            Controls.Add(groupBox2);
+            Controls.Add(tbcSezioni);
             Controls.Add(BtnChiudi);
-            Controls.Add(groupBox1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -402,10 +454,14 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Toro - Informazioni PC";
             Load += FrmInformazioniPC_Load;
+            tbcSezioni.ResumeLayout(false);
+            tbpVideo.ResumeLayout(false);
+            tbpSistema.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            tbpUnita.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ResumeLayout(false);
@@ -414,22 +470,30 @@
         #endregion
 
         private Label label1;
-        private GroupBox groupBox1;
-        private TextBox txtRisoluzioneVideo;
-        private Label label2;
         private Button BtnChiudi;
+        private TabControl tbcSezioni;
+        private TabPage tbpVideo;
+        private TabPage tbpSistema;
+        private GroupBox groupBox1;
         private TextBox TxtRisoluzioneSenzaBarra;
         private Label label3;
+        private TextBox txtRisoluzioneVideo;
+        private Label label2;
         private GroupBox groupBox2;
-        private TextBox txtNomeUtente;
-        private Label label4;
-        private TextBox TxtNomePC;
-        private Label label5;
         private TextBox TxtCollegata;
         private Label label6;
         private TextBox TxtLivelloBatteria;
         private Label label7;
+        private TextBox txtNomeUtente;
+        private Label label4;
+        private TextBox TxtNomePC;
+        private Label label5;
+        private TabPage tbpUnita;
         private GroupBox groupBox3;
+        private TextBox TxtOccupato;
+        private Label label15;
+        private TextBox TxtSpazioLibero;
+        private Label label14;
         private TextBox TxtSpazioTotale;
         private Label label13;
         private ComboBox cmbUnita;
@@ -442,9 +506,5 @@
         private Label label10;
         private TextBox txtTipo;
         private Label label11;
-        private TextBox TxtOccupato;
-        private Label label15;
-        private TextBox TxtSpazioLibero;
-        private Label label14;
     }
 }
