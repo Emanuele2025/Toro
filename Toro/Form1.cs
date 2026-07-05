@@ -37,6 +37,7 @@ namespace Toro
             //Icone
             //Finestra informativa
             //Informazioni del sistema operativo con system.Management  
+            //Logo del toro
 
 
         }
