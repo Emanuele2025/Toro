@@ -33,7 +33,11 @@ namespace Toro
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            //TODO
+            //Icone
+            //Finestra informativa
+            //Informazioni del sistema operativo con system.Management  
+
 
         }
     }
