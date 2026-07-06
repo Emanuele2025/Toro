@@ -32,12 +32,12 @@
             BtnChiudi = new Button();
             tbcSezioni = new TabControl();
             tbpVideo = new TabPage();
-            tbpSistema = new TabPage();
             groupBox1 = new GroupBox();
             TxtRisoluzioneSenzaBarra = new TextBox();
             label3 = new Label();
             txtRisoluzioneVideo = new TextBox();
             label2 = new Label();
+            tbpSistema = new TabPage();
             groupBox2 = new GroupBox();
             TxtCollegata = new TextBox();
             label6 = new Label();
@@ -67,8 +67,8 @@
             label11 = new Label();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
-            tbpSistema.SuspendLayout();
             groupBox1.SuspendLayout();
+            tbpSistema.SuspendLayout();
             groupBox2.SuspendLayout();
             tbpUnita.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -120,17 +120,6 @@
             tbpVideo.Text = "Video";
             tbpVideo.UseVisualStyleBackColor = true;
             // 
-            // tbpSistema
-            // 
-            tbpSistema.Controls.Add(groupBox2);
-            tbpSistema.Location = new Point(4, 24);
-            tbpSistema.Name = "tbpSistema";
-            tbpSistema.Padding = new Padding(3);
-            tbpSistema.Size = new Size(792, 356);
-            tbpSistema.TabIndex = 1;
-            tbpSistema.Text = "Sistema";
-            tbpSistema.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(TxtRisoluzioneSenzaBarra);
@@ -178,6 +167,17 @@
             label2.Size = new Size(103, 15);
             label2.TabIndex = 0;
             label2.Text = "Risoluzione Video:";
+            // 
+            // tbpSistema
+            // 
+            tbpSistema.Controls.Add(groupBox2);
+            tbpSistema.Location = new Point(4, 24);
+            tbpSistema.Name = "tbpSistema";
+            tbpSistema.Padding = new Padding(3);
+            tbpSistema.Size = new Size(792, 356);
+            tbpSistema.TabIndex = 1;
+            tbpSistema.Text = "Sistema";
+            tbpSistema.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -361,6 +361,7 @@
             cmbUnita.Name = "cmbUnita";
             cmbUnita.Size = new Size(173, 23);
             cmbUnita.TabIndex = 9;
+            cmbUnita.SelectedIndexChanged += cmbUnita_SelectedIndexChanged;
             // 
             // label12
             // 
@@ -456,9 +457,9 @@
             Load += FrmInformazioniPC_Load;
             tbcSezioni.ResumeLayout(false);
             tbpVideo.ResumeLayout(false);
-            tbpSistema.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            tbpSistema.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             tbpUnita.ResumeLayout(false);
