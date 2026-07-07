@@ -122,5 +122,17 @@ namespace Toro
 
 
         }
+
+        private void BtnVerificaUSB_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
+        }
     }
 }

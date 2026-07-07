@@ -40,14 +40,14 @@
             TxtPalindromo = new TextBox();
             label3 = new Label();
             tabPage1 = new TabPage();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
+            label6 = new Label();
+            label5 = new Label();
+            BtnVerificaUSB = new Button();
             label4 = new Label();
             CmbUnitaUSB = new ComboBox();
             BtnChiudi = new Button();
-            BtnVerificaUSB = new Button();
-            label5 = new Label();
-            label6 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
             tbcConvertitori.SuspendLayout();
             tbpNumeroToRomano.SuspendLayout();
             tbpPalindromo.SuspendLayout();
@@ -190,6 +190,50 @@
             tabPage1.Text = "Velocità chiavetta USB";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(308, 58);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(301, 23);
+            textBox2.TabIndex = 9;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(308, 23);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(301, 23);
+            textBox1.TabIndex = 8;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(243, 56);
+            label6.Name = "label6";
+            label6.Size = new Size(54, 15);
+            label6.TabIndex = 4;
+            label6.Text = "Scrittura:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(243, 26);
+            label5.Name = "label5";
+            label5.Size = new Size(47, 15);
+            label5.TabIndex = 3;
+            label5.Text = "Lettura:";
+            // 
+            // BtnVerificaUSB
+            // 
+            BtnVerificaUSB.Location = new Point(23, 57);
+            BtnVerificaUSB.Name = "BtnVerificaUSB";
+            BtnVerificaUSB.Size = new Size(100, 23);
+            BtnVerificaUSB.TabIndex = 2;
+            BtnVerificaUSB.Text = "Verifica";
+            BtnVerificaUSB.UseVisualStyleBackColor = true;
+            BtnVerificaUSB.Click += BtnVerificaUSB_Click;
+            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -218,49 +262,6 @@
             BtnChiudi.Text = "Chiudi";
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
-            // 
-            // BtnVerificaUSB
-            // 
-            BtnVerificaUSB.Location = new Point(23, 57);
-            BtnVerificaUSB.Name = "BtnVerificaUSB";
-            BtnVerificaUSB.Size = new Size(100, 23);
-            BtnVerificaUSB.TabIndex = 2;
-            BtnVerificaUSB.Text = "Verifica";
-            BtnVerificaUSB.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(243, 26);
-            label5.Name = "label5";
-            label5.Size = new Size(47, 15);
-            label5.TabIndex = 3;
-            label5.Text = "Lettura:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(243, 56);
-            label6.Name = "label6";
-            label6.Size = new Size(54, 15);
-            label6.TabIndex = 4;
-            label6.Text = "Scrittura:";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(308, 23);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(301, 23);
-            textBox1.TabIndex = 8;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(308, 58);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(301, 23);
-            textBox2.TabIndex = 9;
             // 
             // FrmVerifichecs
             // 
