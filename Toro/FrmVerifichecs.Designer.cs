@@ -39,10 +39,19 @@
             BtnVerificaPalindromo = new Button();
             TxtPalindromo = new TextBox();
             label3 = new Label();
+            tabPage1 = new TabPage();
+            label4 = new Label();
+            CmbUnitaUSB = new ComboBox();
             BtnChiudi = new Button();
+            BtnVerificaUSB = new Button();
+            label5 = new Label();
+            label6 = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
             tbcConvertitori.SuspendLayout();
             tbpNumeroToRomano.SuspendLayout();
             tbpPalindromo.SuspendLayout();
+            tabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -62,6 +71,7 @@
             // 
             tbcConvertitori.Controls.Add(tbpNumeroToRomano);
             tbcConvertitori.Controls.Add(tbpPalindromo);
+            tbcConvertitori.Controls.Add(tabPage1);
             tbcConvertitori.Dock = DockStyle.Top;
             tbcConvertitori.Location = new Point(0, 22);
             tbcConvertitori.Name = "tbcConvertitori";
@@ -163,6 +173,41 @@
             label3.TabIndex = 4;
             label3.Text = "Verifica nome Palindromo";
             // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(textBox2);
+            tabPage1.Controls.Add(textBox1);
+            tabPage1.Controls.Add(label6);
+            tabPage1.Controls.Add(label5);
+            tabPage1.Controls.Add(BtnVerificaUSB);
+            tabPage1.Controls.Add(label4);
+            tabPage1.Controls.Add(CmbUnitaUSB);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(792, 134);
+            tabPage1.TabIndex = 2;
+            tabPage1.Text = "Velocità chiavetta USB";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(20, 5);
+            label4.Name = "label4";
+            label4.Size = new Size(103, 15);
+            label4.TabIndex = 1;
+            label4.Text = "Unità USB esterna:";
+            // 
+            // CmbUnitaUSB
+            // 
+            CmbUnitaUSB.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbUnitaUSB.FormattingEnabled = true;
+            CmbUnitaUSB.Location = new Point(20, 23);
+            CmbUnitaUSB.Name = "CmbUnitaUSB";
+            CmbUnitaUSB.Size = new Size(172, 23);
+            CmbUnitaUSB.TabIndex = 0;
+            // 
             // BtnChiudi
             // 
             BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -173,6 +218,49 @@
             BtnChiudi.Text = "Chiudi";
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
+            // 
+            // BtnVerificaUSB
+            // 
+            BtnVerificaUSB.Location = new Point(23, 57);
+            BtnVerificaUSB.Name = "BtnVerificaUSB";
+            BtnVerificaUSB.Size = new Size(100, 23);
+            BtnVerificaUSB.TabIndex = 2;
+            BtnVerificaUSB.Text = "Verifica";
+            BtnVerificaUSB.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(243, 26);
+            label5.Name = "label5";
+            label5.Size = new Size(47, 15);
+            label5.TabIndex = 3;
+            label5.Text = "Lettura:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(243, 56);
+            label6.Name = "label6";
+            label6.Size = new Size(54, 15);
+            label6.TabIndex = 4;
+            label6.Text = "Scrittura:";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(308, 23);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(301, 23);
+            textBox1.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(308, 58);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(301, 23);
+            textBox2.TabIndex = 9;
             // 
             // FrmVerifichecs
             // 
@@ -188,11 +276,14 @@
             Name = "FrmVerifichecs";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Toro - Funzionalità di verifica";
+            Load += FrmVerifichecs_Load;
             tbcConvertitori.ResumeLayout(false);
             tbpNumeroToRomano.ResumeLayout(false);
             tbpNumeroToRomano.PerformLayout();
             tbpPalindromo.ResumeLayout(false);
             tbpPalindromo.PerformLayout();
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -211,5 +302,13 @@
         private TextBox TxtPalindromo;
         private Label label3;
         private Button BtnChiudi;
+        private TabPage tabPage1;
+        private Label label4;
+        private ComboBox CmbUnitaUSB;
+        private TextBox textBox2;
+        private TextBox textBox1;
+        private Label label6;
+        private Label label5;
+        private Button BtnVerificaUSB;
     }
 }

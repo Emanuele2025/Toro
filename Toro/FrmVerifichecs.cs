@@ -106,5 +106,21 @@ namespace Toro
                 e.Handled = true;
             }
         }
+
+        private void FrmVerifichecs_Load(object sender, EventArgs e)
+        {
+            //Caricare unità nella combo
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
+
+
+
+        }
     }
 }
