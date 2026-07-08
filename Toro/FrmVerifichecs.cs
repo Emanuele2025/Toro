@@ -112,7 +112,14 @@ namespace Toro
             //Caricare unità nella combo
             try
             {
-
+                foreach (DriveInfo InfoUnita in DriveInfo.GetDrives())
+                {
+                    if (InfoUnita.DriveType == DriveType.Removable && InfoUnita.IsReady)
+                    {
+                        CmbUnitaUSB.Items.Add(InfoUnita.Name);
+                         
+                    }
+                }
             }
             catch (Exception ex)
             {
