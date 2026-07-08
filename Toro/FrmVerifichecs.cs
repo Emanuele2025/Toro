@@ -127,7 +127,30 @@ namespace Toro
 
 
 
+        public static double TestReadSpeed(string driveLetter)
+        {
+            string fileName = Path.Combine(driveLetter, "speedtest.bin");
 
+            byte[] buffer = new byte[1024 * 1024];
+
+            Stopwatch sw = Stopwatch.StartNew();
+
+            using (FileStream fs = new FileStream(
+                fileName,
+                FileMode.Open,
+                FileAccess.Read))
+            {
+                while (fs.Read(buffer, 0, buffer.Length) > 0)
+                {
+                }
+            }
+
+            sw.Stop();
+
+            double mb = new FileInfo(fileName).Length / 1024.0 / 1024.0;
+
+            return mb / sw.Elapsed.TotalSeconds;
+        }
 
 
 
