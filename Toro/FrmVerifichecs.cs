@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -83,6 +84,52 @@ namespace Toro
             }
 
         }
+
+
+        public static double TestWriteSpeed(string driveLetter)
+        {
+            string fileName = Path.Combine(driveLetter, "speedtest.bin");
+
+            // 100 MB
+            const int fileSize = 100 * 1024 * 1024;
+            byte[] buffer = new byte[1024 * 1024]; // 1 MB
+
+            new Random().NextBytes(buffer);
+
+            Stopwatch sw = Stopwatch.StartNew();
+
+            using (FileStream fs = new FileStream(
+                fileName,
+                FileMode.Create,
+                FileAccess.Write,
+                FileShare.None,
+                buffer.Length,
+                FileOptions.WriteThrough))
+            {
+                int written = 0;
+
+                while (written < fileSize)
+                {
+                    fs.Write(buffer, 0, buffer.Length);
+                    written += buffer.Length;
+                }
+
+                fs.Flush(true);
+            }
+
+            sw.Stop();
+
+            double seconds = sw.Elapsed.TotalSeconds;
+            double mb = fileSize / 1024.0 / 1024.0;
+
+            return mb / seconds;
+        }
+
+
+
+
+
+
 
 
         #endregion
