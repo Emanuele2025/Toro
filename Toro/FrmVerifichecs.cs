@@ -190,6 +190,10 @@ namespace Toro
                          
                     }
                 }
+                if (CmbUnitaUSB.Items.Count>0)
+                {
+                    CmbUnitaUSB.SelectedIndex = 0;
+                }
             }
             catch (Exception ex)
             {
@@ -204,7 +208,11 @@ namespace Toro
         {
             try
             {
+                double write = TestWriteSpeed(@"E:\");
+                Console.WriteLine($"Scrittura: {write:F2} MB/s");
 
+                double read = TestReadSpeed(@"E:\");
+                Console.WriteLine($"Lettura: {read:F2} MB/s");
             }
             catch (Exception ex)
             {
