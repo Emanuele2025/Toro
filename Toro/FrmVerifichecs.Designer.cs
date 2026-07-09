@@ -40,8 +40,8 @@
             TxtPalindromo = new TextBox();
             label3 = new Label();
             tabPage1 = new TabPage();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            TxtVelocitaScrittura = new TextBox();
+            txtVelocitaLettura = new TextBox();
             label6 = new Label();
             label5 = new Label();
             BtnVerificaUSB = new Button();
@@ -175,8 +175,8 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(textBox2);
-            tabPage1.Controls.Add(textBox1);
+            tabPage1.Controls.Add(TxtVelocitaScrittura);
+            tabPage1.Controls.Add(txtVelocitaLettura);
             tabPage1.Controls.Add(label6);
             tabPage1.Controls.Add(label5);
             tabPage1.Controls.Add(BtnVerificaUSB);
@@ -190,21 +190,21 @@
             tabPage1.Text = "Velocità chiavetta USB";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // TxtVelocitaScrittura
             // 
-            textBox2.Location = new Point(308, 58);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(301, 23);
-            textBox2.TabIndex = 9;
+            TxtVelocitaScrittura.Location = new Point(308, 58);
+            TxtVelocitaScrittura.Name = "TxtVelocitaScrittura";
+            TxtVelocitaScrittura.ReadOnly = true;
+            TxtVelocitaScrittura.Size = new Size(301, 23);
+            TxtVelocitaScrittura.TabIndex = 9;
             // 
-            // textBox1
+            // txtVelocitaLettura
             // 
-            textBox1.Location = new Point(308, 23);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(301, 23);
-            textBox1.TabIndex = 8;
+            txtVelocitaLettura.Location = new Point(308, 23);
+            txtVelocitaLettura.Name = "txtVelocitaLettura";
+            txtVelocitaLettura.ReadOnly = true;
+            txtVelocitaLettura.Size = new Size(301, 23);
+            txtVelocitaLettura.TabIndex = 8;
             // 
             // label6
             // 
@@ -306,8 +306,8 @@
         private TabPage tabPage1;
         private Label label4;
         private ComboBox CmbUnitaUSB;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox TxtVelocitaScrittura;
+        private TextBox txtVelocitaLettura;
         private Label label6;
         private Label label5;
         private Button BtnVerificaUSB;

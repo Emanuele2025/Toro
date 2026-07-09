@@ -208,11 +208,15 @@ namespace Toro
         {
             try
             {
-                double write = TestWriteSpeed(@"E:\");
-                Console.WriteLine($"Scrittura: {write:F2} MB/s");
+                if (CmbUnitaUSB.Text.Trim() != "")
+                {
+                    double write = TestWriteSpeed(@CmbUnitaUSB.Text.Trim());
+                    TxtVelocitaScrittura.Text = $"Scrittura: {write:F2} MB/s";
+                    double read = TestReadSpeed(@"E:\");
+                    txtVelocitaLettura.Text = $"Lettura: {read:F2} MB/s";
 
-                double read = TestReadSpeed(@"E:\");
-                Console.WriteLine($"Lettura: {read:F2} MB/s");
+                }
+    
             }
             catch (Exception ex)
             {
