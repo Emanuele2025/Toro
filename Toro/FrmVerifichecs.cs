@@ -206,13 +206,14 @@ namespace Toro
 
         private void BtnVerificaUSB_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
                 if (CmbUnitaUSB.Text.Trim() != "")
                 {
                     double write = TestWriteSpeed(@CmbUnitaUSB.Text.Trim());
                     TxtVelocitaScrittura.Text = $"Scrittura: {write:F2} MB/s";
-                    double read = TestReadSpeed(@"E:\");
+                    double read = TestReadSpeed(@CmbUnitaUSB.Text.Trim());
                     txtVelocitaLettura.Text = $"Lettura: {read:F2} MB/s";
 
                 }
@@ -221,6 +222,10 @@ namespace Toro
             catch (Exception ex)
             {
                 Utility.MessaggioErrore(ex.Message);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
             }
         }
     }
