@@ -65,6 +65,7 @@
             label10 = new Label();
             txtTipo = new TextBox();
             label11 = new Label();
+            tbpRam = new TabPage();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -103,6 +104,7 @@
             tbcSezioni.Controls.Add(tbpVideo);
             tbcSezioni.Controls.Add(tbpSistema);
             tbcSezioni.Controls.Add(tbpUnita);
+            tbcSezioni.Controls.Add(tbpRam);
             tbcSezioni.Location = new Point(0, 25);
             tbcSezioni.Name = "tbcSezioni";
             tbcSezioni.SelectedIndex = 0;
@@ -440,6 +442,16 @@
             label11.TabIndex = 0;
             label11.Text = "Tipo:";
             // 
+            // tbpRam
+            // 
+            tbpRam.Location = new Point(4, 24);
+            tbpRam.Name = "tbpRam";
+            tbpRam.Padding = new Padding(3);
+            tbpRam.Size = new Size(792, 356);
+            tbpRam.TabIndex = 3;
+            tbpRam.Text = "RAM";
+            tbpRam.UseVisualStyleBackColor = true;
+            // 
             // FrmInformazioniPC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -507,5 +519,6 @@
         private Label label10;
         private TextBox txtTipo;
         private Label label11;
+        private TabPage tbpRam;
     }
 }
