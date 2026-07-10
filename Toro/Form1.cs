@@ -39,6 +39,7 @@ namespace Toro
             //Informazioni del sistema operativo con system.Management  
             //Logo del toro
             //Icone https://icons8.com/icons 
+            //Immagine di toro creata tramite Duckduckgo AI Image Generator https://duck.ai/
 
         }
     }
