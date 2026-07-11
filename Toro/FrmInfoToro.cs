@@ -60,7 +60,7 @@ namespace Toro
 
         private void lnkduckduckgo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-        
+
             try
             {
                 var psi = new ProcessStartInfo
@@ -75,6 +75,11 @@ namespace Toro
                 Utility.MessaggioErrore("Impossibile aprire il sito: " + ex.Message);
 
             }
+        }
+
+        private void FrmInfoToro_Load(object sender, EventArgs e)
+        {
+                // https://icons8.it/icons/set/chiudi
         }
     }
 }

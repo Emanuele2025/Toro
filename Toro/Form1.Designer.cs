@@ -72,8 +72,9 @@
             // mniChiudi
             // 
             mniChiudi.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            mniChiudi.Image = Properties.Resources.chiudi_16;
             mniChiudi.Name = "mniChiudi";
-            mniChiudi.Size = new Size(111, 22);
+            mniChiudi.Size = new Size(180, 22);
             mniChiudi.Text = "Chiudi";
             mniChiudi.Click += mniChiudi_Click;
             // 
