@@ -88,7 +88,7 @@ namespace Toro
 
         public static double TestWriteSpeed(string driveLetter)
         {
-            string fileName = Path.Combine(driveLetter, "speedtest.bin");
+            string fileName = Path.Combine(driveLetter, "filetestVelocita.bin");
 
             // 100 MB
             const int fileSize = 100 * 1024 * 1024;
@@ -129,7 +129,7 @@ namespace Toro
 
         public static double TestReadSpeed(string driveLetter)
         {
-            string fileName = Path.Combine(driveLetter, "speedtest.bin");
+            string fileName = Path.Combine(driveLetter, "filetestVelocita.bin");
 
             byte[] buffer = new byte[1024 * 1024];
 
@@ -215,6 +215,10 @@ namespace Toro
                     TxtVelocitaScrittura.Text = $"Scrittura: {write:F2} MB/s";
                     double read = TestReadSpeed(@CmbUnitaUSB.Text.Trim());
                     txtVelocitaLettura.Text = $"Lettura: {read:F2} MB/s";
+                    if (Path.Exists(@CmbUnitaUSB.Text.Trim() + "filetestVelocita.bin" ) )
+                    {
+                        File.Delete(@CmbUnitaUSB.Text.Trim() + "filetestVelocita.bin");
+                    }
 
                 }
     
