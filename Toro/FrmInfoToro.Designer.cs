@@ -38,6 +38,10 @@
             label3 = new Label();
             label4 = new Label();
             label2 = new Label();
+            label7 = new Label();
+            LnkIcon = new LinkLabel();
+            label8 = new Label();
+            lnkduckduckgo = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pctLogo).BeginInit();
             SuspendLayout();
             // 
@@ -140,11 +144,55 @@
             label2.TabIndex = 16;
             label2.Text = "Descrizione:";
             // 
+            // label7
+            // 
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label7.Location = new Point(281, 246);
+            label7.Name = "label7";
+            label7.Size = new Size(496, 37);
+            label7.TabIndex = 23;
+            label7.Text = "Le icone e le immagini utilizzate in questo programma provengono dai siti elencati di seguito, che le mettono gratuitamente a disposizione dei propri utenti.";
+            // 
+            // LnkIcon
+            // 
+            LnkIcon.AutoSize = true;
+            LnkIcon.Location = new Point(285, 336);
+            LnkIcon.Name = "LnkIcon";
+            LnkIcon.Size = new Size(474, 15);
+            LnkIcon.TabIndex = 24;
+            LnkIcon.TabStop = true;
+            LnkIcon.Text = "Alcune icone utilizzate in questo programma sono fornite da Icons8. by https://icons8.it/";
+            LnkIcon.LinkClicked += LnkIcon_LinkClicked;
+            // 
+            // label8
+            // 
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label8.Location = new Point(285, 283);
+            label8.Name = "label8";
+            label8.Size = new Size(58, 22);
+            label8.TabIndex = 25;
+            label8.Text = "Crediti";
+            // 
+            // lnkduckduckgo
+            // 
+            lnkduckduckgo.AutoSize = true;
+            lnkduckduckgo.Location = new Point(290, 305);
+            lnkduckduckgo.Name = "lnkduckduckgo";
+            lnkduckduckgo.Size = new Size(451, 15);
+            lnkduckduckgo.TabIndex = 26;
+            lnkduckduckgo.TabStop = true;
+            lnkduckduckgo.Text = "L'immagine del toro creata tramite Duckduckgo AI Image Generator https://duck.ai/";
+            lnkduckduckgo.LinkClicked += lnkduckduckgo_LinkClicked;
+            // 
             // FrmInfoToro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lnkduckduckgo);
+            Controls.Add(label8);
+            Controls.Add(LnkIcon);
+            Controls.Add(label7);
             Controls.Add(LblDescrizione);
             Controls.Add(label6);
             Controls.Add(lnlEmail);
@@ -177,5 +225,9 @@
         private Label label3;
         private Label label4;
         private Label label2;
+        private Label label7;
+        private LinkLabel LnkIcon;
+        private Label label8;
+        private LinkLabel lnkduckduckgo;
     }
 }
