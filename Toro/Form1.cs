@@ -44,5 +44,11 @@ namespace Toro
             //Funzione generale per trasmoare i byte in gb e così via
 
         }
+
+        private void mniInformazioni_Click(object sender, EventArgs e)
+        {
+            FrmInfoToro info = new FrmInfoToro();
+            info.ShowDialog();
+        }
     }
 }

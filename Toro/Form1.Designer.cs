@@ -37,6 +37,8 @@
             funzionalitàToolStripMenuItem = new ToolStripMenuItem();
             convertitoriToolStripMenuItem = new ToolStripMenuItem();
             mniVerifiche = new ToolStripMenuItem();
+            infoToolStripMenuItem = new ToolStripMenuItem();
+            mniInformazioni = new ToolStripMenuItem();
             mnsMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,7 +57,7 @@
             // 
             // mnsMenu
             // 
-            mnsMenu.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, sistemaToolStripMenuItem, funzionalitàToolStripMenuItem });
+            mnsMenu.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, sistemaToolStripMenuItem, funzionalitàToolStripMenuItem, infoToolStripMenuItem });
             mnsMenu.Location = new Point(0, 0);
             mnsMenu.Name = "mnsMenu";
             mnsMenu.Size = new Size(800, 24);
@@ -74,7 +76,7 @@
             mniChiudi.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             mniChiudi.Image = Properties.Resources.chiudi_16;
             mniChiudi.Name = "mniChiudi";
-            mniChiudi.Size = new Size(180, 22);
+            mniChiudi.Size = new Size(111, 22);
             mniChiudi.Text = "Chiudi";
             mniChiudi.Click += mniChiudi_Click;
             // 
@@ -104,7 +106,7 @@
             // 
             convertitoriToolStripMenuItem.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             convertitoriToolStripMenuItem.Name = "convertitoriToolStripMenuItem";
-            convertitoriToolStripMenuItem.Size = new Size(152, 22);
+            convertitoriToolStripMenuItem.Size = new Size(180, 22);
             convertitoriToolStripMenuItem.Text = "Convertitori...";
             convertitoriToolStripMenuItem.ToolTipText = "Permettono di convertire numeri in testo, numeri in valori rumani ed altro";
             convertitoriToolStripMenuItem.Click += convertitoriToolStripMenuItem_Click;
@@ -113,9 +115,23 @@
             // 
             mniVerifiche.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             mniVerifiche.Name = "mniVerifiche";
-            mniVerifiche.Size = new Size(152, 22);
+            mniVerifiche.Size = new Size(180, 22);
             mniVerifiche.Text = "Verifiche...";
             mniVerifiche.Click += mniVerifiche_Click;
+            // 
+            // infoToolStripMenuItem
+            // 
+            infoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mniInformazioni });
+            infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            infoToolStripMenuItem.Size = new Size(40, 20);
+            infoToolStripMenuItem.Text = "Info";
+            // 
+            // mniInformazioni
+            // 
+            mniInformazioni.Name = "mniInformazioni";
+            mniInformazioni.Size = new Size(180, 22);
+            mniInformazioni.Text = "Informazioni...";
+            mniInformazioni.Click += mniInformazioni_Click;
             // 
             // Form1
             // 
@@ -146,5 +162,7 @@
         private ToolStripMenuItem informazioniPCToolStripMenuItem;
         private ToolStripMenuItem convertitoriToolStripMenuItem;
         private ToolStripMenuItem mniVerifiche;
+        private ToolStripMenuItem infoToolStripMenuItem;
+        private ToolStripMenuItem mniInformazioni;
     }
 }
