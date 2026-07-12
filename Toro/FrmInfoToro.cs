@@ -79,7 +79,9 @@ namespace Toro
 
         private void FrmInfoToro_Load(object sender, EventArgs e)
         {
-                // https://icons8.it/icons/set/chiudi
+            // https://icons8.it/icons/set/chiudi
+            //<a target="_blank" href="https://icons8.com/icon/13903/close-window">Chiudi La Finestra</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
         }
     }
 }
