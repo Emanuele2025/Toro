@@ -214,7 +214,7 @@ namespace Toro
                     double write = TestWriteSpeed(@CmbUnitaUSB.Text.Trim());
                     TxtVelocitaScrittura.Text = $"Scrittura: {write:F2} MB/s";
                     double read = TestReadSpeed(@CmbUnitaUSB.Text.Trim());
-                    txtVelocitaLettura.Text = $"Lettura: {read:F2} MB/s";
+                    txtVelocitaLettura.Text = $"Lettura: {Utility.FormatoUnita((long)(read * 1024 * 1024))} MB/s";
                     if (Path.Exists(@CmbUnitaUSB.Text.Trim() + "filetestVelocita.bin" ) )
                     {
                         File.Delete(@CmbUnitaUSB.Text.Trim() + "filetestVelocita.bin");

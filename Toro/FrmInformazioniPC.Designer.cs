@@ -66,6 +66,22 @@
             txtTipo = new TextBox();
             label11 = new Label();
             tbpRam = new TabPage();
+            TxtSlotRam = new TextBox();
+            label28 = new Label();
+            TxtProduttore = new TextBox();
+            label25 = new Label();
+            txtTipoRam = new TextBox();
+            label17 = new Label();
+            TxtVelocita = new TextBox();
+            label27 = new Label();
+            TxtRamTotale = new TextBox();
+            label26 = new Label();
+            TxtSlotLiberi = new TextBox();
+            lblliberi = new Label();
+            TxtSlotOccupati = new TextBox();
+            label24 = new Label();
+            TxtSlotTotali = new TextBox();
+            label23 = new Label();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -73,6 +89,7 @@
             groupBox2.SuspendLayout();
             tbpUnita.SuspendLayout();
             groupBox3.SuspendLayout();
+            tbpRam.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -446,6 +463,22 @@
             // 
             // tbpRam
             // 
+            tbpRam.Controls.Add(TxtSlotRam);
+            tbpRam.Controls.Add(label28);
+            tbpRam.Controls.Add(TxtProduttore);
+            tbpRam.Controls.Add(label25);
+            tbpRam.Controls.Add(txtTipoRam);
+            tbpRam.Controls.Add(label17);
+            tbpRam.Controls.Add(TxtVelocita);
+            tbpRam.Controls.Add(label27);
+            tbpRam.Controls.Add(TxtRamTotale);
+            tbpRam.Controls.Add(label26);
+            tbpRam.Controls.Add(TxtSlotLiberi);
+            tbpRam.Controls.Add(lblliberi);
+            tbpRam.Controls.Add(TxtSlotOccupati);
+            tbpRam.Controls.Add(label24);
+            tbpRam.Controls.Add(TxtSlotTotali);
+            tbpRam.Controls.Add(label23);
             tbpRam.Location = new Point(4, 24);
             tbpRam.Name = "tbpRam";
             tbpRam.Padding = new Padding(3);
@@ -453,6 +486,142 @@
             tbpRam.TabIndex = 3;
             tbpRam.Text = "RAM";
             tbpRam.UseVisualStyleBackColor = true;
+            // 
+            // TxtSlotRam
+            // 
+            TxtSlotRam.Location = new Point(127, 17);
+            TxtSlotRam.Name = "TxtSlotRam";
+            TxtSlotRam.ReadOnly = true;
+            TxtSlotRam.Size = new Size(183, 23);
+            TxtSlotRam.TabIndex = 37;
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Location = new Point(9, 19);
+            label28.Name = "label28";
+            label28.Size = new Size(30, 15);
+            label28.TabIndex = 36;
+            label28.Text = "Slot:";
+            // 
+            // TxtProduttore
+            // 
+            TxtProduttore.Location = new Point(127, 234);
+            TxtProduttore.Name = "TxtProduttore";
+            TxtProduttore.ReadOnly = true;
+            TxtProduttore.Size = new Size(183, 23);
+            TxtProduttore.TabIndex = 35;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Location = new Point(9, 237);
+            label25.Name = "label25";
+            label25.Size = new Size(67, 15);
+            label25.TabIndex = 34;
+            label25.Text = "Produttore:";
+            // 
+            // txtTipoRam
+            // 
+            txtTipoRam.Location = new Point(127, 195);
+            txtTipoRam.Name = "txtTipoRam";
+            txtTipoRam.ReadOnly = true;
+            txtTipoRam.Size = new Size(183, 23);
+            txtTipoRam.TabIndex = 33;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(9, 195);
+            label17.Name = "label17";
+            label17.Size = new Size(34, 15);
+            label17.TabIndex = 32;
+            label17.Text = "Tipo:";
+            // 
+            // TxtVelocita
+            // 
+            TxtVelocita.Location = new Point(127, 166);
+            TxtVelocita.Name = "TxtVelocita";
+            TxtVelocita.ReadOnly = true;
+            TxtVelocita.Size = new Size(183, 23);
+            TxtVelocita.TabIndex = 31;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Location = new Point(9, 169);
+            label27.Name = "label27";
+            label27.Size = new Size(51, 15);
+            label27.TabIndex = 30;
+            label27.Text = "Velocità:";
+            // 
+            // TxtRamTotale
+            // 
+            TxtRamTotale.Location = new Point(127, 136);
+            TxtRamTotale.Name = "TxtRamTotale";
+            TxtRamTotale.ReadOnly = true;
+            TxtRamTotale.Size = new Size(183, 23);
+            TxtRamTotale.TabIndex = 29;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Location = new Point(9, 139);
+            label26.Name = "label26";
+            label26.Size = new Size(69, 15);
+            label26.TabIndex = 28;
+            label26.Text = "RAM totale:";
+            // 
+            // TxtSlotLiberi
+            // 
+            TxtSlotLiberi.Location = new Point(127, 107);
+            TxtSlotLiberi.Name = "TxtSlotLiberi";
+            TxtSlotLiberi.ReadOnly = true;
+            TxtSlotLiberi.Size = new Size(183, 23);
+            TxtSlotLiberi.TabIndex = 27;
+            // 
+            // lblliberi
+            // 
+            lblliberi.AutoSize = true;
+            lblliberi.Location = new Point(9, 110);
+            lblliberi.Name = "lblliberi";
+            lblliberi.Size = new Size(59, 15);
+            lblliberi.TabIndex = 26;
+            lblliberi.Text = "Slot liberi:";
+            // 
+            // TxtSlotOccupati
+            // 
+            TxtSlotOccupati.Location = new Point(127, 74);
+            TxtSlotOccupati.Name = "TxtSlotOccupati";
+            TxtSlotOccupati.ReadOnly = true;
+            TxtSlotOccupati.Size = new Size(183, 23);
+            TxtSlotOccupati.TabIndex = 25;
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Location = new Point(9, 77);
+            label24.Name = "label24";
+            label24.Size = new Size(79, 15);
+            label24.TabIndex = 24;
+            label24.Text = "Slot occupati:";
+            // 
+            // TxtSlotTotali
+            // 
+            TxtSlotTotali.Location = new Point(127, 45);
+            TxtSlotTotali.Name = "TxtSlotTotali";
+            TxtSlotTotali.ReadOnly = true;
+            TxtSlotTotali.Size = new Size(183, 23);
+            TxtSlotTotali.TabIndex = 23;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(9, 47);
+            label23.Name = "label23";
+            label23.Size = new Size(60, 15);
+            label23.TabIndex = 22;
+            label23.Text = "Slot totali:";
             // 
             // FrmInformazioniPC
             // 
@@ -479,6 +648,8 @@
             tbpUnita.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            tbpRam.ResumeLayout(false);
+            tbpRam.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -522,5 +693,21 @@
         private TextBox txtTipo;
         private Label label11;
         private TabPage tbpRam;
+        private TextBox TxtSlotRam;
+        private Label label28;
+        private TextBox TxtProduttore;
+        private Label label25;
+        private TextBox txtTipoRam;
+        private Label label17;
+        private TextBox TxtVelocita;
+        private Label label27;
+        private TextBox TxtRamTotale;
+        private Label label26;
+        private TextBox TxtSlotLiberi;
+        private Label lblliberi;
+        private TextBox TxtSlotOccupati;
+        private Label label24;
+        private TextBox TxtSlotTotali;
+        private Label label23;
     }
 }
