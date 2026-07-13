@@ -89,6 +89,7 @@
             LblDescrizione.Name = "LblDescrizione";
             LblDescrizione.Size = new Size(436, 65);
             LblDescrizione.TabIndex = 17;
+            LblDescrizione.Text = "Programma gratuito per rilevare informazioni del sistema operativo Windows e vari strumenti di utilità";
             // 
             // label6
             // 
