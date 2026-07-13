@@ -94,16 +94,17 @@
             // 
             // label6
             // 
+            label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.Location = new Point(281, 172);
             label6.Name = "label6";
-            label6.Size = new Size(322, 63);
+            label6.Size = new Size(496, 63);
             label6.TabIndex = 22;
             label6.Text = "Per informazioni o altro contattare Emanuele al numeo di telefono 339.1980065 oppure  tramite email - For info or anything else, get in touch with Emanuele at 339.1980065 or by email:\r\n";
             // 
             // lnlEmail
             // 
             lnlEmail.AutoSize = true;
-            lnlEmail.Location = new Point(601, 224);
+            lnlEmail.Location = new Point(601, 255);
             lnlEmail.Name = "lnlEmail";
             lnlEmail.Size = new Size(176, 15);
             lnlEmail.TabIndex = 21;
@@ -153,7 +154,7 @@
             // label7
             // 
             label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label7.Location = new Point(281, 246);
+            label7.Location = new Point(281, 284);
             label7.Name = "label7";
             label7.Size = new Size(496, 37);
             label7.TabIndex = 23;
@@ -162,7 +163,7 @@
             // LnkIcon
             // 
             LnkIcon.AutoSize = true;
-            LnkIcon.Location = new Point(285, 336);
+            LnkIcon.Location = new Point(285, 374);
             LnkIcon.Name = "LnkIcon";
             LnkIcon.Size = new Size(474, 15);
             LnkIcon.TabIndex = 24;
@@ -173,7 +174,7 @@
             // label8
             // 
             label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label8.Location = new Point(285, 283);
+            label8.Location = new Point(285, 321);
             label8.Name = "label8";
             label8.Size = new Size(58, 22);
             label8.TabIndex = 25;
@@ -182,7 +183,7 @@
             // lnkduckduckgo
             // 
             lnkduckduckgo.AutoSize = true;
-            lnkduckduckgo.Location = new Point(290, 305);
+            lnkduckduckgo.Location = new Point(290, 343);
             lnkduckduckgo.Name = "lnkduckduckgo";
             lnkduckduckgo.Size = new Size(451, 15);
             lnkduckduckgo.TabIndex = 26;
