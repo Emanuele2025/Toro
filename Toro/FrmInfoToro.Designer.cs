@@ -85,11 +85,12 @@
             // 
             // LblDescrizione
             // 
-            LblDescrizione.Location = new Point(285, 43);
+            LblDescrizione.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LblDescrizione.Location = new Point(281, 43);
             LblDescrizione.Name = "LblDescrizione";
-            LblDescrizione.Size = new Size(436, 65);
+            LblDescrizione.Size = new Size(507, 65);
             LblDescrizione.TabIndex = 17;
-            LblDescrizione.Text = "Programma gratuito per rilevare informazioni del sistema operativo Windows e vari strumenti di utilità";
+            LblDescrizione.Text = "Programma gratuito per rilevare informazioni del sistema operativo Windows e vari strumenti di utilità - Free program to detect information about the Windows operating system and various utility tools";
             // 
             // label6
             // 
@@ -122,10 +123,10 @@
             // 
             // label3
             // 
-            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.Location = new Point(281, 128);
             label3.Name = "label3";
-            label3.Size = new Size(427, 15);
+            label3.Size = new Size(519, 27);
             label3.TabIndex = 19;
             label3.Text = "Realizzato da Emanuele Mattei con amore - Made with love by Emanuele Mattei";
             // 
