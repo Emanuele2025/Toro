@@ -27,6 +27,7 @@ namespace Toro
             TxtNomePC.Text = Environment.MachineName;
             txtNomeUtente.Text = Environment.UserName;
             VarieInformazioni();
+            GetInfoRAM();
         }
 
 
@@ -123,7 +124,23 @@ namespace Toro
 
 
 
+        private void GetInfoRAM()
+        {
 
+            try
+            {
+         
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Errore: " + ex.Message);
+            }
+
+
+
+
+        }
 
 
 
