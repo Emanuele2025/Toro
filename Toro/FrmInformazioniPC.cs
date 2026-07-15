@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using System.Management;
 namespace Toro
 {
     public partial class FrmInformazioniPC : Form
