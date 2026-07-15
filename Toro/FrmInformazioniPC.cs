@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+//Per la gestione hardware
 using System.Management;
 namespace Toro
 {
