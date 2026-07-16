@@ -46,7 +46,7 @@ namespace Toro
         {
             return MessageBox.Show(testo, "Toro", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes;
         }
-
+        #endregion
 
         public static string FormatoUnita(long bytes)
         {
@@ -61,7 +61,7 @@ namespace Toro
             return $"{len:0.##} {sizes[order]}";
         }
 
-        #endregion
+        
 
 
 
