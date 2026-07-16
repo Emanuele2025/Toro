@@ -206,6 +206,7 @@ namespace Toro
 
         private void BtnVerificaUSB_Click(object sender, EventArgs e)
         {
+            //TODO: Migliorare la cancellazione del file di test, metterlo in finally
             Cursor.Current = Cursors.WaitCursor;
             try
             {
