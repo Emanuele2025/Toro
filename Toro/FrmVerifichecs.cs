@@ -179,7 +179,7 @@ namespace Toro
 
         private void FrmVerifichecs_Load(object sender, EventArgs e)
         {
-            //Caricare unità nella combo
+            
             try
             {
                 foreach (DriveInfo InfoUnita in DriveInfo.GetDrives())

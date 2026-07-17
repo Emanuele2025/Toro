@@ -35,12 +35,12 @@ namespace Toro
         {
             //TODO
             //Icone
-            //Finestra informativa
+             
             //Informazioni del sistema operativo con system.Management  
             //Logo del toro
             //Icone https://icons8.com/icons 
-            //Immagine di toro creata tramite Duckduckgo AI Image Generator https://duck.ai/
-            //Mettere descrizione progetto
+             
+            
             //Funzione generale per trasmoare i byte in gb e così via
 
         }
