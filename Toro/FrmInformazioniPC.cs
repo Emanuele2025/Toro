@@ -129,7 +129,56 @@ namespace Toro
 
             try
             {
-         
+                var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMemory");
+                var moduli = searcher.Get();
+
+                long totaleRam = 0;
+                int moduliInstallati = 0;
+
+
+                string tipoRam = "";
+                string Produttore = "";
+                string SlotRam = "";
+                foreach (ManagementObject module in moduli)
+                {
+                    moduliInstallati++;
+                    long capacita = Convert.ToInt64(module["Capacity"]);
+                    int smbiosType = Convert.ToInt32(module["SMBIOSMemoryType"]);
+
+                    totaleRam += capacita;
+
+
+                    SlotRam = module["DeviceLocator"]?.ToString();
+
+                    tipoRam = GetTipoRAM(smbiosType);
+                  
+                    Produttore = module["Manufacturer"]?.ToString();
+
+                }
+
+
+                var arraySearcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMemoryArray");
+                var arrays = arraySearcher.Get();
+
+                int totaleSlots = 0;
+                foreach (ManagementObject arr in arrays)
+                {
+                    totaleSlots += Convert.ToInt32(arr["MemoryDevices"]);
+                }
+
+               
+                TxtSlotTotali.Text = totaleSlots.ToString();
+                TxtSlotOccupati.Text = moduliInstallati.ToString();
+                TxtSlotLiberi.Text = (totaleSlots - moduliInstallati).ToString();
+                TxtRamTotale.Text = (totaleRam / (1024 * 1024 * 1024)).ToString() + " GB";
+                TxtVelocita.Text = moduli.Count > 0 ? moduli.Cast<ManagementObject>().First()["Speed"]?.ToString() + " MHz" : "N/A";
+                txtTipoRam.Text = tipoRam;
+                TxtProduttore.Text = Produttore;
+                TxtSlotRam.Text = SlotRam;
+
+
+
+
 
             }
             catch (Exception ex)
@@ -151,7 +200,18 @@ namespace Toro
 
 
 
-
+        string GetTipoRAM(int type)
+        {
+            return type switch
+            {
+                20 => "DDR",
+                21 => "DDR2",
+                24 => "DDR3",
+                26 => "DDR4",
+                34 => "DDR5",
+                _ => $"Sconosciuto (codice {type})"
+            };
+        }
 
 
         #endregion
@@ -180,7 +240,7 @@ namespace Toro
                     TxtFileSystem.Text = unita.DriveFormat;
                     TxtEtichetta.Text = unita.VolumeLabel;
                     TxtUtilizzabile.Text = "Si";
-                    
+
                 }
                 else
                 {
