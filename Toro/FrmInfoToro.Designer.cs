@@ -95,7 +95,7 @@
             // label6
             // 
             label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(281, 172);
+            label6.Location = new Point(281, 183);
             label6.Name = "label6";
             label6.Size = new Size(496, 63);
             label6.TabIndex = 22;
@@ -116,7 +116,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(281, 155);
+            label5.Location = new Point(281, 166);
             label5.Name = "label5";
             label5.Size = new Size(62, 17);
             label5.TabIndex = 20;
@@ -125,9 +125,9 @@
             // label3
             // 
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(281, 128);
+            label3.Location = new Point(281, 120);
             label3.Name = "label3";
-            label3.Size = new Size(519, 27);
+            label3.Size = new Size(519, 44);
             label3.TabIndex = 19;
             label3.Text = "Realizzato da Emanuele Mattei con amore - Made with love by Emanuele Mattei";
             // 
@@ -135,7 +135,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(281, 108);
+            label4.Location = new Point(281, 105);
             label4.Name = "label4";
             label4.Size = new Size(63, 17);
             label4.TabIndex = 18;

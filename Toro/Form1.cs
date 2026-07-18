@@ -35,10 +35,9 @@ namespace Toro
         {
             //TODO
             //Icone
+            
+            //Logo del toro per il programma
              
-            //Informazioni del sistema operativo con system.Management  
-            //Logo del toro
-            //Icone https://icons8.com/icons 
              
             
             //Funzione generale per trasmoare i byte in gb e così via
