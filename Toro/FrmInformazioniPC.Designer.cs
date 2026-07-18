@@ -83,6 +83,14 @@
             TxtSlotTotali = new TextBox();
             label23 = new Label();
             tbpSchedaGrafica = new TabPage();
+            TxtProduttoreSchedaGrafica = new TextBox();
+            label16 = new Label();
+            TxtDriver = new TextBox();
+            label18 = new Label();
+            TxtCapacitaSchedaGrafica = new TextBox();
+            label19 = new Label();
+            TxtNomeSchedaGrafica = new TextBox();
+            label20 = new Label();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -91,6 +99,7 @@
             tbpUnita.SuspendLayout();
             groupBox3.SuspendLayout();
             tbpRam.SuspendLayout();
+            tbpSchedaGrafica.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -627,6 +636,14 @@
             // 
             // tbpSchedaGrafica
             // 
+            tbpSchedaGrafica.Controls.Add(TxtProduttoreSchedaGrafica);
+            tbpSchedaGrafica.Controls.Add(label16);
+            tbpSchedaGrafica.Controls.Add(TxtDriver);
+            tbpSchedaGrafica.Controls.Add(label18);
+            tbpSchedaGrafica.Controls.Add(TxtCapacitaSchedaGrafica);
+            tbpSchedaGrafica.Controls.Add(label19);
+            tbpSchedaGrafica.Controls.Add(TxtNomeSchedaGrafica);
+            tbpSchedaGrafica.Controls.Add(label20);
             tbpSchedaGrafica.Location = new Point(4, 24);
             tbpSchedaGrafica.Name = "tbpSchedaGrafica";
             tbpSchedaGrafica.Padding = new Padding(3);
@@ -634,6 +651,74 @@
             tbpSchedaGrafica.TabIndex = 4;
             tbpSchedaGrafica.Text = "Scheda Grafica";
             tbpSchedaGrafica.UseVisualStyleBackColor = true;
+            // 
+            // TxtProduttoreSchedaGrafica
+            // 
+            TxtProduttoreSchedaGrafica.Location = new Point(173, 107);
+            TxtProduttoreSchedaGrafica.Name = "TxtProduttoreSchedaGrafica";
+            TxtProduttoreSchedaGrafica.ReadOnly = true;
+            TxtProduttoreSchedaGrafica.Size = new Size(177, 23);
+            TxtProduttoreSchedaGrafica.TabIndex = 23;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(4, 107);
+            label16.Name = "label16";
+            label16.Size = new Size(67, 15);
+            label16.TabIndex = 22;
+            label16.Text = "Produttore:";
+            // 
+            // TxtDriver
+            // 
+            TxtDriver.Location = new Point(173, 75);
+            TxtDriver.Name = "TxtDriver";
+            TxtDriver.ReadOnly = true;
+            TxtDriver.Size = new Size(177, 23);
+            TxtDriver.TabIndex = 21;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(4, 75);
+            label18.Name = "label18";
+            label18.Size = new Size(37, 15);
+            label18.TabIndex = 20;
+            label18.Text = "Drive:";
+            // 
+            // TxtCapacitaSchedaGrafica
+            // 
+            TxtCapacitaSchedaGrafica.Location = new Point(173, 46);
+            TxtCapacitaSchedaGrafica.Name = "TxtCapacitaSchedaGrafica";
+            TxtCapacitaSchedaGrafica.ReadOnly = true;
+            TxtCapacitaSchedaGrafica.Size = new Size(177, 23);
+            TxtCapacitaSchedaGrafica.TabIndex = 19;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(4, 46);
+            label19.Name = "label19";
+            label19.Size = new Size(56, 15);
+            label19.TabIndex = 18;
+            label19.Text = "Capacità:";
+            // 
+            // TxtNomeSchedaGrafica
+            // 
+            TxtNomeSchedaGrafica.Location = new Point(173, 16);
+            TxtNomeSchedaGrafica.Name = "TxtNomeSchedaGrafica";
+            TxtNomeSchedaGrafica.ReadOnly = true;
+            TxtNomeSchedaGrafica.Size = new Size(177, 23);
+            TxtNomeSchedaGrafica.TabIndex = 17;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(4, 16);
+            label20.Name = "label20";
+            label20.Size = new Size(43, 15);
+            label20.TabIndex = 16;
+            label20.Text = "Nome:";
             // 
             // FrmInformazioniPC
             // 
@@ -662,6 +747,8 @@
             groupBox3.PerformLayout();
             tbpRam.ResumeLayout(false);
             tbpRam.PerformLayout();
+            tbpSchedaGrafica.ResumeLayout(false);
+            tbpSchedaGrafica.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -722,5 +809,13 @@
         private TextBox TxtSlotTotali;
         private Label label23;
         private TabPage tbpSchedaGrafica;
+        private TextBox TxtProduttoreSchedaGrafica;
+        private Label label16;
+        private TextBox TxtDriver;
+        private Label label18;
+        private TextBox TxtCapacitaSchedaGrafica;
+        private Label label19;
+        private TextBox TxtNomeSchedaGrafica;
+        private Label label20;
     }
 }

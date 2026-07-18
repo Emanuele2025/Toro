@@ -28,6 +28,12 @@ namespace Toro
             txtNomeUtente.Text = Environment.UserName;
             VarieInformazioni();
             GetInfoRAM();
+            GetInfoSchedaGrafica();
+
+
+
+
+
         }
 
 
@@ -123,7 +129,9 @@ namespace Toro
 
 
 
-
+        /// <summary>
+        /// Funzione che rileva le informazioni della scheda grafica
+        /// </summary>
         private void GetInfoRAM()
         {
 
@@ -192,7 +200,25 @@ namespace Toro
         }
 
 
+        private void GetInfoSchedaGrafica()
+        {
 
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Errore: " + ex.Message);
+            }
+
+
+
+
+
+
+
+        }
 
 
 
