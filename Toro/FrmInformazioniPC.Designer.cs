@@ -82,6 +82,7 @@
             label24 = new Label();
             TxtSlotTotali = new TextBox();
             label23 = new Label();
+            tbpSchedaGrafica = new TabPage();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -124,6 +125,7 @@
             tbcSezioni.Controls.Add(tbpSistema);
             tbcSezioni.Controls.Add(tbpUnita);
             tbcSezioni.Controls.Add(tbpRam);
+            tbcSezioni.Controls.Add(tbpSchedaGrafica);
             tbcSezioni.Location = new Point(0, 25);
             tbcSezioni.Name = "tbcSezioni";
             tbcSezioni.SelectedIndex = 0;
@@ -623,6 +625,16 @@
             label23.TabIndex = 22;
             label23.Text = "Slot totali:";
             // 
+            // tbpSchedaGrafica
+            // 
+            tbpSchedaGrafica.Location = new Point(4, 24);
+            tbpSchedaGrafica.Name = "tbpSchedaGrafica";
+            tbpSchedaGrafica.Padding = new Padding(3);
+            tbpSchedaGrafica.Size = new Size(792, 356);
+            tbpSchedaGrafica.TabIndex = 4;
+            tbpSchedaGrafica.Text = "Scheda Grafica";
+            tbpSchedaGrafica.UseVisualStyleBackColor = true;
+            // 
             // FrmInformazioniPC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -709,5 +721,6 @@
         private Label label24;
         private TextBox TxtSlotTotali;
         private Label label23;
+        private TabPage tbpSchedaGrafica;
     }
 }
