@@ -206,7 +206,20 @@ namespace Toro
 
             try
             {
+                var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
 
+                foreach (ManagementObject obj in searcher.Get())
+                {
+
+                    TxtNomeSchedaGrafica.Text = $"  Scheda grafica: {obj["Name"]}";
+                    TxtCapacitaSchedaGrafica.Text = $"  Memoria video: {FormatoUnita(Convert.ToInt64(obj["AdapterRAM"]))}";
+                    TxtDriver.Text += $"  Driver: {obj["DriverVersion"]}";
+                    TxtProduttoreSchedaGrafica.Text = $"  Produttore: {obj["AdapterCompatibility"]}";
+                }
+            }
+            catch (ManagementException exME)
+            { Utility.MessaggioErrore("Errore: " + exME.Message);
+            
             }
             catch (Exception ex)
             {

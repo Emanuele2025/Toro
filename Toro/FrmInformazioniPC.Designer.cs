@@ -657,7 +657,7 @@
             TxtProduttoreSchedaGrafica.Location = new Point(173, 107);
             TxtProduttoreSchedaGrafica.Name = "TxtProduttoreSchedaGrafica";
             TxtProduttoreSchedaGrafica.ReadOnly = true;
-            TxtProduttoreSchedaGrafica.Size = new Size(177, 23);
+            TxtProduttoreSchedaGrafica.Size = new Size(478, 23);
             TxtProduttoreSchedaGrafica.TabIndex = 23;
             // 
             // label16
@@ -674,7 +674,7 @@
             TxtDriver.Location = new Point(173, 75);
             TxtDriver.Name = "TxtDriver";
             TxtDriver.ReadOnly = true;
-            TxtDriver.Size = new Size(177, 23);
+            TxtDriver.Size = new Size(478, 23);
             TxtDriver.TabIndex = 21;
             // 
             // label18
@@ -691,7 +691,7 @@
             TxtCapacitaSchedaGrafica.Location = new Point(173, 46);
             TxtCapacitaSchedaGrafica.Name = "TxtCapacitaSchedaGrafica";
             TxtCapacitaSchedaGrafica.ReadOnly = true;
-            TxtCapacitaSchedaGrafica.Size = new Size(177, 23);
+            TxtCapacitaSchedaGrafica.Size = new Size(478, 23);
             TxtCapacitaSchedaGrafica.TabIndex = 19;
             // 
             // label19
@@ -708,7 +708,7 @@
             TxtNomeSchedaGrafica.Location = new Point(173, 16);
             TxtNomeSchedaGrafica.Name = "TxtNomeSchedaGrafica";
             TxtNomeSchedaGrafica.ReadOnly = true;
-            TxtNomeSchedaGrafica.Size = new Size(177, 23);
+            TxtNomeSchedaGrafica.Size = new Size(478, 23);
             TxtNomeSchedaGrafica.TabIndex = 17;
             // 
             // label20
