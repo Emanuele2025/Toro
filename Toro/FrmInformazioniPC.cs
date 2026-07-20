@@ -239,6 +239,16 @@ namespace Toro
             try
             {
                  
+                    using (var searcher = new ManagementObjectSearcher("SELECT Name, Version FROM Win32_ComputerSystemProduct"))
+                    {
+                        foreach (ManagementObject mo in searcher.Get())
+                        {
+                            string nomePC = (mo["Name"] ?? "").ToString().Trim();
+                            string versione = (mo["Version"] ?? "").ToString().Trim();
+                            TxtModelloPC.Text = string.IsNullOrEmpty(versione) ? nomePC : (nomePC + " " + versione).Trim();
+                        }
+                    }
+                
             }
             catch (ManagementException exME)
             {
