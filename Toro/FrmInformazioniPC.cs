@@ -29,7 +29,7 @@ namespace Toro
             VarieInformazioni();
             GetInfoRAM();
             GetInfoSchedaGrafica();
-
+            GetInfoPC();
 
 
 
@@ -200,7 +200,9 @@ namespace Toro
 
         }
 
-
+        /// <summary>
+        /// Funzione per rilevare le informazioni sulla scheda grafica
+        /// </summary>
         private void GetInfoSchedaGrafica()
         {
 
@@ -228,13 +230,31 @@ namespace Toro
 
 
 
+        }
+
+        private void GetInfoPC()
+        {
+
+
+            try
+            {
+                 
+            }
+            catch (ManagementException exME)
+            {
+                Utility.MessaggioErrore("Errore: " + exME.Message);
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore: " + ex.Message);
+            }
+
 
 
 
 
         }
-
-
 
 
 
