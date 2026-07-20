@@ -43,6 +43,7 @@
             LnkIcon = new LinkLabel();
             label8 = new Label();
             lnkduckduckgo = new LinkLabel();
+            lkluxwing = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pctLogo).BeginInit();
             SuspendLayout();
             // 
@@ -163,7 +164,7 @@
             // LnkIcon
             // 
             LnkIcon.AutoSize = true;
-            LnkIcon.Location = new Point(285, 374);
+            LnkIcon.Location = new Point(290, 369);
             LnkIcon.Name = "LnkIcon";
             LnkIcon.Size = new Size(474, 15);
             LnkIcon.TabIndex = 24;
@@ -191,11 +192,23 @@
             lnkduckduckgo.Text = "L'immagine del toro creata tramite Duckduckgo AI Image Generator https://duck.ai/";
             lnkduckduckgo.LinkClicked += lnkduckduckgo_LinkClicked;
             // 
+            // lkluxwing
+            // 
+            lkluxwing.AutoSize = true;
+            lkluxwing.Location = new Point(290, 397);
+            lkluxwing.Name = "lkluxwing";
+            lkluxwing.Size = new Size(483, 15);
+            lkluxwing.TabIndex = 27;
+            lkluxwing.TabStop = true;
+            lkluxwing.Text = "Alcune icone utilizzate in questo programma sono fornite da  uxwing https://uxwing.com/";
+            lkluxwing.LinkClicked += lkluxwing_LinkClicked;
+            // 
             // FrmInfoToro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lkluxwing);
             Controls.Add(lnkduckduckgo);
             Controls.Add(label8);
             Controls.Add(LnkIcon);
@@ -237,5 +250,6 @@
         private LinkLabel LnkIcon;
         private Label label8;
         private LinkLabel lnkduckduckgo;
+        private LinkLabel lkluxwing;
     }
 }

@@ -76,7 +76,7 @@
             mniChiudi.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             mniChiudi.Image = Properties.Resources.chiudi_16;
             mniChiudi.Name = "mniChiudi";
-            mniChiudi.Size = new Size(111, 22);
+            mniChiudi.Size = new Size(180, 22);
             mniChiudi.Text = "Chiudi";
             mniChiudi.Click += mniChiudi_Click;
             // 
@@ -91,7 +91,7 @@
             // 
             informazioniPCToolStripMenuItem.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             informazioniPCToolStripMenuItem.Name = "informazioniPCToolStripMenuItem";
-            informazioniPCToolStripMenuItem.Size = new Size(175, 22);
+            informazioniPCToolStripMenuItem.Size = new Size(180, 22);
             informazioniPCToolStripMenuItem.Text = "Informazioni PC...";
             informazioniPCToolStripMenuItem.Click += informazioniPCToolStripMenuItem_Click;
             // 
@@ -128,6 +128,7 @@
             // 
             // mniInformazioni
             // 
+            mniInformazioni.Image = Properties.Resources.Informazioni;
             mniInformazioni.Name = "mniInformazioni";
             mniInformazioni.Size = new Size(180, 22);
             mniInformazioni.Text = "Informazioni...";

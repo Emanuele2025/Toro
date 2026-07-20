@@ -83,5 +83,23 @@ namespace Toro
             //<a target="_blank" href="https://icons8.com/icon/13903/close-window">Chiudi La Finestra</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
         }
+
+        private void lkluxwing_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                var psi = new ProcessStartInfo
+                {
+                    FileName = "https://uxwing.com/",
+                    UseShellExecute = true
+                };
+                Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Impossibile aprire il sito: " + ex.Message);
+
+            }
+        }
     }
 }
