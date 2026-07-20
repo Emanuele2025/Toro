@@ -91,6 +91,8 @@
             label19 = new Label();
             TxtNomeSchedaGrafica = new TextBox();
             label20 = new Label();
+            TxtModelloPC = new TextBox();
+            label21 = new Label();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -213,6 +215,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(TxtModelloPC);
+            groupBox2.Controls.Add(label21);
             groupBox2.Controls.Add(TxtCollegata);
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(TxtLivelloBatteria);
@@ -720,6 +724,23 @@
             label20.TabIndex = 16;
             label20.Text = "Nome:";
             // 
+            // TxtModelloPC
+            // 
+            TxtModelloPC.Location = new Point(175, 152);
+            TxtModelloPC.Name = "TxtModelloPC";
+            TxtModelloPC.ReadOnly = true;
+            TxtModelloPC.Size = new Size(177, 23);
+            TxtModelloPC.TabIndex = 9;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(4, 152);
+            label21.Name = "label21";
+            label21.Size = new Size(72, 15);
+            label21.TabIndex = 8;
+            label21.Text = "Modello PC:";
+            // 
             // FrmInformazioniPC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -817,5 +838,7 @@
         private Label label19;
         private TextBox TxtNomeSchedaGrafica;
         private Label label20;
+        private TextBox TxtModelloPC;
+        private Label label21;
     }
 }
