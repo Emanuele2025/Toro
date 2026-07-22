@@ -41,7 +41,7 @@ namespace Toro
             //Form per immagini di Microsoft bing, blocco schermo e contenuti
             //Vedere se salva impostazioni
             //Titolo per le varie finestre, con la costante 
-             
+            //Trovare anche icona del programma
             
             //Funzione generale per trasmoare i byte in gb e così via
 
