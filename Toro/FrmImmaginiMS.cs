@@ -14,5 +14,16 @@ namespace Toro
         {
             InitializeComponent();
         }
+
+        private void FrmImmaginiMS_Load(object sender, EventArgs e)
+        {
+            //TODO: fare anche il tab per le immagini di lettura contenuti
+
+        }
+
+        private void BtnChiudi_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

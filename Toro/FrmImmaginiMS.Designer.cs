@@ -91,6 +91,7 @@
             BtnChiudi.TabIndex = 6;
             BtnChiudi.Text = "Chiudi";
             BtnChiudi.UseVisualStyleBackColor = true;
+            BtnChiudi.Click += BtnChiudi_Click;
             // 
             // FrmImmaginiMS
             // 
@@ -106,6 +107,7 @@
             Name = "FrmImmaginiMS";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Toro - Strumenti e funzionalità per Windows";
+            Load += FrmImmaginiMS_Load;
             tbcImmaginiMS.ResumeLayout(false);
             ResumeLayout(false);
         }
