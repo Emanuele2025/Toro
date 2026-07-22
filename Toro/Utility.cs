@@ -10,8 +10,10 @@ namespace Toro
     public static class Utility
     {
 
+        public const string TitoloFinestra = "Toro - Strumenti e funzionalità per Windows";
+
         #region Messaggio a video
-        
+
 
         /// <summary>
         /// Messaggio informativo
