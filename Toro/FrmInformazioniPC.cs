@@ -232,6 +232,10 @@ namespace Toro
 
         }
 
+
+        /// <summary>
+        /// Fornisce informazioni sul nome del pc o versione
+        /// </summary>
         private void GetInfoPC()
         {
 

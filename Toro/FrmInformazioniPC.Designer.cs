@@ -94,6 +94,10 @@
             TxtNomeSchedaGrafica = new TextBox();
             label20 = new Label();
             tbpCPU = new TabPage();
+            TipoCPU = new TextBox();
+            label22 = new Label();
+            TxtNomeCPU = new TextBox();
+            label29 = new Label();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -103,6 +107,7 @@
             groupBox3.SuspendLayout();
             tbpRam.SuspendLayout();
             tbpSchedaGrafica.SuspendLayout();
+            tbpCPU.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -237,16 +242,16 @@
             // 
             // TxtModelloPC
             // 
-            TxtModelloPC.Location = new Point(175, 152);
+            TxtModelloPC.Location = new Point(175, 143);
             TxtModelloPC.Name = "TxtModelloPC";
             TxtModelloPC.ReadOnly = true;
-            TxtModelloPC.Size = new Size(177, 23);
+            TxtModelloPC.Size = new Size(342, 23);
             TxtModelloPC.TabIndex = 9;
             // 
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(4, 152);
+            label21.Location = new Point(4, 143);
             label21.Name = "label21";
             label21.Size = new Size(72, 15);
             label21.TabIndex = 8;
@@ -257,7 +262,7 @@
             TxtCollegata.Location = new Point(175, 110);
             TxtCollegata.Name = "TxtCollegata";
             TxtCollegata.ReadOnly = true;
-            TxtCollegata.Size = new Size(177, 23);
+            TxtCollegata.Size = new Size(342, 23);
             TxtCollegata.TabIndex = 7;
             // 
             // label6
@@ -274,7 +279,7 @@
             TxtLivelloBatteria.Location = new Point(175, 81);
             TxtLivelloBatteria.Name = "TxtLivelloBatteria";
             TxtLivelloBatteria.ReadOnly = true;
-            TxtLivelloBatteria.Size = new Size(177, 23);
+            TxtLivelloBatteria.Size = new Size(342, 23);
             TxtLivelloBatteria.TabIndex = 5;
             // 
             // label7
@@ -291,7 +296,7 @@
             txtNomeUtente.Location = new Point(175, 50);
             txtNomeUtente.Name = "txtNomeUtente";
             txtNomeUtente.ReadOnly = true;
-            txtNomeUtente.Size = new Size(177, 23);
+            txtNomeUtente.Size = new Size(342, 23);
             txtNomeUtente.TabIndex = 3;
             // 
             // label4
@@ -308,7 +313,7 @@
             TxtNomePC.Location = new Point(175, 21);
             TxtNomePC.Name = "TxtNomePC";
             TxtNomePC.ReadOnly = true;
-            TxtNomePC.Size = new Size(177, 23);
+            TxtNomePC.Size = new Size(342, 23);
             TxtNomePC.TabIndex = 1;
             // 
             // label5
@@ -745,6 +750,10 @@
             // 
             // tbpCPU
             // 
+            tbpCPU.Controls.Add(TipoCPU);
+            tbpCPU.Controls.Add(label22);
+            tbpCPU.Controls.Add(TxtNomeCPU);
+            tbpCPU.Controls.Add(label29);
             tbpCPU.Location = new Point(4, 24);
             tbpCPU.Name = "tbpCPU";
             tbpCPU.Padding = new Padding(3);
@@ -752,6 +761,40 @@
             tbpCPU.TabIndex = 5;
             tbpCPU.Text = "CPU";
             tbpCPU.UseVisualStyleBackColor = true;
+            // 
+            // TipoCPU
+            // 
+            TipoCPU.Location = new Point(186, 46);
+            TipoCPU.Name = "TipoCPU";
+            TipoCPU.ReadOnly = true;
+            TipoCPU.Size = new Size(177, 23);
+            TipoCPU.TabIndex = 7;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(15, 46);
+            label22.Name = "label22";
+            label22.Size = new Size(34, 15);
+            label22.TabIndex = 6;
+            label22.Text = "Tipo:";
+            // 
+            // TxtNomeCPU
+            // 
+            TxtNomeCPU.Location = new Point(186, 17);
+            TxtNomeCPU.Name = "TxtNomeCPU";
+            TxtNomeCPU.ReadOnly = true;
+            TxtNomeCPU.Size = new Size(177, 23);
+            TxtNomeCPU.TabIndex = 5;
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Location = new Point(15, 17);
+            label29.Name = "label29";
+            label29.Size = new Size(43, 15);
+            label29.TabIndex = 4;
+            label29.Text = "Nome:";
             // 
             // FrmInformazioniPC
             // 
@@ -782,6 +825,8 @@
             tbpRam.PerformLayout();
             tbpSchedaGrafica.ResumeLayout(false);
             tbpSchedaGrafica.PerformLayout();
+            tbpCPU.ResumeLayout(false);
+            tbpCPU.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -853,5 +898,9 @@
         private TextBox TxtModelloPC;
         private Label label21;
         private TabPage tbpCPU;
+        private TextBox TipoCPU;
+        private Label label22;
+        private TextBox TxtNomeCPU;
+        private Label label29;
     }
 }
