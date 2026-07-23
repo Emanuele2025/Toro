@@ -23,7 +23,11 @@ namespace Toro
 
         private void FrmInformazioniPC_Load(object sender, EventArgs e)
         {
-            //TODO: mettere il cursore che cambia
+            try
+            {
+
+            
+             
             Video();
             TxtNomePC.Text = Environment.MachineName;
             txtNomeUtente.Text = Environment.UserName;
@@ -33,7 +37,17 @@ namespace Toro
             GetInfoPC();
             GetCpuDetails();
 
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+
+            }
 
         }
 

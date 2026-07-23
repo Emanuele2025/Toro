@@ -27,8 +27,10 @@ namespace Toro
 
         private void informazioniPCToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             FrmInformazioniPC infoPc = new FrmInformazioniPC();
             infoPc.ShowDialog();
+            Cursor.Current = Cursors.Default;
         }
 
         private void Form1_Load(object sender, EventArgs e)
