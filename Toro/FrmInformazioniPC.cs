@@ -23,6 +23,7 @@ namespace Toro
 
         private void FrmInformazioniPC_Load(object sender, EventArgs e)
         {
+            //TODO: mettere il cursore che cambia
             Video();
             TxtNomePC.Text = Environment.MachineName;
             txtNomeUtente.Text = Environment.UserName;

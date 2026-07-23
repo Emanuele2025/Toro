@@ -787,7 +787,7 @@
             TxtIdProcessore.Location = new Point(186, 191);
             TxtIdProcessore.Name = "TxtIdProcessore";
             TxtIdProcessore.ReadOnly = true;
-            TxtIdProcessore.Size = new Size(177, 23);
+            TxtIdProcessore.Size = new Size(281, 23);
             TxtIdProcessore.TabIndex = 17;
             // 
             // label32
@@ -804,7 +804,7 @@
             TxtVelocitaCPU.Location = new Point(186, 162);
             TxtVelocitaCPU.Name = "TxtVelocitaCPU";
             TxtVelocitaCPU.ReadOnly = true;
-            TxtVelocitaCPU.Size = new Size(177, 23);
+            TxtVelocitaCPU.Size = new Size(281, 23);
             TxtVelocitaCPU.TabIndex = 15;
             // 
             // label33
@@ -821,7 +821,7 @@
             TxtNumeroLogici.Location = new Point(186, 133);
             TxtNumeroLogici.Name = "TxtNumeroLogici";
             TxtNumeroLogici.ReadOnly = true;
-            TxtNumeroLogici.Size = new Size(177, 23);
+            TxtNumeroLogici.Size = new Size(281, 23);
             TxtNumeroLogici.TabIndex = 13;
             // 
             // label34
@@ -838,7 +838,7 @@
             TxtNumeroCore.Location = new Point(186, 104);
             TxtNumeroCore.Name = "TxtNumeroCore";
             TxtNumeroCore.ReadOnly = true;
-            TxtNumeroCore.Size = new Size(177, 23);
+            TxtNumeroCore.Size = new Size(281, 23);
             TxtNumeroCore.TabIndex = 11;
             // 
             // label30
@@ -855,7 +855,7 @@
             TxtDescrizioneCPU.Location = new Point(186, 75);
             TxtDescrizioneCPU.Name = "TxtDescrizioneCPU";
             TxtDescrizioneCPU.ReadOnly = true;
-            TxtDescrizioneCPU.Size = new Size(177, 23);
+            TxtDescrizioneCPU.Size = new Size(281, 23);
             TxtDescrizioneCPU.TabIndex = 9;
             // 
             // label31
@@ -872,7 +872,7 @@
             TxtProduttoreCPU.Location = new Point(186, 46);
             TxtProduttoreCPU.Name = "TxtProduttoreCPU";
             TxtProduttoreCPU.ReadOnly = true;
-            TxtProduttoreCPU.Size = new Size(177, 23);
+            TxtProduttoreCPU.Size = new Size(281, 23);
             TxtProduttoreCPU.TabIndex = 7;
             // 
             // label22
@@ -889,7 +889,7 @@
             TxtNomeCPU.Location = new Point(186, 17);
             TxtNomeCPU.Name = "TxtNomeCPU";
             TxtNomeCPU.ReadOnly = true;
-            TxtNomeCPU.Size = new Size(177, 23);
+            TxtNomeCPU.Size = new Size(281, 23);
             TxtNomeCPU.TabIndex = 5;
             // 
             // label29
