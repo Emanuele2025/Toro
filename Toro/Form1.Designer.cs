@@ -76,7 +76,7 @@
             mniChiudi.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             mniChiudi.Image = Properties.Resources.chiudi_16;
             mniChiudi.Name = "mniChiudi";
-            mniChiudi.Size = new Size(180, 22);
+            mniChiudi.Size = new Size(111, 22);
             mniChiudi.Text = "Chiudi";
             mniChiudi.Click += mniChiudi_Click;
             // 
@@ -93,6 +93,7 @@
             informazioniPCToolStripMenuItem.Name = "informazioniPCToolStripMenuItem";
             informazioniPCToolStripMenuItem.Size = new Size(180, 22);
             informazioniPCToolStripMenuItem.Text = "Informazioni PC...";
+            informazioniPCToolStripMenuItem.ToolTipText = "Apre una finestra per fornire informazioni sul hardware del proprio pc";
             informazioniPCToolStripMenuItem.Click += informazioniPCToolStripMenuItem_Click;
             // 
             // funzionalitàToolStripMenuItem
@@ -117,6 +118,7 @@
             mniVerifiche.Name = "mniVerifiche";
             mniVerifiche.Size = new Size(180, 22);
             mniVerifiche.Text = "Verifiche...";
+            mniVerifiche.ToolTipText = "Apre una finestra per verificare alcune informazioni, come se un IBAN è corretto, oppure una frase palindromo";
             mniVerifiche.Click += mniVerifiche_Click;
             // 
             // infoToolStripMenuItem
@@ -132,6 +134,7 @@
             mniInformazioni.Name = "mniInformazioni";
             mniInformazioni.Size = new Size(180, 22);
             mniInformazioni.Text = "Informazioni...";
+            mniInformazioni.ToolTipText = "Finestra informativa del programma";
             mniInformazioni.Click += mniInformazioni_Click;
             // 
             // Form1
