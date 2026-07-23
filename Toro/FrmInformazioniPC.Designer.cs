@@ -98,6 +98,10 @@
             label22 = new Label();
             TxtNomeCPU = new TextBox();
             label29 = new Label();
+            textBox1 = new TextBox();
+            label30 = new Label();
+            textBox2 = new TextBox();
+            label31 = new Label();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -750,6 +754,10 @@
             // 
             // tbpCPU
             // 
+            tbpCPU.Controls.Add(textBox1);
+            tbpCPU.Controls.Add(label30);
+            tbpCPU.Controls.Add(textBox2);
+            tbpCPU.Controls.Add(label31);
             tbpCPU.Controls.Add(TipoCPU);
             tbpCPU.Controls.Add(label22);
             tbpCPU.Controls.Add(TxtNomeCPU);
@@ -795,6 +803,40 @@
             label29.Size = new Size(43, 15);
             label29.TabIndex = 4;
             label29.Text = "Nome:";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(186, 104);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(177, 23);
+            textBox1.TabIndex = 11;
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Location = new Point(15, 104);
+            label30.Name = "label30";
+            label30.Size = new Size(34, 15);
+            label30.TabIndex = 10;
+            label30.Text = "Tipo:";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(186, 75);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(177, 23);
+            textBox2.TabIndex = 9;
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Location = new Point(15, 75);
+            label31.Name = "label31";
+            label31.Size = new Size(43, 15);
+            label31.TabIndex = 8;
+            label31.Text = "Nome:";
             // 
             // FrmInformazioniPC
             // 
@@ -902,5 +944,9 @@
         private Label label22;
         private TextBox TxtNomeCPU;
         private Label label29;
+        private TextBox textBox1;
+        private Label label30;
+        private TextBox textBox2;
+        private Label label31;
     }
 }

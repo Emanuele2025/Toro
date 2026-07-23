@@ -273,7 +273,11 @@ namespace Toro
 
 
 
-
+        /// <summary>
+        /// Verifica il tipo di RAM
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         string GetTipoRAM(int type)
         {
             return type switch
