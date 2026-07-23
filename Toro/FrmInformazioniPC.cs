@@ -30,7 +30,7 @@ namespace Toro
             GetInfoRAM();
             GetInfoSchedaGrafica();
             GetInfoPC();
-
+            GetCpuDetails();
 
 
 
@@ -159,7 +159,7 @@ namespace Toro
                     SlotRam = module["DeviceLocator"]?.ToString();
 
                     tipoRam = GetTipoRAM(smbiosType);
-                  
+
                     Produttore = module["Manufacturer"]?.ToString();
 
                 }
@@ -174,7 +174,7 @@ namespace Toro
                     totaleSlots += Convert.ToInt32(arr["MemoryDevices"]);
                 }
 
-               
+
                 TxtSlotTotali.Text = totaleSlots.ToString();
                 TxtSlotOccupati.Text = moduliInstallati.ToString();
                 TxtSlotLiberi.Text = (totaleSlots - moduliInstallati).ToString();
@@ -192,7 +192,7 @@ namespace Toro
             catch (Exception ex)
             {
                 Utility.MessaggioErrore("Errore: " + ex.Message);
-                 
+
             }
 
 
@@ -220,8 +220,9 @@ namespace Toro
                 }
             }
             catch (ManagementException exME)
-            { Utility.MessaggioErrore("Errore: " + exME.Message);
-            
+            {
+                Utility.MessaggioErrore("Errore: " + exME.Message);
+
             }
             catch (Exception ex)
             {
@@ -242,17 +243,17 @@ namespace Toro
 
             try
             {
-                 
-                    using (var searcher = new ManagementObjectSearcher("SELECT Name, Version FROM Win32_ComputerSystemProduct"))
+
+                using (var searcher = new ManagementObjectSearcher("SELECT Name, Version FROM Win32_ComputerSystemProduct"))
+                {
+                    foreach (ManagementObject mo in searcher.Get())
                     {
-                        foreach (ManagementObject mo in searcher.Get())
-                        {
-                            string nomePC = (mo["Name"] ?? "").ToString().Trim();
-                            string versione = (mo["Version"] ?? "").ToString().Trim();
-                            TxtModelloPC.Text = string.IsNullOrEmpty(versione) ? nomePC : (nomePC + " " + versione).Trim();
-                        }
+                        string nomePC = (mo["Name"] ?? "").ToString().Trim();
+                        string versione = (mo["Version"] ?? "").ToString().Trim();
+                        TxtModelloPC.Text = string.IsNullOrEmpty(versione) ? nomePC : (nomePC + " " + versione).Trim();
                     }
-                
+                }
+
             }
             catch (ManagementException exME)
             {
@@ -270,7 +271,31 @@ namespace Toro
 
         }
 
+        string GetCpuDetails()
+        {
+            var searcher = new ManagementObjectSearcher("select * from Win32_Processor");
+            var cpuInfo = "";
 
+            foreach (ManagementObject obj in searcher.Get())
+            {
+                TxtNomeCPU.Text += obj["Name"]?.ToString();
+                //cpuInfo += $"Nome CPU: {obj["Name"]}\n";
+                TxtProduttoreCPU.Text += obj["Manufacturer"]?.ToString();
+                // cpuInfo += $"Produttore: {obj["Manufacturer"]}\n";
+                TxtDescrizioneCPU.Text += obj["Description"]?.ToString();
+                // cpuInfo += $"Descrizione: {obj["Description"]}\n";
+                TxtNumeroCore.Text += obj["NumberOfCores"]?.ToString();
+                //  cpuInfo += $"Numero Core: {obj["NumberOfCores"]}\n";
+                TxtNumeroLogici.Text += obj["NumberOfLogicalProcessors"]?.ToString();
+                //     cpuInfo += $"Numero Logici: {obj["NumberOfLogicalProcessors"]}\n";
+                TxtVelocitaCPU.Text += obj["MaxClockSpeed"]?.ToString();
+                //    cpuInfo += $"Velocità (MHz): {obj["MaxClockSpeed"]}\n";
+                TxtIdProcessore.Text += obj["ProcessorId"]?.ToString();
+                // cpuInfo += $"ID Processore: {obj["ProcessorId"]}\n";
+            }
+
+            return cpuInfo;
+        }
 
 
         /// <summary>

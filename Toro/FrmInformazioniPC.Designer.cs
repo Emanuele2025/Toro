@@ -94,14 +94,20 @@
             TxtNomeSchedaGrafica = new TextBox();
             label20 = new Label();
             tbpCPU = new TabPage();
-            TipoCPU = new TextBox();
+            TxtIdProcessore = new TextBox();
+            label32 = new Label();
+            TxtVelocitaCPU = new TextBox();
+            label33 = new Label();
+            TxtNumeroLogici = new TextBox();
+            label34 = new Label();
+            TxtNumeroCore = new TextBox();
+            label30 = new Label();
+            TxtDescrizioneCPU = new TextBox();
+            label31 = new Label();
+            TxtProduttoreCPU = new TextBox();
             label22 = new Label();
             TxtNomeCPU = new TextBox();
             label29 = new Label();
-            textBox1 = new TextBox();
-            label30 = new Label();
-            textBox2 = new TextBox();
-            label31 = new Label();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -754,11 +760,17 @@
             // 
             // tbpCPU
             // 
-            tbpCPU.Controls.Add(textBox1);
+            tbpCPU.Controls.Add(TxtIdProcessore);
+            tbpCPU.Controls.Add(label32);
+            tbpCPU.Controls.Add(TxtVelocitaCPU);
+            tbpCPU.Controls.Add(label33);
+            tbpCPU.Controls.Add(TxtNumeroLogici);
+            tbpCPU.Controls.Add(label34);
+            tbpCPU.Controls.Add(TxtNumeroCore);
             tbpCPU.Controls.Add(label30);
-            tbpCPU.Controls.Add(textBox2);
+            tbpCPU.Controls.Add(TxtDescrizioneCPU);
             tbpCPU.Controls.Add(label31);
-            tbpCPU.Controls.Add(TipoCPU);
+            tbpCPU.Controls.Add(TxtProduttoreCPU);
             tbpCPU.Controls.Add(label22);
             tbpCPU.Controls.Add(TxtNomeCPU);
             tbpCPU.Controls.Add(label29);
@@ -770,22 +782,107 @@
             tbpCPU.Text = "CPU";
             tbpCPU.UseVisualStyleBackColor = true;
             // 
-            // TipoCPU
+            // TxtIdProcessore
             // 
-            TipoCPU.Location = new Point(186, 46);
-            TipoCPU.Name = "TipoCPU";
-            TipoCPU.ReadOnly = true;
-            TipoCPU.Size = new Size(177, 23);
-            TipoCPU.TabIndex = 7;
+            TxtIdProcessore.Location = new Point(186, 191);
+            TxtIdProcessore.Name = "TxtIdProcessore";
+            TxtIdProcessore.ReadOnly = true;
+            TxtIdProcessore.Size = new Size(177, 23);
+            TxtIdProcessore.TabIndex = 17;
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Location = new Point(15, 191);
+            label32.Name = "label32";
+            label32.Size = new Size(81, 15);
+            label32.TabIndex = 16;
+            label32.Text = "ID Processore:";
+            // 
+            // TxtVelocitaCPU
+            // 
+            TxtVelocitaCPU.Location = new Point(186, 162);
+            TxtVelocitaCPU.Name = "TxtVelocitaCPU";
+            TxtVelocitaCPU.ReadOnly = true;
+            TxtVelocitaCPU.Size = new Size(177, 23);
+            TxtVelocitaCPU.TabIndex = 15;
+            // 
+            // label33
+            // 
+            label33.AutoSize = true;
+            label33.Location = new Point(15, 162);
+            label33.Name = "label33";
+            label33.Size = new Size(51, 15);
+            label33.TabIndex = 14;
+            label33.Text = "Velocità:";
+            // 
+            // TxtNumeroLogici
+            // 
+            TxtNumeroLogici.Location = new Point(186, 133);
+            TxtNumeroLogici.Name = "TxtNumeroLogici";
+            TxtNumeroLogici.ReadOnly = true;
+            TxtNumeroLogici.Size = new Size(177, 23);
+            TxtNumeroLogici.TabIndex = 13;
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Location = new Point(15, 133);
+            label34.Name = "label34";
+            label34.Size = new Size(89, 15);
+            label34.TabIndex = 12;
+            label34.Text = "Numero Logici:";
+            // 
+            // TxtNumeroCore
+            // 
+            TxtNumeroCore.Location = new Point(186, 104);
+            TxtNumeroCore.Name = "TxtNumeroCore";
+            TxtNumeroCore.ReadOnly = true;
+            TxtNumeroCore.Size = new Size(177, 23);
+            TxtNumeroCore.TabIndex = 11;
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Location = new Point(15, 104);
+            label30.Name = "label30";
+            label30.Size = new Size(82, 15);
+            label30.TabIndex = 10;
+            label30.Text = "Numero Core:";
+            // 
+            // TxtDescrizioneCPU
+            // 
+            TxtDescrizioneCPU.Location = new Point(186, 75);
+            TxtDescrizioneCPU.Name = "TxtDescrizioneCPU";
+            TxtDescrizioneCPU.ReadOnly = true;
+            TxtDescrizioneCPU.Size = new Size(177, 23);
+            TxtDescrizioneCPU.TabIndex = 9;
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Location = new Point(15, 75);
+            label31.Name = "label31";
+            label31.Size = new Size(70, 15);
+            label31.TabIndex = 8;
+            label31.Text = "Descrizione:";
+            // 
+            // TxtProduttoreCPU
+            // 
+            TxtProduttoreCPU.Location = new Point(186, 46);
+            TxtProduttoreCPU.Name = "TxtProduttoreCPU";
+            TxtProduttoreCPU.ReadOnly = true;
+            TxtProduttoreCPU.Size = new Size(177, 23);
+            TxtProduttoreCPU.TabIndex = 7;
             // 
             // label22
             // 
             label22.AutoSize = true;
             label22.Location = new Point(15, 46);
             label22.Name = "label22";
-            label22.Size = new Size(34, 15);
+            label22.Size = new Size(67, 15);
             label22.TabIndex = 6;
-            label22.Text = "Tipo:";
+            label22.Text = "Produttore:";
             // 
             // TxtNomeCPU
             // 
@@ -803,40 +900,6 @@
             label29.Size = new Size(43, 15);
             label29.TabIndex = 4;
             label29.Text = "Nome:";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(186, 104);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(177, 23);
-            textBox1.TabIndex = 11;
-            // 
-            // label30
-            // 
-            label30.AutoSize = true;
-            label30.Location = new Point(15, 104);
-            label30.Name = "label30";
-            label30.Size = new Size(34, 15);
-            label30.TabIndex = 10;
-            label30.Text = "Tipo:";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(186, 75);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(177, 23);
-            textBox2.TabIndex = 9;
-            // 
-            // label31
-            // 
-            label31.AutoSize = true;
-            label31.Location = new Point(15, 75);
-            label31.Name = "label31";
-            label31.Size = new Size(43, 15);
-            label31.TabIndex = 8;
-            label31.Text = "Nome:";
             // 
             // FrmInformazioniPC
             // 
@@ -940,13 +1003,19 @@
         private TextBox TxtModelloPC;
         private Label label21;
         private TabPage tbpCPU;
-        private TextBox TipoCPU;
+        private TextBox TxtProduttoreCPU;
         private Label label22;
         private TextBox TxtNomeCPU;
         private Label label29;
-        private TextBox textBox1;
+        private TextBox TxtNumeroCore;
         private Label label30;
-        private TextBox textBox2;
+        private TextBox TxtDescrizioneCPU;
         private Label label31;
+        private TextBox TxtIdProcessore;
+        private Label label32;
+        private TextBox TxtVelocitaCPU;
+        private Label label33;
+        private TextBox TxtNumeroLogici;
+        private Label label34;
     }
 }
