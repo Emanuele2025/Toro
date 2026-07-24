@@ -40,8 +40,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Utility.MessaggioErrore("Errore: " + ex.Message);
             }
             finally
             {
@@ -263,8 +262,8 @@ namespace Toro
                 {
                     foreach (ManagementObject mo in searcher.Get())
                     {
-                        string nomePC = (mo["Name"] ?? "").ToString().Trim();
-                        string versione = (mo["Version"] ?? "").ToString().Trim();
+                        string nomePC = (mo["Name"] ?? "")?.ToString()?.Trim();
+                        string versione = (mo["Version"] ?? "")?.ToString()?.Trim();
                         TxtModelloPC.Text = string.IsNullOrEmpty(versione) ? nomePC : (nomePC + " " + versione).Trim();
                     }
                 }
@@ -286,6 +285,10 @@ namespace Toro
 
         }
 
+        /// <summary>
+        /// Metodo per rilevare informazioni sulla CPU
+        /// </summary>
+        /// <returns></returns>
         string GetCpuDetails()
         {
             var searcher = new ManagementObjectSearcher("select * from Win32_Processor");
@@ -341,7 +344,53 @@ namespace Toro
         {
             try
             {
-                DriveInfo unita = new DriveInfo(driveName: cmbUnita?.SelectedItem?.ToString());
+                //DriveInfo unita = new DriveInfo(driveName: cmbUnita?.SelectedItem?.ToString());
+                //if (unita.IsReady)
+                //{
+                //    long totalSize = unita.TotalSize;
+                //    long freeSpace = unita.AvailableFreeSpace;
+                //    long usedSpace = totalSize - freeSpace;
+                //    double usedPercentage = (totalSize > 0)
+                //        ? (usedSpace / (double)totalSize) * 100
+                //        : 0;
+
+                //    TxtSpazioTotale.Text = FormatoUnita(totalSize);
+                //    TxtSpazioLibero.Text = FormatoUnita(freeSpace);
+                //    TxtOccupato.Text = $"  Spazio usato: {FormatoUnita(usedSpace)} ({usedPercentage:F2}%)";
+                //    txtTipo.Text = unita.DriveType.ToString();
+                //    TxtFileSystem.Text = unita.DriveFormat;
+                //    TxtEtichetta.Text = unita.VolumeLabel;
+                //    TxtUtilizzabile.Text = "Si";
+
+                //}
+                //else
+                //{
+                //    TxtUtilizzabile.Text = "No";
+
+                //    TxtSpazioTotale.Text = "";
+                //    TxtSpazioLibero.Text = "";
+                //    TxtOccupato.Text = "";
+                //    txtTipo.Text = "";
+                //    TxtFileSystem.Text = "";
+                //    TxtEtichetta.Text = "";
+                //}
+
+                // Verifica che sia effettivamente selezionata un'unità valida
+                var selected = cmbUnita?.SelectedItem?.ToString();
+                if (string.IsNullOrWhiteSpace(selected))
+                {
+                    // Nessuna unità selezionata: svuota i campi e esci
+                    TxtUtilizzabile.Text = "";
+                    TxtSpazioTotale.Text = "";
+                    TxtSpazioLibero.Text = "";
+                    TxtOccupato.Text = "";
+                    txtTipo.Text = "";
+                    TxtFileSystem.Text = "";
+                    TxtEtichetta.Text = "";
+                    return;
+                }
+
+                DriveInfo unita = new DriveInfo(selected);
                 if (unita.IsReady)
                 {
                     long totalSize = unita.TotalSize;
@@ -358,12 +407,10 @@ namespace Toro
                     TxtFileSystem.Text = unita.DriveFormat;
                     TxtEtichetta.Text = unita.VolumeLabel;
                     TxtUtilizzabile.Text = "Si";
-
                 }
                 else
                 {
                     TxtUtilizzabile.Text = "No";
-
                     TxtSpazioTotale.Text = "";
                     TxtSpazioLibero.Text = "";
                     TxtOccupato.Text = "";
@@ -371,8 +418,6 @@ namespace Toro
                     TxtFileSystem.Text = "";
                     TxtEtichetta.Text = "";
                 }
-
-
 
 
 
