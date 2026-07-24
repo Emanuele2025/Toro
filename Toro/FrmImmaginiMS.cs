@@ -18,6 +18,14 @@ namespace Toro
         private void FrmImmaginiMS_Load(object sender, EventArgs e)
         {
             //TODO: fare anche il tab per le immagini di lettura contenuti
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
 
         }
 
