@@ -170,11 +170,11 @@ namespace Toro
                     totaleRam += capacita;
 
 
-                    SlotRam = module["DeviceLocator"]?.ToString();
+                    SlotRam = module["DeviceLocator"]?.ToString() ?? "";
 
                     tipoRam = GetTipoRAM(smbiosType);
 
-                    Produttore = module["Manufacturer"]?.ToString();
+                    Produttore = module["Manufacturer"]?.ToString() ?? "";
 
                 }
 
@@ -267,8 +267,8 @@ namespace Toro
                 {
                     foreach (ManagementObject mo in searcher.Get())
                     {
-                        string nomePC = (mo["Name"] ?? "").ToString().Trim() ;
-                        string versione = (mo["Version"] ?? "")?.ToString()?.Trim();
+                        string nomePC = mo["Name"]?.ToString() ?? ""; // (mo["Name"] ?? "").ToString().Trim() ;
+                        string versione = mo["Version"]?.ToString() ?? "";//  (mo["Version"] ?? "")?.ToString()?.Trim();
                         TxtModelloPC.Text = string.IsNullOrEmpty(versione) ? nomePC : (nomePC + " " + versione).Trim();
                     }
                 }
