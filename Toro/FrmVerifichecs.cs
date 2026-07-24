@@ -179,7 +179,7 @@ namespace Toro
 
         private void FrmVerifichecs_Load(object sender, EventArgs e)
         {
-            
+            //TODO: fare come verifica https://emanuelemattei.blogspot.com/2018/10/net-rilevare-le-coordinate-gps-di-un.html
             try
             {
                 foreach (DriveInfo InfoUnita in DriveInfo.GetDrives())
