@@ -294,10 +294,14 @@ namespace Toro
         /// Metodo per rilevare informazioni sulla CPU
         /// </summary>
         /// <returns></returns>
-        string GetCpuDetails()
+        private void GetCpuDetails()
         {
+            try
+            {
+
+           
             var searcher = new ManagementObjectSearcher("select * from Win32_Processor");
-            var cpuInfo = "";
+            //var cpuInfo = "";
 
             foreach (ManagementObject obj in searcher.Get())
             {
@@ -316,8 +320,12 @@ namespace Toro
                 TxtIdProcessore.Text += obj["ProcessorId"]?.ToString();
                 // cpuInfo += $"ID Processore: {obj["ProcessorId"]}\n";
             }
-
-            return cpuInfo;
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore: " + ex.Message);
+            }
+           // return cpuInfo;
         }
 
 
