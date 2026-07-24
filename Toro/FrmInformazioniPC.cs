@@ -203,6 +203,11 @@ namespace Toro
 
 
             }
+            catch (ManagementException exME)
+            {
+                Utility.MessaggioErrore("Errore: " + exME.Message);
+
+            }
             catch (Exception ex)
             {
                 Utility.MessaggioErrore("Errore: " + ex.Message);
@@ -262,7 +267,7 @@ namespace Toro
                 {
                     foreach (ManagementObject mo in searcher.Get())
                     {
-                        string nomePC = (mo["Name"] ?? "")?.ToString()?.Trim();
+                        string nomePC = (mo["Name"] ?? "").ToString().Trim() ;
                         string versione = (mo["Version"] ?? "")?.ToString()?.Trim();
                         TxtModelloPC.Text = string.IsNullOrEmpty(versione) ? nomePC : (nomePC + " " + versione).Trim();
                     }
