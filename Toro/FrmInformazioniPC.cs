@@ -25,7 +25,11 @@ namespace Toro
         {
             try
             {
-
+                //TODO: prossime funzionalità
+                //Info webcam
+                //Info Microfono audio ed altoparlanti 
+                //Info stampanti
+                //Info IP
             
              
             Video();
