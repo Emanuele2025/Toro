@@ -426,9 +426,9 @@ namespace Toro
         }
 
         //Gestione IP
-        bool IsVirtualAdapter(NetworkInterface ni)
+        bool IsAdattatoreVirtuale(NetworkInterface ni)
         {
-            string text = (ni.Description + " " + ni.Name).ToLowerInvariant();
+            string tipo = (ni.Description + " " + ni.Name).ToLowerInvariant();
 
             string[] keywords =
             {
@@ -444,7 +444,7 @@ namespace Toro
             "loopback"
         };
 
-            return keywords.Any(k => text.Contains(k));
+            return keywords.Any(k => tipo.Contains(k));
         }
 
         bool HasGateway(NetworkInterface ni)
@@ -464,7 +464,7 @@ namespace Toro
                 .Where(n =>
                     n.OperationalStatus == OperationalStatus.Up &&
                     n.NetworkInterfaceType != NetworkInterfaceType.Loopback &&
-                    !IsVirtualAdapter(n))
+                    !IsAdattatoreVirtuale(n))
                 .OrderByDescending(HasGateway);
 
             foreach (var adapter in adapters)
@@ -491,8 +491,7 @@ namespace Toro
         }
         IPAddress? GetLocalIPv4()
         {
-            // 1) Metodo preferito:
-            // chiediamo a Windows quale IP userebbe per uscire in rete.
+            
             try
             {
                 using Socket socket = new Socket(AddressFamily.InterNetwork,
@@ -506,10 +505,10 @@ namespace Toro
             }
             catch
             {
-                // Nessuna connessione disponibile.
+                
             }
 
-            // 2) Fallback:
+            
             return GetFirstAvailableIPv4();
         }
     }
