@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 //Per la gestione hardware
 using System.Management;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Text;
+using System.Windows.Forms;
 namespace Toro
 {
     public partial class FrmInformazioniPC : Form
@@ -30,17 +33,22 @@ namespace Toro
                 //Info Microfono audio ed altoparlanti 
                 //Info stampanti
                 //Info IP
-            
-             
-            Video();
-            TxtNomePC.Text = Environment.MachineName;
-            txtNomeUtente.Text = Environment.UserName;
-            VarieInformazioni();
-            GetInfoRAM();
-            GetInfoSchedaGrafica();
-            GetInfoPC();
-            GetCpuDetails();
 
+
+                Video();
+                TxtNomePC.Text = Environment.MachineName;
+                txtNomeUtente.Text = Environment.UserName;
+                VarieInformazioni();
+                GetInfoRAM();
+                GetInfoSchedaGrafica();
+                GetInfoPC();
+                GetCpuDetails();
+                var ip = GetLocalIPv4();
+
+                if (ip != null)
+                    TxtIPComputer.Text = ip.ToString();
+                else
+                    TxtIPComputer.Text = "Nessun indirizzo IPv4 disponibile.";
             }
             catch (Exception ex)
             {
@@ -303,33 +311,33 @@ namespace Toro
             try
             {
 
-           
-            var searcher = new ManagementObjectSearcher("select * from Win32_Processor");
-            //var cpuInfo = "";
 
-            foreach (ManagementObject obj in searcher.Get())
-            {
-                TxtNomeCPU.Text += obj["Name"]?.ToString();
-                //cpuInfo += $"Nome CPU: {obj["Name"]}\n";
-                TxtProduttoreCPU.Text += obj["Manufacturer"]?.ToString();
-                // cpuInfo += $"Produttore: {obj["Manufacturer"]}\n";
-                TxtDescrizioneCPU.Text += obj["Description"]?.ToString();
-                // cpuInfo += $"Descrizione: {obj["Description"]}\n";
-                TxtNumeroCore.Text += obj["NumberOfCores"]?.ToString();
-                //  cpuInfo += $"Numero Core: {obj["NumberOfCores"]}\n";
-                TxtNumeroLogici.Text += obj["NumberOfLogicalProcessors"]?.ToString();
-                //     cpuInfo += $"Numero Logici: {obj["NumberOfLogicalProcessors"]}\n";
-                TxtVelocitaCPU.Text += obj["MaxClockSpeed"]?.ToString();
-                //    cpuInfo += $"Velocità (MHz): {obj["MaxClockSpeed"]}\n";
-                TxtIdProcessore.Text += obj["ProcessorId"]?.ToString();
-                // cpuInfo += $"ID Processore: {obj["ProcessorId"]}\n";
-            }
+                var searcher = new ManagementObjectSearcher("select * from Win32_Processor");
+                //var cpuInfo = "";
+
+                foreach (ManagementObject obj in searcher.Get())
+                {
+                    TxtNomeCPU.Text += obj["Name"]?.ToString();
+                    //cpuInfo += $"Nome CPU: {obj["Name"]}\n";
+                    TxtProduttoreCPU.Text += obj["Manufacturer"]?.ToString();
+                    // cpuInfo += $"Produttore: {obj["Manufacturer"]}\n";
+                    TxtDescrizioneCPU.Text += obj["Description"]?.ToString();
+                    // cpuInfo += $"Descrizione: {obj["Description"]}\n";
+                    TxtNumeroCore.Text += obj["NumberOfCores"]?.ToString();
+                    //  cpuInfo += $"Numero Core: {obj["NumberOfCores"]}\n";
+                    TxtNumeroLogici.Text += obj["NumberOfLogicalProcessors"]?.ToString();
+                    //     cpuInfo += $"Numero Logici: {obj["NumberOfLogicalProcessors"]}\n";
+                    TxtVelocitaCPU.Text += obj["MaxClockSpeed"]?.ToString();
+                    //    cpuInfo += $"Velocità (MHz): {obj["MaxClockSpeed"]}\n";
+                    TxtIdProcessore.Text += obj["ProcessorId"]?.ToString();
+                    // cpuInfo += $"ID Processore: {obj["ProcessorId"]}\n";
+                }
             }
             catch (Exception ex)
             {
                 Utility.MessaggioErrore("Errore: " + ex.Message);
             }
-           // return cpuInfo;
+            // return cpuInfo;
         }
 
 
@@ -444,6 +452,94 @@ namespace Toro
             {
                 Utility.MessaggioErrore("Errore: " + ex.Message);
             }
+        }
+
+        //Gestione IP
+        bool IsVirtualAdapter(NetworkInterface ni)
+        {
+            string text = (ni.Description + " " + ni.Name).ToLowerInvariant();
+
+            string[] keywords =
+            {
+            "virtual",
+            "vmware",
+            "virtualbox",
+            "hyper-v",
+            "vethernet",
+            "docker",
+            "tap",
+            "tun",
+            "vpn",
+            "loopback"
+        };
+
+            return keywords.Any(k => text.Contains(k));
+        }
+
+        bool HasGateway(NetworkInterface ni)
+        {
+            return ni.GetIPProperties()
+                     .GatewayAddresses
+                     .Any(g =>
+                         g.Address.AddressFamily == AddressFamily.InterNetwork &&
+                         !g.Address.Equals(IPAddress.Any));
+        }
+
+
+
+        IPAddress? GetFirstAvailableIPv4()
+        {
+            var adapters = NetworkInterface.GetAllNetworkInterfaces()
+                .Where(n =>
+                    n.OperationalStatus == OperationalStatus.Up &&
+                    n.NetworkInterfaceType != NetworkInterfaceType.Loopback &&
+                    !IsVirtualAdapter(n))
+                .OrderByDescending(HasGateway);
+
+            foreach (var adapter in adapters)
+            {
+                foreach (var addr in adapter.GetIPProperties().UnicastAddresses)
+                {
+                    if (addr.Address.AddressFamily != AddressFamily.InterNetwork)
+                        continue;
+
+                    if (IPAddress.IsLoopback(addr.Address))
+                        continue;
+
+                    string ip = addr.Address.ToString();
+
+                    // Esclude APIPA
+                    if (ip.StartsWith("169.254."))
+                        continue;
+
+                    return addr.Address;
+                }
+            }
+
+            return null;
+        }
+        IPAddress? GetLocalIPv4()
+        {
+            // 1) Metodo preferito:
+            // chiediamo a Windows quale IP userebbe per uscire in rete.
+            try
+            {
+                using Socket socket = new Socket(AddressFamily.InterNetwork,
+                                                 SocketType.Dgram,
+                                                 ProtocolType.Udp);
+
+                socket.Connect("8.8.8.8", 65530);
+
+                if (socket.LocalEndPoint is IPEndPoint ep)
+                    return ep.Address;
+            }
+            catch
+            {
+                // Nessuna connessione disponibile.
+            }
+
+            // 2) Fallback:
+            return GetFirstAvailableIPv4();
         }
     }
 }

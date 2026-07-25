@@ -108,6 +108,8 @@
             label22 = new Label();
             TxtNomeCPU = new TextBox();
             label29 = new Label();
+            TxtIPComputer = new TextBox();
+            label35 = new Label();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -232,6 +234,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(TxtIPComputer);
+            groupBox2.Controls.Add(label35);
             groupBox2.Controls.Add(TxtModelloPC);
             groupBox2.Controls.Add(label21);
             groupBox2.Controls.Add(TxtCollegata);
@@ -901,6 +905,23 @@
             label29.TabIndex = 4;
             label29.Text = "Nome:";
             // 
+            // TxtIPComputer
+            // 
+            TxtIPComputer.Location = new Point(175, 172);
+            TxtIPComputer.Name = "TxtIPComputer";
+            TxtIPComputer.ReadOnly = true;
+            TxtIPComputer.Size = new Size(342, 23);
+            TxtIPComputer.TabIndex = 11;
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Location = new Point(4, 172);
+            label35.Name = "label35";
+            label35.Size = new Size(77, 15);
+            label35.TabIndex = 10;
+            label35.Text = "IP Computer:";
+            // 
             // FrmInformazioniPC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1017,5 +1038,7 @@
         private Label label33;
         private TextBox TxtNumeroLogici;
         private Label label34;
+        private TextBox TxtIPComputer;
+        private Label label35;
     }
 }
