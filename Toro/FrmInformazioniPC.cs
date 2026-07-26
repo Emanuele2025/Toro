@@ -32,7 +32,7 @@ namespace Toro
                 //Info webcam
                 //Info Microfono audio ed altoparlanti 
                 //Info stampanti
-               
+
 
 
                 Video();
@@ -375,7 +375,7 @@ namespace Toro
         {
             try
             {
-                
+
 
                 // Verifica che sia effettivamente selezionata un'unità valida
                 var selected = cmbUnita?.SelectedItem?.ToString();
@@ -497,7 +497,7 @@ namespace Toro
         }
         IPAddress? GetLocalIPv4()
         {
-            
+
             try
             {
                 using Socket socket = new Socket(AddressFamily.InterNetwork,
@@ -511,10 +511,10 @@ namespace Toro
             }
             catch
             {
-                
+
             }
 
-            
+
             return GetFirstAvailableIPv4();
         }
         //Fine gestione IP
@@ -524,15 +524,15 @@ namespace Toro
             var searcher = new ManagementObjectSearcher(
                             @"SELECT * FROM Win32_PnPEntity WHERE PNPClass='Camera'");
 
-            foreach (ManagementObject device in searcher.Get())
+            foreach (ManagementObject mnoDevice in searcher.Get())
             {
-                TxtNome.Text = device["Name"].ToString();
-                TxtProduttoreWebCam.Text = device["Manufacturer"].ToString();
-                TxtDeviceID.Text = device["DeviceID"].ToString();
-                TxtPNPID.Text =  device["PNPDeviceID"].ToString();
-               TxtStato.Text = device["Status"].ToString();
-                
-                string pnpId = device["PNPDeviceID"]?.ToString() ?? "";
+                TxtNome.Text = mnoDevice["Name"].ToString();
+                TxtProduttoreWebCam.Text = mnoDevice["Manufacturer"].ToString();
+                TxtDeviceID.Text = mnoDevice["DeviceID"].ToString();
+                TxtPNPID.Text = mnoDevice["PNPDeviceID"].ToString();
+                TxtStato.Text = mnoDevice["Status"].ToString();
+
+                string pnpId = mnoDevice["PNPDeviceID"]?.ToString() ?? "";
 
                 var match = System.Text.RegularExpressions.Regex.Match(
                     pnpId,
