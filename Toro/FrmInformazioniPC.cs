@@ -526,12 +526,12 @@ namespace Toro
 
             foreach (ManagementObject device in searcher.Get())
             {
-                Console.WriteLine($"Nome      : {device["Name"]}");
-                Console.WriteLine($"Produttore: {device["Manufacturer"]}");
-                Console.WriteLine($"DeviceID  : {device["DeviceID"]}");
-                Console.WriteLine($"PNP ID    : {device["PNPDeviceID"]}");
-                Console.WriteLine($"Stato     : {device["Status"]}");
-                Console.WriteLine();
+                TxtNome.Text = device["Name"].ToString();
+                TxtProduttoreWebCam.Text = device["Manufacturer"].ToString();
+                TxtDeviceID.Text = device["DeviceID"].ToString();
+                TxtPNPID.Text =  device["PNPDeviceID"].ToString();
+               TxtStato.Text = device["Status"].ToString();
+                
                 string pnpId = device["PNPDeviceID"]?.ToString() ?? "";
 
                 var match = System.Text.RegularExpressions.Regex.Match(
@@ -540,8 +540,8 @@ namespace Toro
 
                 if (match.Success)
                 {
-                    Console.WriteLine($"Vendor ID : {match.Groups[1].Value}");
-                    Console.WriteLine($"Product ID: {match.Groups[2].Value}");
+                    TxtVendorID.Text = match.Groups[1].Value;
+                    TxtProductID.Text = match.Groups[2].Value;
                 }
             }
 
