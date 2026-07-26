@@ -39,6 +39,8 @@
             label2 = new Label();
             tbpSistema = new TabPage();
             groupBox2 = new GroupBox();
+            TxtIPComputer = new TextBox();
+            label35 = new Label();
             TxtModelloPC = new TextBox();
             label21 = new Label();
             TxtCollegata = new TextBox();
@@ -108,8 +110,21 @@
             label22 = new Label();
             TxtNomeCPU = new TextBox();
             label29 = new Label();
-            TxtIPComputer = new TextBox();
-            label35 = new Label();
+            tbpCamera = new TabPage();
+            TxtProductID = new TextBox();
+            label36 = new Label();
+            TxtVendorID = new TextBox();
+            label37 = new Label();
+            TxtStato = new TextBox();
+            label38 = new Label();
+            TxtPNPID = new TextBox();
+            label39 = new Label();
+            TxtDeviceID = new TextBox();
+            label40 = new Label();
+            TxtProduttoreWebCam = new TextBox();
+            label41 = new Label();
+            TxtNome = new TextBox();
+            label42 = new Label();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -120,6 +135,7 @@
             tbpRam.SuspendLayout();
             tbpSchedaGrafica.SuspendLayout();
             tbpCPU.SuspendLayout();
+            tbpCamera.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -156,6 +172,7 @@
             tbcSezioni.Controls.Add(tbpRam);
             tbcSezioni.Controls.Add(tbpSchedaGrafica);
             tbcSezioni.Controls.Add(tbpCPU);
+            tbcSezioni.Controls.Add(tbpCamera);
             tbcSezioni.Location = new Point(0, 25);
             tbcSezioni.Name = "tbcSezioni";
             tbcSezioni.SelectedIndex = 0;
@@ -253,6 +270,23 @@
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "Informaioni Sistema ";
+            // 
+            // TxtIPComputer
+            // 
+            TxtIPComputer.Location = new Point(175, 172);
+            TxtIPComputer.Name = "TxtIPComputer";
+            TxtIPComputer.ReadOnly = true;
+            TxtIPComputer.Size = new Size(342, 23);
+            TxtIPComputer.TabIndex = 11;
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Location = new Point(4, 172);
+            label35.Name = "label35";
+            label35.Size = new Size(77, 15);
+            label35.TabIndex = 10;
+            label35.Text = "IP Computer:";
             // 
             // TxtModelloPC
             // 
@@ -905,22 +939,147 @@
             label29.TabIndex = 4;
             label29.Text = "Nome:";
             // 
-            // TxtIPComputer
+            // tbpCamera
             // 
-            TxtIPComputer.Location = new Point(175, 172);
-            TxtIPComputer.Name = "TxtIPComputer";
-            TxtIPComputer.ReadOnly = true;
-            TxtIPComputer.Size = new Size(342, 23);
-            TxtIPComputer.TabIndex = 11;
+            tbpCamera.Controls.Add(TxtProductID);
+            tbpCamera.Controls.Add(label36);
+            tbpCamera.Controls.Add(TxtVendorID);
+            tbpCamera.Controls.Add(label37);
+            tbpCamera.Controls.Add(TxtStato);
+            tbpCamera.Controls.Add(label38);
+            tbpCamera.Controls.Add(TxtPNPID);
+            tbpCamera.Controls.Add(label39);
+            tbpCamera.Controls.Add(TxtDeviceID);
+            tbpCamera.Controls.Add(label40);
+            tbpCamera.Controls.Add(TxtProduttoreWebCam);
+            tbpCamera.Controls.Add(label41);
+            tbpCamera.Controls.Add(TxtNome);
+            tbpCamera.Controls.Add(label42);
+            tbpCamera.Location = new Point(4, 24);
+            tbpCamera.Name = "tbpCamera";
+            tbpCamera.Size = new Size(792, 356);
+            tbpCamera.TabIndex = 6;
+            tbpCamera.Text = "Camera";
+            tbpCamera.UseVisualStyleBackColor = true;
             // 
-            // label35
+            // TxtProductID
             // 
-            label35.AutoSize = true;
-            label35.Location = new Point(4, 172);
-            label35.Name = "label35";
-            label35.Size = new Size(77, 15);
-            label35.TabIndex = 10;
-            label35.Text = "IP Computer:";
+            TxtProductID.Location = new Point(184, 187);
+            TxtProductID.Name = "TxtProductID";
+            TxtProductID.ReadOnly = true;
+            TxtProductID.Size = new Size(281, 23);
+            TxtProductID.TabIndex = 31;
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Location = new Point(13, 187);
+            label36.Name = "label36";
+            label36.Size = new Size(66, 15);
+            label36.TabIndex = 30;
+            label36.Text = "Product ID:";
+            // 
+            // TxtVendorID
+            // 
+            TxtVendorID.Location = new Point(184, 158);
+            TxtVendorID.Name = "TxtVendorID";
+            TxtVendorID.ReadOnly = true;
+            TxtVendorID.Size = new Size(281, 23);
+            TxtVendorID.TabIndex = 29;
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.Location = new Point(13, 158);
+            label37.Name = "label37";
+            label37.Size = new Size(61, 15);
+            label37.TabIndex = 28;
+            label37.Text = "Vendor ID:";
+            // 
+            // TxtStato
+            // 
+            TxtStato.Location = new Point(184, 129);
+            TxtStato.Name = "TxtStato";
+            TxtStato.ReadOnly = true;
+            TxtStato.Size = new Size(281, 23);
+            TxtStato.TabIndex = 27;
+            // 
+            // label38
+            // 
+            label38.AutoSize = true;
+            label38.Location = new Point(13, 129);
+            label38.Name = "label38";
+            label38.Size = new Size(37, 15);
+            label38.TabIndex = 26;
+            label38.Text = "Stato:";
+            // 
+            // TxtPNPID
+            // 
+            TxtPNPID.Location = new Point(184, 100);
+            TxtPNPID.Name = "TxtPNPID";
+            TxtPNPID.ReadOnly = true;
+            TxtPNPID.Size = new Size(281, 23);
+            TxtPNPID.TabIndex = 25;
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.Location = new Point(13, 100);
+            label39.Name = "label39";
+            label39.Size = new Size(47, 15);
+            label39.TabIndex = 24;
+            label39.Text = "PNP ID:";
+            // 
+            // TxtDeviceID
+            // 
+            TxtDeviceID.Location = new Point(184, 71);
+            TxtDeviceID.Name = "TxtDeviceID";
+            TxtDeviceID.ReadOnly = true;
+            TxtDeviceID.Size = new Size(281, 23);
+            TxtDeviceID.TabIndex = 23;
+            // 
+            // label40
+            // 
+            label40.AutoSize = true;
+            label40.Location = new Point(13, 71);
+            label40.Name = "label40";
+            label40.Size = new Size(56, 15);
+            label40.TabIndex = 22;
+            label40.Text = "DeviceID:";
+            // 
+            // TxtProduttoreWebCam
+            // 
+            TxtProduttoreWebCam.Location = new Point(184, 42);
+            TxtProduttoreWebCam.Name = "TxtProduttoreWebCam";
+            TxtProduttoreWebCam.ReadOnly = true;
+            TxtProduttoreWebCam.Size = new Size(281, 23);
+            TxtProduttoreWebCam.TabIndex = 21;
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.Location = new Point(13, 42);
+            label41.Name = "label41";
+            label41.Size = new Size(67, 15);
+            label41.TabIndex = 20;
+            label41.Text = "Produttore:";
+            // 
+            // TxtNome
+            // 
+            TxtNome.Location = new Point(184, 13);
+            TxtNome.Name = "TxtNome";
+            TxtNome.ReadOnly = true;
+            TxtNome.Size = new Size(281, 23);
+            TxtNome.TabIndex = 19;
+            // 
+            // label42
+            // 
+            label42.AutoSize = true;
+            label42.Location = new Point(13, 13);
+            label42.Name = "label42";
+            label42.Size = new Size(43, 15);
+            label42.TabIndex = 18;
+            label42.Text = "Nome:";
             // 
             // FrmInformazioniPC
             // 
@@ -953,6 +1112,8 @@
             tbpSchedaGrafica.PerformLayout();
             tbpCPU.ResumeLayout(false);
             tbpCPU.PerformLayout();
+            tbpCamera.ResumeLayout(false);
+            tbpCamera.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1040,5 +1201,20 @@
         private Label label34;
         private TextBox TxtIPComputer;
         private Label label35;
+        private TabPage tbpCamera;
+        private TextBox TxtProductID;
+        private Label label36;
+        private TextBox TxtVendorID;
+        private Label label37;
+        private TextBox TxtStato;
+        private Label label38;
+        private TextBox TxtPNPID;
+        private Label label39;
+        private TextBox TxtDeviceID;
+        private Label label40;
+        private TextBox TxtProduttoreWebCam;
+        private Label label41;
+        private TextBox TxtNome;
+        private Label label42;
     }
 }
