@@ -49,6 +49,12 @@ namespace Toro
                     TxtIPComputer.Text = ip.ToString();
                 else
                     TxtIPComputer.Text = "Nessun indirizzo IPv4 disponibile.";
+
+                GetInfoWebCam();
+
+
+
+
             }
             catch (Exception ex)
             {
@@ -511,5 +517,41 @@ namespace Toro
             
             return GetFirstAvailableIPv4();
         }
+        //Fine gestione IP
+
+        private void GetInfoWebCam()
+        {
+            var searcher = new ManagementObjectSearcher(
+                            @"SELECT * FROM Win32_PnPEntity WHERE PNPClass='Camera'");
+
+            foreach (ManagementObject device in searcher.Get())
+            {
+                Console.WriteLine($"Nome      : {device["Name"]}");
+                Console.WriteLine($"Produttore: {device["Manufacturer"]}");
+                Console.WriteLine($"DeviceID  : {device["DeviceID"]}");
+                Console.WriteLine($"PNP ID    : {device["PNPDeviceID"]}");
+                Console.WriteLine($"Stato     : {device["Status"]}");
+                Console.WriteLine();
+                string pnpId = device["PNPDeviceID"]?.ToString() ?? "";
+
+                var match = System.Text.RegularExpressions.Regex.Match(
+                    pnpId,
+                    @"VID_([0-9A-F]{4}).*PID_([0-9A-F]{4})");
+
+                if (match.Success)
+                {
+                    Console.WriteLine($"Vendor ID : {match.Groups[1].Value}");
+                    Console.WriteLine($"Product ID: {match.Groups[2].Value}");
+                }
+            }
+
+
+
+
+        }
+
+
+
+
     }
 }
