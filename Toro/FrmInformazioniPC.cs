@@ -519,6 +519,10 @@ namespace Toro
         }
         //Fine gestione IP
 
+
+        /// <summary>
+        /// Rileva le informazioni riguardante la webcam 
+        /// </summary>
         private void GetInfoWebCam()
         {
             var searcher = new ManagementObjectSearcher(
