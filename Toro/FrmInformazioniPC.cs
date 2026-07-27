@@ -29,9 +29,11 @@ namespace Toro
             try
             {
                 //TODO: prossime funzionalità
-                //Info webcam
                 //Info Microfono audio ed altoparlanti 
                 //Info stampanti
+                //Info monitor, vedere tipo di monitor, marca, etc
+                //Info scheda madre come marca, prouttore, modello etc
+                //Info scheda di rete tipo marca, produttore modello etc
 
 
 
