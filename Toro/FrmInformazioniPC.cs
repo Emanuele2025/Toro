@@ -527,32 +527,44 @@ namespace Toro
         /// </summary>
         private void GetInfoWebCam()
         {
-            var searcher = new ManagementObjectSearcher(
-                            @"SELECT * FROM Win32_PnPEntity WHERE PNPClass='Camera'");
-
-            foreach (ManagementObject mnoDevice in searcher.Get())
+            try
             {
-                TxtNome.Text = mnoDevice["Name"].ToString();
-                TxtProduttoreWebCam.Text = mnoDevice["Manufacturer"].ToString();
-                TxtDeviceID.Text = mnoDevice["DeviceID"].ToString();
-                TxtPNPID.Text = mnoDevice["PNPDeviceID"].ToString();
-                TxtStato.Text = mnoDevice["Status"].ToString();
 
-                string pnpId = mnoDevice["PNPDeviceID"]?.ToString() ?? "";
 
-                var match = System.Text.RegularExpressions.Regex.Match(
-                    pnpId,
-                    @"VID_([0-9A-F]{4}).*PID_([0-9A-F]{4})");
+                var searcher = new ManagementObjectSearcher(
+                                @"SELECT * FROM Win32_PnPEntity WHERE PNPClass='Camera'");
 
-                if (match.Success)
+                foreach (ManagementObject mnoDevice in searcher.Get())
                 {
-                    TxtVendorID.Text = match.Groups[1].Value;
-                    TxtProductID.Text = match.Groups[2].Value;
+                    TxtNome.Text = mnoDevice["Name"].ToString();
+                    TxtProduttoreWebCam.Text = mnoDevice["Manufacturer"].ToString();
+                    TxtDeviceID.Text = mnoDevice["DeviceID"].ToString();
+                    TxtPNPID.Text = mnoDevice["PNPDeviceID"].ToString();
+                    TxtStato.Text = mnoDevice["Status"].ToString();
+
+                    string pnpId = mnoDevice["PNPDeviceID"]?.ToString() ?? "";
+
+                    var match = System.Text.RegularExpressions.Regex.Match(
+                        pnpId,
+                        @"VID_([0-9A-F]{4}).*PID_([0-9A-F]{4})");
+
+                    if (match.Success)
+                    {
+                        TxtVendorID.Text = match.Groups[1].Value;
+                        TxtProductID.Text = match.Groups[2].Value;
+                    }
                 }
             }
+            catch (ManagementException exMe)
+            {
 
+                Utility.MessaggioErrore("Errore: " + exMe.Message);
+            }
 
-
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore: " + ex.Message);
+            }
 
         }
 
