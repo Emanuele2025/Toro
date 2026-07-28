@@ -126,6 +126,20 @@
             TxtNome = new TextBox();
             label42 = new Label();
             tbpStampanti = new TabPage();
+            textBox1 = new TextBox();
+            label43 = new Label();
+            textBox2 = new TextBox();
+            label44 = new Label();
+            textBox3 = new TextBox();
+            label45 = new Label();
+            textBox4 = new TextBox();
+            label46 = new Label();
+            textBox5 = new TextBox();
+            label47 = new Label();
+            textBox6 = new TextBox();
+            label48 = new Label();
+            textBox7 = new TextBox();
+            label49 = new Label();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -137,6 +151,7 @@
             tbpSchedaGrafica.SuspendLayout();
             tbpCPU.SuspendLayout();
             tbpCamera.SuspendLayout();
+            tbpStampanti.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -1085,6 +1100,20 @@
             // 
             // tbpStampanti
             // 
+            tbpStampanti.Controls.Add(textBox1);
+            tbpStampanti.Controls.Add(label43);
+            tbpStampanti.Controls.Add(textBox2);
+            tbpStampanti.Controls.Add(label44);
+            tbpStampanti.Controls.Add(textBox3);
+            tbpStampanti.Controls.Add(label45);
+            tbpStampanti.Controls.Add(textBox4);
+            tbpStampanti.Controls.Add(label46);
+            tbpStampanti.Controls.Add(textBox5);
+            tbpStampanti.Controls.Add(label47);
+            tbpStampanti.Controls.Add(textBox6);
+            tbpStampanti.Controls.Add(label48);
+            tbpStampanti.Controls.Add(textBox7);
+            tbpStampanti.Controls.Add(label49);
             tbpStampanti.Location = new Point(4, 24);
             tbpStampanti.Name = "tbpStampanti";
             tbpStampanti.Padding = new Padding(3);
@@ -1092,6 +1121,125 @@
             tbpStampanti.TabIndex = 7;
             tbpStampanti.Text = "Stampanti";
             tbpStampanti.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(181, 193);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(281, 23);
+            textBox1.TabIndex = 45;
+            // 
+            // label43
+            // 
+            label43.AutoSize = true;
+            label43.Location = new Point(10, 193);
+            label43.Name = "label43";
+            label43.Size = new Size(66, 15);
+            label43.TabIndex = 44;
+            label43.Text = "Product ID:";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(181, 164);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(281, 23);
+            textBox2.TabIndex = 43;
+            // 
+            // label44
+            // 
+            label44.AutoSize = true;
+            label44.Location = new Point(10, 164);
+            label44.Name = "label44";
+            label44.Size = new Size(61, 15);
+            label44.TabIndex = 42;
+            label44.Text = "Vendor ID:";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(181, 135);
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.Size = new Size(281, 23);
+            textBox3.TabIndex = 41;
+            // 
+            // label45
+            // 
+            label45.AutoSize = true;
+            label45.Location = new Point(10, 135);
+            label45.Name = "label45";
+            label45.Size = new Size(37, 15);
+            label45.TabIndex = 40;
+            label45.Text = "Stato:";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(181, 106);
+            textBox4.Name = "textBox4";
+            textBox4.ReadOnly = true;
+            textBox4.Size = new Size(281, 23);
+            textBox4.TabIndex = 39;
+            // 
+            // label46
+            // 
+            label46.AutoSize = true;
+            label46.Location = new Point(10, 106);
+            label46.Name = "label46";
+            label46.Size = new Size(47, 15);
+            label46.TabIndex = 38;
+            label46.Text = "PNP ID:";
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(181, 77);
+            textBox5.Name = "textBox5";
+            textBox5.ReadOnly = true;
+            textBox5.Size = new Size(281, 23);
+            textBox5.TabIndex = 37;
+            // 
+            // label47
+            // 
+            label47.AutoSize = true;
+            label47.Location = new Point(10, 77);
+            label47.Name = "label47";
+            label47.Size = new Size(56, 15);
+            label47.TabIndex = 36;
+            label47.Text = "DeviceID:";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(181, 48);
+            textBox6.Name = "textBox6";
+            textBox6.ReadOnly = true;
+            textBox6.Size = new Size(281, 23);
+            textBox6.TabIndex = 35;
+            // 
+            // label48
+            // 
+            label48.AutoSize = true;
+            label48.Location = new Point(10, 48);
+            label48.Name = "label48";
+            label48.Size = new Size(67, 15);
+            label48.TabIndex = 34;
+            label48.Text = "Produttore:";
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(181, 19);
+            textBox7.Name = "textBox7";
+            textBox7.ReadOnly = true;
+            textBox7.Size = new Size(281, 23);
+            textBox7.TabIndex = 33;
+            // 
+            // label49
+            // 
+            label49.AutoSize = true;
+            label49.Location = new Point(10, 19);
+            label49.Name = "label49";
+            label49.Size = new Size(43, 15);
+            label49.TabIndex = 32;
+            label49.Text = "Nome:";
             // 
             // FrmInformazioniPC
             // 
@@ -1126,6 +1274,8 @@
             tbpCPU.PerformLayout();
             tbpCamera.ResumeLayout(false);
             tbpCamera.PerformLayout();
+            tbpStampanti.ResumeLayout(false);
+            tbpStampanti.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1229,5 +1379,19 @@
         private TextBox TxtNome;
         private Label label42;
         private TabPage tbpStampanti;
+        private TextBox textBox1;
+        private Label label43;
+        private TextBox textBox2;
+        private Label label44;
+        private TextBox textBox3;
+        private Label label45;
+        private TextBox textBox4;
+        private Label label46;
+        private TextBox textBox5;
+        private Label label47;
+        private TextBox textBox6;
+        private Label label48;
+        private TextBox textBox7;
+        private Label label49;
     }
 }
