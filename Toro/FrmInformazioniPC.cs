@@ -54,7 +54,7 @@ namespace Toro
 
                 GetInfoWebCam();
 
-
+                GetStampanti();
 
 
             }
@@ -569,7 +569,21 @@ namespace Toro
         }
 
 
+        private void GetStampanti()
+        {
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore: " + ex.Message);
+            }
+        
+        
+        
+        
+        }
 
     }
 }
