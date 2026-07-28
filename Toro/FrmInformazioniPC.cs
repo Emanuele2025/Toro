@@ -55,7 +55,7 @@ namespace Toro
                 GetInfoWebCam();
 
                 GetStampanti();
-
+                GetInternet();
 
             }
             catch (Exception ex)
@@ -582,10 +582,37 @@ namespace Toro
             {
                 Utility.MessaggioErrore("Errore: " + ex.Message);
             }
-        
-        
-        
-        
+
+
+
+
+        }
+
+        private void GetInternet()
+        {
+            try
+            {
+
+                bool isInternet = NetworkInterface.GetIsNetworkAvailable();
+                if(isInternet)
+                    TxtInternet.Text = "Collegato ad internet";
+                else
+                    TxtInternet.Text = "Nessun collegamento ad internet";
+
+            }
+            catch (ManagementException exMe)
+            {
+
+                Utility.MessaggioErrore("Errore: " + exMe.Message);
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore: " + ex.Message);
+            }
+
+
+
+
         }
 
     }

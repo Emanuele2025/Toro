@@ -140,6 +140,8 @@
             label48 = new Label();
             textBox7 = new TextBox();
             label49 = new Label();
+            TxtInternet = new TextBox();
+            label50 = new Label();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -268,6 +270,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(TxtInternet);
+            groupBox2.Controls.Add(label50);
             groupBox2.Controls.Add(TxtIPComputer);
             groupBox2.Controls.Add(label35);
             groupBox2.Controls.Add(TxtModelloPC);
@@ -1241,6 +1245,23 @@
             label49.TabIndex = 32;
             label49.Text = "Nome:";
             // 
+            // TxtInternet
+            // 
+            TxtInternet.Location = new Point(175, 201);
+            TxtInternet.Name = "TxtInternet";
+            TxtInternet.ReadOnly = true;
+            TxtInternet.Size = new Size(342, 23);
+            TxtInternet.TabIndex = 13;
+            // 
+            // label50
+            // 
+            label50.AutoSize = true;
+            label50.Location = new Point(4, 201);
+            label50.Name = "label50";
+            label50.Size = new Size(129, 15);
+            label50.TabIndex = 12;
+            label50.Text = "Collegamento Internet:";
+            // 
             // FrmInformazioniPC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1393,5 +1414,7 @@
         private Label label48;
         private TextBox textBox7;
         private Label label49;
+        private TextBox TxtInternet;
+        private Label label50;
     }
 }
