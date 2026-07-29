@@ -47,6 +47,8 @@ namespace Toro
 
             //Funzione generale per trasmoare i byte in gb e così via
             //Sito di icone gratuie https://freeicon.com/it/ vedere se utilizzarle
+ 
+
         }
 
         private void mniInformazioni_Click(object sender, EventArgs e)
