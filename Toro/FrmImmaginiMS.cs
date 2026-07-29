@@ -20,7 +20,7 @@ namespace Toro
             //TODO: fare anche il tab per le immagini di lettura contenuti
             try
             {
-
+                //Per ora download da bing
             }
             catch (Exception ex)
             {

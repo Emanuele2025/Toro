@@ -32,10 +32,11 @@
             tbcImmaginiMS = new TabControl();
             tbpImmagineBing = new TabPage();
             tbpImmaginiBlocco = new TabPage();
-            BtnChiudi = new Button();
-            lstboxFile = new ListBox();
-            pcbAnteprima = new PictureBox();
             label2 = new Label();
+            pcbAnteprima = new PictureBox();
+            lstboxFile = new ListBox();
+            BtnChiudi = new Button();
+            tbpContenuti = new TabPage();
             tbcImmaginiMS.SuspendLayout();
             tbpImmaginiBlocco.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcbAnteprima).BeginInit();
@@ -58,6 +59,7 @@
             // 
             tbcImmaginiMS.Controls.Add(tbpImmagineBing);
             tbcImmaginiMS.Controls.Add(tbpImmaginiBlocco);
+            tbcImmaginiMS.Controls.Add(tbpContenuti);
             tbcImmaginiMS.Dock = DockStyle.Top;
             tbcImmaginiMS.Location = new Point(0, 22);
             tbcImmaginiMS.Name = "tbcImmaginiMS";
@@ -70,7 +72,7 @@
             tbpImmagineBing.Location = new Point(4, 24);
             tbpImmagineBing.Name = "tbpImmagineBing";
             tbpImmagineBing.Padding = new Padding(3);
-            tbpImmagineBing.Size = new Size(792, 277);
+            tbpImmagineBing.Size = new Size(792, 359);
             tbpImmagineBing.TabIndex = 0;
             tbpImmagineBing.Text = "Immagini da Bing";
             tbpImmagineBing.UseVisualStyleBackColor = true;
@@ -88,6 +90,31 @@
             tbpImmaginiBlocco.Text = "Immagini di blocco di Windows";
             tbpImmaginiBlocco.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(10, 3);
+            label2.Name = "label2";
+            label2.Size = new Size(40, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Nome";
+            // 
+            // pcbAnteprima
+            // 
+            pcbAnteprima.Location = new Point(387, 9);
+            pcbAnteprima.Name = "pcbAnteprima";
+            pcbAnteprima.Size = new Size(397, 347);
+            pcbAnteprima.TabIndex = 1;
+            pcbAnteprima.TabStop = false;
+            // 
+            // lstboxFile
+            // 
+            lstboxFile.FormattingEnabled = true;
+            lstboxFile.Location = new Point(10, 21);
+            lstboxFile.Name = "lstboxFile";
+            lstboxFile.Size = new Size(271, 184);
+            lstboxFile.TabIndex = 0;
+            // 
             // BtnChiudi
             // 
             BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -101,30 +128,15 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
-            // lstboxFile
+            // tbpContenuti
             // 
-            lstboxFile.FormattingEnabled = true;
-            lstboxFile.Location = new Point(10, 21);
-            lstboxFile.Name = "lstboxFile";
-            lstboxFile.Size = new Size(271, 184);
-            lstboxFile.TabIndex = 0;
-            // 
-            // pcbAnteprima
-            // 
-            pcbAnteprima.Location = new Point(387, 9);
-            pcbAnteprima.Name = "pcbAnteprima";
-            pcbAnteprima.Size = new Size(397, 347);
-            pcbAnteprima.TabIndex = 1;
-            pcbAnteprima.TabStop = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(10, 3);
-            label2.Name = "label2";
-            label2.Size = new Size(40, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Nome";
+            tbpContenuti.Location = new Point(4, 24);
+            tbpContenuti.Name = "tbpContenuti";
+            tbpContenuti.Padding = new Padding(3);
+            tbpContenuti.Size = new Size(792, 359);
+            tbpContenuti.TabIndex = 2;
+            tbpContenuti.Text = "Contenuti suggeriti";
+            tbpContenuti.UseVisualStyleBackColor = true;
             // 
             // FrmImmaginiMS
             // 
@@ -158,5 +170,6 @@
         private Label label2;
         private PictureBox pcbAnteprima;
         private ListBox lstboxFile;
+        private TabPage tbpContenuti;
     }
 }
