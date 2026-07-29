@@ -97,7 +97,7 @@
             tbpNumeroToRomano.Padding = new Padding(3);
             tbpNumeroToRomano.Size = new Size(818, 134);
             tbpNumeroToRomano.TabIndex = 0;
-            tbpNumeroToRomano.Text = "Da numerico a Romano";
+            tbpNumeroToRomano.Text = "Da Numerico a Romano";
             tbpNumeroToRomano.UseVisualStyleBackColor = true;
             // 
             // TxtNumeroRomanoRisultato
@@ -200,7 +200,7 @@
             tbpNumeroTesto.Padding = new Padding(3);
             tbpNumeroTesto.Size = new Size(818, 134);
             tbpNumeroTesto.TabIndex = 2;
-            tbpNumeroTesto.Text = "Da Euro a testo";
+            tbpNumeroTesto.Text = "Da Euro a Testo";
             tbpNumeroTesto.UseVisualStyleBackColor = true;
             // 
             // nudNumeroTesto
