@@ -128,20 +128,22 @@
             TxtNome = new TextBox();
             label42 = new Label();
             tbpStampanti = new TabPage();
-            textBox1 = new TextBox();
-            label43 = new Label();
-            textBox2 = new TextBox();
-            label44 = new Label();
-            textBox3 = new TextBox();
-            label45 = new Label();
-            textBox4 = new TextBox();
-            label46 = new Label();
-            textBox5 = new TextBox();
-            label47 = new Label();
-            textBox6 = new TextBox();
-            label48 = new Label();
-            textBox7 = new TextBox();
-            label49 = new Label();
+            tbpRete = new TabPage();
+            textBox8 = new TextBox();
+            label51 = new Label();
+            textBox9 = new TextBox();
+            label52 = new Label();
+            textBox10 = new TextBox();
+            label53 = new Label();
+            textBox11 = new TextBox();
+            label54 = new Label();
+            textBox12 = new TextBox();
+            label55 = new Label();
+            textBox13 = new TextBox();
+            label56 = new Label();
+            textBox14 = new TextBox();
+            label57 = new Label();
+            dtgStampante = new DataGridView();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -154,6 +156,8 @@
             tbpCPU.SuspendLayout();
             tbpCamera.SuspendLayout();
             tbpStampanti.SuspendLayout();
+            tbpRete.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgStampante).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -192,6 +196,7 @@
             tbcSezioni.Controls.Add(tbpCPU);
             tbcSezioni.Controls.Add(tbpCamera);
             tbcSezioni.Controls.Add(tbpStampanti);
+            tbcSezioni.Controls.Add(tbpRete);
             tbcSezioni.Location = new Point(0, 25);
             tbcSezioni.Name = "tbcSezioni";
             tbcSezioni.SelectedIndex = 0;
@@ -1121,20 +1126,7 @@
             // 
             // tbpStampanti
             // 
-            tbpStampanti.Controls.Add(textBox1);
-            tbpStampanti.Controls.Add(label43);
-            tbpStampanti.Controls.Add(textBox2);
-            tbpStampanti.Controls.Add(label44);
-            tbpStampanti.Controls.Add(textBox3);
-            tbpStampanti.Controls.Add(label45);
-            tbpStampanti.Controls.Add(textBox4);
-            tbpStampanti.Controls.Add(label46);
-            tbpStampanti.Controls.Add(textBox5);
-            tbpStampanti.Controls.Add(label47);
-            tbpStampanti.Controls.Add(textBox6);
-            tbpStampanti.Controls.Add(label48);
-            tbpStampanti.Controls.Add(textBox7);
-            tbpStampanti.Controls.Add(label49);
+            tbpStampanti.Controls.Add(dtgStampante);
             tbpStampanti.Location = new Point(4, 24);
             tbpStampanti.Name = "tbpStampanti";
             tbpStampanti.Padding = new Padding(3);
@@ -1143,124 +1135,157 @@
             tbpStampanti.Text = "Stampanti";
             tbpStampanti.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tbpRete
             // 
-            textBox1.Location = new Point(181, 193);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(281, 23);
-            textBox1.TabIndex = 45;
+            tbpRete.Controls.Add(textBox8);
+            tbpRete.Controls.Add(label51);
+            tbpRete.Controls.Add(textBox9);
+            tbpRete.Controls.Add(label52);
+            tbpRete.Controls.Add(textBox10);
+            tbpRete.Controls.Add(label53);
+            tbpRete.Controls.Add(textBox11);
+            tbpRete.Controls.Add(label54);
+            tbpRete.Controls.Add(textBox12);
+            tbpRete.Controls.Add(label55);
+            tbpRete.Controls.Add(textBox13);
+            tbpRete.Controls.Add(label56);
+            tbpRete.Controls.Add(textBox14);
+            tbpRete.Controls.Add(label57);
+            tbpRete.Location = new Point(4, 24);
+            tbpRete.Name = "tbpRete";
+            tbpRete.Padding = new Padding(3);
+            tbpRete.Size = new Size(792, 356);
+            tbpRete.TabIndex = 8;
+            tbpRete.Text = "Rete";
+            tbpRete.UseVisualStyleBackColor = true;
             // 
-            // label43
+            // textBox8
             // 
-            label43.AutoSize = true;
-            label43.Location = new Point(10, 193);
-            label43.Name = "label43";
-            label43.Size = new Size(66, 15);
-            label43.TabIndex = 44;
-            label43.Text = "Product ID:";
+            textBox8.Location = new Point(187, 189);
+            textBox8.Name = "textBox8";
+            textBox8.ReadOnly = true;
+            textBox8.Size = new Size(281, 23);
+            textBox8.TabIndex = 59;
             // 
-            // textBox2
+            // label51
             // 
-            textBox2.Location = new Point(181, 164);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(281, 23);
-            textBox2.TabIndex = 43;
+            label51.AutoSize = true;
+            label51.Location = new Point(16, 189);
+            label51.Name = "label51";
+            label51.Size = new Size(66, 15);
+            label51.TabIndex = 58;
+            label51.Text = "Product ID:";
             // 
-            // label44
+            // textBox9
             // 
-            label44.AutoSize = true;
-            label44.Location = new Point(10, 164);
-            label44.Name = "label44";
-            label44.Size = new Size(61, 15);
-            label44.TabIndex = 42;
-            label44.Text = "Vendor ID:";
+            textBox9.Location = new Point(187, 160);
+            textBox9.Name = "textBox9";
+            textBox9.ReadOnly = true;
+            textBox9.Size = new Size(281, 23);
+            textBox9.TabIndex = 57;
             // 
-            // textBox3
+            // label52
             // 
-            textBox3.Location = new Point(181, 135);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(281, 23);
-            textBox3.TabIndex = 41;
+            label52.AutoSize = true;
+            label52.Location = new Point(16, 160);
+            label52.Name = "label52";
+            label52.Size = new Size(61, 15);
+            label52.TabIndex = 56;
+            label52.Text = "Vendor ID:";
             // 
-            // label45
+            // textBox10
             // 
-            label45.AutoSize = true;
-            label45.Location = new Point(10, 135);
-            label45.Name = "label45";
-            label45.Size = new Size(37, 15);
-            label45.TabIndex = 40;
-            label45.Text = "Stato:";
+            textBox10.Location = new Point(187, 131);
+            textBox10.Name = "textBox10";
+            textBox10.ReadOnly = true;
+            textBox10.Size = new Size(281, 23);
+            textBox10.TabIndex = 55;
             // 
-            // textBox4
+            // label53
             // 
-            textBox4.Location = new Point(181, 106);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(281, 23);
-            textBox4.TabIndex = 39;
+            label53.AutoSize = true;
+            label53.Location = new Point(16, 131);
+            label53.Name = "label53";
+            label53.Size = new Size(37, 15);
+            label53.TabIndex = 54;
+            label53.Text = "Stato:";
             // 
-            // label46
+            // textBox11
             // 
-            label46.AutoSize = true;
-            label46.Location = new Point(10, 106);
-            label46.Name = "label46";
-            label46.Size = new Size(47, 15);
-            label46.TabIndex = 38;
-            label46.Text = "PNP ID:";
+            textBox11.Location = new Point(187, 102);
+            textBox11.Name = "textBox11";
+            textBox11.ReadOnly = true;
+            textBox11.Size = new Size(281, 23);
+            textBox11.TabIndex = 53;
             // 
-            // textBox5
+            // label54
             // 
-            textBox5.Location = new Point(181, 77);
-            textBox5.Name = "textBox5";
-            textBox5.ReadOnly = true;
-            textBox5.Size = new Size(281, 23);
-            textBox5.TabIndex = 37;
+            label54.AutoSize = true;
+            label54.Location = new Point(16, 102);
+            label54.Name = "label54";
+            label54.Size = new Size(47, 15);
+            label54.TabIndex = 52;
+            label54.Text = "PNP ID:";
             // 
-            // label47
+            // textBox12
             // 
-            label47.AutoSize = true;
-            label47.Location = new Point(10, 77);
-            label47.Name = "label47";
-            label47.Size = new Size(56, 15);
-            label47.TabIndex = 36;
-            label47.Text = "DeviceID:";
+            textBox12.Location = new Point(187, 73);
+            textBox12.Name = "textBox12";
+            textBox12.ReadOnly = true;
+            textBox12.Size = new Size(281, 23);
+            textBox12.TabIndex = 51;
             // 
-            // textBox6
+            // label55
             // 
-            textBox6.Location = new Point(181, 48);
-            textBox6.Name = "textBox6";
-            textBox6.ReadOnly = true;
-            textBox6.Size = new Size(281, 23);
-            textBox6.TabIndex = 35;
+            label55.AutoSize = true;
+            label55.Location = new Point(16, 73);
+            label55.Name = "label55";
+            label55.Size = new Size(56, 15);
+            label55.TabIndex = 50;
+            label55.Text = "DeviceID:";
             // 
-            // label48
+            // textBox13
             // 
-            label48.AutoSize = true;
-            label48.Location = new Point(10, 48);
-            label48.Name = "label48";
-            label48.Size = new Size(67, 15);
-            label48.TabIndex = 34;
-            label48.Text = "Produttore:";
+            textBox13.Location = new Point(187, 44);
+            textBox13.Name = "textBox13";
+            textBox13.ReadOnly = true;
+            textBox13.Size = new Size(281, 23);
+            textBox13.TabIndex = 49;
             // 
-            // textBox7
+            // label56
             // 
-            textBox7.Location = new Point(181, 19);
-            textBox7.Name = "textBox7";
-            textBox7.ReadOnly = true;
-            textBox7.Size = new Size(281, 23);
-            textBox7.TabIndex = 33;
+            label56.AutoSize = true;
+            label56.Location = new Point(16, 44);
+            label56.Name = "label56";
+            label56.Size = new Size(67, 15);
+            label56.TabIndex = 48;
+            label56.Text = "Produttore:";
             // 
-            // label49
+            // textBox14
             // 
-            label49.AutoSize = true;
-            label49.Location = new Point(10, 19);
-            label49.Name = "label49";
-            label49.Size = new Size(43, 15);
-            label49.TabIndex = 32;
-            label49.Text = "Nome:";
+            textBox14.Location = new Point(187, 15);
+            textBox14.Name = "textBox14";
+            textBox14.ReadOnly = true;
+            textBox14.Size = new Size(281, 23);
+            textBox14.TabIndex = 47;
+            // 
+            // label57
+            // 
+            label57.AutoSize = true;
+            label57.Location = new Point(16, 15);
+            label57.Name = "label57";
+            label57.Size = new Size(43, 15);
+            label57.TabIndex = 46;
+            label57.Text = "Nome:";
+            // 
+            // dtgStampante
+            // 
+            dtgStampante.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgStampante.Dock = DockStyle.Fill;
+            dtgStampante.Location = new Point(3, 3);
+            dtgStampante.Name = "dtgStampante";
+            dtgStampante.Size = new Size(786, 350);
+            dtgStampante.TabIndex = 0;
             // 
             // FrmInformazioniPC
             // 
@@ -1276,7 +1301,6 @@
             Name = "FrmInformazioniPC";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Toro - Informazioni PC";
-            FormClosing += FrmInformazioniPC_FormClosing;
             Load += FrmInformazioniPC_Load;
             tbcSezioni.ResumeLayout(false);
             tbpVideo.ResumeLayout(false);
@@ -1297,7 +1321,9 @@
             tbpCamera.ResumeLayout(false);
             tbpCamera.PerformLayout();
             tbpStampanti.ResumeLayout(false);
-            tbpStampanti.PerformLayout();
+            tbpRete.ResumeLayout(false);
+            tbpRete.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgStampante).EndInit();
             ResumeLayout(false);
         }
 
@@ -1401,21 +1427,23 @@
         private TextBox TxtNome;
         private Label label42;
         private TabPage tbpStampanti;
-        private TextBox textBox1;
-        private Label label43;
-        private TextBox textBox2;
-        private Label label44;
-        private TextBox textBox3;
-        private Label label45;
-        private TextBox textBox4;
-        private Label label46;
-        private TextBox textBox5;
-        private Label label47;
-        private TextBox textBox6;
-        private Label label48;
-        private TextBox textBox7;
-        private Label label49;
         private TextBox TxtInternet;
         private Label label50;
+        private DataGridView dtgStampante;
+        private TabPage tbpRete;
+        private TextBox textBox8;
+        private Label label51;
+        private TextBox textBox9;
+        private Label label52;
+        private TextBox textBox10;
+        private Label label53;
+        private TextBox textBox11;
+        private Label label54;
+        private TextBox textBox12;
+        private Label label55;
+        private TextBox textBox13;
+        private Label label56;
+        private TextBox textBox14;
+        private Label label57;
     }
 }

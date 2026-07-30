@@ -10,6 +10,7 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
+using Toro.Modelli;
 namespace Toro
 {
     public partial class FrmInformazioniPC : Form
@@ -614,6 +615,28 @@ namespace Toro
 
 
         }
+
+
+        #region Gestione stampante
+
+        public static List<DtoStampante> GetOnlinePrinters(List<DtoStampante> printers)
+        {
+            return printers.Where(p => p.Online).ToList();
+        }
+
+
+        public static List<DtoStampante> GetOfflinePrinters(List<DtoStampante> printers)
+        {
+            return printers.Where(p => !p.Online).ToList();
+        }
+
+
+
+
+
+
+        #endregion
+
 
         private void FrmInformazioniPC_FormClosing(object sender, FormClosingEventArgs e)
         {
