@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Management;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
@@ -17,8 +18,15 @@ namespace Toro
         {
             InitializeComponent();
         }
-        UsbDetection detector = new UsbDetection();
+        
+        // DllImport per QueryDosDevice
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        static extern uint QueryDosDevice(string lpDeviceName, StringBuilder lpTargetPath, uint ucchMax);
 
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        public static extern uint GetLogicalDriveStrings(uint nBufferLength, [Out] char[] lpBuffer);
+        ManagementEventWatcher insertWatcher;
+        ManagementEventWatcher removeWatcher;
         private void BtnChiudi_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -185,7 +193,7 @@ namespace Toro
             //TODO: fare come verifica https://emanuelemattei.blogspot.com/2018/10/net-rilevare-le-coordinate-gps-di-un.html
             try
             {
-                detector.StartListening();
+                 
                 foreach (DriveInfo InfoUnita in DriveInfo.GetDrives())
                 {
                     if (InfoUnita.DriveType == DriveType.Removable && InfoUnita.IsReady)
@@ -198,6 +206,29 @@ namespace Toro
                 {
                     CmbUnitaUSB.SelectedIndex = 0;
                 }
+                // Setup del watcher per inserimenti
+                WqlEventQuery insertQuery = new WqlEventQuery("__InstanceCreationEvent",
+                    new TimeSpan(0, 0, 3),
+                    "TargetInstance ISA 'Win32_DiskDrive'");
+
+                  insertWatcher = new ManagementEventWatcher(insertQuery);
+                insertWatcher.EventArrived += new EventArrivedEventHandler(DeviceInserted);
+                insertWatcher.Start();
+
+                // Setup del watcher per rimozioni
+                WqlEventQuery removeQuery = new WqlEventQuery("__InstanceDeletionEvent",
+                    new TimeSpan(0, 0, 3),
+                    "TargetInstance ISA 'Win32_DiskDrive'");
+
+                  removeWatcher = new ManagementEventWatcher(removeQuery);
+                removeWatcher.EventArrived += new EventArrivedEventHandler(DeviceRemoved);
+                removeWatcher.Start();
+
+                
+
+               
+
+
 
             }
             catch (Exception ex)
@@ -217,7 +248,7 @@ namespace Toro
             {
                 if (CmbUnitaUSB.Text.Trim() != "")
                 {
-                     bool letteraTrovata= detector.GetLettera(CmbUnitaUSB.Text.Trim());
+                   //  bool letteraTrovata= detector.GetLettera(CmbUnitaUSB.Text.Trim());
 
                     double write = TestWriteSpeed(@CmbUnitaUSB.Text.Trim());
                     TxtVelocitaScrittura.Text = $"Scrittura: {write:F2} MB/s";
@@ -243,7 +274,84 @@ namespace Toro
 
         private void FrmVerifichecs_FormClosing(object sender, FormClosingEventArgs e)
         {
-            detector.StopListening();
+           // detector.StopListening();
+            insertWatcher.Stop();
+            removeWatcher.Stop();
         }
+
+        #region funzioni
+
+        private   void DeviceInserted(object sender, EventArrivedEventArgs e)
+        {
+            var instance = (ManagementBaseObject)e.NewEvent["TargetInstance"];
+            string deviceID = (string)instance["DeviceID"]; // esempio: "USBSTOR\\DISK&VEN_SANDISK&PROD_U3_GENERATION_II&REV_1.00\\AB0C1234"
+
+            string driveLetter = GetDriveLetterForDevice(deviceID);
+            if (driveLetter != null)
+            {
+                CmbUnitaUSB.Items.Remove(driveLetter);
+                CmbUnitaUSB.Refresh();
+                
+                Console.WriteLine($"Unità inserita: {driveLetter} (DeviceID: {deviceID})");
+            }
+            else
+            {
+                Console.WriteLine($"Unità inserita, ma lettera non trovata (DeviceID: {deviceID})");
+            }
+        }
+
+        private   void DeviceRemoved(object sender, EventArrivedEventArgs e)
+        {
+            var instance = (ManagementBaseObject)e.NewEvent["TargetInstance"];
+            string deviceID = (string)instance["DeviceID"];
+
+            string driveLetter = GetDriveLetterForDevice(deviceID);
+            if (driveLetter != null)
+            {
+                CmbUnitaUSB.Items.Remove(driveLetter);
+                Console.WriteLine($"Unità rimossa: {driveLetter} (DeviceID: {deviceID})");
+            }
+            else
+            {
+                Console.WriteLine($"Unità rimossa, lettera non trovata (DeviceID: {deviceID})");
+            }
+        }
+        private   string GetDriveLetterForDevice(string deviceID)
+        {
+            string[] drives =  GetLogicalDrives();
+
+            foreach (var drive in drives)
+            {
+                StringBuilder targetPath = new StringBuilder(1024);
+                uint result = QueryDosDevice(drive.Substring(0, 2), targetPath, (uint)targetPath.Capacity);
+                if (result != 0)
+                {
+                    string devicePath = targetPath.ToString();
+                    if (devicePath.Contains(deviceID))
+                    {
+                        return drive; // ad esempio "E:\"
+                    }
+                }
+            }
+            return null; // non trovato
+        }
+
+
+        public   string[] GetLogicalDrives()
+        {
+            uint length = GetLogicalDriveStrings(0, null);
+            char[] buffer = new char[length];
+            GetLogicalDriveStrings(length, buffer);
+            string drives = new string(buffer);
+            return drives.Split(new char[] { '\0' }, StringSplitOptions.RemoveEmptyEntries);
+        }
+
+
+        #endregion
+
+
+
+
+
     }
 }

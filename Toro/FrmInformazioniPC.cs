@@ -638,9 +638,6 @@ namespace Toro
         #endregion
 
 
-        private void FrmInformazioniPC_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            
-        }
+        
     }
 }
