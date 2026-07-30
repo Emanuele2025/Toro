@@ -39,6 +39,8 @@
             label2 = new Label();
             tbpSistema = new TabPage();
             groupBox2 = new GroupBox();
+            TxtInternet = new TextBox();
+            label50 = new Label();
             TxtIPComputer = new TextBox();
             label35 = new Label();
             TxtModelloPC = new TextBox();
@@ -140,8 +142,6 @@
             label48 = new Label();
             textBox7 = new TextBox();
             label49 = new Label();
-            TxtInternet = new TextBox();
-            label50 = new Label();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -291,6 +291,23 @@
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "Informaioni Sistema ";
+            // 
+            // TxtInternet
+            // 
+            TxtInternet.Location = new Point(175, 201);
+            TxtInternet.Name = "TxtInternet";
+            TxtInternet.ReadOnly = true;
+            TxtInternet.Size = new Size(342, 23);
+            TxtInternet.TabIndex = 13;
+            // 
+            // label50
+            // 
+            label50.AutoSize = true;
+            label50.Location = new Point(4, 201);
+            label50.Name = "label50";
+            label50.Size = new Size(129, 15);
+            label50.TabIndex = 12;
+            label50.Text = "Collegamento Internet:";
             // 
             // TxtIPComputer
             // 
@@ -1245,23 +1262,6 @@
             label49.TabIndex = 32;
             label49.Text = "Nome:";
             // 
-            // TxtInternet
-            // 
-            TxtInternet.Location = new Point(175, 201);
-            TxtInternet.Name = "TxtInternet";
-            TxtInternet.ReadOnly = true;
-            TxtInternet.Size = new Size(342, 23);
-            TxtInternet.TabIndex = 13;
-            // 
-            // label50
-            // 
-            label50.AutoSize = true;
-            label50.Location = new Point(4, 201);
-            label50.Name = "label50";
-            label50.Size = new Size(129, 15);
-            label50.TabIndex = 12;
-            label50.Text = "Collegamento Internet:";
-            // 
             // FrmInformazioniPC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1276,6 +1276,7 @@
             Name = "FrmInformazioniPC";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Toro - Informazioni PC";
+            FormClosing += FrmInformazioniPC_FormClosing;
             Load += FrmInformazioniPC_Load;
             tbcSezioni.ResumeLayout(false);
             tbpVideo.ResumeLayout(false);

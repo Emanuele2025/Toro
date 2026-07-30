@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Management;
 using System.Text;
 using System.Windows.Forms;
 
@@ -15,6 +16,7 @@ namespace Toro
         {
             InitializeComponent();
         }
+        
 
         private void BtnChiudi_Click(object sender, EventArgs e)
         {
@@ -194,6 +196,7 @@ namespace Toro
                 {
                     CmbUnitaUSB.SelectedIndex = 0;
                 }
+               
             }
             catch (Exception ex)
             {
