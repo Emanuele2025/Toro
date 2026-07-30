@@ -193,7 +193,7 @@ namespace Toro
             //TODO: fare come verifica https://emanuelemattei.blogspot.com/2018/10/net-rilevare-le-coordinate-gps-di-un.html
             try
             {
-                 
+                Cursor.Current = Cursors.WaitCursor;
                 foreach (DriveInfo InfoUnita in DriveInfo.GetDrives())
                 {
                     if (InfoUnita.DriveType == DriveType.Removable && InfoUnita.IsReady)
@@ -211,7 +211,7 @@ namespace Toro
                     new TimeSpan(0, 0, 3),
                     "TargetInstance ISA 'Win32_DiskDrive'");
 
-                  insertWatcher = new ManagementEventWatcher(insertQuery);
+                insertWatcher = new ManagementEventWatcher(insertQuery);
                 insertWatcher.EventArrived += new EventArrivedEventHandler(DeviceInserted);
                 insertWatcher.Start();
 
@@ -220,13 +220,13 @@ namespace Toro
                     new TimeSpan(0, 0, 3),
                     "TargetInstance ISA 'Win32_DiskDrive'");
 
-                  removeWatcher = new ManagementEventWatcher(removeQuery);
+                removeWatcher = new ManagementEventWatcher(removeQuery);
                 removeWatcher.EventArrived += new EventArrivedEventHandler(DeviceRemoved);
                 removeWatcher.Start();
 
-                
 
-               
+
+
 
 
 
@@ -235,7 +235,11 @@ namespace Toro
             {
                 Utility.MessaggioErrore(ex.Message);
             }
+            finally {
 
+                Cursor.Current = Cursors.Default;
+
+            }
 
 
         }

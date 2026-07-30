@@ -21,8 +21,10 @@ namespace Toro
 
         private void mniVerifiche_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             FrmVerifichecs verifiche = new FrmVerifichecs();
             verifiche.ShowDialog();
+            Cursor.Current = Cursors.Default;
         }
 
         private void informazioniPCToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,7 +39,7 @@ namespace Toro
         {
             //TODO
             //Icone
-
+            //Cursor per le voci menu
             //Logo del toro per il programma
             //FARE:
             //Form per immagini di Microsoft bing, blocco schermo e contenuti
