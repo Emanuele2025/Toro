@@ -279,6 +279,7 @@
             Name = "FrmVerifichecs";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Toro - Funzionalità di verifica";
+            FormClosing += FrmVerifichecs_FormClosing;
             Load += FrmVerifichecs_Load;
             tbcConvertitori.ResumeLayout(false);
             tbpNumeroToRomano.ResumeLayout(false);

@@ -34,7 +34,7 @@ namespace Toro
                 //Info monitor, vedere tipo di monitor, marca, etc
                 //Info scheda madre come marca, prouttore, modello etc
                 //Info scheda di rete tipo marca, produttore modello etc
-                detector.StartListening();
+                
 
 
                 Video();
@@ -617,7 +617,7 @@ namespace Toro
 
         private void FrmInformazioniPC_FormClosing(object sender, FormClosingEventArgs e)
         {
-            detector.StopListening();
+            
         }
     }
 }

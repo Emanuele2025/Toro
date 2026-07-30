@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Management;
 using System.Text;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Toro
 {
@@ -16,7 +17,7 @@ namespace Toro
         {
             InitializeComponent();
         }
-        
+        UsbDetection detector = new UsbDetection();
 
         private void BtnChiudi_Click(object sender, EventArgs e)
         {
@@ -184,19 +185,20 @@ namespace Toro
             //TODO: fare come verifica https://emanuelemattei.blogspot.com/2018/10/net-rilevare-le-coordinate-gps-di-un.html
             try
             {
+                detector.StartListening();
                 foreach (DriveInfo InfoUnita in DriveInfo.GetDrives())
                 {
                     if (InfoUnita.DriveType == DriveType.Removable && InfoUnita.IsReady)
                     {
                         CmbUnitaUSB.Items.Add(InfoUnita.Name);
-                         
+
                     }
                 }
-                if (CmbUnitaUSB.Items.Count>0)
+                if (CmbUnitaUSB.Items.Count > 0)
                 {
                     CmbUnitaUSB.SelectedIndex = 0;
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -215,17 +217,19 @@ namespace Toro
             {
                 if (CmbUnitaUSB.Text.Trim() != "")
                 {
+                     bool letteraTrovata= detector.GetLettera(CmbUnitaUSB.Text.Trim());
+
                     double write = TestWriteSpeed(@CmbUnitaUSB.Text.Trim());
                     TxtVelocitaScrittura.Text = $"Scrittura: {write:F2} MB/s";
                     double read = TestReadSpeed(@CmbUnitaUSB.Text.Trim());
                     txtVelocitaLettura.Text = $"Lettura:  {read:F2} MB/s";
-                    if (Path.Exists(@CmbUnitaUSB.Text.Trim() + "filetestVelocita.bin" ) )
+                    if (Path.Exists(@CmbUnitaUSB.Text.Trim() + "filetestVelocita.bin"))
                     {
                         File.Delete(@CmbUnitaUSB.Text.Trim() + "filetestVelocita.bin");
                     }
 
                 }
-    
+
             }
             catch (Exception ex)
             {
@@ -235,6 +239,11 @@ namespace Toro
             {
                 Cursor.Current = Cursors.Default;
             }
+        }
+
+        private void FrmVerifichecs_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            detector.StopListening();
         }
     }
 }
