@@ -11,10 +11,15 @@ using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 using Toro.Modelli;
+ 
+
+
+
 namespace Toro
 {
     public partial class FrmInformazioniPC : Form
     {
+        
         public FrmInformazioniPC()
         {
             InitializeComponent();
@@ -631,13 +636,29 @@ namespace Toro
         }
 
 
+        string TraduciStato(uint codiceStato, bool nonInLinea)
+        {
+            if (nonInLinea) return "Offline (Impostazione utente)";
 
+            // Codici ufficiali Win32_Printer PrinterStatus
+            return codiceStato switch
+            {
+                1 => "Altro",
+                2 => "Sconosciuto",
+                3 => "Pronta (Inattiva)",
+                4 => "In stampa...",
+                5 => "Riscaldamento",
+                6 => "In pausa",
+                7 => "Offline",
+                _ => "Pronta"
+            };
+        }
 
 
 
         #endregion
 
 
-        
+
     }
 }
