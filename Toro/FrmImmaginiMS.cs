@@ -21,6 +21,11 @@ namespace Toro
             try
             {
                 //Per ora download da bing
+
+
+                TrovaImmaginiBloccoSchermo();
+
+
             }
             catch (Exception ex)
             {
@@ -33,5 +38,44 @@ namespace Toro
         {
             this.Close();
         }
+
+
+        #region funzioni
+
+        private void TrovaImmaginiBloccoSchermo()
+        {
+
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore: " + ex.Message);
+            }
+        
+        
+        
+        
+        
+        
+        
+        }
+
+
+
+        #endregion
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

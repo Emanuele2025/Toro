@@ -636,7 +636,7 @@ namespace Toro
         }
 
 
-        string TraduciStato(uint codiceStato, bool nonInLinea)
+        string GetStato(uint codiceStato, bool nonInLinea)
         {
             if (nonInLinea) return "Offline (Impostazione utente)";
 
