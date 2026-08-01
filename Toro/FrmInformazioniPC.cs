@@ -41,7 +41,7 @@ namespace Toro
                 //Info scheda madre come marca, prouttore, modello etc
                 //Info scheda di rete tipo marca, produttore modello etc
                 
-
+                //Valutare più avanti se aprire i dati quando si clicca sul tab
 
                 Video();
                 TxtNomePC.Text = Environment.MachineName;
@@ -63,6 +63,7 @@ namespace Toro
                 GetStampanti();
                 GetInternet();
 
+               
             }
             catch (Exception ex)
             {
