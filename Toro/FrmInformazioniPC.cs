@@ -579,7 +579,17 @@ namespace Toro
         {
             try
             {
+                List<DtoStampante> stampanti =  GetPrinters();
 
+                // Forza il refresh della DataGrid
+                dtgStampante.DataSource = null;
+                dtgStampante.DataSource = stampanti;
+
+                // Formattazione rapida delle colonne (Opzionale)
+                //dtgStampante.Columns["Nome"].HeaderText = "Nome Stampante";
+                //dtgStampante.Columns["NomeDriver"].HeaderText = "Modello / Driver";
+                //dtgStampante.Columns["Online"].HeaderText = "Dispositivo Online";
+                //dtgStampante.Columns["Stato"].HeaderText = "Stato Corrente";
 
 
 
@@ -623,6 +633,89 @@ namespace Toro
 
 
         #region Gestione stampante
+
+
+         
+
+
+
+       private List<DtoStampante> GetPrinters()
+        {
+            var listaStampanti = new List<DtoStampante>();
+
+            // Interrogazione WMI alla classe nativa Win32_Printer
+            string query = "SELECT Name, DriverName, PortName, Default, Network, WorkOffline, PrinterStatus FROM Win32_Printer";
+
+            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(query))
+            {
+                using (ManagementObjectCollection coll = searcher.Get())
+                {
+                    foreach (ManagementObject mo in coll)
+                    {
+                        try
+                        {
+                            // Lettura sicura dei valori booleani (gestendo eventuali null)
+                            bool workOffline = mo["WorkOffline"] != null && (bool)mo["WorkOffline"];
+                            bool isNetwork = mo["Network"] != null && (bool)mo["Network"];
+                            bool isDefault = mo["Default"] != null && (bool)mo["Default"];
+
+                            // Lettura dello stato numerico di stampa
+                            ushort statusCode = mo["PrinterStatus"] != null ? (ushort)mo["PrinterStatus"] : (ushort)0;
+
+                            var info = new DtoStampante
+                            {
+                                Nome = mo["Name"]?.ToString() ?? "Sconosciuto",
+                                NomeDriver = mo["DriverName"]?.ToString() ?? "Modello non specificato",
+                                Porta = mo["PortName"]?.ToString() ?? "N/D",
+                                Predefinita = isDefault,
+                                Rete = isNetwork,
+                                // Una stampante è online se NON è impostata in "WorkOffline" 
+                                // e lo stato hardware non è esplicitamente Offline (7)
+                                Online = !workOffline && statusCode != 7,
+                                Stato = GetStato(statusCode, workOffline)
+                            };
+
+                            listaStampanti.Add(info);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Gestione errori del singolo record WMI per non bloccare il ciclo
+                            System.Diagnostics.Debug.WriteLine($"Errore lettura stampante: {ex.Message}");
+                        }
+                    }
+                }
+            }
+
+            return listaStampanti;
+        }
+
+
+        private static string GetPortName(string printerName)
+        {
+            try
+            {
+                using (var key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(
+                    $@"SYSTEM\CurrentControlSet\Control\Print\Printers\{printerName}"))
+                {
+                    if (key != null)
+                    {
+                        return key.GetValue("Port")?.ToString() ?? "Sconosciuta";
+                    }
+                }
+            }
+            catch
+            {
+                // Ignorare errori di accesso al Registro
+            }
+            return "Sconosciuta";
+        }
+
+
+
+
+
+
+
 
         public static List<DtoStampante> GetOnlinePrinters(List<DtoStampante> printers)
         {
