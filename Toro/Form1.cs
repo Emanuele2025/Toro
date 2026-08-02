@@ -66,7 +66,7 @@ namespace Toro
             //Rilevare le firme di un file pdf
             //Valutare se estrapolare file da un file p7m
             //Steganografia, mettere un file all'interno di un'immagine png
-
+            //Mettere anche funzionalità vcf, dei contatti
 
 
 
