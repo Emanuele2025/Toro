@@ -14,9 +14,10 @@ namespace Toro
 
         private void convertitoriToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             FrmConvertitori convertitori = new FrmConvertitori();
             convertitori.ShowDialog();
-
+            Cursor.Current = Cursors.Default;
         }
 
         private void mniVerifiche_Click(object sender, EventArgs e)
@@ -49,7 +50,7 @@ namespace Toro
 
             //Funzione generale per trasmoare i byte in gb e così via
             //Sito di icone gratuie https://freeicon.com/it/ vedere se utilizzarle
- 
+
 
         }
 
@@ -57,6 +58,18 @@ namespace Toro
         {
             FrmInfoToro info = new FrmInfoToro();
             info.ShowDialog();
+        }
+
+        private void gestioneFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //TODO FARE:
+            //Rilevare le firme di un file pdf
+            //Valutare se estrapolare file da un file p7m
+            //Steganografia, mettere un file all'interno di un'immagine png
+
+
+
+
         }
     }
 }
