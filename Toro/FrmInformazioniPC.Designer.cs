@@ -128,6 +128,7 @@
             TxtNome = new TextBox();
             label42 = new Label();
             tbpStampanti = new TabPage();
+            dtgStampante = new DataGridView();
             tbpRete = new TabPage();
             textBox8 = new TextBox();
             label51 = new Label();
@@ -143,7 +144,6 @@
             label56 = new Label();
             textBox14 = new TextBox();
             label57 = new Label();
-            dtgStampante = new DataGridView();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -156,8 +156,8 @@
             tbpCPU.SuspendLayout();
             tbpCamera.SuspendLayout();
             tbpStampanti.SuspendLayout();
-            tbpRete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgStampante).BeginInit();
+            tbpRete.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -168,7 +168,7 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(800, 22);
+            label1.Size = new Size(911, 22);
             label1.TabIndex = 3;
             label1.Text = "Toro- Informazioni sul pc";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -178,7 +178,7 @@
             BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             BtnChiudi.Image = Properties.Resources.chiudi_16;
             BtnChiudi.ImageAlign = ContentAlignment.MiddleRight;
-            BtnChiudi.Location = new Point(704, 415);
+            BtnChiudi.Location = new Point(815, 415);
             BtnChiudi.Name = "BtnChiudi";
             BtnChiudi.Size = new Size(75, 23);
             BtnChiudi.TabIndex = 5;
@@ -200,7 +200,7 @@
             tbcSezioni.Location = new Point(0, 25);
             tbcSezioni.Name = "tbcSezioni";
             tbcSezioni.SelectedIndex = 0;
-            tbcSezioni.Size = new Size(800, 384);
+            tbcSezioni.Size = new Size(911, 384);
             tbcSezioni.TabIndex = 8;
             // 
             // tbpVideo
@@ -209,7 +209,7 @@
             tbpVideo.Location = new Point(4, 24);
             tbpVideo.Name = "tbpVideo";
             tbpVideo.Padding = new Padding(3);
-            tbpVideo.Size = new Size(792, 356);
+            tbpVideo.Size = new Size(903, 356);
             tbpVideo.TabIndex = 0;
             tbpVideo.Text = "Video";
             tbpVideo.UseVisualStyleBackColor = true;
@@ -223,7 +223,7 @@
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(786, 350);
+            groupBox1.Size = new Size(897, 350);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Informaioni Video";
@@ -1135,6 +1135,15 @@
             tbpStampanti.Text = "Stampanti";
             tbpStampanti.UseVisualStyleBackColor = true;
             // 
+            // dtgStampante
+            // 
+            dtgStampante.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgStampante.Dock = DockStyle.Fill;
+            dtgStampante.Location = new Point(3, 3);
+            dtgStampante.Name = "dtgStampante";
+            dtgStampante.Size = new Size(786, 350);
+            dtgStampante.TabIndex = 0;
+            // 
             // tbpRete
             // 
             tbpRete.Controls.Add(textBox8);
@@ -1278,20 +1287,11 @@
             label57.TabIndex = 46;
             label57.Text = "Nome:";
             // 
-            // dtgStampante
-            // 
-            dtgStampante.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgStampante.Dock = DockStyle.Fill;
-            dtgStampante.Location = new Point(3, 3);
-            dtgStampante.Name = "dtgStampante";
-            dtgStampante.Size = new Size(786, 350);
-            dtgStampante.TabIndex = 0;
-            // 
             // FrmInformazioniPC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(911, 450);
             Controls.Add(tbcSezioni);
             Controls.Add(BtnChiudi);
             Controls.Add(label1);
@@ -1321,9 +1321,9 @@
             tbpCamera.ResumeLayout(false);
             tbpCamera.PerformLayout();
             tbpStampanti.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dtgStampante).EndInit();
             tbpRete.ResumeLayout(false);
             tbpRete.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgStampante).EndInit();
             ResumeLayout(false);
         }
 

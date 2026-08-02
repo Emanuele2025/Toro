@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
+
 //Per la gestione hardware
 using System.Management;
 using System.Net;
@@ -60,7 +62,8 @@ namespace Toro
 
                 GetInfoWebCam();
 
-                GetStampanti();
+                   GetStampanti();
+              //  LoadPrinters();
                 GetInternet();
 
                
@@ -688,6 +691,174 @@ namespace Toro
             }
 
             return listaStampanti;
+        }
+
+
+        /// <summary>
+        /// -----------------------------------------------
+        /// </summary>
+        /// <param name="printers"></param>
+
+        private void LoadPrinters()
+        {
+            try
+            {
+                List<DtoStampante> allPrinters =  GetAllPrinters();
+
+                // Pulire i controlli
+                
+                dtgStampante.Rows.Clear();
+
+                // Popolare la lista di tutte le stampanti
+                
+
+                // Separare online e offline
+                var onlinePrinters =  GetOnlinePrinters(allPrinters);
+                var offlinePrinters =  GetOfflinePrinters(allPrinters);
+
+                //foreach (var printer in onlinePrinters)
+                //{
+                //    listBoxOnline.Items.Add($"✓ {printer.Name}");
+                //}
+
+                //foreach (var printer in offlinePrinters)
+                //{
+                //    listBoxOffline.Items.Add($"✗ {printer.Name}");
+                //}
+
+                // Popolare il DataGridView con tutti i dettagli
+                dtgStampante.DataSource = allPrinters;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Errore: {ex.Message}", "Errore");
+            }
+        }
+
+        List<DtoStampante> GetAllPrinters()
+        {
+            List<DtoStampante> printers = new List<DtoStampante>();
+
+            try
+            {
+                // Metodo 1: Utilizzo di PrinterSettings per le stampanti di base
+                foreach (string printerName in PrinterSettings.InstalledPrinters)
+                {
+                    try
+                    {
+                        var printerInfo = GetPrinterDetails(printerName);
+                        printers.Add(printerInfo);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Errore nel recupero dettagli stampante {printerName}: {ex.Message}");
+                    }
+                }
+
+                // Metodo 2: Integrazione con WMI per informazioni aggiuntive
+                EnrichPrintersWithWMI(printers);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Errore nel recupero stampanti: {ex.Message}");
+            }
+
+            return printers;
+        }
+
+
+        DtoStampante GetPrinterDetails(string printerName)
+        {
+            var settings = new PrinterSettings { PrinterName = printerName };
+            var defaultSettings = new PrinterSettings();
+
+            var info = new DtoStampante
+            {
+                Nome = printerName,
+                Predefinita = printerName == defaultSettings.PrinterName,
+                Rete = settings.PrinterName.Contains("\\\\"),
+                Porta = settings.PrintToFile ? "FILE:" : GetPortName(printerName)
+            };
+
+            return info;
+        }
+
+
+        void EnrichPrintersWithWMI(List<DtoStampante> printers)
+        {
+            try
+            {
+                ManagementScope scope = new ManagementScope(@"\\.\root\cimv2");
+                scope.Connect();
+
+                // Query per stampanti
+                ObjectQuery query = new ObjectQuery("SELECT * FROM Win32_Printer");
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher(scope, query);
+
+                foreach (ManagementObject printer in searcher.Get())
+                {
+                    string printerName = printer["Name"]?.ToString();
+                    if (string.IsNullOrEmpty(printerName))
+                        continue;
+
+                    var existingPrinter = printers.FirstOrDefault(p =>
+                        p.Nome.Equals(printerName, StringComparison.OrdinalIgnoreCase));
+
+                    if (existingPrinter != null)
+                    {
+                        existingPrinter.NomeDriver = printer["DriverName"]?.ToString();
+                        existingPrinter.Descrizione = printer["Description"]?.ToString();
+                        existingPrinter.Stato = printer["Status"]?.ToString();
+                        existingPrinter.Modello = printer["Model"]?.ToString();
+                        existingPrinter.NumeroLavoro = Convert.ToInt32(printer["JobCountSinceLastReset"] ?? 0);
+
+                        // Determinare lo stato online/offline
+                        existingPrinter.Online = DeterminePrinterStatus(printer);
+                    }
+                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                Console.WriteLine("Accesso negato a WMI. Eseguire come amministratore per ottenere informazioni complete.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Errore nell'accesso a WMI: {ex.Message}");
+            }
+        }
+        bool DeterminePrinterStatus(ManagementObject printer)
+        {
+            try
+            {
+                // Controllare lo stato della stampante
+                uint[] printJobStatus = printer["PrintJobDataType"] != null
+                    ? (uint[])printer["PrintJobDataType"]
+                    : Array.Empty<uint>();
+
+                string status = printer["Status"]?.ToString() ?? "Unknown";
+                string availability = printer["Availability"]?.ToString() ?? "0";
+
+                // Codici di stato: 0 = Unknown, 1 = Other, 2 = OK, 3 = Degraded, etc.
+                if (status.Equals("OK", StringComparison.OrdinalIgnoreCase) ||
+                    status.Equals("Idle", StringComparison.OrdinalIgnoreCase) ||
+                    status.Equals("Printing", StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+
+                if (int.TryParse(availability, out int availabilityCode))
+                {
+                    return availabilityCode == 3; // 3 = Running/Available
+                }
+
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
 
