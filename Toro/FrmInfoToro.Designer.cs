@@ -64,13 +64,12 @@
             // 
             BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             BtnChiudi.Image = (Image)resources.GetObject("BtnChiudi.Image");
-            BtnChiudi.ImageAlign = ContentAlignment.MiddleRight;
+            BtnChiudi.ImageAlign = ContentAlignment.MiddleLeft;
             BtnChiudi.Location = new Point(689, 415);
             BtnChiudi.Name = "BtnChiudi";
             BtnChiudi.Size = new Size(75, 23);
             BtnChiudi.TabIndex = 6;
             BtnChiudi.Text = "Chiudi";
-            BtnChiudi.TextAlign = ContentAlignment.MiddleLeft;
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
