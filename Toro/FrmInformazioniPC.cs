@@ -673,7 +673,7 @@ namespace Toro
                     schedaDiRete.Add(infoSchedaDiRete);
                 }
 
-
+                dtgDatiSchedaRete.DataSource = schedaDiRete.ToList();
 
 
 

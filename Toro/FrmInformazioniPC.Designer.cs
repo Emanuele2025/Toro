@@ -130,20 +130,7 @@
             tbpStampanti = new TabPage();
             dtgStampante = new DataGridView();
             tbpRete = new TabPage();
-            textBox8 = new TextBox();
-            label51 = new Label();
-            textBox9 = new TextBox();
-            label52 = new Label();
-            textBox10 = new TextBox();
-            label53 = new Label();
-            textBox11 = new TextBox();
-            label54 = new Label();
-            textBox12 = new TextBox();
-            label55 = new Label();
-            textBox13 = new TextBox();
-            label56 = new Label();
-            textBox14 = new TextBox();
-            label57 = new Label();
+            dtgDatiSchedaRete = new DataGridView();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -158,6 +145,7 @@
             tbpStampanti.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgStampante).BeginInit();
             tbpRete.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgDatiSchedaRete).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -1146,20 +1134,7 @@
             // 
             // tbpRete
             // 
-            tbpRete.Controls.Add(textBox8);
-            tbpRete.Controls.Add(label51);
-            tbpRete.Controls.Add(textBox9);
-            tbpRete.Controls.Add(label52);
-            tbpRete.Controls.Add(textBox10);
-            tbpRete.Controls.Add(label53);
-            tbpRete.Controls.Add(textBox11);
-            tbpRete.Controls.Add(label54);
-            tbpRete.Controls.Add(textBox12);
-            tbpRete.Controls.Add(label55);
-            tbpRete.Controls.Add(textBox13);
-            tbpRete.Controls.Add(label56);
-            tbpRete.Controls.Add(textBox14);
-            tbpRete.Controls.Add(label57);
+            tbpRete.Controls.Add(dtgDatiSchedaRete);
             tbpRete.Location = new Point(4, 24);
             tbpRete.Name = "tbpRete";
             tbpRete.Padding = new Padding(3);
@@ -1168,124 +1143,14 @@
             tbpRete.Text = "Rete";
             tbpRete.UseVisualStyleBackColor = true;
             // 
-            // textBox8
+            // dtgDatiSchedaRete
             // 
-            textBox8.Location = new Point(187, 189);
-            textBox8.Name = "textBox8";
-            textBox8.ReadOnly = true;
-            textBox8.Size = new Size(281, 23);
-            textBox8.TabIndex = 59;
-            // 
-            // label51
-            // 
-            label51.AutoSize = true;
-            label51.Location = new Point(16, 189);
-            label51.Name = "label51";
-            label51.Size = new Size(66, 15);
-            label51.TabIndex = 58;
-            label51.Text = "Product ID:";
-            // 
-            // textBox9
-            // 
-            textBox9.Location = new Point(187, 160);
-            textBox9.Name = "textBox9";
-            textBox9.ReadOnly = true;
-            textBox9.Size = new Size(281, 23);
-            textBox9.TabIndex = 57;
-            // 
-            // label52
-            // 
-            label52.AutoSize = true;
-            label52.Location = new Point(16, 160);
-            label52.Name = "label52";
-            label52.Size = new Size(61, 15);
-            label52.TabIndex = 56;
-            label52.Text = "Vendor ID:";
-            // 
-            // textBox10
-            // 
-            textBox10.Location = new Point(187, 131);
-            textBox10.Name = "textBox10";
-            textBox10.ReadOnly = true;
-            textBox10.Size = new Size(281, 23);
-            textBox10.TabIndex = 55;
-            // 
-            // label53
-            // 
-            label53.AutoSize = true;
-            label53.Location = new Point(16, 131);
-            label53.Name = "label53";
-            label53.Size = new Size(37, 15);
-            label53.TabIndex = 54;
-            label53.Text = "Stato:";
-            // 
-            // textBox11
-            // 
-            textBox11.Location = new Point(187, 102);
-            textBox11.Name = "textBox11";
-            textBox11.ReadOnly = true;
-            textBox11.Size = new Size(281, 23);
-            textBox11.TabIndex = 53;
-            // 
-            // label54
-            // 
-            label54.AutoSize = true;
-            label54.Location = new Point(16, 102);
-            label54.Name = "label54";
-            label54.Size = new Size(47, 15);
-            label54.TabIndex = 52;
-            label54.Text = "PNP ID:";
-            // 
-            // textBox12
-            // 
-            textBox12.Location = new Point(187, 73);
-            textBox12.Name = "textBox12";
-            textBox12.ReadOnly = true;
-            textBox12.Size = new Size(281, 23);
-            textBox12.TabIndex = 51;
-            // 
-            // label55
-            // 
-            label55.AutoSize = true;
-            label55.Location = new Point(16, 73);
-            label55.Name = "label55";
-            label55.Size = new Size(56, 15);
-            label55.TabIndex = 50;
-            label55.Text = "DeviceID:";
-            // 
-            // textBox13
-            // 
-            textBox13.Location = new Point(187, 44);
-            textBox13.Name = "textBox13";
-            textBox13.ReadOnly = true;
-            textBox13.Size = new Size(281, 23);
-            textBox13.TabIndex = 49;
-            // 
-            // label56
-            // 
-            label56.AutoSize = true;
-            label56.Location = new Point(16, 44);
-            label56.Name = "label56";
-            label56.Size = new Size(67, 15);
-            label56.TabIndex = 48;
-            label56.Text = "Produttore:";
-            // 
-            // textBox14
-            // 
-            textBox14.Location = new Point(187, 15);
-            textBox14.Name = "textBox14";
-            textBox14.ReadOnly = true;
-            textBox14.Size = new Size(281, 23);
-            textBox14.TabIndex = 47;
-            // 
-            // label57
-            // 
-            label57.AutoSize = true;
-            label57.Location = new Point(16, 15);
-            label57.Name = "label57";
-            label57.Size = new Size(43, 15);
-            label57.TabIndex = 46;
-            label57.Text = "Nome:";
+            dtgDatiSchedaRete.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgDatiSchedaRete.Dock = DockStyle.Fill;
+            dtgDatiSchedaRete.Location = new Point(3, 3);
+            dtgDatiSchedaRete.Name = "dtgDatiSchedaRete";
+            dtgDatiSchedaRete.Size = new Size(897, 350);
+            dtgDatiSchedaRete.TabIndex = 0;
             // 
             // FrmInformazioniPC
             // 
@@ -1323,7 +1188,7 @@
             tbpStampanti.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgStampante).EndInit();
             tbpRete.ResumeLayout(false);
-            tbpRete.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgDatiSchedaRete).EndInit();
             ResumeLayout(false);
         }
 
@@ -1431,19 +1296,6 @@
         private Label label50;
         private DataGridView dtgStampante;
         private TabPage tbpRete;
-        private TextBox textBox8;
-        private Label label51;
-        private TextBox textBox9;
-        private Label label52;
-        private TextBox textBox10;
-        private Label label53;
-        private TextBox textBox11;
-        private Label label54;
-        private TextBox textBox12;
-        private Label label55;
-        private TextBox textBox13;
-        private Label label56;
-        private TextBox textBox14;
-        private Label label57;
+        private DataGridView dtgDatiSchedaRete;
     }
 }
