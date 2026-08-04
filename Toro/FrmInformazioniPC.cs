@@ -13,7 +13,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 using Toro.Modelli;
- 
+
 
 
 
@@ -21,7 +21,7 @@ namespace Toro
 {
     public partial class FrmInformazioniPC : Form
     {
-        
+
         public FrmInformazioniPC()
         {
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace Toro
                 //Info monitor, vedere tipo di monitor, marca, etc
                 //Info scheda madre come marca, prouttore, modello etc
                 //Info scheda di rete tipo marca, produttore modello etc
-                
+
                 //Valutare più avanti se aprire i dati quando si clicca sul tab
 
                 Video();
@@ -62,11 +62,13 @@ namespace Toro
 
                 GetInfoWebCam();
 
-                   GetStampanti();
-              //  LoadPrinters();
+                GetStampanti();
+                //  LoadPrinters();
                 GetInternet();
+                GetInfoSchedaRete();
 
-               
+
+
             }
             catch (Exception ex)
             {
@@ -583,7 +585,7 @@ namespace Toro
         {
             try
             {
-                List<DtoStampante> stampanti =  GetPrinters();
+                List<DtoStampante> stampanti = GetPrinters();
 
                 // Forza il refresh della DataGrid
                 dtgStampante.DataSource = null;
@@ -636,14 +638,71 @@ namespace Toro
         }
 
 
+        private void GetInfoSchedaRete()
+        {
+            try
+            {
+                List<DtoSchedaRete> schedaDiRete = new List<DtoSchedaRete>();
+                foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+                {
+                    DtoSchedaRete infoSchedaDiRete = new DtoSchedaRete()
+                    {
+                        Nome = nic.Name,
+                        Descrizione = nic.Description,
+                        Tipo = nic.NetworkInterfaceType.ToString(),
+                        Stato = nic.OperationalStatus.ToString(),
+                        Velocita = (nic.Speed / 1000000).ToString() + "Mbps",
+                        Mac = nic.GetPhysicalAddress().ToString(),
+                        Guid = nic.Id,
+                        SupportaIPv4 = nic.Supports(NetworkInterfaceComponent.IPv4),
+                        SupportaIPv46 = nic.Supports(NetworkInterfaceComponent.IPv6)
+
+                    }
+                ;
+
+                    //Console.WriteLine($"Nome        : {nic.Name}");
+                    //Console.WriteLine($"Descrizione : {nic.Description}");
+                    //Console.WriteLine($"Tipo        : {nic.NetworkInterfaceType}");
+                    //Console.WriteLine($"Stato       : {nic.OperationalStatus}");
+                    //Console.WriteLine($"Velocità    : {nic.Speed / 1000000} Mbps");
+                    //Console.WriteLine($"MAC         : {nic.GetPhysicalAddress()}");
+                    //Console.WriteLine($"GUID        : {nic.Id}");
+                    //Console.WriteLine($"Supporta IPv4: {nic.Supports(NetworkInterfaceComponent.IPv4)}");
+                    //Console.WriteLine($"Supporta IPv6: {nic.Supports(NetworkInterfaceComponent.IPv6)}");
+
+                    schedaDiRete.Add(infoSchedaDiRete);
+                }
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Utility.MessaggioErrore("Errore: " + ex.Message);
+            }
+
+
+
+
+        }
+
+
+
+
+
+
+
         #region Gestione stampante
 
 
-         
 
 
 
-       private List<DtoStampante> GetPrinters()
+
+        private List<DtoStampante> GetPrinters()
         {
             var listaStampanti = new List<DtoStampante>();
 
@@ -703,18 +762,18 @@ namespace Toro
         {
             try
             {
-                List<DtoStampante> allPrinters =  GetAllPrinters();
+                List<DtoStampante> allPrinters = GetAllPrinters();
 
                 // Pulire i controlli
-                
+
                 dtgStampante.Rows.Clear();
 
                 // Popolare la lista di tutte le stampanti
-                
+
 
                 // Separare online e offline
-                var onlinePrinters =  GetOnlinePrinters(allPrinters);
-                var offlinePrinters =  GetOfflinePrinters(allPrinters);
+                var onlinePrinters = GetOnlinePrinters(allPrinters);
+                var offlinePrinters = GetOfflinePrinters(allPrinters);
 
                 //foreach (var printer in onlinePrinters)
                 //{
