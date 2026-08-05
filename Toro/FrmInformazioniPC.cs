@@ -67,8 +67,8 @@ namespace Toro
                 GetStampanti();
                 //  LoadPrinters();
                 GetInternet();
-                GetInfoSchedaRete();
-
+                // GetInfoSchedaRete();
+                RilevaSchedeRete();
 
 
             }
@@ -702,8 +702,7 @@ namespace Toro
                         SupportaIPv4 = nic.Supports(NetworkInterfaceComponent.IPv4),
                         SupportaIPv46 = nic.Supports(NetworkInterfaceComponent.IPv6)
 
-                    }
-                ;
+                    };
  
 
                     schedaDiRete.Add(infoSchedaDiRete);
@@ -725,9 +724,74 @@ namespace Toro
 
         }
 
+        private void RilevaSchedeRete()
+        {
+            // Recupera tutte le interfacce di rete del computer
+            NetworkInterface[] interfacce = NetworkInterface.GetAllNetworkInterfaces();
+            StringBuilder sb = new StringBuilder();
+            List<DtoSchedaRete> schedaDiRete = new List<DtoSchedaRete>();
+            foreach (NetworkInterface info in interfacce)
+            {
+                // Ignora le interfacce di loopback (es. localhost)
+                if (info.NetworkInterfaceType == NetworkInterfaceType.Loopback)
+                    continue;
+
+                DtoSchedaRete infoSchedaDiRete = new DtoSchedaRete()
+                {
+                    Nome = info.Name,
+                    Descrizione = info.Description,
+                    Tipo = info.NetworkInterfaceType.ToString(),
+                    Stato = info.OperationalStatus.ToString(),
+                    Velocita = (info.Speed / 1000000).ToString() + "Mbps",
+                    Mac = FormattaMac(info.GetPhysicalAddress()),
+                    Guid = info.Id,
+                    SupportaIPv4 = info.Supports(NetworkInterfaceComponent.IPv4),
+                    SupportaIPv46 = info.Supports(NetworkInterfaceComponent.IPv6)
+
+                };
 
 
+                schedaDiRete.Add(infoSchedaDiRete);
 
+
+               // sb.AppendLine($"Nome Connessione: {info.Name}");      // Es. "Wi-Fi" o "Ethernet"
+              //  sb.AppendLine($"Modello/Descrizione: {info.Description}"); // Es. "Intel(R) Wi-Fi 6E AX211"
+               // sb.AppendLine($"Tipo di Rete: {info.NetworkInterfaceType}"); // Es. Wireless80211 o Ethernet
+             //   sb.AppendLine($"Stato: {info.OperationalStatus}");     // Es. Up (Attiva) o Down (Disattivata)
+               // sb.AppendLine($"Velocità: {info.Speed / 1_000_000} Mbps"); // Convertito in Megabit al secondo
+             //   sb.AppendLine($"Indirizzo MAC: {FormattaMac(info.GetPhysicalAddress())}");
+
+                // Estrazione degli indirizzi IP associati
+                IPInterfaceProperties ipProps = info.GetIPProperties();
+                foreach (UnicastIPAddressInformation ip in ipProps.UnicastAddresses)
+                {
+                    infoSchedaDiRete.IP += $"IP ({ip.Address.AddressFamily}): {ip.Address}";
+                }
+               
+                schedaDiRete.Add(infoSchedaDiRete);
+                // sb.AppendLine(new string('-', 40));
+
+
+            }
+
+            // Mostra i dati in una TextBox multi-linea o in una MessageBox
+            // txtRisultato.Text = sb.ToString();
+            dtgDatiSchedaRete.DataSource = schedaDiRete.ToList();
+        }
+
+
+        private string FormattaMac(PhysicalAddress address)
+        {
+            byte[] bytes = address.GetAddressBytes();
+            if (bytes.Length == 0) return "N/D";
+
+            string[] hex = new string[bytes.Length];
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                hex[i] = bytes[i].ToString("X2");
+            }
+            return string.Join(":", hex);
+        }
 
 
 

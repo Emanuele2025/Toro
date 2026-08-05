@@ -28,5 +28,7 @@ namespace Toro.Modelli
 
         public bool SupportaIPv46 { get; set; }
 
+        public string IP { get; set; }
+
     }
 }
