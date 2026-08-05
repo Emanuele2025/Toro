@@ -91,6 +91,49 @@ namespace Toro
         #region Funzioni
 
         /// <summary>
+        /// Funzione che viene richiamata al cambio tab per evitare la lentezza apertura della form
+        /// </summary>
+        private void CaricaDati()
+        {
+
+            try
+            {
+
+                switch (tbcSezioni.SelectedTab.Name)
+                {
+                    case "":
+
+                        break;
+                    default:
+                        break;
+                }
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore: " + ex.Message);
+            }
+
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+
+            }
+
+
+
+
+        }
+
+
+
+
+
+
+        /// <summary>
         /// Fornisce informazioni sul video
         /// </summary>
         private void Video()
