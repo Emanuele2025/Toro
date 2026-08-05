@@ -44,6 +44,8 @@ namespace Toro
                 //Info scheda di rete tipo marca, produttore modello etc
 
                 //Valutare più avanti se aprire i dati quando si clicca sul tab
+                this.Text = Utility.TitoloFinestra;
+
 
                 Video();
                 TxtNomePC.Text = Environment.MachineName;
@@ -659,16 +661,7 @@ namespace Toro
 
                     }
                 ;
-
-                    //Console.WriteLine($"Nome        : {nic.Name}");
-                    //Console.WriteLine($"Descrizione : {nic.Description}");
-                    //Console.WriteLine($"Tipo        : {nic.NetworkInterfaceType}");
-                    //Console.WriteLine($"Stato       : {nic.OperationalStatus}");
-                    //Console.WriteLine($"Velocità    : {nic.Speed / 1000000} Mbps");
-                    //Console.WriteLine($"MAC         : {nic.GetPhysicalAddress()}");
-                    //Console.WriteLine($"GUID        : {nic.Id}");
-                    //Console.WriteLine($"Supporta IPv4: {nic.Supports(NetworkInterfaceComponent.IPv4)}");
-                    //Console.WriteLine($"Supporta IPv6: {nic.Supports(NetworkInterfaceComponent.IPv6)}");
+ 
 
                     schedaDiRete.Add(infoSchedaDiRete);
                 }

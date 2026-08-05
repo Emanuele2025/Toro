@@ -39,7 +39,7 @@
             BtnVerificaPalindromo = new Button();
             TxtPalindromo = new TextBox();
             label3 = new Label();
-            tabPage1 = new TabPage();
+            tbpVelocitaUSB = new TabPage();
             TxtVelocitaScrittura = new TextBox();
             txtVelocitaLettura = new TextBox();
             label6 = new Label();
@@ -51,7 +51,7 @@
             tbcConvertitori.SuspendLayout();
             tbpNumeroToRomano.SuspendLayout();
             tbpPalindromo.SuspendLayout();
-            tabPage1.SuspendLayout();
+            tbpVelocitaUSB.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -71,7 +71,7 @@
             // 
             tbcConvertitori.Controls.Add(tbpNumeroToRomano);
             tbcConvertitori.Controls.Add(tbpPalindromo);
-            tbcConvertitori.Controls.Add(tabPage1);
+            tbcConvertitori.Controls.Add(tbpVelocitaUSB);
             tbcConvertitori.Dock = DockStyle.Top;
             tbcConvertitori.Location = new Point(0, 22);
             tbcConvertitori.Name = "tbcConvertitori";
@@ -173,22 +173,22 @@
             label3.TabIndex = 4;
             label3.Text = "Verifica nome Palindromo";
             // 
-            // tabPage1
+            // tbpVelocitaUSB
             // 
-            tabPage1.Controls.Add(TxtVelocitaScrittura);
-            tabPage1.Controls.Add(txtVelocitaLettura);
-            tabPage1.Controls.Add(label6);
-            tabPage1.Controls.Add(label5);
-            tabPage1.Controls.Add(BtnVerificaUSB);
-            tabPage1.Controls.Add(label4);
-            tabPage1.Controls.Add(CmbUnitaUSB);
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(792, 134);
-            tabPage1.TabIndex = 2;
-            tabPage1.Text = "Velocità chiavetta USB";
-            tabPage1.UseVisualStyleBackColor = true;
+            tbpVelocitaUSB.Controls.Add(TxtVelocitaScrittura);
+            tbpVelocitaUSB.Controls.Add(txtVelocitaLettura);
+            tbpVelocitaUSB.Controls.Add(label6);
+            tbpVelocitaUSB.Controls.Add(label5);
+            tbpVelocitaUSB.Controls.Add(BtnVerificaUSB);
+            tbpVelocitaUSB.Controls.Add(label4);
+            tbpVelocitaUSB.Controls.Add(CmbUnitaUSB);
+            tbpVelocitaUSB.Location = new Point(4, 24);
+            tbpVelocitaUSB.Name = "tbpVelocitaUSB";
+            tbpVelocitaUSB.Padding = new Padding(3);
+            tbpVelocitaUSB.Size = new Size(792, 134);
+            tbpVelocitaUSB.TabIndex = 2;
+            tbpVelocitaUSB.Text = "Velocità chiavetta USB";
+            tbpVelocitaUSB.UseVisualStyleBackColor = true;
             // 
             // TxtVelocitaScrittura
             // 
@@ -286,8 +286,8 @@
             tbpNumeroToRomano.PerformLayout();
             tbpPalindromo.ResumeLayout(false);
             tbpPalindromo.PerformLayout();
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
+            tbpVelocitaUSB.ResumeLayout(false);
+            tbpVelocitaUSB.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -306,7 +306,7 @@
         private TextBox TxtPalindromo;
         private Label label3;
         private Button BtnChiudi;
-        private TabPage tabPage1;
+        private TabPage tbpVelocitaUSB;
         private Label label4;
         private ComboBox CmbUnitaUSB;
         private TextBox TxtVelocitaScrittura;
