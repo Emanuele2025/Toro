@@ -156,7 +156,7 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(911, 22);
+            label1.Size = new Size(1108, 22);
             label1.TabIndex = 3;
             label1.Text = "Toro- Informazioni sul pc";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -166,7 +166,7 @@
             BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             BtnChiudi.Image = Properties.Resources.chiudi_16;
             BtnChiudi.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnChiudi.Location = new Point(815, 415);
+            BtnChiudi.Location = new Point(1012, 415);
             BtnChiudi.Name = "BtnChiudi";
             BtnChiudi.Size = new Size(75, 23);
             BtnChiudi.TabIndex = 5;
@@ -188,7 +188,7 @@
             tbcSezioni.Location = new Point(0, 25);
             tbcSezioni.Name = "tbcSezioni";
             tbcSezioni.SelectedIndex = 0;
-            tbcSezioni.Size = new Size(911, 384);
+            tbcSezioni.Size = new Size(1108, 384);
             tbcSezioni.TabIndex = 8;
             // 
             // tbpVideo
@@ -1138,7 +1138,7 @@
             tbpRete.Location = new Point(4, 24);
             tbpRete.Name = "tbpRete";
             tbpRete.Padding = new Padding(3);
-            tbpRete.Size = new Size(903, 356);
+            tbpRete.Size = new Size(1100, 356);
             tbpRete.TabIndex = 8;
             tbpRete.Text = "Rete";
             tbpRete.UseVisualStyleBackColor = true;
@@ -1149,14 +1149,14 @@
             dtgDatiSchedaRete.Dock = DockStyle.Fill;
             dtgDatiSchedaRete.Location = new Point(3, 3);
             dtgDatiSchedaRete.Name = "dtgDatiSchedaRete";
-            dtgDatiSchedaRete.Size = new Size(897, 350);
+            dtgDatiSchedaRete.Size = new Size(1094, 350);
             dtgDatiSchedaRete.TabIndex = 0;
             // 
             // FrmInformazioniPC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(911, 450);
+            ClientSize = new Size(1108, 450);
             Controls.Add(tbcSezioni);
             Controls.Add(BtnChiudi);
             Controls.Add(label1);

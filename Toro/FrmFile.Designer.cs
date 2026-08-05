@@ -41,6 +41,7 @@
             Name = "FrmFile";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Toro";
+            Load += FrmFile_Load;
             ResumeLayout(false);
         }
 

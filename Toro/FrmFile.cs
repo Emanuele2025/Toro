@@ -14,5 +14,27 @@ namespace Toro
         {
             InitializeComponent();
         }
+
+        private void FrmFile_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Text = Utility.TitoloFinestra;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore: " + ex.Message);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+
+            }
+
+
+        }
     }
 }
