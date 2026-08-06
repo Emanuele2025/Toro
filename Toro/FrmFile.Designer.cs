@@ -31,13 +31,13 @@
             label1 = new Label();
             tbcFile = new TabControl();
             tbpLeggiCertificatiPdf = new TabPage();
-            tabPage2 = new TabPage();
-            BtnChiudi = new Button();
-            dtgCertificatiFilePdf = new DataGridView();
-            label2 = new Label();
+            BtnLeggiCertificatiPdf = new Button();
             BtnCercaCartella = new Button();
             TxtPercorsoCartella = new TextBox();
-            BtnLeggiCertificatiPdf = new Button();
+            label2 = new Label();
+            dtgCertificatiFilePdf = new DataGridView();
+            tabPage2 = new TabPage();
+            BtnChiudi = new Button();
             tbcFile.SuspendLayout();
             tbpLeggiCertificatiPdf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgCertificatiFilePdf).BeginInit();
@@ -82,45 +82,15 @@
             tbpLeggiCertificatiPdf.Text = "Certificati file PDF";
             tbpLeggiCertificatiPdf.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // BtnLeggiCertificatiPdf
             // 
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(192, 72);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // BtnChiudi
-            // 
-            BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            BtnChiudi.Image = Properties.Resources.chiudi_16;
-            BtnChiudi.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnChiudi.Location = new Point(841, 327);
-            BtnChiudi.Name = "BtnChiudi";
-            BtnChiudi.Size = new Size(75, 23);
-            BtnChiudi.TabIndex = 4;
-            BtnChiudi.Text = "Chiudi";
-            BtnChiudi.UseVisualStyleBackColor = true;
-            // 
-            // dtgCertificatiFilePdf
-            // 
-            dtgCertificatiFilePdf.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgCertificatiFilePdf.Dock = DockStyle.Bottom;
-            dtgCertificatiFilePdf.Location = new Point(3, 76);
-            dtgCertificatiFilePdf.Name = "dtgCertificatiFilePdf";
-            dtgCertificatiFilePdf.Size = new Size(949, 177);
-            dtgCertificatiFilePdf.TabIndex = 0;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(17, 4);
-            label2.Name = "label2";
-            label2.Size = new Size(324, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Percorso e nome del file Pdf da estrapolare certificati file pdf";
+            BtnLeggiCertificatiPdf.Location = new Point(17, 48);
+            BtnLeggiCertificatiPdf.Name = "BtnLeggiCertificatiPdf";
+            BtnLeggiCertificatiPdf.Size = new Size(92, 23);
+            BtnLeggiCertificatiPdf.TabIndex = 16;
+            BtnLeggiCertificatiPdf.Text = "Rileva Certificati";
+            BtnLeggiCertificatiPdf.UseVisualStyleBackColor = true;
+            BtnLeggiCertificatiPdf.Click += BtnLeggiCertificatiPdf_Click;
             // 
             // BtnCercaCartella
             // 
@@ -142,14 +112,45 @@
             TxtPercorsoCartella.Size = new Size(555, 23);
             TxtPercorsoCartella.TabIndex = 14;
             // 
-            // BtnLeggiCertificatiPdf
+            // label2
             // 
-            BtnLeggiCertificatiPdf.Location = new Point(17, 48);
-            BtnLeggiCertificatiPdf.Name = "BtnLeggiCertificatiPdf";
-            BtnLeggiCertificatiPdf.Size = new Size(92, 23);
-            BtnLeggiCertificatiPdf.TabIndex = 16;
-            BtnLeggiCertificatiPdf.Text = "Rileva Certificati";
-            BtnLeggiCertificatiPdf.UseVisualStyleBackColor = true;
+            label2.AutoSize = true;
+            label2.Location = new Point(17, 4);
+            label2.Name = "label2";
+            label2.Size = new Size(324, 15);
+            label2.TabIndex = 1;
+            label2.Text = "Percorso e nome del file Pdf da estrapolare certificati file pdf";
+            // 
+            // dtgCertificatiFilePdf
+            // 
+            dtgCertificatiFilePdf.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgCertificatiFilePdf.Dock = DockStyle.Bottom;
+            dtgCertificatiFilePdf.Location = new Point(3, 76);
+            dtgCertificatiFilePdf.Name = "dtgCertificatiFilePdf";
+            dtgCertificatiFilePdf.Size = new Size(949, 177);
+            dtgCertificatiFilePdf.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(955, 256);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // BtnChiudi
+            // 
+            BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BtnChiudi.Image = Properties.Resources.chiudi_16;
+            BtnChiudi.ImageAlign = ContentAlignment.MiddleLeft;
+            BtnChiudi.Location = new Point(841, 327);
+            BtnChiudi.Name = "BtnChiudi";
+            BtnChiudi.Size = new Size(75, 23);
+            BtnChiudi.TabIndex = 4;
+            BtnChiudi.Text = "Chiudi";
+            BtnChiudi.UseVisualStyleBackColor = true;
             // 
             // FrmFile
             // 

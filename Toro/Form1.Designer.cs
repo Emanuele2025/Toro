@@ -37,9 +37,9 @@
             funzionalitàToolStripMenuItem = new ToolStripMenuItem();
             convertitoriToolStripMenuItem = new ToolStripMenuItem();
             mniVerifiche = new ToolStripMenuItem();
+            gestioneFileToolStripMenuItem = new ToolStripMenuItem();
             infoToolStripMenuItem = new ToolStripMenuItem();
             mniInformazioni = new ToolStripMenuItem();
-            gestioneFileToolStripMenuItem = new ToolStripMenuItem();
             mnsMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -123,6 +123,14 @@
             mniVerifiche.ToolTipText = "Apre una finestra per verificare alcune informazioni, come se un IBAN è corretto, oppure una frase palindromo";
             mniVerifiche.Click += mniVerifiche_Click;
             // 
+            // gestioneFileToolStripMenuItem
+            // 
+            gestioneFileToolStripMenuItem.Name = "gestioneFileToolStripMenuItem";
+            gestioneFileToolStripMenuItem.Size = new Size(180, 22);
+            gestioneFileToolStripMenuItem.Text = "Gestione File...";
+            gestioneFileToolStripMenuItem.ToolTipText = "Apre una finestra per effettuare delle operazioni e funzionalità sui file";
+            gestioneFileToolStripMenuItem.Click += gestioneFileToolStripMenuItem_Click;
+            // 
             // infoToolStripMenuItem
             // 
             infoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mniInformazioni });
@@ -138,13 +146,6 @@
             mniInformazioni.Text = "Informazioni...";
             mniInformazioni.ToolTipText = "Finestra informativa del programma";
             mniInformazioni.Click += mniInformazioni_Click;
-            // 
-            // gestioneFileToolStripMenuItem
-            // 
-            gestioneFileToolStripMenuItem.Name = "gestioneFileToolStripMenuItem";
-            gestioneFileToolStripMenuItem.Size = new Size(180, 22);
-            gestioneFileToolStripMenuItem.Text = "Gestione File...";
-            gestioneFileToolStripMenuItem.Click += gestioneFileToolStripMenuItem_Click;
             // 
             // Form1
             // 
