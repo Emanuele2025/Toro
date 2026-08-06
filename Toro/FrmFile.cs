@@ -36,5 +36,10 @@ namespace Toro
 
 
         }
+
+        private void BtnCercaCartella_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
