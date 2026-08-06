@@ -22,13 +22,15 @@ namespace Toro.Modelli
 
         public string Mac { get; set; }
 
-        public string Guid { get; set; }
+        public string Gateway { get; set; }
 
         public bool SupportaIPv4 { get; set; }
 
         public bool SupportaIPv46 { get; set; }
-
+        public string SupportaIPv6 { get; set; }
         public string IP { get; set; }
-
+        public string SubnetMask { get; internal set; }
+        public string DnsServers { get; internal set; }
+        public string IsDhcpEnabled { get; internal set; }
     }
 }

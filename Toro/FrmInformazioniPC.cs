@@ -68,8 +68,8 @@ namespace Toro
                 //  LoadPrinters();
                 GetInternet();
                 // GetInfoSchedaRete();
-                RilevaSchedeRete();
-
+               RilevaSchedeRete();
+              //  Rete();
 
             }
             catch (Exception ex)
@@ -698,7 +698,7 @@ namespace Toro
                         Stato = nic.OperationalStatus.ToString(),
                         Velocita = (nic.Speed / 1000000).ToString() + "Mbps",
                         Mac = nic.GetPhysicalAddress().ToString(),
-                        Guid = nic.Id,
+                        Gateway = nic.Id,
                         SupportaIPv4 = nic.Supports(NetworkInterfaceComponent.IPv4),
                         SupportaIPv46 = nic.Supports(NetworkInterfaceComponent.IPv6)
 
@@ -744,7 +744,7 @@ namespace Toro
                     Stato = info.OperationalStatus.ToString(),
                     Velocita = (info.Speed / 1000000).ToString() + "Mbps",
                     Mac = FormattaMac(info.GetPhysicalAddress()),
-                    Guid = info.Id,
+                    Gateway = info.Id,
                     SupportaIPv4 = info.Supports(NetworkInterfaceComponent.IPv4),
                     SupportaIPv46 = info.Supports(NetworkInterfaceComponent.IPv6)
 
@@ -792,6 +792,56 @@ namespace Toro
             }
             return string.Join(":", hex);
         }
+
+
+
+
+
+
+
+        private void Rete()
+        {
+
+           var allAdapters = NetworkAdapterManager.GetAllNetworkAdapters();
+            // Separare connesse e disconnesse
+            var connectedAdapters = NetworkAdapterManager.GetConnectedAdapters(allAdapters);
+            var disconnectedAdapters = NetworkAdapterManager.GetDisconnectedAdapters(allAdapters);
+
+            string stato  = $"Schede trovate: {allAdapters.Count} | " +
+                                 $"Connesse: {connectedAdapters.Count} | " +
+                                 $"Disconnesse: {disconnectedAdapters.Count}";
+
+            List<DtoSchedaRete> schedaDiRete = new List<DtoSchedaRete>();
+            foreach (var adapter in allAdapters)
+            {
+                 
+                    
+                    
+                     DtoSchedaRete infoSchedaDiRete = new DtoSchedaRete()
+                     {
+                         Nome = adapter.Name,
+                         Descrizione = adapter.Description,
+                         Tipo = adapter.InterfaceType.ToString(),
+                         Stato = adapter.Status.ToString(),
+                         Velocita = (adapter.Speed / 1000000).ToString() + "Mbps",
+                         Mac = adapter.MacAddress,
+                         Gateway = adapter.Gateway ?? "N/A",
+                         // SupportaIPv4 =  ,
+                         SupportaIPv6 = adapter.IpV6Address ?? "N/A",
+                         Modello = adapter.Model ?? "N/A",
+                         IP = adapter.IpAddress ?? "N/A",
+                         SubnetMask = adapter.SubnetMask ?? "N/A",
+                         DnsServers = adapter.DnsServers ?? "N/A",
+                         IsDhcpEnabled = adapter.IsDhcpEnabled ? "Sì" : "No"
+                     };
+
+
+                schedaDiRete.Add(infoSchedaDiRete);
+                dtgDatiSchedaRete.DataSource = schedaDiRete.ToList();
+            }
+        }
+
+        
 
 
 
