@@ -177,5 +177,20 @@ namespace Toro
         {
             this.Close();
         }
+
+        private void BtnFileVCF_Click(object sender, EventArgs e)
+        {
+            //Apro la finestra di dialogo per la selezione della cartella
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+            {
+                folderBrowserDialog.Description = "Seleziona la cartella dove si trovano i file vcf";
+                
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Imposto il percorso selezionato nella casella di testo
+                    TxtPercorsoVCF.Text = folderBrowserDialog.SelectedPath;
+                }
+            }
+        }
     }
 }

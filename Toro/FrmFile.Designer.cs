@@ -36,11 +36,16 @@
             TxtPercorsoCartella = new TextBox();
             label2 = new Label();
             dtgCertificatiFilePdf = new DataGridView();
-            tabPage2 = new TabPage();
+            tbpLeggiVCF = new TabPage();
             BtnChiudi = new Button();
+            label3 = new Label();
+            TxtPercorsoVCF = new TextBox();
+            button1 = new Button();
+            BtnFileVCF = new Button();
             tbcFile.SuspendLayout();
             tbpLeggiCertificatiPdf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgCertificatiFilePdf).BeginInit();
+            tbpLeggiVCF.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -59,7 +64,7 @@
             // tbcFile
             // 
             tbcFile.Controls.Add(tbpLeggiCertificatiPdf);
-            tbcFile.Controls.Add(tabPage2);
+            tbcFile.Controls.Add(tbpLeggiVCF);
             tbcFile.Dock = DockStyle.Top;
             tbcFile.Location = new Point(0, 22);
             tbcFile.Name = "tbcFile";
@@ -130,15 +135,20 @@
             dtgCertificatiFilePdf.Size = new Size(949, 177);
             dtgCertificatiFilePdf.TabIndex = 0;
             // 
-            // tabPage2
+            // tbpLeggiVCF
             // 
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(955, 256);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            tbpLeggiVCF.Controls.Add(BtnFileVCF);
+            tbpLeggiVCF.Controls.Add(button1);
+            tbpLeggiVCF.Controls.Add(TxtPercorsoVCF);
+            tbpLeggiVCF.Controls.Add(label3);
+            tbpLeggiVCF.Location = new Point(4, 24);
+            tbpLeggiVCF.Name = "tbpLeggiVCF";
+            tbpLeggiVCF.Padding = new Padding(3);
+            tbpLeggiVCF.Size = new Size(955, 256);
+            tbpLeggiVCF.TabIndex = 1;
+            tbpLeggiVCF.Text = "Leggi file VCF";
+            tbpLeggiVCF.ToolTipText = "Estrapola il contenuto dei file VCF";
+            tbpLeggiVCF.UseVisualStyleBackColor = true;
             // 
             // BtnChiudi
             // 
@@ -152,6 +162,44 @@
             BtnChiudi.Text = "Chiudi";
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(18, 4);
+            label3.Name = "label3";
+            label3.Size = new Size(287, 15);
+            label3.TabIndex = 2;
+            label3.Text = "Percorso e nome del file VCF per leggere il contenuto";
+            // 
+            // TxtPercorsoVCF
+            // 
+            TxtPercorsoVCF.Location = new Point(18, 22);
+            TxtPercorsoVCF.Name = "TxtPercorsoVCF";
+            TxtPercorsoVCF.ReadOnly = true;
+            TxtPercorsoVCF.Size = new Size(555, 23);
+            TxtPercorsoVCF.TabIndex = 15;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(18, 51);
+            button1.Name = "button1";
+            button1.Size = new Size(92, 23);
+            button1.TabIndex = 17;
+            button1.Text = "Rileva Certificati";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // BtnFileVCF
+            // 
+            BtnFileVCF.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnFileVCF.Location = new Point(579, 22);
+            BtnFileVCF.Name = "BtnFileVCF";
+            BtnFileVCF.Size = new Size(30, 29);
+            BtnFileVCF.TabIndex = 18;
+            BtnFileVCF.Text = "...";
+            BtnFileVCF.TextAlign = ContentAlignment.TopLeft;
+            BtnFileVCF.UseVisualStyleBackColor = true;
+            BtnFileVCF.Click += BtnFileVCF_Click;
             // 
             // FrmFile
             // 
@@ -172,6 +220,8 @@
             tbpLeggiCertificatiPdf.ResumeLayout(false);
             tbpLeggiCertificatiPdf.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgCertificatiFilePdf).EndInit();
+            tbpLeggiVCF.ResumeLayout(false);
+            tbpLeggiVCF.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -180,12 +230,16 @@
         private Label label1;
         private TabControl tbcFile;
         private TabPage tbpLeggiCertificatiPdf;
-        private TabPage tabPage2;
+        private TabPage tbpLeggiVCF;
         private Button BtnChiudi;
         private Button BtnLeggiCertificatiPdf;
         private Button BtnCercaCartella;
         private TextBox TxtPercorsoCartella;
         private Label label2;
         private DataGridView dtgCertificatiFilePdf;
+        private Button BtnFileVCF;
+        private Button button1;
+        private TextBox TxtPercorsoVCF;
+        private Label label3;
     }
 }
