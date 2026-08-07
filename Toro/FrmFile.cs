@@ -122,21 +122,13 @@ namespace Toro
 
                             };
 
-                            ////Console.WriteLine($"=== Firma #{firmaIndex} ===");
-                            ////Console.WriteLine($"Firmatario: {cert.Subject}");
-                            ////Console.WriteLine($"Emesso da: {cert.Issuer}");
-                            ////Console.WriteLine($"Valido dal: {cert.NotBefore}");
-                            ////Console.WriteLine($"Valido fino: {cert.NotAfter}");
-                            //Console.WriteLine($"Algoritmo: {cert.SignatureAlgorithm.FriendlyName}");
-                            //Console.WriteLine($"Seriale: {cert.SerialNumber}");
-                            //Console.WriteLine();
-
+                          
                             certificatiTrovati.Add(dtoCertificato);
                         }
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"Errore nella lettura della firma #{firmaIndex}: {ex.Message}\n");
+                        Utility.MessaggioErrore($"Errore nella lettura della firma #{firmaIndex}: {ex.Message}\n");
                     }
 
                     firmaIndex++;
@@ -157,7 +149,12 @@ namespace Toro
         #region funzioni
 
        
-
+        /// <summary>
+        /// Per la firma digitale
+        /// </summary>
+        /// <param name="hex"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         byte[] HexStringToBytes(string hex)
         {
             if (hex.Length % 2 != 0)
