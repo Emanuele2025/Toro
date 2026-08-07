@@ -24,7 +24,8 @@ namespace Toro
             try
             {
                 this.Text = Utility.TitoloFinestra;
-
+                //TODO:
+                //https://emanuelemattei.blogspot.com/2025/04/c-classe-per-gestire-i-file-vcf.html
 
 
             }
@@ -95,7 +96,7 @@ namespace Toro
                     return;
                 }
 
-               
+
 
                 int firmaIndex = 1;
                 foreach (Match match in matches)
@@ -106,23 +107,23 @@ namespace Toro
 
                         SignedCms cms = new SignedCms();
                         cms.Decode(signatureBytes);
-                       
+
                         foreach (var firma in cms.SignerInfos)
                         {
                             X509Certificate2 cert = firma.Certificate;
                             DtoFirmaDigitale dtoCertificato = new DtoFirmaDigitale()
-                            { 
-                                 Oggetto = cert.Subject,
-                                 EmessoDa = cert.Issuer,
-                                 DataInizio = cert.NotBefore,
-                                 DataFine = cert.NotAfter,
-                                 Algoritmo = cert.SignatureAlgorithm.FriendlyName,
-                                 Seriale = cert.SerialNumber
+                            {
+                                Oggetto = cert.Subject,
+                                EmessoDa = cert.Issuer,
+                                DataInizio = cert.NotBefore,
+                                DataFine = cert.NotAfter,
+                                Algoritmo = cert.SignatureAlgorithm.FriendlyName,
+                                Seriale = cert.SerialNumber
 
 
                             };
 
-                          
+
                             certificatiTrovati.Add(dtoCertificato);
                         }
                     }
@@ -148,7 +149,7 @@ namespace Toro
 
         #region funzioni
 
-       
+
         /// <summary>
         /// Per la firma digitale
         /// </summary>
@@ -172,5 +173,9 @@ namespace Toro
 
 
 
+        private void BtnChiudi_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

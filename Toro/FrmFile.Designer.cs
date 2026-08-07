@@ -151,6 +151,7 @@
             BtnChiudi.TabIndex = 4;
             BtnChiudi.Text = "Chiudi";
             BtnChiudi.UseVisualStyleBackColor = true;
+            BtnChiudi.Click += BtnChiudi_Click;
             // 
             // FrmFile
             // 
