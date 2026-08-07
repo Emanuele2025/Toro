@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Security.Cryptography.Pkcs;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Toro.Modelli;
 
 namespace Toro
 {
@@ -70,15 +74,75 @@ namespace Toro
         {
             try
             {
+                dtgCertificatiFilePdf.DataSource = null;
                 //Verifico se è stato selezionato il file
                 if (string.IsNullOrEmpty(TxtPercorsoCartella.Text.Trim()))
                 {
                     Utility.MessaggioInfo("Selezionare un file PDF.");
                     return;
                 }
+                List<DtoFirmaDigitale> certificatiTrovati = new List<DtoFirmaDigitale>();
+                string pdfPath = @TxtPercorsoCartella.Text.Trim();
+                byte[] pdfBytes = File.ReadAllBytes(pdfPath);
+                string pdfText = Encoding.ASCII.GetString(pdfBytes);
+
+                // Trova TUTTI i blocchi /Contents <...>
+                MatchCollection matches = Regex.Matches(pdfText, @"/Contents\s*<([0-9A-Fa-f]+)>");
+
+                if (matches.Count == 0)
+                {
+                    Utility.MessaggioInfo("Nessuna firma digitale trovata nel PDF.");
+                    return;
+                }
+
+               
+
+                int firmaIndex = 1;
+                foreach (Match match in matches)
+                {
+                    try
+                    {
+                        byte[] signatureBytes = HexStringToBytes(match.Groups[1].Value);
+
+                        SignedCms cms = new SignedCms();
+                        cms.Decode(signatureBytes);
+                       
+                        foreach (var firma in cms.SignerInfos)
+                        {
+                            X509Certificate2 cert = firma.Certificate;
+                            DtoFirmaDigitale dtoCertificato = new DtoFirmaDigitale()
+                            { 
+                                 Oggetto = cert.Subject,
+                                 EmessoDa = cert.Issuer,
+                                 DataInizio = cert.NotBefore,
+                                 DataFine = cert.NotAfter,
+                                 Algoritmo = cert.SignatureAlgorithm.FriendlyName,
+                                 Seriale = cert.SerialNumber
 
 
+                            };
 
+                            ////Console.WriteLine($"=== Firma #{firmaIndex} ===");
+                            ////Console.WriteLine($"Firmatario: {cert.Subject}");
+                            ////Console.WriteLine($"Emesso da: {cert.Issuer}");
+                            ////Console.WriteLine($"Valido dal: {cert.NotBefore}");
+                            ////Console.WriteLine($"Valido fino: {cert.NotAfter}");
+                            //Console.WriteLine($"Algoritmo: {cert.SignatureAlgorithm.FriendlyName}");
+                            //Console.WriteLine($"Seriale: {cert.SerialNumber}");
+                            //Console.WriteLine();
+
+                            certificatiTrovati.Add(dtoCertificato);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Errore nella lettura della firma #{firmaIndex}: {ex.Message}\n");
+                    }
+
+                    firmaIndex++;
+                }
+
+                dtgCertificatiFilePdf.DataSource = certificatiTrovati;
 
 
             }
@@ -88,5 +152,28 @@ namespace Toro
 
             }
         }
+
+
+        #region funzioni
+
+       
+
+        byte[] HexStringToBytes(string hex)
+        {
+            if (hex.Length % 2 != 0)
+                throw new ArgumentException("Stringa esadecimale non valida.");
+
+            byte[] bytes = new byte[hex.Length / 2];
+            for (int i = 0; i < bytes.Length; i++)
+                bytes[i] = Convert.ToByte(hex.Substring(i * 2, 2), 16);
+
+            return bytes;
+        }
+
+
+        #endregion
+
+
+
     }
 }

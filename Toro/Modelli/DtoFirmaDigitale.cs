@@ -17,5 +17,11 @@ namespace Toro.Modelli
 
         public DateTime DataFine { get; set; }
 
+        public string EmessoDa { get; set; }
+
+        public string Algoritmo { get; set; }
+
+        public string Seriale { get; set; }
+
     }
 }
