@@ -37,15 +37,17 @@
             label2 = new Label();
             dtgCertificatiFilePdf = new DataGridView();
             tbpLeggiVCF = new TabPage();
-            BtnChiudi = new Button();
-            label3 = new Label();
-            TxtPercorsoVCF = new TextBox();
-            button1 = new Button();
             BtnFileVCF = new Button();
+            button1 = new Button();
+            TxtPercorsoVCF = new TextBox();
+            label3 = new Label();
+            BtnChiudi = new Button();
+            dtgDatiVcf = new DataGridView();
             tbcFile.SuspendLayout();
             tbpLeggiCertificatiPdf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgCertificatiFilePdf).BeginInit();
             tbpLeggiVCF.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgDatiVcf).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -137,6 +139,7 @@
             // 
             // tbpLeggiVCF
             // 
+            tbpLeggiVCF.Controls.Add(dtgDatiVcf);
             tbpLeggiVCF.Controls.Add(BtnFileVCF);
             tbpLeggiVCF.Controls.Add(button1);
             tbpLeggiVCF.Controls.Add(TxtPercorsoVCF);
@@ -149,6 +152,45 @@
             tbpLeggiVCF.Text = "Leggi file VCF";
             tbpLeggiVCF.ToolTipText = "Estrapola il contenuto dei file VCF";
             tbpLeggiVCF.UseVisualStyleBackColor = true;
+            // 
+            // BtnFileVCF
+            // 
+            BtnFileVCF.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnFileVCF.Location = new Point(579, 22);
+            BtnFileVCF.Name = "BtnFileVCF";
+            BtnFileVCF.Size = new Size(30, 29);
+            BtnFileVCF.TabIndex = 18;
+            BtnFileVCF.Text = "...";
+            BtnFileVCF.TextAlign = ContentAlignment.TopLeft;
+            BtnFileVCF.UseVisualStyleBackColor = true;
+            BtnFileVCF.Click += BtnFileVCF_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(17, 48);
+            button1.Name = "button1";
+            button1.Size = new Size(92, 23);
+            button1.TabIndex = 17;
+            button1.Text = "Rileva Certificati";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // TxtPercorsoVCF
+            // 
+            TxtPercorsoVCF.Location = new Point(18, 22);
+            TxtPercorsoVCF.Name = "TxtPercorsoVCF";
+            TxtPercorsoVCF.ReadOnly = true;
+            TxtPercorsoVCF.Size = new Size(555, 23);
+            TxtPercorsoVCF.TabIndex = 15;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(18, 4);
+            label3.Name = "label3";
+            label3.Size = new Size(287, 15);
+            label3.TabIndex = 2;
+            label3.Text = "Percorso e nome del file VCF per leggere il contenuto";
             // 
             // BtnChiudi
             // 
@@ -163,43 +205,14 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
-            // label3
+            // dtgDatiVcf
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(18, 4);
-            label3.Name = "label3";
-            label3.Size = new Size(287, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Percorso e nome del file VCF per leggere il contenuto";
-            // 
-            // TxtPercorsoVCF
-            // 
-            TxtPercorsoVCF.Location = new Point(18, 22);
-            TxtPercorsoVCF.Name = "TxtPercorsoVCF";
-            TxtPercorsoVCF.ReadOnly = true;
-            TxtPercorsoVCF.Size = new Size(555, 23);
-            TxtPercorsoVCF.TabIndex = 15;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(18, 51);
-            button1.Name = "button1";
-            button1.Size = new Size(92, 23);
-            button1.TabIndex = 17;
-            button1.Text = "Rileva Certificati";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // BtnFileVCF
-            // 
-            BtnFileVCF.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            BtnFileVCF.Location = new Point(579, 22);
-            BtnFileVCF.Name = "BtnFileVCF";
-            BtnFileVCF.Size = new Size(30, 29);
-            BtnFileVCF.TabIndex = 18;
-            BtnFileVCF.Text = "...";
-            BtnFileVCF.TextAlign = ContentAlignment.TopLeft;
-            BtnFileVCF.UseVisualStyleBackColor = true;
-            BtnFileVCF.Click += BtnFileVCF_Click;
+            dtgDatiVcf.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgDatiVcf.Dock = DockStyle.Bottom;
+            dtgDatiVcf.Location = new Point(3, 77);
+            dtgDatiVcf.Name = "dtgDatiVcf";
+            dtgDatiVcf.Size = new Size(949, 176);
+            dtgDatiVcf.TabIndex = 19;
             // 
             // FrmFile
             // 
@@ -222,6 +235,7 @@
             ((System.ComponentModel.ISupportInitialize)dtgCertificatiFilePdf).EndInit();
             tbpLeggiVCF.ResumeLayout(false);
             tbpLeggiVCF.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgDatiVcf).EndInit();
             ResumeLayout(false);
         }
 
@@ -241,5 +255,6 @@
         private Button button1;
         private TextBox TxtPercorsoVCF;
         private Label label3;
+        private DataGridView dtgDatiVcf;
     }
 }
