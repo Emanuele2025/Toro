@@ -111,20 +111,25 @@ namespace Toro
                         foreach (var firma in cms.SignerInfos)
                         {
                             X509Certificate2 cert = firma.Certificate;
-                            DtoFirmaDigitale dtoCertificato = new DtoFirmaDigitale()
+                            if (cert != null)
                             {
-                                Oggetto = cert.Subject,
-                                EmessoDa = cert.Issuer,
-                                DataInizio = cert.NotBefore,
-                                DataFine = cert.NotAfter,
-                                Algoritmo = cert.SignatureAlgorithm.FriendlyName,
-                                Seriale = cert.SerialNumber
+                                DtoFirmaDigitale dtoCertificato = new DtoFirmaDigitale()
+                                {
+                                    Oggetto = cert.Subject,
+                                    EmessoDa = cert.Issuer,
+                                    DataInizio = cert.NotBefore,
+                                    DataFine = cert.NotAfter,
+                                    Algoritmo = cert.SignatureAlgorithm?.FriendlyName ?? "",
+                                    Seriale = cert.SerialNumber
 
 
-                            };
+                                };
+                                certificatiTrovati.Add(dtoCertificato);
+                            }
 
 
-                            certificatiTrovati.Add(dtoCertificato);
+
+
                         }
                     }
                     catch (Exception ex)
@@ -193,9 +198,39 @@ namespace Toro
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        
 
+        private void BtnRilevaVCF_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            try
+            {
+                if (TxtPercorsoVCF.Text.Trim() == "")
+                {
+                    Utility.MessaggioInfo("Selezionare la cartella contenente i file VCF.");
+                    return;
+                }
+                //TODO: Mettere il cambio del cursore
+                //TODO: nel caso che non sono presenti file vcf nella cartella selezionata mostrare un messaggio.
+                DtoContattiVcf contatti = new DtoContattiVcf();
+                var listaContatti = contatti.Contatti(TxtPercorsoVCF.Text.Trim());
+                if (listaContatti.Count == 0)
+                {
+                    Utility.MessaggioInfo("File VCF non presente nella cartella selezionata");
+                }
+                 
+                dtgDatiVcf.DataSource = listaContatti.ToList();
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+
+            }
         }
     }
 }

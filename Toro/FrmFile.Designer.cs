@@ -37,12 +37,15 @@
             label2 = new Label();
             dtgCertificatiFilePdf = new DataGridView();
             tbpLeggiVCF = new TabPage();
+            dtgDatiVcf = new DataGridView();
             BtnFileVCF = new Button();
-            button1 = new Button();
+            BtnRilevaVCF = new Button();
             TxtPercorsoVCF = new TextBox();
             label3 = new Label();
             BtnChiudi = new Button();
-            dtgDatiVcf = new DataGridView();
+            Nome = new DataGridViewTextBoxColumn();
+            Email = new DataGridViewTextBoxColumn();
+            Note = new DataGridViewTextBoxColumn();
             tbcFile.SuspendLayout();
             tbpLeggiCertificatiPdf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgCertificatiFilePdf).BeginInit();
@@ -141,7 +144,7 @@
             // 
             tbpLeggiVCF.Controls.Add(dtgDatiVcf);
             tbpLeggiVCF.Controls.Add(BtnFileVCF);
-            tbpLeggiVCF.Controls.Add(button1);
+            tbpLeggiVCF.Controls.Add(BtnRilevaVCF);
             tbpLeggiVCF.Controls.Add(TxtPercorsoVCF);
             tbpLeggiVCF.Controls.Add(label3);
             tbpLeggiVCF.Location = new Point(4, 24);
@@ -152,6 +155,16 @@
             tbpLeggiVCF.Text = "Leggi file VCF";
             tbpLeggiVCF.ToolTipText = "Estrapola il contenuto dei file VCF";
             tbpLeggiVCF.UseVisualStyleBackColor = true;
+            // 
+            // dtgDatiVcf
+            // 
+            dtgDatiVcf.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgDatiVcf.Columns.AddRange(new DataGridViewColumn[] { Nome, Email, Note });
+            dtgDatiVcf.Dock = DockStyle.Bottom;
+            dtgDatiVcf.Location = new Point(3, 77);
+            dtgDatiVcf.Name = "dtgDatiVcf";
+            dtgDatiVcf.Size = new Size(949, 176);
+            dtgDatiVcf.TabIndex = 19;
             // 
             // BtnFileVCF
             // 
@@ -165,15 +178,15 @@
             BtnFileVCF.UseVisualStyleBackColor = true;
             BtnFileVCF.Click += BtnFileVCF_Click;
             // 
-            // button1
+            // BtnRilevaVCF
             // 
-            button1.Location = new Point(17, 48);
-            button1.Name = "button1";
-            button1.Size = new Size(92, 23);
-            button1.TabIndex = 17;
-            button1.Text = "Rileva Certificati";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            BtnRilevaVCF.Location = new Point(17, 48);
+            BtnRilevaVCF.Name = "BtnRilevaVCF";
+            BtnRilevaVCF.Size = new Size(92, 23);
+            BtnRilevaVCF.TabIndex = 17;
+            BtnRilevaVCF.Text = "Rileva Certificati";
+            BtnRilevaVCF.UseVisualStyleBackColor = true;
+            BtnRilevaVCF.Click += BtnRilevaVCF_Click;
             // 
             // TxtPercorsoVCF
             // 
@@ -205,14 +218,29 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
-            // dtgDatiVcf
+            // Nome
             // 
-            dtgDatiVcf.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgDatiVcf.Dock = DockStyle.Bottom;
-            dtgDatiVcf.Location = new Point(3, 77);
-            dtgDatiVcf.Name = "dtgDatiVcf";
-            dtgDatiVcf.Size = new Size(949, 176);
-            dtgDatiVcf.TabIndex = 19;
+            Nome.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Nome.DataPropertyName = "Nome";
+            Nome.HeaderText = "Nome";
+            Nome.Name = "Nome";
+            Nome.Width = 65;
+            // 
+            // Email
+            // 
+            Email.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Email.DataPropertyName = "Email";
+            Email.HeaderText = "Email";
+            Email.Name = "Email";
+            Email.Width = 61;
+            // 
+            // Note
+            // 
+            Note.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Note.DataPropertyName = "Note";
+            Note.HeaderText = "Note";
+            Note.Name = "Note";
+            Note.Width = 58;
             // 
             // FrmFile
             // 
@@ -252,9 +280,12 @@
         private Label label2;
         private DataGridView dtgCertificatiFilePdf;
         private Button BtnFileVCF;
-        private Button button1;
+        private Button BtnRilevaVCF;
         private TextBox TxtPercorsoVCF;
         private Label label3;
         private DataGridView dtgDatiVcf;
+        private DataGridViewTextBoxColumn Nome;
+        private DataGridViewTextBoxColumn Email;
+        private DataGridViewTextBoxColumn Note;
     }
 }
