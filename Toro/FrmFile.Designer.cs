@@ -38,14 +38,15 @@
             dtgCertificatiFilePdf = new DataGridView();
             tbpLeggiVCF = new TabPage();
             dtgDatiVcf = new DataGridView();
+            Nome = new DataGridViewTextBoxColumn();
+            Email = new DataGridViewTextBoxColumn();
+            Note = new DataGridViewTextBoxColumn();
             BtnFileVCF = new Button();
             BtnRilevaVCF = new Button();
             TxtPercorsoVCF = new TextBox();
             label3 = new Label();
             BtnChiudi = new Button();
-            Nome = new DataGridViewTextBoxColumn();
-            Email = new DataGridViewTextBoxColumn();
-            Note = new DataGridViewTextBoxColumn();
+            tbpEstrapolaFileP7m = new TabPage();
             tbcFile.SuspendLayout();
             tbpLeggiCertificatiPdf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgCertificatiFilePdf).BeginInit();
@@ -70,6 +71,7 @@
             // 
             tbcFile.Controls.Add(tbpLeggiCertificatiPdf);
             tbcFile.Controls.Add(tbpLeggiVCF);
+            tbcFile.Controls.Add(tbpEstrapolaFileP7m);
             tbcFile.Dock = DockStyle.Top;
             tbcFile.Location = new Point(0, 22);
             tbcFile.Name = "tbcFile";
@@ -166,6 +168,30 @@
             dtgDatiVcf.Size = new Size(949, 176);
             dtgDatiVcf.TabIndex = 19;
             // 
+            // Nome
+            // 
+            Nome.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Nome.DataPropertyName = "Nome";
+            Nome.HeaderText = "Nome";
+            Nome.Name = "Nome";
+            Nome.Width = 65;
+            // 
+            // Email
+            // 
+            Email.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Email.DataPropertyName = "Email";
+            Email.HeaderText = "Email";
+            Email.Name = "Email";
+            Email.Width = 61;
+            // 
+            // Note
+            // 
+            Note.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Note.DataPropertyName = "Note";
+            Note.HeaderText = "Note";
+            Note.Name = "Note";
+            Note.Width = 58;
+            // 
             // BtnFileVCF
             // 
             BtnFileVCF.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -218,29 +244,15 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
-            // Nome
+            // tbpEstrapolaFileP7m
             // 
-            Nome.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Nome.DataPropertyName = "Nome";
-            Nome.HeaderText = "Nome";
-            Nome.Name = "Nome";
-            Nome.Width = 65;
-            // 
-            // Email
-            // 
-            Email.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Email.DataPropertyName = "Email";
-            Email.HeaderText = "Email";
-            Email.Name = "Email";
-            Email.Width = 61;
-            // 
-            // Note
-            // 
-            Note.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Note.DataPropertyName = "Note";
-            Note.HeaderText = "Note";
-            Note.Name = "Note";
-            Note.Width = 58;
+            tbpEstrapolaFileP7m.Location = new Point(4, 24);
+            tbpEstrapolaFileP7m.Name = "tbpEstrapolaFileP7m";
+            tbpEstrapolaFileP7m.Padding = new Padding(3);
+            tbpEstrapolaFileP7m.Size = new Size(955, 256);
+            tbpEstrapolaFileP7m.TabIndex = 2;
+            tbpEstrapolaFileP7m.Text = "Estrapola file da p7m";
+            tbpEstrapolaFileP7m.UseVisualStyleBackColor = true;
             // 
             // FrmFile
             // 
@@ -287,5 +299,6 @@
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn Email;
         private DataGridViewTextBoxColumn Note;
+        private TabPage tbpEstrapolaFileP7m;
     }
 }
