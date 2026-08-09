@@ -198,7 +198,7 @@ namespace Toro
             }
         }
 
-        
+
 
         private void BtnRilevaVCF_Click(object sender, EventArgs e)
         {
@@ -218,7 +218,7 @@ namespace Toro
                 {
                     Utility.MessaggioInfo("File VCF non presente nella cartella selezionata");
                 }
-                 
+
                 dtgDatiVcf.DataSource = listaContatti.ToList();
 
             }
@@ -230,6 +230,20 @@ namespace Toro
             {
                 Cursor.Current = Cursors.Default;
 
+            }
+        }
+
+        private void BtnSelezionaFileP7m_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+            {
+                folderBrowserDialog.Description = "Seleziona la cartella dove si trovano i file vcf";
+
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Imposto il percorso selezionato nella casella di testo
+                    TxtPercorsoVCF.Text = folderBrowserDialog.SelectedPath;
+                }
             }
         }
     }

@@ -45,13 +45,18 @@
             BtnRilevaVCF = new Button();
             TxtPercorsoVCF = new TextBox();
             label3 = new Label();
-            BtnChiudi = new Button();
             tbpEstrapolaFileP7m = new TabPage();
+            BtnSelezionaFileP7m = new Button();
+            BtnEstrapolaFile = new Button();
+            TxtPercorsoFileP7m = new TextBox();
+            label4 = new Label();
+            BtnChiudi = new Button();
             tbcFile.SuspendLayout();
             tbpLeggiCertificatiPdf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgCertificatiFilePdf).BeginInit();
             tbpLeggiVCF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatiVcf).BeginInit();
+            tbpEstrapolaFileP7m.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -74,6 +79,7 @@
             tbcFile.Controls.Add(tbpEstrapolaFileP7m);
             tbcFile.Dock = DockStyle.Top;
             tbcFile.Location = new Point(0, 22);
+            tbcFile.Multiline = true;
             tbcFile.Name = "tbcFile";
             tbcFile.SelectedIndex = 0;
             tbcFile.Size = new Size(963, 284);
@@ -208,7 +214,7 @@
             // 
             BtnRilevaVCF.Location = new Point(17, 48);
             BtnRilevaVCF.Name = "BtnRilevaVCF";
-            BtnRilevaVCF.Size = new Size(92, 23);
+            BtnRilevaVCF.Size = new Size(113, 23);
             BtnRilevaVCF.TabIndex = 17;
             BtnRilevaVCF.Text = "Rileva Certificati";
             BtnRilevaVCF.UseVisualStyleBackColor = true;
@@ -231,6 +237,58 @@
             label3.TabIndex = 2;
             label3.Text = "Percorso e nome del file VCF per leggere il contenuto";
             // 
+            // tbpEstrapolaFileP7m
+            // 
+            tbpEstrapolaFileP7m.Controls.Add(BtnSelezionaFileP7m);
+            tbpEstrapolaFileP7m.Controls.Add(BtnEstrapolaFile);
+            tbpEstrapolaFileP7m.Controls.Add(TxtPercorsoFileP7m);
+            tbpEstrapolaFileP7m.Controls.Add(label4);
+            tbpEstrapolaFileP7m.Location = new Point(4, 24);
+            tbpEstrapolaFileP7m.Name = "tbpEstrapolaFileP7m";
+            tbpEstrapolaFileP7m.Padding = new Padding(3);
+            tbpEstrapolaFileP7m.Size = new Size(955, 256);
+            tbpEstrapolaFileP7m.TabIndex = 2;
+            tbpEstrapolaFileP7m.Text = "Estrapola file da p7m";
+            tbpEstrapolaFileP7m.UseVisualStyleBackColor = true;
+            // 
+            // BtnSelezionaFileP7m
+            // 
+            BtnSelezionaFileP7m.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnSelezionaFileP7m.Location = new Point(569, 30);
+            BtnSelezionaFileP7m.Name = "BtnSelezionaFileP7m";
+            BtnSelezionaFileP7m.Size = new Size(30, 29);
+            BtnSelezionaFileP7m.TabIndex = 22;
+            BtnSelezionaFileP7m.Text = "...";
+            BtnSelezionaFileP7m.TextAlign = ContentAlignment.TopLeft;
+            BtnSelezionaFileP7m.UseVisualStyleBackColor = true;
+            BtnSelezionaFileP7m.Click += BtnSelezionaFileP7m_Click;
+            // 
+            // BtnEstrapolaFile
+            // 
+            BtnEstrapolaFile.Location = new Point(7, 56);
+            BtnEstrapolaFile.Name = "BtnEstrapolaFile";
+            BtnEstrapolaFile.Size = new Size(92, 23);
+            BtnEstrapolaFile.TabIndex = 21;
+            BtnEstrapolaFile.Text = "Estrapola File";
+            BtnEstrapolaFile.UseVisualStyleBackColor = true;
+            // 
+            // TxtPercorsoFileP7m
+            // 
+            TxtPercorsoFileP7m.Location = new Point(8, 30);
+            TxtPercorsoFileP7m.Name = "TxtPercorsoFileP7m";
+            TxtPercorsoFileP7m.ReadOnly = true;
+            TxtPercorsoFileP7m.Size = new Size(555, 23);
+            TxtPercorsoFileP7m.TabIndex = 20;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(8, 12);
+            label4.Name = "label4";
+            label4.Size = new Size(273, 15);
+            label4.TabIndex = 19;
+            label4.Text = "Percorso e nome del file P7M, per estrapolare il file";
+            // 
             // BtnChiudi
             // 
             BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -243,16 +301,6 @@
             BtnChiudi.Text = "Chiudi";
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
-            // 
-            // tbpEstrapolaFileP7m
-            // 
-            tbpEstrapolaFileP7m.Location = new Point(4, 24);
-            tbpEstrapolaFileP7m.Name = "tbpEstrapolaFileP7m";
-            tbpEstrapolaFileP7m.Padding = new Padding(3);
-            tbpEstrapolaFileP7m.Size = new Size(955, 256);
-            tbpEstrapolaFileP7m.TabIndex = 2;
-            tbpEstrapolaFileP7m.Text = "Estrapola file da p7m";
-            tbpEstrapolaFileP7m.UseVisualStyleBackColor = true;
             // 
             // FrmFile
             // 
@@ -276,6 +324,8 @@
             tbpLeggiVCF.ResumeLayout(false);
             tbpLeggiVCF.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatiVcf).EndInit();
+            tbpEstrapolaFileP7m.ResumeLayout(false);
+            tbpEstrapolaFileP7m.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -300,5 +350,9 @@
         private DataGridViewTextBoxColumn Email;
         private DataGridViewTextBoxColumn Note;
         private TabPage tbpEstrapolaFileP7m;
+        private Button BtnSelezionaFileP7m;
+        private Button BtnEstrapolaFile;
+        private TextBox TxtPercorsoFileP7m;
+        private Label label4;
     }
 }
