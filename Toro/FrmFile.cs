@@ -205,21 +205,38 @@ namespace Toro
             Cursor.Current = Cursors.WaitCursor;
             try
             {
-                if (TxtPercorsoVCF.Text.Trim() == "")
+                string percorso = TxtPercorsoVCF.Text.Trim();
+
+                if (string.IsNullOrWhiteSpace(percorso))
                 {
-                    Utility.MessaggioInfo("Selezionare la cartella contenente i file VCF.");
+                    Utility.MessaggioInfo(
+                        "Selezionare la cartella contenente i file VCF.");
+
                     return;
                 }
-                
-                
-                DtoContattiVcf contatti = new DtoContattiVcf();
-                var listaContatti = contatti.Contatti(TxtPercorsoVCF.Text.Trim());
-                if (listaContatti.Count == 0)
+
+                if (!Directory.Exists(percorso))
                 {
-                    Utility.MessaggioInfo("File VCF non presente nella cartella selezionata");
+                    Utility.MessaggioInfo(
+                        "La cartella selezionata non esiste.");
+
+                    return;
                 }
 
-                dtgDatiVcf.DataSource = listaContatti.ToList();
+                DtoContattiVcf contatti = new DtoContattiVcf();
+
+                List<DtoContattiVcf> listaContatti = contatti.Contatti(percorso);
+
+                if (listaContatti.Count == 0)
+                {
+                    Utility.MessaggioInfo(
+                        "Nessun file VCF presente nella cartella selezionata.");
+
+                    return;
+                }
+
+                dtgDatiVcf.DataSource = listaContatti;
+
 
             }
             catch (Exception ex)

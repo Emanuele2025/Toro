@@ -104,7 +104,7 @@
             // 
             BtnLeggiCertificatiPdf.Location = new Point(17, 48);
             BtnLeggiCertificatiPdf.Name = "BtnLeggiCertificatiPdf";
-            BtnLeggiCertificatiPdf.Size = new Size(92, 23);
+            BtnLeggiCertificatiPdf.Size = new Size(117, 23);
             BtnLeggiCertificatiPdf.TabIndex = 16;
             BtnLeggiCertificatiPdf.Text = "Rileva Certificati";
             BtnLeggiCertificatiPdf.UseVisualStyleBackColor = true;
@@ -216,7 +216,7 @@
             BtnRilevaVCF.Name = "BtnRilevaVCF";
             BtnRilevaVCF.Size = new Size(113, 23);
             BtnRilevaVCF.TabIndex = 17;
-            BtnRilevaVCF.Text = "Rileva Certificati";
+            BtnRilevaVCF.Text = "Leggi file vcf";
             BtnRilevaVCF.UseVisualStyleBackColor = true;
             BtnRilevaVCF.Click += BtnRilevaVCF_Click;
             // 
