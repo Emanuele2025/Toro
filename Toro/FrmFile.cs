@@ -210,8 +210,8 @@ namespace Toro
                     Utility.MessaggioInfo("Selezionare la cartella contenente i file VCF.");
                     return;
                 }
-                //TODO: Mettere il cambio del cursore
-                //TODO: nel caso che non sono presenti file vcf nella cartella selezionata mostrare un messaggio.
+                
+                
                 DtoContattiVcf contatti = new DtoContattiVcf();
                 var listaContatti = contatti.Contatti(TxtPercorsoVCF.Text.Trim());
                 if (listaContatti.Count == 0)
@@ -235,16 +235,85 @@ namespace Toro
 
         private void BtnSelezionaFileP7m_Click(object sender, EventArgs e)
         {
-            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+            try
             {
-                folderBrowserDialog.Description = "Seleziona la cartella dove si trovano i file vcf";
 
-                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                using (OpenFileDialog openDlg = new OpenFileDialog())
                 {
-                    // Imposto il percorso selezionato nella casella di testo
-                    TxtPercorsoVCF.Text = folderBrowserDialog.SelectedPath;
+
+                    openDlg.Multiselect = false;
+
+                    openDlg.Filter = "PDF Files (*.p7m) | *.p7m";
+
+                    if (openDlg.ShowDialog(this) == DialogResult.OK)
+                    {
+                        TxtPercorsoFileP7m.Text = openDlg.FileName;
+                    }
+
                 }
+
+
+
             }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+
+            }
+        }
+
+        private void BtnEstrapolaFile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TxtPercorsoFileP7m.Text.Trim() == "")
+                {
+                    Utility.MessaggioInfo("Selezionare un file P7M.");
+                    return;
+                }
+                string PercorsoNomeFile = TxtPercorsoFileP7m.Text.Trim();
+                try
+                {
+                    if (PercorsoNomeFile.Trim() == "")
+                    {
+                        MessageBox.Show("Selezionare un file firmato digitalmente, di tipo p7m");
+                    }
+                    byte[] FileFirmatoP7m = File.ReadAllBytes(PercorsoNomeFile);
+                    if (FileFirmatoP7m == null)
+                        throw new ArgumentNullException("Errore nel file firmato selezionato.");
+                    //Uso la classe per estrapolare il fle
+                    SignedCms cmsFirmato = new SignedCms();
+                    cmsFirmato.Decode(FileFirmatoP7m);
+                    if (cmsFirmato.Detached)
+                        throw new InvalidOperationException("Errore nella fase di estrapolazione del contenuto dal file firmato.");
+                    //Estrapola l'array byte del file firmato
+                    byte[] FileRilevato = cmsFirmato.ContentInfo.Content;
+                    SaveFileDialog fileDaSalvare = new SaveFileDialog();
+                   
+                    string NomeFileDaCreare = new FileInfo(PercorsoNomeFile).Name.Replace(new FileInfo(PercorsoNomeFile).Extension, "");
+                    fileDaSalvare.FileName = NomeFileDaCreare;
+                    if (fileDaSalvare.ShowDialog() == DialogResult.OK)
+                    {
+                        File.WriteAllBytes(fileDaSalvare.FileName, FileRilevato);
+                        Utility.MessaggioInfo("File salvato correttamente in: " + fileDaSalvare.FileName);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Utility.MessaggioErrore(ex.Message);
+                }
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+
+            }
+
         }
     }
 }

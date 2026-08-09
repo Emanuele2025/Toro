@@ -271,6 +271,7 @@
             BtnEstrapolaFile.TabIndex = 21;
             BtnEstrapolaFile.Text = "Estrapola File";
             BtnEstrapolaFile.UseVisualStyleBackColor = true;
+            BtnEstrapolaFile.Click += BtnEstrapolaFile_Click;
             // 
             // TxtPercorsoFileP7m
             // 
