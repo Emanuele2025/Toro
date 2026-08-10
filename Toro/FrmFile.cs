@@ -306,7 +306,7 @@ namespace Toro
                     //Estrapola l'array byte del file firmato
                     byte[] FileRilevato = cmsFirmato.ContentInfo.Content;
                     SaveFileDialog fileDaSalvare = new SaveFileDialog();
-                   
+
                     string NomeFileDaCreare = new FileInfo(PercorsoNomeFile).Name.Replace(new FileInfo(PercorsoNomeFile).Extension, "");
                     fileDaSalvare.FileName = NomeFileDaCreare;
                     if (fileDaSalvare.ShowDialog() == DialogResult.OK)
@@ -331,6 +331,34 @@ namespace Toro
 
             }
 
+        }
+
+        private void BtnCreaFile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+
+
+
+
+
+
+
+            }
+            catch (IOException exio)
+            {
+                Utility.MessaggioErrore(exio.Message);
+            }
+            catch (UnauthorizedAccessException exua)
+            {
+                Utility.MessaggioErrore(exua.Message);
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
         }
     }
 }

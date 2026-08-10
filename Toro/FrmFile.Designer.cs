@@ -51,12 +51,21 @@
             TxtPercorsoFileP7m = new TextBox();
             label4 = new Label();
             BtnChiudi = new Button();
+            TbpHacker = new TabPage();
+            BtnTrovaImmagine = new Button();
+            TxtPercorsoNomeFileImmagine = new TextBox();
+            label5 = new Label();
+            BtnTrovaFileHacker = new Button();
+            BtnCreaFile = new Button();
+            textBox2 = new TextBox();
+            label6 = new Label();
             tbcFile.SuspendLayout();
             tbpLeggiCertificatiPdf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgCertificatiFilePdf).BeginInit();
             tbpLeggiVCF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatiVcf).BeginInit();
             tbpEstrapolaFileP7m.SuspendLayout();
+            TbpHacker.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -77,6 +86,7 @@
             tbcFile.Controls.Add(tbpLeggiCertificatiPdf);
             tbcFile.Controls.Add(tbpLeggiVCF);
             tbcFile.Controls.Add(tbpEstrapolaFileP7m);
+            tbcFile.Controls.Add(TbpHacker);
             tbcFile.Dock = DockStyle.Top;
             tbcFile.Location = new Point(0, 22);
             tbcFile.Multiline = true;
@@ -303,6 +313,88 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
+            // TbpHacker
+            // 
+            TbpHacker.Controls.Add(BtnTrovaFileHacker);
+            TbpHacker.Controls.Add(BtnCreaFile);
+            TbpHacker.Controls.Add(textBox2);
+            TbpHacker.Controls.Add(label6);
+            TbpHacker.Controls.Add(BtnTrovaImmagine);
+            TbpHacker.Controls.Add(TxtPercorsoNomeFileImmagine);
+            TbpHacker.Controls.Add(label5);
+            TbpHacker.Location = new Point(4, 24);
+            TbpHacker.Name = "TbpHacker";
+            TbpHacker.Size = new Size(955, 256);
+            TbpHacker.TabIndex = 3;
+            TbpHacker.Text = "Hacker";
+            TbpHacker.UseVisualStyleBackColor = true;
+            // 
+            // BtnTrovaImmagine
+            // 
+            BtnTrovaImmagine.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnTrovaImmagine.Location = new Point(569, 23);
+            BtnTrovaImmagine.Name = "BtnTrovaImmagine";
+            BtnTrovaImmagine.Size = new Size(30, 29);
+            BtnTrovaImmagine.TabIndex = 26;
+            BtnTrovaImmagine.Text = "...";
+            BtnTrovaImmagine.TextAlign = ContentAlignment.TopLeft;
+            BtnTrovaImmagine.UseVisualStyleBackColor = true;
+            // 
+            // TxtPercorsoNomeFileImmagine
+            // 
+            TxtPercorsoNomeFileImmagine.Location = new Point(8, 29);
+            TxtPercorsoNomeFileImmagine.Name = "TxtPercorsoNomeFileImmagine";
+            TxtPercorsoNomeFileImmagine.ReadOnly = true;
+            TxtPercorsoNomeFileImmagine.Size = new Size(555, 23);
+            TxtPercorsoNomeFileImmagine.TabIndex = 24;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(8, 11);
+            label5.Name = "label5";
+            label5.Size = new Size(271, 15);
+            label5.TabIndex = 23;
+            label5.Text = "Selezionare il file Immagine nel quale inserire il file";
+            // 
+            // BtnTrovaFileHacker
+            // 
+            BtnTrovaFileHacker.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnTrovaFileHacker.Location = new Point(569, 100);
+            BtnTrovaFileHacker.Name = "BtnTrovaFileHacker";
+            BtnTrovaFileHacker.Size = new Size(30, 29);
+            BtnTrovaFileHacker.TabIndex = 30;
+            BtnTrovaFileHacker.Text = "...";
+            BtnTrovaFileHacker.TextAlign = ContentAlignment.TopLeft;
+            BtnTrovaFileHacker.UseVisualStyleBackColor = true;
+            // 
+            // BtnCreaFile
+            // 
+            BtnCreaFile.Location = new Point(8, 216);
+            BtnCreaFile.Name = "BtnCreaFile";
+            BtnCreaFile.Size = new Size(92, 23);
+            BtnCreaFile.TabIndex = 29;
+            BtnCreaFile.Text = "Crea File";
+            BtnCreaFile.UseVisualStyleBackColor = true;
+            BtnCreaFile.Click += BtnCreaFile_Click;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(8, 100);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(555, 23);
+            textBox2.TabIndex = 28;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(8, 82);
+            label6.Name = "label6";
+            label6.Size = new Size(316, 15);
+            label6.TabIndex = 27;
+            label6.Text = "Seleziona il file che si vuole inserire dentro al file immagine";
+            // 
             // FrmFile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -327,6 +419,8 @@
             ((System.ComponentModel.ISupportInitialize)dtgDatiVcf).EndInit();
             tbpEstrapolaFileP7m.ResumeLayout(false);
             tbpEstrapolaFileP7m.PerformLayout();
+            TbpHacker.ResumeLayout(false);
+            TbpHacker.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -355,5 +449,13 @@
         private Button BtnEstrapolaFile;
         private TextBox TxtPercorsoFileP7m;
         private Label label4;
+        private TabPage TbpHacker;
+        private Button BtnTrovaImmagine;
+        private TextBox TxtPercorsoNomeFileImmagine;
+        private Label label5;
+        private Button BtnTrovaFileHacker;
+        private Button BtnCreaFile;
+        private TextBox textBox2;
+        private Label label6;
     }
 }
