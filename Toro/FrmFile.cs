@@ -24,8 +24,8 @@ namespace Toro
             try
             {
                 this.Text = Utility.TitoloFinestra;
-                //TODO:
-                //https://emanuelemattei.blogspot.com/2025/04/c-classe-per-gestire-i-file-vcf.html
+
+
 
 
             }
@@ -345,6 +345,73 @@ namespace Toro
 
 
 
+
+            }
+            catch (IOException exio)
+            {
+                Utility.MessaggioErrore(exio.Message);
+            }
+            catch (UnauthorizedAccessException exua)
+            {
+                Utility.MessaggioErrore(exua.Message);
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
+        }
+
+        private void BtnTrovaImmagine_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                using (OpenFileDialog openDlg = new OpenFileDialog())
+                {
+
+                    openDlg.Multiselect = false;
+
+                    openDlg.Filter = "Immagine Files (*.png) | *.png";
+
+                    if (openDlg.ShowDialog(this) == DialogResult.OK)
+                    {
+                        TxtPercorsoNomeFileImmagine.Text = openDlg.FileName;
+                    }
+
+                }
+
+            }
+            catch (IOException exio)
+            {
+                Utility.MessaggioErrore(exio.Message);
+            }
+            catch (UnauthorizedAccessException exua)
+            {
+                Utility.MessaggioErrore(exua.Message);
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
+        }
+
+        private void BtnTrovaFileHacker_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (OpenFileDialog openDlg = new OpenFileDialog())
+                {
+
+                    openDlg.Multiselect = false;
+
+                    openDlg.Filter = "Tutti Files (*.*) | *.*";
+
+                    if (openDlg.ShowDialog(this) == DialogResult.OK)
+                    {
+                        TxtPercorsoNomeFileDaNascondere.Text = openDlg.FileName;
+                    }
+
+                }
 
             }
             catch (IOException exio)

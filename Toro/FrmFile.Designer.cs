@@ -50,15 +50,15 @@
             BtnEstrapolaFile = new Button();
             TxtPercorsoFileP7m = new TextBox();
             label4 = new Label();
-            BtnChiudi = new Button();
             TbpHacker = new TabPage();
+            BtnTrovaFileHacker = new Button();
+            BtnCreaFile = new Button();
+            TxtPercorsoNomeFileDaNascondere = new TextBox();
+            label6 = new Label();
             BtnTrovaImmagine = new Button();
             TxtPercorsoNomeFileImmagine = new TextBox();
             label5 = new Label();
-            BtnTrovaFileHacker = new Button();
-            BtnCreaFile = new Button();
-            textBox2 = new TextBox();
-            label6 = new Label();
+            BtnChiudi = new Button();
             tbcFile.SuspendLayout();
             tbpLeggiCertificatiPdf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgCertificatiFilePdf).BeginInit();
@@ -300,24 +300,11 @@
             label4.TabIndex = 19;
             label4.Text = "Percorso e nome del file P7M, per estrapolare il file";
             // 
-            // BtnChiudi
-            // 
-            BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            BtnChiudi.Image = Properties.Resources.chiudi_16;
-            BtnChiudi.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnChiudi.Location = new Point(841, 327);
-            BtnChiudi.Name = "BtnChiudi";
-            BtnChiudi.Size = new Size(75, 23);
-            BtnChiudi.TabIndex = 4;
-            BtnChiudi.Text = "Chiudi";
-            BtnChiudi.UseVisualStyleBackColor = true;
-            BtnChiudi.Click += BtnChiudi_Click;
-            // 
             // TbpHacker
             // 
             TbpHacker.Controls.Add(BtnTrovaFileHacker);
             TbpHacker.Controls.Add(BtnCreaFile);
-            TbpHacker.Controls.Add(textBox2);
+            TbpHacker.Controls.Add(TxtPercorsoNomeFileDaNascondere);
             TbpHacker.Controls.Add(label6);
             TbpHacker.Controls.Add(BtnTrovaImmagine);
             TbpHacker.Controls.Add(TxtPercorsoNomeFileImmagine);
@@ -329,6 +316,45 @@
             TbpHacker.Text = "Hacker";
             TbpHacker.UseVisualStyleBackColor = true;
             // 
+            // BtnTrovaFileHacker
+            // 
+            BtnTrovaFileHacker.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnTrovaFileHacker.Location = new Point(569, 100);
+            BtnTrovaFileHacker.Name = "BtnTrovaFileHacker";
+            BtnTrovaFileHacker.Size = new Size(30, 29);
+            BtnTrovaFileHacker.TabIndex = 30;
+            BtnTrovaFileHacker.Text = "...";
+            BtnTrovaFileHacker.TextAlign = ContentAlignment.TopLeft;
+            BtnTrovaFileHacker.UseVisualStyleBackColor = true;
+            BtnTrovaFileHacker.Click += BtnTrovaFileHacker_Click;
+            // 
+            // BtnCreaFile
+            // 
+            BtnCreaFile.Location = new Point(8, 216);
+            BtnCreaFile.Name = "BtnCreaFile";
+            BtnCreaFile.Size = new Size(92, 23);
+            BtnCreaFile.TabIndex = 29;
+            BtnCreaFile.Text = "Crea File";
+            BtnCreaFile.UseVisualStyleBackColor = true;
+            BtnCreaFile.Click += BtnCreaFile_Click;
+            // 
+            // TxtPercorsoNomeFileDaNascondere
+            // 
+            TxtPercorsoNomeFileDaNascondere.Location = new Point(8, 100);
+            TxtPercorsoNomeFileDaNascondere.Name = "TxtPercorsoNomeFileDaNascondere";
+            TxtPercorsoNomeFileDaNascondere.ReadOnly = true;
+            TxtPercorsoNomeFileDaNascondere.Size = new Size(555, 23);
+            TxtPercorsoNomeFileDaNascondere.TabIndex = 28;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(8, 82);
+            label6.Name = "label6";
+            label6.Size = new Size(316, 15);
+            label6.TabIndex = 27;
+            label6.Text = "Seleziona il file che si vuole inserire dentro al file immagine";
+            // 
             // BtnTrovaImmagine
             // 
             BtnTrovaImmagine.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -339,6 +365,7 @@
             BtnTrovaImmagine.Text = "...";
             BtnTrovaImmagine.TextAlign = ContentAlignment.TopLeft;
             BtnTrovaImmagine.UseVisualStyleBackColor = true;
+            BtnTrovaImmagine.Click += BtnTrovaImmagine_Click;
             // 
             // TxtPercorsoNomeFileImmagine
             // 
@@ -357,43 +384,18 @@
             label5.TabIndex = 23;
             label5.Text = "Selezionare il file Immagine nel quale inserire il file";
             // 
-            // BtnTrovaFileHacker
+            // BtnChiudi
             // 
-            BtnTrovaFileHacker.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            BtnTrovaFileHacker.Location = new Point(569, 100);
-            BtnTrovaFileHacker.Name = "BtnTrovaFileHacker";
-            BtnTrovaFileHacker.Size = new Size(30, 29);
-            BtnTrovaFileHacker.TabIndex = 30;
-            BtnTrovaFileHacker.Text = "...";
-            BtnTrovaFileHacker.TextAlign = ContentAlignment.TopLeft;
-            BtnTrovaFileHacker.UseVisualStyleBackColor = true;
-            // 
-            // BtnCreaFile
-            // 
-            BtnCreaFile.Location = new Point(8, 216);
-            BtnCreaFile.Name = "BtnCreaFile";
-            BtnCreaFile.Size = new Size(92, 23);
-            BtnCreaFile.TabIndex = 29;
-            BtnCreaFile.Text = "Crea File";
-            BtnCreaFile.UseVisualStyleBackColor = true;
-            BtnCreaFile.Click += BtnCreaFile_Click;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(8, 100);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(555, 23);
-            textBox2.TabIndex = 28;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(8, 82);
-            label6.Name = "label6";
-            label6.Size = new Size(316, 15);
-            label6.TabIndex = 27;
-            label6.Text = "Seleziona il file che si vuole inserire dentro al file immagine";
+            BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BtnChiudi.Image = Properties.Resources.chiudi_16;
+            BtnChiudi.ImageAlign = ContentAlignment.MiddleLeft;
+            BtnChiudi.Location = new Point(841, 327);
+            BtnChiudi.Name = "BtnChiudi";
+            BtnChiudi.Size = new Size(75, 23);
+            BtnChiudi.TabIndex = 4;
+            BtnChiudi.Text = "Chiudi";
+            BtnChiudi.UseVisualStyleBackColor = true;
+            BtnChiudi.Click += BtnChiudi_Click;
             // 
             // FrmFile
             // 
@@ -455,7 +457,7 @@
         private Label label5;
         private Button BtnTrovaFileHacker;
         private Button BtnCreaFile;
-        private TextBox textBox2;
+        private TextBox TxtPercorsoNomeFileDaNascondere;
         private Label label6;
     }
 }
