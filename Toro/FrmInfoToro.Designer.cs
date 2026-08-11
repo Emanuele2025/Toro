@@ -222,6 +222,7 @@
             Controls.Add(pctLogo);
             Controls.Add(BtnChiudi);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmInfoToro";

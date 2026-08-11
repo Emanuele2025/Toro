@@ -351,9 +351,9 @@
             label6.AutoSize = true;
             label6.Location = new Point(8, 82);
             label6.Name = "label6";
-            label6.Size = new Size(316, 15);
+            label6.Size = new Size(402, 15);
             label6.TabIndex = 27;
-            label6.Text = "Seleziona il file che si vuole inserire dentro al file immagine";
+            label6.Text = "Seleziona il file Microsoft Word che si vuole inserire dentro al file immagine";
             // 
             // BtnTrovaImmagine
             // 

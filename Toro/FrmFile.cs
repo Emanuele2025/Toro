@@ -338,8 +338,22 @@ namespace Toro
             try
             {
 
+                if (TxtPercorsoNomeFileImmagine.Text.ToString() == "")
+                {
+                     
+                        Utility.MessaggioInfo("Selezionare un file immagine Png dove si vuole aggiungere il file Word.");
 
+                        return;
+                     
+                }
+                if (TxtPercorsoNomeFileDaNascondere.Text.ToString() == "")
+                {
 
+                    Utility.MessaggioInfo("Selezionare un file immagine word che si vuole aggiungere al file immagine.");
+
+                    return;
+
+                }
 
 
 
@@ -401,10 +415,10 @@ namespace Toro
             {
                 using (OpenFileDialog openDlg = new OpenFileDialog())
                 {
-
+                    //Per ora solo docx, poi si vedrà per tutti
                     openDlg.Multiselect = false;
 
-                    openDlg.Filter = "Tutti Files (*.*) | *.*";
+                    openDlg.Filter = "Tutti Files (*.docx) | *.docx";
 
                     if (openDlg.ShowDialog(this) == DialogResult.OK)
                     {

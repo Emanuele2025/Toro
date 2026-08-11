@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             mnsMenu = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
@@ -109,7 +110,7 @@
             // 
             convertitoriToolStripMenuItem.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             convertitoriToolStripMenuItem.Name = "convertitoriToolStripMenuItem";
-            convertitoriToolStripMenuItem.Size = new Size(180, 22);
+            convertitoriToolStripMenuItem.Size = new Size(152, 22);
             convertitoriToolStripMenuItem.Text = "Convertitori...";
             convertitoriToolStripMenuItem.ToolTipText = "Permettono di convertire numeri in testo, numeri in valori rumani ed altro";
             convertitoriToolStripMenuItem.Click += convertitoriToolStripMenuItem_Click;
@@ -118,7 +119,7 @@
             // 
             mniVerifiche.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             mniVerifiche.Name = "mniVerifiche";
-            mniVerifiche.Size = new Size(180, 22);
+            mniVerifiche.Size = new Size(152, 22);
             mniVerifiche.Text = "Verifiche...";
             mniVerifiche.ToolTipText = "Apre una finestra per verificare alcune informazioni, come se un IBAN è corretto, oppure una frase palindromo";
             mniVerifiche.Click += mniVerifiche_Click;
@@ -126,7 +127,7 @@
             // gestioneFileToolStripMenuItem
             // 
             gestioneFileToolStripMenuItem.Name = "gestioneFileToolStripMenuItem";
-            gestioneFileToolStripMenuItem.Size = new Size(180, 22);
+            gestioneFileToolStripMenuItem.Size = new Size(152, 22);
             gestioneFileToolStripMenuItem.Text = "Gestione File...";
             gestioneFileToolStripMenuItem.ToolTipText = "Apre una finestra per effettuare delle operazioni e funzionalità sui file";
             gestioneFileToolStripMenuItem.Click += gestioneFileToolStripMenuItem_Click;
@@ -154,6 +155,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
             Controls.Add(mnsMenu);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = mnsMenu;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
