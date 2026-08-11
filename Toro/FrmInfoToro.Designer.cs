@@ -44,6 +44,7 @@
             label8 = new Label();
             lnkduckduckgo = new LinkLabel();
             lkluxwing = new LinkLabel();
+            TxtEmail = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pctLogo).BeginInit();
             SuspendLayout();
             // 
@@ -104,7 +105,7 @@
             // lnlEmail
             // 
             lnlEmail.AutoSize = true;
-            lnlEmail.Location = new Point(601, 255);
+            lnlEmail.Location = new Point(601, 252);
             lnlEmail.Name = "lnlEmail";
             lnlEmail.Size = new Size(176, 15);
             lnlEmail.TabIndex = 21;
@@ -154,7 +155,7 @@
             // label7
             // 
             label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label7.Location = new Point(281, 284);
+            label7.Location = new Point(281, 292);
             label7.Name = "label7";
             label7.Size = new Size(496, 37);
             label7.TabIndex = 23;
@@ -174,7 +175,7 @@
             // label8
             // 
             label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label8.Location = new Point(285, 321);
+            label8.Location = new Point(283, 325);
             label8.Name = "label8";
             label8.Size = new Size(58, 22);
             label8.TabIndex = 25;
@@ -202,11 +203,21 @@
             lkluxwing.Text = "Alcune icone utilizzate in questo programma sono fornite da  uxwing https://uxwing.com/";
             lkluxwing.LinkClicked += lkluxwing_LinkClicked;
             // 
+            // TxtEmail
+            // 
+            TxtEmail.Location = new Point(603, 268);
+            TxtEmail.Name = "TxtEmail";
+            TxtEmail.ReadOnly = true;
+            TxtEmail.Size = new Size(193, 23);
+            TxtEmail.TabIndex = 28;
+            TxtEmail.Text = "emanuelemattei@tutanota.com";
+            // 
             // FrmInfoToro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(TxtEmail);
             Controls.Add(lkluxwing);
             Controls.Add(lnkduckduckgo);
             Controls.Add(label8);
@@ -251,5 +262,6 @@
         private Label label8;
         private LinkLabel lnkduckduckgo;
         private LinkLabel lkluxwing;
+        private TextBox TxtEmail;
     }
 }

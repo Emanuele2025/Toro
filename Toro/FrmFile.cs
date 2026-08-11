@@ -342,17 +342,13 @@ namespace Toro
                 {
                      
                         Utility.MessaggioInfo("Selezionare un file immagine Png dove si vuole aggiungere il file Word.");
-
                         return;
-                     
                 }
                 if (TxtPercorsoNomeFileDaNascondere.Text.ToString() == "")
                 {
 
                     Utility.MessaggioInfo("Selezionare un file immagine word che si vuole aggiungere al file immagine.");
-
                     return;
-
                 }
 
 
