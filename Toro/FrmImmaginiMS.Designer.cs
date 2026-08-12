@@ -31,13 +31,18 @@
             label1 = new Label();
             tbcImmaginiMS = new TabControl();
             tbpImmagineBing = new TabPage();
+            BtnScaricaSfondoBing = new Button();
+            BtnCercaCartella = new Button();
+            lblEtichetta = new Label();
+            TxtPercorsoCartella = new TextBox();
             tbpImmaginiBlocco = new TabPage();
             label2 = new Label();
             pcbAnteprima = new PictureBox();
             lstboxFile = new ListBox();
-            BtnChiudi = new Button();
             tbpContenuti = new TabPage();
+            BtnChiudi = new Button();
             tbcImmaginiMS.SuspendLayout();
+            tbpImmagineBing.SuspendLayout();
             tbpImmaginiBlocco.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcbAnteprima).BeginInit();
             SuspendLayout();
@@ -69,6 +74,10 @@
             // 
             // tbpImmagineBing
             // 
+            tbpImmagineBing.Controls.Add(BtnScaricaSfondoBing);
+            tbpImmagineBing.Controls.Add(BtnCercaCartella);
+            tbpImmagineBing.Controls.Add(lblEtichetta);
+            tbpImmagineBing.Controls.Add(TxtPercorsoCartella);
             tbpImmagineBing.Location = new Point(4, 24);
             tbpImmagineBing.Name = "tbpImmagineBing";
             tbpImmagineBing.Padding = new Padding(3);
@@ -76,6 +85,45 @@
             tbpImmagineBing.TabIndex = 0;
             tbpImmagineBing.Text = "Immagini da Bing";
             tbpImmagineBing.UseVisualStyleBackColor = true;
+            // 
+            // BtnScaricaSfondoBing
+            // 
+            BtnScaricaSfondoBing.Location = new Point(8, 70);
+            BtnScaricaSfondoBing.Name = "BtnScaricaSfondoBing";
+            BtnScaricaSfondoBing.Size = new Size(75, 23);
+            BtnScaricaSfondoBing.TabIndex = 7;
+            BtnScaricaSfondoBing.Text = "Scarica";
+            BtnScaricaSfondoBing.UseVisualStyleBackColor = true;
+            BtnScaricaSfondoBing.Click += BtnScaricaSfondoBing_Click;
+            // 
+            // BtnCercaCartella
+            // 
+            BtnCercaCartella.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnCercaCartella.Location = new Point(319, 30);
+            BtnCercaCartella.Name = "BtnCercaCartella";
+            BtnCercaCartella.Size = new Size(30, 29);
+            BtnCercaCartella.TabIndex = 6;
+            BtnCercaCartella.Text = "...";
+            BtnCercaCartella.TextAlign = ContentAlignment.TopLeft;
+            BtnCercaCartella.UseVisualStyleBackColor = true;
+            BtnCercaCartella.Click += BtnCercaCartella_Click;
+            // 
+            // lblEtichetta
+            // 
+            lblEtichetta.AutoSize = true;
+            lblEtichetta.Location = new Point(13, 12);
+            lblEtichetta.Name = "lblEtichetta";
+            lblEtichetta.Size = new Size(152, 15);
+            lblEtichetta.TabIndex = 5;
+            lblEtichetta.Text = "Percorso dove salvare il file:";
+            // 
+            // TxtPercorsoCartella
+            // 
+            TxtPercorsoCartella.Location = new Point(8, 30);
+            TxtPercorsoCartella.Name = "TxtPercorsoCartella";
+            TxtPercorsoCartella.ReadOnly = true;
+            TxtPercorsoCartella.Size = new Size(305, 23);
+            TxtPercorsoCartella.TabIndex = 4;
             // 
             // tbpImmaginiBlocco
             // 
@@ -115,6 +163,16 @@
             lstboxFile.Size = new Size(271, 184);
             lstboxFile.TabIndex = 0;
             // 
+            // tbpContenuti
+            // 
+            tbpContenuti.Location = new Point(4, 24);
+            tbpContenuti.Name = "tbpContenuti";
+            tbpContenuti.Padding = new Padding(3);
+            tbpContenuti.Size = new Size(792, 359);
+            tbpContenuti.TabIndex = 2;
+            tbpContenuti.Text = "Contenuti suggeriti";
+            tbpContenuti.UseVisualStyleBackColor = true;
+            // 
             // BtnChiudi
             // 
             BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -127,16 +185,6 @@
             BtnChiudi.Text = "Chiudi";
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
-            // 
-            // tbpContenuti
-            // 
-            tbpContenuti.Location = new Point(4, 24);
-            tbpContenuti.Name = "tbpContenuti";
-            tbpContenuti.Padding = new Padding(3);
-            tbpContenuti.Size = new Size(792, 359);
-            tbpContenuti.TabIndex = 2;
-            tbpContenuti.Text = "Contenuti suggeriti";
-            tbpContenuti.UseVisualStyleBackColor = true;
             // 
             // FrmImmaginiMS
             // 
@@ -154,6 +202,8 @@
             Text = "Toro - Strumenti e funzionalità per Windows";
             Load += FrmImmaginiMS_Load;
             tbcImmaginiMS.ResumeLayout(false);
+            tbpImmagineBing.ResumeLayout(false);
+            tbpImmagineBing.PerformLayout();
             tbpImmaginiBlocco.ResumeLayout(false);
             tbpImmaginiBlocco.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcbAnteprima).EndInit();
@@ -171,5 +221,9 @@
         private PictureBox pcbAnteprima;
         private ListBox lstboxFile;
         private TabPage tbpContenuti;
+        private Button BtnScaricaSfondoBing;
+        private Button BtnCercaCartella;
+        private Label lblEtichetta;
+        private TextBox TxtPercorsoCartella;
     }
 }

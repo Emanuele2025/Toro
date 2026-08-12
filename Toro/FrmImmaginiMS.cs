@@ -53,13 +53,13 @@ namespace Toro
             {
                 Utility.MessaggioErrore("Errore: " + ex.Message);
             }
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
         }
 
 
@@ -77,5 +77,40 @@ namespace Toro
 
 
 
+        private void BtnScaricaSfondoBing_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
+        }
+
+        private void BtnCercaCartella_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Apro la finestra di dialogo per la selezione della cartella
+                using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+                {
+                    folderBrowserDialog.Description = "Seleziona la cartella di destinazione per salvare l'immagine di bing";
+                    if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // Imposto il percorso selezionato nella casella di testo
+                        TxtPercorsoCartella.Text = folderBrowserDialog.SelectedPath;
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+
+            }
+        }
     }
 }
