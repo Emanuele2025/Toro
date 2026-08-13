@@ -174,6 +174,112 @@ namespace Toro
         }
 
 
+
+
+        private void NascondiDocxInPng(string pathImmaginePng, string pathDocx, string pathNuovoFilePng)
+
+        {
+
+            try
+
+            {
+
+
+
+
+
+                //Rilevo i byte del file immagine e del file doc
+
+                byte[] pngBytes = File.ReadAllBytes(pathImmaginePng);
+
+                byte[] docxBytes = File.ReadAllBytes(pathDocx);
+
+
+
+                //Marcatore per ritrovare il file dopo. 16 byte a caso
+
+                byte[] marcatore = { 0xDE, 0xAD, 0xBE, 0xEF, 0xCA, 0xFE, 0xBA, 0xBE,
+
+                 0xDE, 0xAD, 0xBE, 0xEF, 0xCA, 0xFE, 0xBA, 0xBE };
+
+
+
+                //Creo il nuovo file unendo i due array byte
+
+                using (FileStream fs = new FileStream(pathNuovoFilePng, FileMode.Create))
+
+                {
+
+                    fs.Write(pngBytes, 0, pngBytes.Length);
+
+                    fs.Write(marcatore, 0, marcatore.Length);
+
+                    fs.Write(BitConverter.GetBytes(docxBytes.Length), 0, 4);
+
+                    fs.Write(docxBytes, 0, docxBytes.Length);
+
+                }
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                MessageBox.Show("Errore: " + ex.Message);
+
+            }
+
+
+        }
+
+
+        private int IndexOf(byte[] arrayBytePng, byte[] marcatore)
+
+        {
+
+            for (int i = 0; i < arrayBytePng.Length - marcatore.Length; i++)
+
+            {
+
+                bool trovato = true;
+
+                for (int j = 0; j < marcatore.Length; j++)
+
+                {
+
+                    if (arrayBytePng[i + j] != marcatore[j]) { trovato = false; break; }
+
+                }
+
+                if (trovato) return i;
+
+            }
+
+            return -1;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         #endregion
 
 

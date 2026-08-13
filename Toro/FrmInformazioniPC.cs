@@ -41,7 +41,7 @@ namespace Toro
                 //Info stampanti
                 //Info monitor, vedere tipo di monitor, marca, etc
                 //Info scheda madre come marca, prouttore, modello etc
-                //Info scheda di rete tipo marca, produttore modello etc
+                
 
                 //Valutare più avanti se aprire i dati quando si clicca sul tab
                 this.Text = Utility.TitoloFinestra;
