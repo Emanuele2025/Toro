@@ -457,7 +457,17 @@ namespace Toro
                     return;
                 }
 
+                SaveFileDialog fileDaSalvare = new SaveFileDialog();
 
+                string NomeFileDaCreare = new FileInfo(TxtPercorsoNomeFileImmagine.Text.ToString()).Name;
+                fileDaSalvare.FileName = NomeFileDaCreare;
+                fileDaSalvare.Filter = "PNG File (*.png)|*.png";
+                if (fileDaSalvare.ShowDialog() == DialogResult.OK)
+                {
+                    NascondiDocxInPng(TxtPercorsoNomeFileImmagine.Text.ToString(), TxtPercorsoNomeFileDaNascondere.Text.ToString(), fileDaSalvare.FileName);
+                    
+                    Utility.MessaggioInfo("File salvato correttamente in: " + fileDaSalvare.FileName);
+                }
 
 
 
