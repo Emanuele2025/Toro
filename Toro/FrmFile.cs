@@ -587,6 +587,34 @@ namespace Toro
             }
         }
 
-        
+        private void BtnRilevaFile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (TxtImmagineConWord.Text.ToString() == "")
+                {
+
+                    Utility.MessaggioInfo("Selezionare un file immagine Png contenente il file Word.");
+                    return;
+                }
+
+
+
+
+            }
+            catch (IOException exio)
+            {
+                Utility.MessaggioErrore(exio.Message);
+            }
+            catch (UnauthorizedAccessException exua)
+            {
+                Utility.MessaggioErrore(exua.Message);
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
+        }
     }
 }

@@ -352,6 +352,7 @@
             BtnRilevaFile.TabIndex = 29;
             BtnRilevaFile.Text = "Rileva File Word";
             BtnRilevaFile.UseVisualStyleBackColor = true;
+            BtnRilevaFile.Click += BtnRilevaFile_Click;
             // 
             // TxtImmagineConWord
             // 
