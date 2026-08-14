@@ -446,9 +446,9 @@ namespace Toro
 
                 if (TxtPercorsoNomeFileImmagine.Text.ToString() == "")
                 {
-                     
-                        Utility.MessaggioInfo("Selezionare un file immagine Png dove si vuole aggiungere il file Word.");
-                        return;
+
+                    Utility.MessaggioInfo("Selezionare un file immagine Png dove si vuole aggiungere il file Word.");
+                    return;
                 }
                 if (TxtPercorsoNomeFileDaNascondere.Text.ToString() == "")
                 {
@@ -465,7 +465,7 @@ namespace Toro
                 if (fileDaSalvare.ShowDialog() == DialogResult.OK)
                 {
                     NascondiDocxInPng(TxtPercorsoNomeFileImmagine.Text.ToString(), TxtPercorsoNomeFileDaNascondere.Text.ToString(), fileDaSalvare.FileName);
-                    
+
                     Utility.MessaggioInfo("File salvato correttamente in: " + fileDaSalvare.FileName);
                 }
 
@@ -553,5 +553,40 @@ namespace Toro
                 Utility.MessaggioErrore(ex.Message);
             }
         }
+
+        private void BtnTrovaImmaginePngConFile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (OpenFileDialog openDlg = new OpenFileDialog())
+                {
+
+                    openDlg.Multiselect = false;
+
+                    openDlg.Filter = "Immagine Files (*.png) | *.png";
+
+                    if (openDlg.ShowDialog(this) == DialogResult.OK)
+                    {
+                        TxtImmagineConWord.Text = openDlg.FileName;
+                    }
+
+                }
+
+            }
+            catch (IOException exio)
+            {
+                Utility.MessaggioErrore(exio.Message);
+            }
+            catch (UnauthorizedAccessException exua)
+            {
+                Utility.MessaggioErrore(exua.Message);
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
+        }
+
+        
     }
 }

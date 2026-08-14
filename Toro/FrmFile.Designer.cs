@@ -51,6 +51,11 @@
             TxtPercorsoFileP7m = new TextBox();
             label4 = new Label();
             TbpHacker = new TabPage();
+            groupBox2 = new GroupBox();
+            BtnTrovaImmaginePngConFile = new Button();
+            BtnRilevaFile = new Button();
+            TxtImmagineConWord = new TextBox();
+            label7 = new Label();
             groupBox1 = new GroupBox();
             BtnTrovaImmagine = new Button();
             BtnCreaFile = new Button();
@@ -60,11 +65,6 @@
             TxtPercorsoNomeFileDaNascondere = new TextBox();
             label6 = new Label();
             BtnChiudi = new Button();
-            groupBox2 = new GroupBox();
-            button1 = new Button();
-            BtnRilevaFile = new Button();
-            textBox1 = new TextBox();
-            label7 = new Label();
             tbcFile.SuspendLayout();
             tbpLeggiCertificatiPdf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgCertificatiFilePdf).BeginInit();
@@ -72,8 +72,8 @@
             ((System.ComponentModel.ISupportInitialize)dtgDatiVcf).BeginInit();
             tbpEstrapolaFileP7m.SuspendLayout();
             TbpHacker.SuspendLayout();
-            groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -319,6 +319,57 @@
             TbpHacker.Text = "Hacker";
             TbpHacker.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(BtnTrovaImmaginePngConFile);
+            groupBox2.Controls.Add(BtnRilevaFile);
+            groupBox2.Controls.Add(TxtImmagineConWord);
+            groupBox2.Controls.Add(label7);
+            groupBox2.Location = new Point(3, 191);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(944, 164);
+            groupBox2.TabIndex = 32;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Leggi file immagine contenente il file Word";
+            // 
+            // BtnTrovaImmaginePngConFile
+            // 
+            BtnTrovaImmaginePngConFile.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnTrovaImmaginePngConFile.Location = new Point(567, 39);
+            BtnTrovaImmaginePngConFile.Name = "BtnTrovaImmaginePngConFile";
+            BtnTrovaImmaginePngConFile.Size = new Size(30, 29);
+            BtnTrovaImmaginePngConFile.TabIndex = 29;
+            BtnTrovaImmaginePngConFile.Text = "...";
+            BtnTrovaImmaginePngConFile.TextAlign = ContentAlignment.TopLeft;
+            BtnTrovaImmaginePngConFile.UseVisualStyleBackColor = true;
+            BtnTrovaImmaginePngConFile.Click += BtnTrovaImmaginePngConFile_Click;
+            // 
+            // BtnRilevaFile
+            // 
+            BtnRilevaFile.Location = new Point(6, 88);
+            BtnRilevaFile.Name = "BtnRilevaFile";
+            BtnRilevaFile.Size = new Size(142, 23);
+            BtnRilevaFile.TabIndex = 29;
+            BtnRilevaFile.Text = "Rileva File Word";
+            BtnRilevaFile.UseVisualStyleBackColor = true;
+            // 
+            // TxtImmagineConWord
+            // 
+            TxtImmagineConWord.Location = new Point(6, 42);
+            TxtImmagineConWord.Name = "TxtImmagineConWord";
+            TxtImmagineConWord.ReadOnly = true;
+            TxtImmagineConWord.Size = new Size(555, 23);
+            TxtImmagineConWord.TabIndex = 28;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(6, 24);
+            label7.Name = "label7";
+            label7.Size = new Size(357, 15);
+            label7.TabIndex = 27;
+            label7.Text = "Selezionare il file Immagine nel quale si trova il file Microsoft Word";
+            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(BtnTrovaImmagine);
@@ -345,6 +396,7 @@
             BtnTrovaImmagine.Text = "...";
             BtnTrovaImmagine.TextAlign = ContentAlignment.TopLeft;
             BtnTrovaImmagine.UseVisualStyleBackColor = true;
+            BtnTrovaImmagine.Click += BtnTrovaImmagine_Click;
             // 
             // BtnCreaFile
             // 
@@ -415,56 +467,6 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(button1);
-            groupBox2.Controls.Add(BtnRilevaFile);
-            groupBox2.Controls.Add(textBox1);
-            groupBox2.Controls.Add(label7);
-            groupBox2.Location = new Point(3, 191);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(944, 164);
-            groupBox2.TabIndex = 32;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Leggi file immagine contenente il file Word";
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            button1.Location = new Point(567, 39);
-            button1.Name = "button1";
-            button1.Size = new Size(30, 29);
-            button1.TabIndex = 29;
-            button1.Text = "...";
-            button1.TextAlign = ContentAlignment.TopLeft;
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // BtnRilevaFile
-            // 
-            BtnRilevaFile.Location = new Point(6, 88);
-            BtnRilevaFile.Name = "BtnRilevaFile";
-            BtnRilevaFile.Size = new Size(142, 23);
-            BtnRilevaFile.TabIndex = 29;
-            BtnRilevaFile.Text = "Rileva File Word";
-            BtnRilevaFile.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(6, 42);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(555, 23);
-            textBox1.TabIndex = 28;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(6, 24);
-            label7.Name = "label7";
-            label7.Size = new Size(357, 15);
-            label7.TabIndex = 27;
-            label7.Text = "Selezionare il file Immagine nel quale si trova il file Microsoft Word";
-            // 
             // FrmFile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -490,10 +492,10 @@
             tbpEstrapolaFileP7m.ResumeLayout(false);
             tbpEstrapolaFileP7m.PerformLayout();
             TbpHacker.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -532,9 +534,9 @@
         private TextBox TxtPercorsoNomeFileImmagine;
         private Label label5;
         private GroupBox groupBox2;
-        private Button button1;
+        private Button BtnTrovaImmaginePngConFile;
         private Button BtnRilevaFile;
-        private TextBox textBox1;
+        private TextBox TxtImmagineConWord;
         private Label label7;
     }
 }
