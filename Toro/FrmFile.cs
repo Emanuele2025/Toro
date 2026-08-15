@@ -513,6 +513,7 @@ namespace Toro
                 SaveFileDialog fileDaSalvare = new SaveFileDialog();
 
                 string NomeFileDaCreare = new FileInfo(TxtPercorsoNomeFileImmagine.Text.ToString()).Name;
+                NomeFileDaCreare = "Word_" + NomeFileDaCreare;
                 fileDaSalvare.FileName = NomeFileDaCreare;
                 fileDaSalvare.Filter = "PNG File (*.png)|*.png";
                 if (fileDaSalvare.ShowDialog() == DialogResult.OK)
@@ -652,17 +653,21 @@ namespace Toro
                     return;
                 }
                 string PercorsoNomeFileWord = "";
-                using (OpenFileDialog openDlg = new OpenFileDialog())
+                using (SaveFileDialog salvaDlg = new SaveFileDialog())
                 {
 
-                    openDlg.Multiselect = false;
+                     
 
-                    openDlg.Filter = "Immagine Files (*.png) | *.png";
+                    salvaDlg.Filter = "File Word (*.docx) | *.docx";
+                    salvaDlg.Title = "Salva il file Word estratto dal file immagine Png";
+                    salvaDlg.FileName = Path.GetFileName(TxtImmagineConWord.Text.ToString()).Replace(".png", ".docx");
+                    salvaDlg.InitialDirectory = Path.GetFullPath(TxtImmagineConWord.Text.ToString());
 
-                    if (openDlg.ShowDialog(this) == DialogResult.OK)
+                    if (salvaDlg.ShowDialog(this) == DialogResult.OK)
                     {
-                        PercorsoNomeFileWord = openDlg.FileName;
+                        PercorsoNomeFileWord = salvaDlg.FileName;
                         EstraiDocxDaPng(TxtImmagineConWord.Text.ToString(), PercorsoNomeFileWord);
+                        Utility.MessaggioInfo("File salvato correttamente in: " + PercorsoNomeFileWord);
                     }
 
                 }
