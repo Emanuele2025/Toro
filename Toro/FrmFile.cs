@@ -264,7 +264,60 @@ namespace Toro
 
 
 
+        private void EstraiDocxDaPng(string pathPngConDocx, string pathOutputDocx)
 
+        {
+
+            try
+
+            {
+
+
+
+
+
+                byte[] tuttiBytes = File.ReadAllBytes(pathPngConDocx);
+
+                byte[] marcatore = { 0xDE, 0xAD, 0xBE, 0xEF, 0xCA, 0xFE, 0xBA, 0xBE,
+
+                 0xDE, 0xAD, 0xBE, 0xEF, 0xCA, 0xFE, 0xBA, 0xBE };
+
+
+
+                //Trova il marcatore
+
+                int posizione = IndexOf(tuttiBytes, marcatore);
+
+                if (posizione == -1) throw new Exception("Nessun file trovato");
+
+
+
+                posizione += marcatore.Length;
+
+                int dimensioneDocx = BitConverter.ToInt32(tuttiBytes, posizione);
+
+                posizione += 4;
+
+
+
+                byte[] docxBytes = new byte[dimensioneDocx];
+
+                Array.Copy(tuttiBytes, posizione, docxBytes, 0, dimensioneDocx);
+
+                File.WriteAllBytes(pathOutputDocx, docxBytes);
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                MessageBox.Show("Errore: " + ex.Message);
+
+            }
+
+
+        }
 
 
 
@@ -598,7 +651,24 @@ namespace Toro
                     Utility.MessaggioInfo("Selezionare un file immagine Png contenente il file Word.");
                     return;
                 }
+                string PercorsoNomeFileWord = "";
+                using (OpenFileDialog openDlg = new OpenFileDialog())
+                {
 
+                    openDlg.Multiselect = false;
+
+                    openDlg.Filter = "Immagine Files (*.png) | *.png";
+
+                    if (openDlg.ShowDialog(this) == DialogResult.OK)
+                    {
+                        PercorsoNomeFileWord = openDlg.FileName;
+                        EstraiDocxDaPng(TxtImmagineConWord.Text.ToString(), PercorsoNomeFileWord);
+                    }
+
+                }
+
+
+               
 
 
 
