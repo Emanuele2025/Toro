@@ -41,6 +41,9 @@
             gestioneFileToolStripMenuItem = new ToolStripMenuItem();
             infoToolStripMenuItem = new ToolStripMenuItem();
             mniInformazioni = new ToolStripMenuItem();
+            immaginiToolStripMenuItem = new ToolStripMenuItem();
+            galleriaToolStripMenuItem = new ToolStripMenuItem();
+            microsoftToolStripMenuItem = new ToolStripMenuItem();
             mnsMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -78,7 +81,7 @@
             mniChiudi.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             mniChiudi.Image = Properties.Resources.chiudi_16;
             mniChiudi.Name = "mniChiudi";
-            mniChiudi.Size = new Size(111, 22);
+            mniChiudi.Size = new Size(180, 22);
             mniChiudi.Text = "Chiudi";
             mniChiudi.Click += mniChiudi_Click;
             // 
@@ -94,14 +97,14 @@
             informazioniPCToolStripMenuItem.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             informazioniPCToolStripMenuItem.Image = Properties.Resources.computer;
             informazioniPCToolStripMenuItem.Name = "informazioniPCToolStripMenuItem";
-            informazioniPCToolStripMenuItem.Size = new Size(175, 22);
+            informazioniPCToolStripMenuItem.Size = new Size(180, 22);
             informazioniPCToolStripMenuItem.Text = "Informazioni PC...";
             informazioniPCToolStripMenuItem.ToolTipText = "Apre una finestra per fornire informazioni sul hardware del proprio pc";
             informazioniPCToolStripMenuItem.Click += informazioniPCToolStripMenuItem_Click;
             // 
             // funzionalitàToolStripMenuItem
             // 
-            funzionalitàToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { convertitoriToolStripMenuItem, mniVerifiche, gestioneFileToolStripMenuItem });
+            funzionalitàToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { convertitoriToolStripMenuItem, mniVerifiche, gestioneFileToolStripMenuItem, immaginiToolStripMenuItem });
             funzionalitàToolStripMenuItem.Name = "funzionalitàToolStripMenuItem";
             funzionalitàToolStripMenuItem.Size = new Size(83, 20);
             funzionalitàToolStripMenuItem.Text = "Funzionalità";
@@ -110,7 +113,7 @@
             // 
             convertitoriToolStripMenuItem.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             convertitoriToolStripMenuItem.Name = "convertitoriToolStripMenuItem";
-            convertitoriToolStripMenuItem.Size = new Size(152, 22);
+            convertitoriToolStripMenuItem.Size = new Size(180, 22);
             convertitoriToolStripMenuItem.Text = "Convertitori...";
             convertitoriToolStripMenuItem.ToolTipText = "Permettono di convertire numeri in testo, numeri in valori rumani ed altro";
             convertitoriToolStripMenuItem.Click += convertitoriToolStripMenuItem_Click;
@@ -119,7 +122,7 @@
             // 
             mniVerifiche.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             mniVerifiche.Name = "mniVerifiche";
-            mniVerifiche.Size = new Size(152, 22);
+            mniVerifiche.Size = new Size(180, 22);
             mniVerifiche.Text = "Verifiche...";
             mniVerifiche.ToolTipText = "Apre una finestra per verificare alcune informazioni, come se un IBAN è corretto, oppure una frase palindromo";
             mniVerifiche.Click += mniVerifiche_Click;
@@ -127,7 +130,7 @@
             // gestioneFileToolStripMenuItem
             // 
             gestioneFileToolStripMenuItem.Name = "gestioneFileToolStripMenuItem";
-            gestioneFileToolStripMenuItem.Size = new Size(152, 22);
+            gestioneFileToolStripMenuItem.Size = new Size(180, 22);
             gestioneFileToolStripMenuItem.Text = "Gestione File...";
             gestioneFileToolStripMenuItem.ToolTipText = "Apre una finestra per effettuare delle operazioni e funzionalità sui file";
             gestioneFileToolStripMenuItem.Click += gestioneFileToolStripMenuItem_Click;
@@ -143,10 +146,29 @@
             // 
             mniInformazioni.Image = Properties.Resources.Informazioni;
             mniInformazioni.Name = "mniInformazioni";
-            mniInformazioni.Size = new Size(150, 22);
+            mniInformazioni.Size = new Size(180, 22);
             mniInformazioni.Text = "Informazioni...";
             mniInformazioni.ToolTipText = "Finestra informativa del programma";
             mniInformazioni.Click += mniInformazioni_Click;
+            // 
+            // immaginiToolStripMenuItem
+            // 
+            immaginiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { galleriaToolStripMenuItem, microsoftToolStripMenuItem });
+            immaginiToolStripMenuItem.Name = "immaginiToolStripMenuItem";
+            immaginiToolStripMenuItem.Size = new Size(180, 22);
+            immaginiToolStripMenuItem.Text = "Immagini";
+            // 
+            // galleriaToolStripMenuItem
+            // 
+            galleriaToolStripMenuItem.Name = "galleriaToolStripMenuItem";
+            galleriaToolStripMenuItem.Size = new Size(180, 22);
+            galleriaToolStripMenuItem.Text = "Galleria...";
+            // 
+            // microsoftToolStripMenuItem
+            // 
+            microsoftToolStripMenuItem.Name = "microsoftToolStripMenuItem";
+            microsoftToolStripMenuItem.Size = new Size(180, 22);
+            microsoftToolStripMenuItem.Text = "Microsoft..";
             // 
             // Form1
             // 
@@ -181,5 +203,8 @@
         private ToolStripMenuItem infoToolStripMenuItem;
         private ToolStripMenuItem mniInformazioni;
         private ToolStripMenuItem gestioneFileToolStripMenuItem;
+        private ToolStripMenuItem immaginiToolStripMenuItem;
+        private ToolStripMenuItem galleriaToolStripMenuItem;
+        private ToolStripMenuItem microsoftToolStripMenuItem;
     }
 }
