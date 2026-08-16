@@ -110,11 +110,12 @@ namespace Toro
 
                         foreach (var firma in cms.SignerInfos)
                         {
-                            X509Certificate2 cert = firma.Certificate;
+                            X509Certificate2 cert = firma?.Certificate;
                             if (cert != null)
                             {
                                 DtoFirmaDigitale dtoCertificato = new DtoFirmaDigitale()
                                 {
+                                    NomeFirmatario = cert.GetNameInfo(X509NameType.SimpleName, false),
                                     Oggetto = cert.Subject,
                                     EmessoDa = cert.Issuer,
                                     DataInizio = cert.NotBefore,
