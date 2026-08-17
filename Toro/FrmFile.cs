@@ -657,7 +657,7 @@ namespace Toro
                 using (SaveFileDialog salvaDlg = new SaveFileDialog())
                 {
 
-                     
+
 
                     salvaDlg.Filter = "File Word (*.docx) | *.docx";
                     salvaDlg.Title = "Salva il file Word estratto dal file immagine Png";
@@ -674,7 +674,7 @@ namespace Toro
                 }
 
 
-               
+
 
 
 
