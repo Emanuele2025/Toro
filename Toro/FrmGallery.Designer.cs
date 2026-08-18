@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             pcbGalleria = new PictureBox();
             nudSecondi = new NumericUpDown();
             BtnTrovaCartella = new Button();
             TxtPercorsoImmagini = new TextBox();
             label3 = new Label();
+            BtnAvvia = new Button();
+            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pcbGalleria).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudSecondi).BeginInit();
             SuspendLayout();
@@ -47,13 +50,14 @@
             // 
             // nudSecondi
             // 
+            nudSecondi.Increment = new decimal(new int[] { 1000, 0, 0, 0 });
             nudSecondi.Location = new Point(100, 743);
-            nudSecondi.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            nudSecondi.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            nudSecondi.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            nudSecondi.Minimum = new decimal(new int[] { 1000, 0, 0, 0 });
             nudSecondi.Name = "nudSecondi";
             nudSecondi.Size = new Size(120, 23);
             nudSecondi.TabIndex = 1;
-            nudSecondi.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            nudSecondi.Value = new decimal(new int[] { 1000, 0, 0, 0 });
             // 
             // BtnTrovaCartella
             // 
@@ -84,11 +88,26 @@
             label3.TabIndex = 19;
             label3.Text = "Percorso della cartella delle immagini";
             // 
+            // BtnAvvia
+            // 
+            BtnAvvia.Location = new Point(102, 784);
+            BtnAvvia.Name = "BtnAvvia";
+            BtnAvvia.Size = new Size(75, 23);
+            BtnAvvia.TabIndex = 22;
+            BtnAvvia.Text = "Avvia";
+            BtnAvvia.UseVisualStyleBackColor = true;
+            BtnAvvia.Click += BtnAvvia_Click;
+            // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
             // FrmGallery
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1301, 812);
+            Controls.Add(BtnAvvia);
             Controls.Add(BtnTrovaCartella);
             Controls.Add(TxtPercorsoImmagini);
             Controls.Add(label3);
@@ -110,5 +129,7 @@
         private Button BtnTrovaCartella;
         private TextBox TxtPercorsoImmagini;
         private Label label3;
+        private Button BtnAvvia;
+        private System.Windows.Forms.Timer timer1;
     }
 }
