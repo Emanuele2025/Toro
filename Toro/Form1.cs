@@ -63,7 +63,7 @@ namespace Toro
         private void gestioneFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //TODO FARE:
-            
+
             //Valutare se estrapolare file da un file p7m
             //Steganografia, mettere un file all'interno di un'immagine png
             //Mettere anche funzionalità vcf, dei contatti
@@ -71,6 +71,12 @@ namespace Toro
             fileForm.ShowDialog();
 
 
+        }
+
+        private void galleriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGallery galleria = new FrmGallery();
+            galleria.ShowDialog();
         }
     }
 }

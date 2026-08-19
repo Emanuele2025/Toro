@@ -45,6 +45,7 @@
             pcbGalleria.Location = new Point(100, 34);
             pcbGalleria.Name = "pcbGalleria";
             pcbGalleria.Size = new Size(1022, 688);
+            pcbGalleria.SizeMode = PictureBoxSizeMode.Zoom;
             pcbGalleria.TabIndex = 0;
             pcbGalleria.TabStop = false;
             // 
