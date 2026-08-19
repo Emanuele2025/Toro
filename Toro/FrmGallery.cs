@@ -71,14 +71,9 @@ namespace Toro
         {
             try
             {
-                if (!Directory.Exists(cartella))
-                {
-                    Directory.CreateDirectory(cartella);
-                }
-
+                 
                 // Filtra solo formati immagine comuni
-                
-
+   
                   imgFiles = Directory.GetFiles(cartella)
                     .Where(file =>
                         file.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
@@ -105,10 +100,19 @@ namespace Toro
                 MessageBox.Show($"Seleziona un percorso dove sono presenti le immagini", "Gallery", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            timer1.Interval = (int)nudSecondi.Value;
+            
             LoadImagesDaCartella(TxtPercorsoImmagini.Text);
-            if(imgFiles.Length >0)
+            if (imgFiles.Length > 0)
+            {
+                indiceCorrente = 0;
+
+                pcbGalleria.Image?.Dispose();
+                pcbGalleria.Image = Image.FromFile(imgFiles[indiceCorrente]);
+
+                timer1.Interval = (int)nudSecondi.Value;
                 timer1.Start();
+
+            }
             else
                 MessageBox.Show("Nessuna immagine trovata nella cartella 'Images'.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
