@@ -15,7 +15,7 @@ namespace Toro
         {
             InitializeComponent();
         }
-        private string[] imgFiles;
+        private string[] imgFiles = { };
         private int indiceCorrente = 0;
 
         private void FrmGallery_Load(object sender, EventArgs e)
@@ -33,8 +33,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore($"Errore nel caricamento immagini: {ex.Message}");
             }
         }
 
@@ -57,10 +56,9 @@ namespace Toro
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore($"Errore nel caricamento immagini: {ex.Message}");
             }
         }
 
@@ -73,8 +71,7 @@ namespace Toro
             {
                  
                 // Filtra solo formati immagine comuni
-   
-                  imgFiles = Directory.GetFiles(cartella)
+                     imgFiles = Directory.GetFiles(cartella)
                     .Where(file =>
                         file.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
                         file.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase) ||
@@ -88,7 +85,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Errore nel caricamento immagini: {ex.Message}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utility.MessaggioErrore($"Errore nel caricamento immagini: {ex.Message}");
                 imgFiles = Array.Empty<string>();
             }
         }
@@ -97,7 +94,7 @@ namespace Toro
         {
             if (TxtPercorsoImmagini.Text.Trim() == "")
             {
-                MessageBox.Show($"Seleziona un percorso dove sono presenti le immagini", "Gallery", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Utility.MessaggioInfo("Seleziona un percorso dove sono presenti le immagini");
                 return;
             }
             
@@ -114,7 +111,8 @@ namespace Toro
 
             }
             else
-                MessageBox.Show("Nessuna immagine trovata nella cartella 'Images'.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Utility.MessaggioInfo("Nessuna immagine trovata nella cartella " + TxtPercorsoImmagini.Text);
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -128,7 +126,8 @@ namespace Toro
             catch (Exception ex)
             {
                 timer1.Stop();
-                MessageBox.Show($"Errore durante il caricamento dell'immagine: {ex.Message}", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utility.MessaggioErrore($"Errore durante il caricamento dell'immagine: {ex.Message}");
+                
             }
         }
     }
