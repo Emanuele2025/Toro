@@ -62,13 +62,13 @@ namespace Toro
                 else
                     TxtIPComputer.Text = "Nessun indirizzo IPv4 disponibile.";
 
-                GetInfoWebCam();
+                GetInfoWebCam(); //OK
 
-                GetStampanti();
+                GetStampanti(); //OK
                 //  LoadPrinters();
-                GetInternet();
+                GetInternet(); //OK
                 // GetInfoSchedaRete();
-               RilevaSchedeRete();
+               RilevaSchedeRete(); //OK
               //  Rete();
 
             }
@@ -101,7 +101,26 @@ namespace Toro
 
                 switch (tbcSezioni.SelectedTab.Name)
                 {
-                    case "":
+                    case "tbpVideo":
+                        VarieInformazioni();
+                        break;
+                    case "tbpSistema":
+                        VarieInformazioni();
+                        GetInternet();
+                        break;
+                    case "tbpUnita":
+                        VarieInformazioni();
+
+                        break;
+                    case "tbpCamera":
+                        GetInfoWebCam();
+
+                        break; 
+                    case "tbpStampanti":
+                        GetStampanti();
+                        break;
+                    case "tbpRete":
+                         RilevaSchedeRete();
 
                         break;
                     default:
