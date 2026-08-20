@@ -190,6 +190,7 @@
             tbcSezioni.SelectedIndex = 0;
             tbcSezioni.Size = new Size(1108, 384);
             tbcSezioni.TabIndex = 8;
+            tbcSezioni.SelectedIndexChanged += tbcSezioni_SelectedIndexChanged;
             // 
             // tbpVideo
             // 
@@ -197,7 +198,7 @@
             tbpVideo.Location = new Point(4, 24);
             tbpVideo.Name = "tbpVideo";
             tbpVideo.Padding = new Padding(3);
-            tbpVideo.Size = new Size(903, 356);
+            tbpVideo.Size = new Size(1100, 356);
             tbpVideo.TabIndex = 0;
             tbpVideo.Text = "Video";
             tbpVideo.UseVisualStyleBackColor = true;
@@ -211,7 +212,7 @@
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(897, 350);
+            groupBox1.Size = new Size(1094, 350);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Informaioni Video";
@@ -256,7 +257,7 @@
             tbpSistema.Location = new Point(4, 24);
             tbpSistema.Name = "tbpSistema";
             tbpSistema.Padding = new Padding(3);
-            tbpSistema.Size = new Size(903, 356);
+            tbpSistema.Size = new Size(1100, 356);
             tbpSistema.TabIndex = 1;
             tbpSistema.Text = "Sistema";
             tbpSistema.UseVisualStyleBackColor = true;
@@ -280,7 +281,7 @@
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Location = new Point(3, 3);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(897, 350);
+            groupBox2.Size = new Size(1094, 350);
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "Informaioni Sistema ";
@@ -410,7 +411,7 @@
             tbpUnita.Location = new Point(4, 24);
             tbpUnita.Name = "tbpUnita";
             tbpUnita.Padding = new Padding(3);
-            tbpUnita.Size = new Size(903, 356);
+            tbpUnita.Size = new Size(1100, 356);
             tbpUnita.TabIndex = 2;
             tbpUnita.Text = "Unità";
             tbpUnita.UseVisualStyleBackColor = true;
@@ -436,7 +437,7 @@
             groupBox3.Dock = DockStyle.Fill;
             groupBox3.Location = new Point(3, 3);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(897, 350);
+            groupBox3.Size = new Size(1094, 350);
             groupBox3.TabIndex = 8;
             groupBox3.TabStop = false;
             groupBox3.Text = "Unità Disco PC";
@@ -600,7 +601,7 @@
             tbpRam.Location = new Point(4, 24);
             tbpRam.Name = "tbpRam";
             tbpRam.Padding = new Padding(3);
-            tbpRam.Size = new Size(903, 356);
+            tbpRam.Size = new Size(1100, 356);
             tbpRam.TabIndex = 3;
             tbpRam.Text = "RAM";
             tbpRam.UseVisualStyleBackColor = true;
@@ -754,7 +755,7 @@
             tbpSchedaGrafica.Location = new Point(4, 24);
             tbpSchedaGrafica.Name = "tbpSchedaGrafica";
             tbpSchedaGrafica.Padding = new Padding(3);
-            tbpSchedaGrafica.Size = new Size(903, 356);
+            tbpSchedaGrafica.Size = new Size(1100, 356);
             tbpSchedaGrafica.TabIndex = 4;
             tbpSchedaGrafica.Text = "Scheda Grafica";
             tbpSchedaGrafica.UseVisualStyleBackColor = true;
@@ -846,7 +847,7 @@
             tbpCPU.Location = new Point(4, 24);
             tbpCPU.Name = "tbpCPU";
             tbpCPU.Padding = new Padding(3);
-            tbpCPU.Size = new Size(903, 356);
+            tbpCPU.Size = new Size(1100, 356);
             tbpCPU.TabIndex = 5;
             tbpCPU.Text = "CPU";
             tbpCPU.UseVisualStyleBackColor = true;
@@ -988,7 +989,7 @@
             tbpCamera.Controls.Add(label42);
             tbpCamera.Location = new Point(4, 24);
             tbpCamera.Name = "tbpCamera";
-            tbpCamera.Size = new Size(903, 356);
+            tbpCamera.Size = new Size(1100, 356);
             tbpCamera.TabIndex = 6;
             tbpCamera.Text = "Camera";
             tbpCamera.UseVisualStyleBackColor = true;
@@ -1118,7 +1119,7 @@
             tbpStampanti.Location = new Point(4, 24);
             tbpStampanti.Name = "tbpStampanti";
             tbpStampanti.Padding = new Padding(3);
-            tbpStampanti.Size = new Size(903, 356);
+            tbpStampanti.Size = new Size(1100, 356);
             tbpStampanti.TabIndex = 7;
             tbpStampanti.Text = "Stampanti";
             tbpStampanti.UseVisualStyleBackColor = true;
@@ -1129,7 +1130,7 @@
             dtgStampante.Dock = DockStyle.Fill;
             dtgStampante.Location = new Point(3, 3);
             dtgStampante.Name = "dtgStampante";
-            dtgStampante.Size = new Size(897, 350);
+            dtgStampante.Size = new Size(1094, 350);
             dtgStampante.TabIndex = 0;
             // 
             // tbpRete

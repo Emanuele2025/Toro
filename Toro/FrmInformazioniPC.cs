@@ -36,12 +36,13 @@ namespace Toro
         {
             try
             {
+                //TODO: gestire le stampanti driver. 
                 //TODO: prossime funzionalità
                 //Info Microfono audio ed altoparlanti 
                 //Info stampanti
                 //Info monitor, vedere tipo di monitor, marca, etc
                 //Info scheda madre come marca, prouttore, modello etc
-                
+
 
                 //Valutare più avanti se aprire i dati quando si clicca sul tab
                 this.Text = Utility.TitoloFinestra;
@@ -51,10 +52,10 @@ namespace Toro
                 TxtNomePC.Text = Environment.MachineName;
                 txtNomeUtente.Text = Environment.UserName;
                 VarieInformazioni();
-                GetInfoRAM();
-                GetInfoSchedaGrafica();
+            //    GetInfoRAM(); //OK
+            //    GetInfoSchedaGrafica(); //OK
                 GetInfoPC();
-                GetCpuDetails();
+           //     GetCpuDetails(); //OK
                 var ip = GetLocalIPv4();
 
                 if (ip != null)
@@ -62,14 +63,14 @@ namespace Toro
                 else
                     TxtIPComputer.Text = "Nessun indirizzo IPv4 disponibile.";
 
-                GetInfoWebCam(); //OK
+              //  GetInfoWebCam(); //OK
 
-                GetStampanti(); //OK
+              //  GetStampanti(); //OK
                 //  LoadPrinters();
                 GetInternet(); //OK
-                // GetInfoSchedaRete();
-               RilevaSchedeRete(); //OK
-              //  Rete();
+                               // GetInfoSchedaRete();
+            //    RilevaSchedeRete(); //OK
+                                    //  Rete();
 
             }
             catch (Exception ex)
@@ -95,7 +96,7 @@ namespace Toro
         /// </summary>
         private void CaricaDati()
         {
-
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
 
@@ -115,12 +116,25 @@ namespace Toro
                     case "tbpCamera":
                         GetInfoWebCam();
 
-                        break; 
+                        break;
                     case "tbpStampanti":
                         GetStampanti();
                         break;
                     case "tbpRete":
-                         RilevaSchedeRete();
+                        RilevaSchedeRete();
+
+                        break;
+
+                    case "tbpCPU":
+                        GetCpuDetails();
+                        break;
+                    case "tbpRam":
+                        GetInfoRAM();
+
+                        break;
+
+                    case "tbpSchedaGrafica":
+                        GetInfoSchedaGrafica();
 
                         break;
                     default:
@@ -394,7 +408,17 @@ namespace Toro
         {
             try
             {
+                TxtNomeCPU.Text = "";
+                TxtProduttoreCPU.Text = "";
 
+                TxtDescrizioneCPU.Text = "";
+                TxtNumeroCore.Text = "";
+
+                TxtNumeroLogici.Text = "";
+                TxtVelocitaCPU.Text = "";
+
+                TxtIdProcessore.Text = "";
+                
 
                 var searcher = new ManagementObjectSearcher("select * from Win32_Processor");
                 //var cpuInfo = "";
@@ -722,7 +746,7 @@ namespace Toro
                         SupportaIPv46 = nic.Supports(NetworkInterfaceComponent.IPv6)
 
                     };
- 
+
 
                     schedaDiRete.Add(infoSchedaDiRete);
                 }
@@ -773,12 +797,12 @@ namespace Toro
                 schedaDiRete.Add(infoSchedaDiRete);
 
 
-               // sb.AppendLine($"Nome Connessione: {info.Name}");      // Es. "Wi-Fi" o "Ethernet"
-              //  sb.AppendLine($"Modello/Descrizione: {info.Description}"); // Es. "Intel(R) Wi-Fi 6E AX211"
-               // sb.AppendLine($"Tipo di Rete: {info.NetworkInterfaceType}"); // Es. Wireless80211 o Ethernet
-             //   sb.AppendLine($"Stato: {info.OperationalStatus}");     // Es. Up (Attiva) o Down (Disattivata)
-               // sb.AppendLine($"Velocità: {info.Speed / 1_000_000} Mbps"); // Convertito in Megabit al secondo
-             //   sb.AppendLine($"Indirizzo MAC: {FormattaMac(info.GetPhysicalAddress())}");
+                // sb.AppendLine($"Nome Connessione: {info.Name}");      // Es. "Wi-Fi" o "Ethernet"
+                //  sb.AppendLine($"Modello/Descrizione: {info.Description}"); // Es. "Intel(R) Wi-Fi 6E AX211"
+                // sb.AppendLine($"Tipo di Rete: {info.NetworkInterfaceType}"); // Es. Wireless80211 o Ethernet
+                //   sb.AppendLine($"Stato: {info.OperationalStatus}");     // Es. Up (Attiva) o Down (Disattivata)
+                // sb.AppendLine($"Velocità: {info.Speed / 1_000_000} Mbps"); // Convertito in Megabit al secondo
+                //   sb.AppendLine($"Indirizzo MAC: {FormattaMac(info.GetPhysicalAddress())}");
 
                 // Estrazione degli indirizzi IP associati
                 IPInterfaceProperties ipProps = info.GetIPProperties();
@@ -786,7 +810,7 @@ namespace Toro
                 {
                     infoSchedaDiRete.IP += $"IP ({ip.Address.AddressFamily}): {ip.Address}";
                 }
-               
+
                 schedaDiRete.Add(infoSchedaDiRete);
                 // sb.AppendLine(new string('-', 40));
 
@@ -821,38 +845,38 @@ namespace Toro
         private void Rete()
         {
 
-           var allAdapters = NetworkAdapterManager.GetAllNetworkAdapters();
+            var allAdapters = NetworkAdapterManager.GetAllNetworkAdapters();
             // Separare connesse e disconnesse
             var connectedAdapters = NetworkAdapterManager.GetConnectedAdapters(allAdapters);
             var disconnectedAdapters = NetworkAdapterManager.GetDisconnectedAdapters(allAdapters);
 
-            string stato  = $"Schede trovate: {allAdapters.Count} | " +
+            string stato = $"Schede trovate: {allAdapters.Count} | " +
                                  $"Connesse: {connectedAdapters.Count} | " +
                                  $"Disconnesse: {disconnectedAdapters.Count}";
 
             List<DtoSchedaRete> schedaDiRete = new List<DtoSchedaRete>();
             foreach (var adapter in allAdapters)
             {
-                 
-                    
-                    
-                     DtoSchedaRete infoSchedaDiRete = new DtoSchedaRete()
-                     {
-                         Nome = adapter.Name,
-                         Descrizione = adapter.Description,
-                         Tipo = adapter.InterfaceType.ToString(),
-                         Stato = adapter.Status.ToString(),
-                         Velocita = (adapter.Speed / 1000000).ToString() + "Mbps",
-                         Mac = adapter.MacAddress,
-                         Gateway = adapter.Gateway ?? "N/A",
-                         // SupportaIPv4 =  ,
-                         SupportaIPv6 = adapter.IpV6Address ?? "N/A",
-                         Modello = adapter.Model ?? "N/A",
-                         IP = adapter.IpAddress ?? "N/A",
-                         SubnetMask = adapter.SubnetMask ?? "N/A",
-                         DnsServers = adapter.DnsServers ?? "N/A",
-                         IsDhcpEnabled = adapter.IsDhcpEnabled ? "Sì" : "No"
-                     };
+
+
+
+                DtoSchedaRete infoSchedaDiRete = new DtoSchedaRete()
+                {
+                    Nome = adapter.Name,
+                    Descrizione = adapter.Description,
+                    Tipo = adapter.InterfaceType.ToString(),
+                    Stato = adapter.Status.ToString(),
+                    Velocita = (adapter.Speed / 1000000).ToString() + "Mbps",
+                    Mac = adapter.MacAddress,
+                    Gateway = adapter.Gateway ?? "N/A",
+                    // SupportaIPv4 =  ,
+                    SupportaIPv6 = adapter.IpV6Address ?? "N/A",
+                    Modello = adapter.Model ?? "N/A",
+                    IP = adapter.IpAddress ?? "N/A",
+                    SubnetMask = adapter.SubnetMask ?? "N/A",
+                    DnsServers = adapter.DnsServers ?? "N/A",
+                    IsDhcpEnabled = adapter.IsDhcpEnabled ? "Sì" : "No"
+                };
 
 
                 schedaDiRete.Add(infoSchedaDiRete);
@@ -860,7 +884,7 @@ namespace Toro
             }
         }
 
-        
+
 
 
 
@@ -1153,5 +1177,9 @@ namespace Toro
 
 
 
+        private void tbcSezioni_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CaricaDati();
+        }
     }
 }
