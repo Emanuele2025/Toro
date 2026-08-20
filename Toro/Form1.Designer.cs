@@ -97,7 +97,7 @@
             informazioniPCToolStripMenuItem.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             informazioniPCToolStripMenuItem.Image = Properties.Resources.computer;
             informazioniPCToolStripMenuItem.Name = "informazioniPCToolStripMenuItem";
-            informazioniPCToolStripMenuItem.Size = new Size(180, 22);
+            informazioniPCToolStripMenuItem.Size = new Size(175, 22);
             informazioniPCToolStripMenuItem.Text = "Informazioni PC...";
             informazioniPCToolStripMenuItem.ToolTipText = "Apre una finestra per fornire informazioni sul hardware del proprio pc";
             informazioniPCToolStripMenuItem.Click += informazioniPCToolStripMenuItem_Click;
@@ -147,6 +147,7 @@
             galleriaToolStripMenuItem.Name = "galleriaToolStripMenuItem";
             galleriaToolStripMenuItem.Size = new Size(180, 22);
             galleriaToolStripMenuItem.Text = "Galleria...";
+            galleriaToolStripMenuItem.ToolTipText = "Permette di utilizzare una finestra come cornice digitale, selezionando una cartella con delle foto";
             galleriaToolStripMenuItem.Click += galleriaToolStripMenuItem_Click;
             // 
             // microsoftToolStripMenuItem

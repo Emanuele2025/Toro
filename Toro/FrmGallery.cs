@@ -64,7 +64,10 @@ namespace Toro
 
 
 
-
+        /// <summary>
+        /// Funzione per il caricamento dell'immagine
+        /// </summary>
+        /// <param name="cartella"></param>
         private void LoadImagesDaCartella(string cartella)
         {
             try
