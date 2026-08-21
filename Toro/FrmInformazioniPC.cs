@@ -668,7 +668,9 @@ namespace Toro
 
         }
 
-
+        /// <summary>
+        /// funzione che rileva informazioni sulla stampante
+        /// </summary>
         private void GetStampanti()
         {
             try
