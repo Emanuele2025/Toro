@@ -24,7 +24,7 @@ namespace Toro
             {
 
 
-                
+
 
 
 
@@ -72,17 +72,17 @@ namespace Toro
         {
             try
             {
-                 
+
                 // Filtra solo formati immagine comuni
-                     imgFiles = Directory.GetFiles(cartella)
-                    .Where(file =>
-                        file.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
-                        file.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase) ||
-                        file.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
-                        file.EndsWith(".bmp", StringComparison.OrdinalIgnoreCase) ||
-                        file.EndsWith(".gif", StringComparison.OrdinalIgnoreCase)
-                    )
-                    .ToArray();
+                imgFiles = Directory.GetFiles(cartella)
+               .Where(file =>
+                   file.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
+                   file.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase) ||
+                   file.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
+                   file.EndsWith(".bmp", StringComparison.OrdinalIgnoreCase) ||
+                   file.EndsWith(".gif", StringComparison.OrdinalIgnoreCase)
+               )
+               .ToArray();
 
 
             }
@@ -100,7 +100,7 @@ namespace Toro
                 Utility.MessaggioInfo("Seleziona un percorso dove sono presenti le immagini");
                 return;
             }
-            
+
             LoadImagesDaCartella(TxtPercorsoImmagini.Text);
             if (imgFiles.Length > 0)
             {
@@ -130,8 +130,13 @@ namespace Toro
             {
                 timer1.Stop();
                 Utility.MessaggioErrore($"Errore durante il caricamento dell'immagine: {ex.Message}");
-                
+
             }
+        }
+
+        private void BtnChiudi_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -119,7 +119,11 @@ namespace Toro
 
 
 
-
+        /// <summary>
+        /// Per il download delle immagini  
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private async void BtnScaricaSfondoBing_Click(object sender, EventArgs e)
         {
@@ -157,10 +161,6 @@ namespace Toro
                     //CaricaImmagineDaListBox();
                 }
                 
-
-                
-
-
 
             }
             catch (Exception ex)

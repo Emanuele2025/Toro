@@ -36,6 +36,7 @@
             label3 = new Label();
             BtnAvvia = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
+            BtnChiudi = new Button();
             ((System.ComponentModel.ISupportInitialize)pcbGalleria).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudSecondi).BeginInit();
             SuspendLayout();
@@ -103,11 +104,25 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
+            // BtnChiudi
+            // 
+            BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BtnChiudi.Image = Properties.Resources.chiudi_16;
+            BtnChiudi.ImageAlign = ContentAlignment.MiddleRight;
+            BtnChiudi.Location = new Point(1188, 777);
+            BtnChiudi.Name = "BtnChiudi";
+            BtnChiudi.Size = new Size(75, 23);
+            BtnChiudi.TabIndex = 23;
+            BtnChiudi.Text = "Chiudi";
+            BtnChiudi.UseVisualStyleBackColor = true;
+            BtnChiudi.Click += BtnChiudi_Click;
+            // 
             // FrmGallery
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1301, 812);
+            Controls.Add(BtnChiudi);
             Controls.Add(BtnAvvia);
             Controls.Add(BtnTrovaCartella);
             Controls.Add(TxtPercorsoImmagini);
@@ -132,5 +147,6 @@
         private Label label3;
         private Button BtnAvvia;
         private System.Windows.Forms.Timer timer1;
+        private Button BtnChiudi;
     }
 }
