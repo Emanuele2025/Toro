@@ -161,9 +161,9 @@
             // 
             dtgCertificatiFilePdf.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgCertificatiFilePdf.Dock = DockStyle.Bottom;
-            dtgCertificatiFilePdf.Location = new Point(3, 197);
+            dtgCertificatiFilePdf.Location = new Point(3, 107);
             dtgCertificatiFilePdf.Name = "dtgCertificatiFilePdf";
-            dtgCertificatiFilePdf.Size = new Size(949, 177);
+            dtgCertificatiFilePdf.Size = new Size(949, 267);
             dtgCertificatiFilePdf.TabIndex = 0;
             // 
             // tbpLeggiVCF

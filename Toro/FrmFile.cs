@@ -21,6 +21,7 @@ namespace Toro
 
         private void FrmFile_Load(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
                 this.Text = Utility.TitoloFinestra;
