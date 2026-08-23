@@ -88,8 +88,9 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore($"Errore nel caricamento immagini: {ex.Message}");
                 imgFiles = Array.Empty<string>();
+                Utility.MessaggioErrore($"Errore nel caricamento immagini: {ex.Message}");
+                
             }
         }
 
