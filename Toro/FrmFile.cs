@@ -111,7 +111,8 @@ namespace Toro
 
                         foreach (var firma in cms.SignerInfos)
                         {
-                            X509Certificate2 cert = firma?.Certificate;
+
+                            X509Certificate2 cert = firma?.Certificate ;
                             if (cert != null)
                             {
                                 DtoFirmaDigitale dtoCertificato = new DtoFirmaDigitale()
@@ -177,7 +178,12 @@ namespace Toro
 
 
 
-
+        /// <summary>
+        /// Per gestire i file immagini nascondendo un file docx
+        /// </summary>
+        /// <param name="pathImmaginePng"></param>
+        /// <param name="pathDocx"></param>
+        /// <param name="pathNuovoFilePng"></param>
         private void NascondiDocxInPng(string pathImmaginePng, string pathDocx, string pathNuovoFilePng)
 
         {
@@ -235,7 +241,12 @@ namespace Toro
 
         }
 
-
+        /// <summary>
+        /// Rileva indice
+        /// </summary>
+        /// <param name="arrayBytePng"></param>
+        /// <param name="marcatore"></param>
+        /// <returns></returns>
         private int IndexOf(byte[] arrayBytePng, byte[] marcatore)
 
         {
@@ -265,25 +276,22 @@ namespace Toro
 
 
 
-
+        /// <summary>
+        /// Funzione per estrapolare il file word dall'immagine
+        /// </summary>
+        /// <param name="pathPngConDocx"></param>
+        /// <param name="pathOutputDocx"></param>
         private void EstraiDocxDaPng(string pathPngConDocx, string pathOutputDocx)
-
         {
 
             try
-
             {
-
-
-
-
 
                 byte[] tuttiBytes = File.ReadAllBytes(pathPngConDocx);
 
                 byte[] marcatore = { 0xDE, 0xAD, 0xBE, 0xEF, 0xCA, 0xFE, 0xBA, 0xBE,
 
                  0xDE, 0xAD, 0xBE, 0xEF, 0xCA, 0xFE, 0xBA, 0xBE };
-
 
 
                 //Trova il marcatore
@@ -320,15 +328,6 @@ namespace Toro
 
 
         }
-
-
-
-
-
-
-
-
-
 
 
 
