@@ -66,7 +66,7 @@ namespace Toro
               //  GetInfoWebCam(); //OK
 
               //  GetStampanti(); //OK
-                //  LoadPrinters();
+               //  LoadPrinters();
                 GetInternet(); //OK
                                // GetInfoSchedaRete();
             //    RilevaSchedeRete(); //OK
@@ -118,7 +118,7 @@ namespace Toro
 
                         break;
                     case "tbpStampanti":
-                        GetStampanti();
+                         GetStampanti();
                         break;
                     case "tbpRete":
                         RilevaSchedeRete();
@@ -1063,9 +1063,9 @@ namespace Toro
                     if (existingPrinter != null)
                     {
                         existingPrinter.NomeDriver = printer["DriverName"]?.ToString();
-                        existingPrinter.Descrizione = printer["Description"]?.ToString();
+                      //  existingPrinter.Descrizione = printer["Description"]?.ToString();
                         existingPrinter.Stato = printer["Status"]?.ToString();
-                        existingPrinter.Modello = printer["Model"]?.ToString();
+                        //existingPrinter.Modello = printer["Model"]?.ToString();
                         existingPrinter.NumeroLavoro = Convert.ToInt32(printer["JobCountSinceLastReset"] ?? 0);
 
                         // Determinare lo stato online/offline

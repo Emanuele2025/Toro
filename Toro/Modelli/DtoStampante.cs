@@ -12,8 +12,8 @@ namespace Toro.Modelli
         public bool Rete { get; set; }
         public bool Predefinita { get; set; }
         public string Stato { get; set; }
-        public string Modello { get; set; }
-        public string Descrizione { get; set; }
+        //public string Modello { get; set; }
+        //public string Descrizione { get; set; }
         public bool Online { get; set; }
         public int NumeroLavoro { get; set; }
     }
