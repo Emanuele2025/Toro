@@ -34,6 +34,7 @@ namespace Toro
 
         private void FrmInformazioniPC_Load(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
                 //TODO: gestire le stampanti driver. 
