@@ -37,7 +37,7 @@ namespace Toro
             Cursor.Current = Cursors.WaitCursor;
             try
             {
-                //TODO: gestire le stampanti driver. 
+                
                 //TODO: prossime funzionalità
                 //Info Microfono audio ed altoparlanti 
                 //Info stampanti

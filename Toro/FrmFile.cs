@@ -112,7 +112,7 @@ namespace Toro
                         foreach (var firma in cms.SignerInfos)
                         {
 
-                            X509Certificate2 cert = firma?.Certificate ;
+                            X509Certificate2 cert = firma?.Certificate;
                             if (cert != null)
                             {
                                 DtoFirmaDigitale dtoCertificato = new DtoFirmaDigitale()
@@ -189,12 +189,7 @@ namespace Toro
         {
 
             try
-
             {
-
-
-
-
 
                 //Rilevo i byte del file immagine e del file doc
 
@@ -229,9 +224,7 @@ namespace Toro
                 }
 
             }
-
             catch (Exception ex)
-
             {
 
                 MessageBox.Show("Errore: " + ex.Message);
@@ -248,17 +241,14 @@ namespace Toro
         /// <param name="marcatore"></param>
         /// <returns></returns>
         private int IndexOf(byte[] arrayBytePng, byte[] marcatore)
-
         {
 
             for (int i = 0; i < arrayBytePng.Length - marcatore.Length; i++)
-
             {
 
                 bool trovato = true;
 
                 for (int j = 0; j < marcatore.Length; j++)
-
                 {
 
                     if (arrayBytePng[i + j] != marcatore[j]) { trovato = false; break; }
@@ -317,9 +307,7 @@ namespace Toro
                 File.WriteAllBytes(pathOutputDocx, docxBytes);
 
             }
-
             catch (Exception ex)
-
             {
 
                 MessageBox.Show("Errore: " + ex.Message);
