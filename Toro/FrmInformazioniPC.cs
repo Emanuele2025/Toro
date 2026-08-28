@@ -43,9 +43,7 @@ namespace Toro
                 //Info stampanti
                 //Info monitor, vedere tipo di monitor, marca, etc
                 //Info scheda madre come marca, prouttore, modello etc
-
-
-                //Valutare più avanti se aprire i dati quando si clicca sul tab
+ 
                 this.Text = Utility.TitoloFinestra;
 
 
@@ -101,7 +99,7 @@ namespace Toro
             try
             {
 
-                switch (tbcSezioni.SelectedTab.Name)
+                switch (tbcSezioni.SelectedTab?.Name)
                 {
                     case "tbpVideo":
                         VarieInformazioni();
