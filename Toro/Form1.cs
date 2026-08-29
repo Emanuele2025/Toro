@@ -78,5 +78,11 @@ namespace Toro
             FrmGallery galleria = new FrmGallery();
             galleria.ShowDialog();
         }
+
+        private void MniMicrosoft_Click(object sender, EventArgs e)
+        {
+            FrmImmaginiMS frmImmaginiMS = new FrmImmaginiMS();
+            frmImmaginiMS.ShowDialog();
+        }
     }
 }

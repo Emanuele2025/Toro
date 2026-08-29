@@ -41,7 +41,7 @@
             gestioneFileToolStripMenuItem = new ToolStripMenuItem();
             immaginiToolStripMenuItem = new ToolStripMenuItem();
             galleriaToolStripMenuItem = new ToolStripMenuItem();
-            microsoftToolStripMenuItem = new ToolStripMenuItem();
+            MniMicrosoft = new ToolStripMenuItem();
             infoToolStripMenuItem = new ToolStripMenuItem();
             mniInformazioni = new ToolStripMenuItem();
             mnsMenu.SuspendLayout();
@@ -137,7 +137,7 @@
             // 
             // immaginiToolStripMenuItem
             // 
-            immaginiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { galleriaToolStripMenuItem, microsoftToolStripMenuItem });
+            immaginiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { galleriaToolStripMenuItem, MniMicrosoft });
             immaginiToolStripMenuItem.Name = "immaginiToolStripMenuItem";
             immaginiToolStripMenuItem.Size = new Size(180, 22);
             immaginiToolStripMenuItem.Text = "Immagini";
@@ -150,11 +150,13 @@
             galleriaToolStripMenuItem.ToolTipText = "Permette di utilizzare una finestra come cornice digitale, selezionando una cartella con delle foto";
             galleriaToolStripMenuItem.Click += galleriaToolStripMenuItem_Click;
             // 
-            // microsoftToolStripMenuItem
+            // MniMicrosoft
             // 
-            microsoftToolStripMenuItem.Name = "microsoftToolStripMenuItem";
-            microsoftToolStripMenuItem.Size = new Size(180, 22);
-            microsoftToolStripMenuItem.Text = "Microsoft..";
+            MniMicrosoft.Name = "MniMicrosoft";
+            MniMicrosoft.Size = new Size(180, 22);
+            MniMicrosoft.Text = "Microsoft..";
+            MniMicrosoft.ToolTipText = "Strumenti per il download delle immagini da Bing, quelli del blocco schermo o di contenuti suggeriti";
+            MniMicrosoft.Click += MniMicrosoft_Click;
             // 
             // infoToolStripMenuItem
             // 
@@ -207,6 +209,6 @@
         private ToolStripMenuItem gestioneFileToolStripMenuItem;
         private ToolStripMenuItem immaginiToolStripMenuItem;
         private ToolStripMenuItem galleriaToolStripMenuItem;
-        private ToolStripMenuItem microsoftToolStripMenuItem;
+        private ToolStripMenuItem MniMicrosoft;
     }
 }
