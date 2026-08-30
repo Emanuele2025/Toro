@@ -71,6 +71,7 @@
             tbcImmaginiMS.SelectedIndex = 0;
             tbcImmaginiMS.Size = new Size(800, 387);
             tbcImmaginiMS.TabIndex = 2;
+            tbcImmaginiMS.SelectedIndexChanged += tbcImmaginiMS_SelectedIndexChanged;
             // 
             // tbpImmagineBing
             // 

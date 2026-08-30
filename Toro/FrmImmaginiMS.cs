@@ -107,6 +107,31 @@ namespace Toro
 
 
 
+        private void CaricaImmaginiDiBloccoSchermo()
+        {
+            try
+            {
+
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
+
+
+
+
+
+
+        }
+
+
+
 
         #endregion
 
@@ -136,11 +161,11 @@ namespace Toro
                     Utility.MessaggioInfo("Impostare un percorso dove salvare l'immagine.");
                     return;
                 }
-                
+
 
 
                 await DownloadImmagine(TxtPercorsoCartella.Text.Trim());
-                
+
                 var files = new DirectoryInfo(TxtPercorsoCartella.Text.Trim()).GetFiles()
                     .Select(file => new
                     {
@@ -152,7 +177,7 @@ namespace Toro
                     .ToList();
 
                 List<string> fileNames = files.Select(f => f.NomeFile).ToList();
-               // lsbListaFile.DataSource = fileNames;
+                // lsbListaFile.DataSource = fileNames;
 
                 // Se ci sono file, seleziona il primo e carica l'immagine
                 if (fileNames.Count > 0)
@@ -160,7 +185,7 @@ namespace Toro
                     //lsbListaFile.SelectedIndex = 0;
                     //CaricaImmagineDaListBox();
                 }
-                
+
 
             }
             catch (Exception ex)
@@ -194,6 +219,14 @@ namespace Toro
             {
                 Utility.MessaggioErrore(ex.Message);
 
+            }
+        }
+
+        private void tbcImmaginiMS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tbcImmaginiMS.SelectedTab.Name == "tbpImmaginiBlocco")
+            {
+                CaricaImmaginiDiBloccoSchermo();
             }
         }
     }

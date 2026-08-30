@@ -62,11 +62,7 @@ namespace Toro
 
         private void gestioneFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO FARE:
-
-            //Valutare se estrapolare file da un file p7m
-            //Steganografia, mettere un file all'interno di un'immagine png
-            //Mettere anche funzionalità vcf, dei contatti
+   
             FrmFile fileForm = new FrmFile();
             fileForm.ShowDialog();
 
