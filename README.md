@@ -34,11 +34,11 @@ Toro is a lightweight, free application that summarizes Windows hardware and sof
 
 ITA
 - Windows 10/11
-- .NET (specifica la versione: .NET Framework o .NET 5/6/7) — specifica qui la versione usata dal progetto.
+- .NET 10 .
 
 ENG
 - Windows 10/11
-- .NET runtime (specify whether .NET Framework or .NET 5/6/7 and the exact version required).
+- .NET runtime 10.
 
 ## Installazione / Installation
 
@@ -55,18 +55,18 @@ ENG
 ## Uso / Usage
 
 ITA
-- Avvia l'app e naviga tra le schede per visualizzare Hardware, Software, Rete, Utility.
-- Per esportare un report: clicca su "Esporta" e scegli il formato (TXT/JSON).
+- Avvia l'app e naviga tra le schede per visualizzare Hardware, Software, Rete, oppure utilizzare le varie funzionalità .
+ 
 
 ENG
 - Launch the app and navigate the tabs to view Hardware, Software, Network, Utilities.
-- To export a report: click "Export" and choose the format (TXT/JSON).
+ 
 
-## Come aggiungere screenshot (consigli) / How to add screenshots (tips)
-- Crea la cartella `assets/screenshots/`.
-- Usa PNG per UI e testo, JPEG se vuoi ridurre la dimensione.
-- Dimensione consigliata: larghezza 800–1200 px.
-- Ottimizza le immagini per ridurre il peso.
+## Attuali Funzionalità / Current Features
+- Visualizzazione informazioni computer / View computer information.
+- Convertitori / Converters .
+- Funzionalità sui Files / Files features.
+- Sfondi Microsoft / Microsoft Wallpapers .
 
 ## Licenza / License
 Il repository include già una licenza GPL-3.0.
