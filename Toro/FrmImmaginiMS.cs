@@ -22,7 +22,7 @@ namespace Toro
             try
             {
                 //Per ora download da bing
-
+                this.Text = Utility.TitoloFinestra;
 
                 TrovaImmaginiBloccoSchermo();
 

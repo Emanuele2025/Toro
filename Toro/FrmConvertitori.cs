@@ -195,7 +195,6 @@ namespace Toro
 
 
         public string ConvertiEuroInLettere(decimal importo, bool centesimiTesto = false)
-
         {
 
             if (importo == 0)
@@ -233,7 +232,6 @@ namespace Toro
 
 
         private string ConvertiNumeroInLettere(long numero)
-
         {
 
             if (numero < 10)
@@ -268,8 +266,7 @@ namespace Toro
 
 
 
-        public   string ConvertNumberToWords(decimal number)
-
+        public string ConvertNumberToWords(decimal number)
         {
 
             if (number == 0)
@@ -338,8 +335,7 @@ namespace Toro
 
         }
 
-        private   string ConvertHundreds(int number)
-
+        private string ConvertHundreds(int number)
         {
 
             string result = "";
@@ -386,13 +382,31 @@ namespace Toro
 
         }
 
- 
 
- 
 
- 
+        private void OttieniPercentuale()
+        {
+            try
+            {
 
-     
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Utility.MessaggioErrore("Errore:" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
+
+
+
+
+        }
+
+
+
+
 
 
 
@@ -418,7 +432,7 @@ namespace Toro
 
         private void FrmConvertitori_Load(object sender, EventArgs e)
         {
-
+            this.Text = Utility.TitoloFinestra;
         }
 
         private void BtnConvertiNumeroTesto_Click(object sender, EventArgs e)
@@ -427,7 +441,7 @@ namespace Toro
             {
                 txtNumeroTestoRisultato.Text = ConvertiEuroInLettere(nudNumeroTesto.Value, true);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;

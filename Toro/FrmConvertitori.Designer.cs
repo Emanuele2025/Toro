@@ -51,6 +51,13 @@
             BtnDollariTesto = new Button();
             label5 = new Label();
             BtnChiudi = new Button();
+            TbpOttieniPercentuale = new TabPage();
+            NudPrimaParte = new NumericUpDown();
+            TxtRisultatoPercentuale = new TextBox();
+            BtnOttieniPercentuale = new Button();
+            label6 = new Label();
+            NudSecondaParte = new NumericUpDown();
+            label7 = new Label();
             tbcConvertitori.SuspendLayout();
             tbpNumeroToRomano.SuspendLayout();
             tbpDaNumeroRomano.SuspendLayout();
@@ -58,6 +65,9 @@
             ((System.ComponentModel.ISupportInitialize)nudNumeroTesto).BeginInit();
             tbpDollari.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudDollari).BeginInit();
+            TbpOttieniPercentuale.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)NudPrimaParte).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NudSecondaParte).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -79,6 +89,7 @@
             tbcConvertitori.Controls.Add(tbpDaNumeroRomano);
             tbcConvertitori.Controls.Add(tbpNumeroTesto);
             tbcConvertitori.Controls.Add(tbpDollari);
+            tbcConvertitori.Controls.Add(TbpOttieniPercentuale);
             tbcConvertitori.Dock = DockStyle.Top;
             tbcConvertitori.Location = new Point(0, 22);
             tbcConvertitori.Name = "tbcConvertitori";
@@ -305,6 +316,75 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
+            // TbpOttieniPercentuale
+            // 
+            TbpOttieniPercentuale.Controls.Add(NudSecondaParte);
+            TbpOttieniPercentuale.Controls.Add(label7);
+            TbpOttieniPercentuale.Controls.Add(NudPrimaParte);
+            TbpOttieniPercentuale.Controls.Add(TxtRisultatoPercentuale);
+            TbpOttieniPercentuale.Controls.Add(BtnOttieniPercentuale);
+            TbpOttieniPercentuale.Controls.Add(label6);
+            TbpOttieniPercentuale.Location = new Point(4, 24);
+            TbpOttieniPercentuale.Name = "TbpOttieniPercentuale";
+            TbpOttieniPercentuale.Padding = new Padding(3);
+            TbpOttieniPercentuale.Size = new Size(818, 134);
+            TbpOttieniPercentuale.TabIndex = 4;
+            TbpOttieniPercentuale.Text = "Ottieni Percentuale";
+            TbpOttieniPercentuale.UseVisualStyleBackColor = true;
+            // 
+            // NudPrimaParte
+            // 
+            NudPrimaParte.Location = new Point(13, 30);
+            NudPrimaParte.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            NudPrimaParte.Name = "NudPrimaParte";
+            NudPrimaParte.Size = new Size(148, 23);
+            NudPrimaParte.TabIndex = 20;
+            NudPrimaParte.ThousandsSeparator = true;
+            // 
+            // TxtRisultatoPercentuale
+            // 
+            TxtRisultatoPercentuale.Location = new Point(354, 30);
+            TxtRisultatoPercentuale.Name = "TxtRisultatoPercentuale";
+            TxtRisultatoPercentuale.ReadOnly = true;
+            TxtRisultatoPercentuale.Size = new Size(186, 23);
+            TxtRisultatoPercentuale.TabIndex = 19;
+            // 
+            // BtnOttieniPercentuale
+            // 
+            BtnOttieniPercentuale.Location = new Point(13, 80);
+            BtnOttieniPercentuale.Name = "BtnOttieniPercentuale";
+            BtnOttieniPercentuale.Size = new Size(102, 23);
+            BtnOttieniPercentuale.TabIndex = 18;
+            BtnOttieniPercentuale.Text = "Percentuale";
+            BtnOttieniPercentuale.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(9, 12);
+            label6.Name = "label6";
+            label6.Size = new Size(125, 15);
+            label6.TabIndex = 17;
+            label6.Text = "Primo numero (parte):";
+            // 
+            // NudSecondaParte
+            // 
+            NudSecondaParte.Location = new Point(185, 30);
+            NudSecondaParte.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            NudSecondaParte.Name = "NudSecondaParte";
+            NudSecondaParte.Size = new Size(148, 23);
+            NudSecondaParte.TabIndex = 22;
+            NudSecondaParte.ThousandsSeparator = true;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(181, 12);
+            label7.Name = "label7";
+            label7.Size = new Size(142, 15);
+            label7.TabIndex = 21;
+            label7.Text = "Secondo numero (totale):";
+            // 
             // FrmConvertitori
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -331,6 +411,10 @@
             tbpDollari.ResumeLayout(false);
             tbpDollari.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudDollari).EndInit();
+            TbpOttieniPercentuale.ResumeLayout(false);
+            TbpOttieniPercentuale.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)NudPrimaParte).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NudSecondaParte).EndInit();
             ResumeLayout(false);
         }
 
@@ -359,5 +443,12 @@
         private TextBox TxtImportoDollariRisultato;
         private Button BtnDollariTesto;
         private Label label5;
+        private TabPage TbpOttieniPercentuale;
+        private NumericUpDown NudSecondaParte;
+        private Label label7;
+        private NumericUpDown NudPrimaParte;
+        private TextBox TxtRisultatoPercentuale;
+        private Button BtnOttieniPercentuale;
+        private Label label6;
     }
 }
