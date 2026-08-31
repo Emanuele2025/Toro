@@ -388,7 +388,7 @@ namespace Toro
         {
             try
             {
-
+                CalcolaPercentuale(decimal.ToDouble(NudPrimaParte.Value), decimal.ToDouble(NudSecondaParte.Value));
             }
             catch (ArgumentOutOfRangeException ex)
             {
@@ -398,13 +398,18 @@ namespace Toro
             {
                 Utility.MessaggioErrore(ex.Message);
             }
-
-
-
+ 
 
         }
 
-
+        private void CalcolaPercentuale(double parte, double totale)
+        {
+            if (totale == 0)
+            {
+                Utility.MessaggioInfo("Il totale non può essere zero.");
+            }
+            TxtRisultatoPercentuale.Text = Convert.ToString((parte / totale) * 100);
+        }
 
 
 
@@ -452,6 +457,11 @@ namespace Toro
         private void BtnDollariTesto_Click(object sender, EventArgs e)
         {
             TxtImportoDollariRisultato.Text = ConvertNumberToWords(nudDollari.Value);
+        }
+
+        private void BtnOttieniPercentuale_Click(object sender, EventArgs e)
+        {
+            OttieniPercentuale();
         }
     }
 }
