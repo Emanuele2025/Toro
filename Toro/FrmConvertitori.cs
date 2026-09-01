@@ -321,7 +321,7 @@ namespace Toro
             }
 
             if (number >= 20)
-          {
+            {
 
                 result += tens[number / 10] + " ";
 
@@ -360,7 +360,7 @@ namespace Toro
             {
                 Utility.MessaggioErrore(ex.Message);
             }
- 
+
 
         }
 
@@ -374,9 +374,17 @@ namespace Toro
             TxtRisultatoPercentuale.Text = Convert.ToString((parte / totale) * 100);
         }
 
-        
 
 
+        private void OttieniNumero(double totale, double percentuale)
+        {
+            if (totale == 0)
+            {
+                Utility.MessaggioInfo("Il totale non può essere zero.");
+                return;
+            }
+            TxtOttieniNumeroDallaPercentuale.Text = Convert.ToString((percentuale / 100) * totale);
+        }
 
 
 
@@ -411,8 +419,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore(ex.Message);
             }
 
         }
@@ -426,5 +433,15 @@ namespace Toro
         {
             OttieniPercentuale();
         }
+
+        private void BtnOttieniNumero_Click(object sender, EventArgs e)
+        {
+            OttieniNumero(decimal.ToDouble(NudTotale.Value), decimal.ToDouble(NudPercentuale.Value));
+        }
+
+
+
+
+        
     }
 }
