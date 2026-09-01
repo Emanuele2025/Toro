@@ -198,7 +198,6 @@ namespace Toro
         {
 
             if (importo == 0)
-
                 return "zero euro";
 
 
@@ -208,18 +207,11 @@ namespace Toro
             int centesimiParte = (int)((importo - Math.Floor(importo)) * 100);
 
             if (centesimiTesto == false)
-
                 return $"{euroParte} euro /{centesimiParte:00}";
-
             else
-
             {
-
                 //tutto lettere
-
                 string centesimiParteTesto = ConvertiNumeroInLettere((long)((importo - Math.Floor(importo)) * 100));
-
-
 
                 return $"{euroParte} euro e {centesimiParteTesto} centesimi";
 
@@ -235,30 +227,22 @@ namespace Toro
         {
 
             if (numero < 10)
-
                 return Unita[numero];
 
             if (numero < 20)
-
                 return DecineSpeciali[numero - 10];
 
             if (numero < 100)
-
                 return Decine[numero / 10] + (numero % 10 > 0 ? Unita[numero % 10] : "");
 
             if (numero < 1000)
-
                 return (numero / 100 == 1 ? "cento" : Unita[numero / 100] + "cento") + (numero % 100 > 0 ? ConvertiNumeroInLettere(numero % 100) : "");
 
             if (numero < 1000000)
-
                 return (numero / 1000 == 1 ? "mille" : ConvertiNumeroInLettere(numero / 1000) + "mila") + (numero % 1000 > 0 ? ConvertiNumeroInLettere(numero % 1000) : "");
 
             if (numero < 1000000000)
-
                 return (numero / 1000000 == 1 ? "un milione" : ConvertiNumeroInLettere(numero / 1000000) + " milioni") + (numero % 1000000 > 0 ? ConvertiNumeroInLettere(numero % 1000000) : "");
-
-
 
             return (numero / 1000000000 == 1 ? "un miliardo" : ConvertiNumeroInLettere(numero / 1000000000) + " miliardi") + (numero % 1000000000 > 0 ? ConvertiNumeroInLettere(numero % 1000000000) : "");
 
@@ -270,33 +254,20 @@ namespace Toro
         {
 
             if (number == 0)
-
                 return "Zero Dollars";
-
-
 
             int intPart = (int)number;
 
-
-
             int decimalPart = (int)((number - intPart) * 100);
-
-
 
             string words = "";
 
-
-
             int thousandCounter = 0;
 
-
-
             while (intPart > 0)
-
             {
 
                 if (intPart % 1000 != 0)
-
                 {
 
                     words = ConvertHundreds(intPart % 1000) + thousands[thousandCounter] + " " + words;
@@ -318,7 +289,6 @@ namespace Toro
 
 
             if (decimalPart > 0)
-
             {
 
                 words += " and " + ConvertHundreds(decimalPart) + " Cents";
@@ -350,11 +320,8 @@ namespace Toro
 
             }
 
-
-
             if (number >= 20)
-
-            {
+          {
 
                 result += tens[number / 10] + " ";
 
@@ -364,10 +331,7 @@ namespace Toro
 
 
 
-
-
             if (number > 0)
-
             {
 
                 result += ones[number] + " ";
@@ -377,8 +341,6 @@ namespace Toro
 
 
             return result.Trim();
-
-
 
         }
 
@@ -407,11 +369,12 @@ namespace Toro
             if (totale == 0)
             {
                 Utility.MessaggioInfo("Il totale non può essere zero.");
+                return;
             }
             TxtRisultatoPercentuale.Text = Convert.ToString((parte / totale) * 100);
         }
 
-
+        
 
 
 
