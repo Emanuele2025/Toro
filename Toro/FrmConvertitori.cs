@@ -375,7 +375,11 @@ namespace Toro
         }
 
 
-
+        /// <summary>
+        /// Ottiene il numero da una percentuale
+        /// </summary>
+        /// <param name="totale"></param>
+        /// <param name="percentuale"></param>
         private void OttieniNumero(double totale, double percentuale)
         {
             if (totale == 0)

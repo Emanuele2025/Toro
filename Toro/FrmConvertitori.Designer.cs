@@ -57,7 +57,6 @@
             TxtRisultatoPercentuale = new TextBox();
             BtnOttieniPercentuale = new Button();
             label6 = new Label();
-            BtnChiudi = new Button();
             TbpOttieniNumero = new TabPage();
             NudPercentuale = new NumericUpDown();
             label8 = new Label();
@@ -65,6 +64,9 @@
             TxtOttieniNumeroDallaPercentuale = new TextBox();
             BtnOttieniNumero = new Button();
             label9 = new Label();
+            BtnChiudi = new Button();
+            label10 = new Label();
+            label11 = new Label();
             tbcConvertitori.SuspendLayout();
             tbpNumeroToRomano.SuspendLayout();
             tbpDaNumeroRomano.SuspendLayout();
@@ -316,6 +318,7 @@
             // 
             // TbpOttieniPercentuale
             // 
+            TbpOttieniPercentuale.Controls.Add(label11);
             TbpOttieniPercentuale.Controls.Add(NudSecondaParte);
             TbpOttieniPercentuale.Controls.Add(label7);
             TbpOttieniPercentuale.Controls.Add(NudPrimaParte);
@@ -384,21 +387,9 @@
             label6.TabIndex = 17;
             label6.Text = "Primo numero (parte):";
             // 
-            // BtnChiudi
-            // 
-            BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            BtnChiudi.Image = Properties.Resources.chiudi_16;
-            BtnChiudi.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnChiudi.Location = new Point(739, 216);
-            BtnChiudi.Name = "BtnChiudi";
-            BtnChiudi.Size = new Size(75, 23);
-            BtnChiudi.TabIndex = 3;
-            BtnChiudi.Text = "Chiudi";
-            BtnChiudi.UseVisualStyleBackColor = true;
-            BtnChiudi.Click += BtnChiudi_Click;
-            // 
             // TbpOttieniNumero
             // 
+            TbpOttieniNumero.Controls.Add(label10);
             TbpOttieniNumero.Controls.Add(NudPercentuale);
             TbpOttieniNumero.Controls.Add(label8);
             TbpOttieniNumero.Controls.Add(NudTotale);
@@ -469,6 +460,37 @@
             label9.Size = new Size(42, 15);
             label9.TabIndex = 23;
             label9.Text = "Totale:";
+            // 
+            // BtnChiudi
+            // 
+            BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BtnChiudi.Image = Properties.Resources.chiudi_16;
+            BtnChiudi.ImageAlign = ContentAlignment.MiddleLeft;
+            BtnChiudi.Location = new Point(739, 216);
+            BtnChiudi.Name = "BtnChiudi";
+            BtnChiudi.Size = new Size(75, 23);
+            BtnChiudi.TabIndex = 3;
+            BtnChiudi.Text = "Chiudi";
+            BtnChiudi.UseVisualStyleBackColor = true;
+            BtnChiudi.Click += BtnChiudi_Click;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(355, 10);
+            label10.Name = "label10";
+            label10.Size = new Size(56, 15);
+            label10.TabIndex = 29;
+            label10.Text = "Risultato:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(354, 12);
+            label11.Name = "label11";
+            label11.Size = new Size(56, 15);
+            label11.TabIndex = 30;
+            label11.Text = "Risultato:";
             // 
             // FrmConvertitori
             // 
@@ -546,5 +568,7 @@
         private TextBox TxtOttieniNumeroDallaPercentuale;
         private Button BtnOttieniNumero;
         private Label label9;
+        private Label label11;
+        private Label label10;
     }
 }
