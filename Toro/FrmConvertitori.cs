@@ -345,7 +345,9 @@ namespace Toro
         }
 
 
-
+        /// <summary>
+        /// Funzione che viene richiamata per ottenere la percentuale
+        /// </summary>
         private void OttieniPercentuale()
         {
             try
@@ -364,6 +366,12 @@ namespace Toro
 
         }
 
+
+        /// <summary>
+        /// Funzioni per il calcolo della percentuale
+        /// </summary>
+        /// <param name="parte"></param>
+        /// <param name="totale"></param>
         private void CalcolaPercentuale(double parte, double totale)
         {
             if (totale == 0)
