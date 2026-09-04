@@ -49,6 +49,11 @@ namespace Toro
             try
             {
 
+
+
+
+
+
             }
             catch (Exception ex)
             {
@@ -112,7 +117,7 @@ namespace Toro
             try
             {
 
-
+                //TODO: FAre ricerca
 
 
 
