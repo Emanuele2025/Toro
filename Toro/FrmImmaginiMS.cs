@@ -117,7 +117,8 @@ namespace Toro
             try
             {
 
-                //TODO: FAre ricerca
+                //TODO: FAre ricerca solo su certe dimensioni e peso
+
 
 
 
@@ -229,9 +230,22 @@ namespace Toro
 
         private void tbcImmaginiMS_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tbcImmaginiMS.SelectedTab.Name == "tbpImmaginiBlocco")
+            if (tbcImmaginiMS?.SelectedTab?.Name == "tbpImmaginiBlocco")
             {
                 CaricaImmaginiDiBloccoSchermo();
+            }
+        }
+
+        private void MniSalva_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //TODO: rendere il menu visibile solo se sono presenti i file
+                //TODO: Prendere spunto da Lupo
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
             }
         }
     }

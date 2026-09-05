@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             tbcImmaginiMS = new TabControl();
             tbpImmagineBing = new TabPage();
@@ -41,10 +42,13 @@
             lstboxFile = new ListBox();
             tbpContenuti = new TabPage();
             BtnChiudi = new Button();
+            CmsMenu = new ContextMenuStrip(components);
+            MniSalva = new ToolStripMenuItem();
             tbcImmaginiMS.SuspendLayout();
             tbpImmagineBing.SuspendLayout();
             tbpImmaginiBlocco.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcbAnteprima).BeginInit();
+            CmsMenu.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -187,6 +191,19 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
+            // CmsMenu
+            // 
+            CmsMenu.Items.AddRange(new ToolStripItem[] { MniSalva });
+            CmsMenu.Name = "CmsMenu";
+            CmsMenu.Size = new Size(181, 48);
+            // 
+            // MniSalva
+            // 
+            MniSalva.Name = "MniSalva";
+            MniSalva.Size = new Size(180, 22);
+            MniSalva.Text = "Salva";
+            MniSalva.Click += MniSalva_Click;
+            // 
             // FrmImmaginiMS
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -208,6 +225,7 @@
             tbpImmaginiBlocco.ResumeLayout(false);
             tbpImmaginiBlocco.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcbAnteprima).EndInit();
+            CmsMenu.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -226,5 +244,7 @@
         private Button BtnCercaCartella;
         private Label lblEtichetta;
         private TextBox TxtPercorsoCartella;
+        private ContextMenuStrip CmsMenu;
+        private ToolStripMenuItem MniSalva;
     }
 }
