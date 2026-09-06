@@ -43,6 +43,9 @@ namespace Toro
 
         #region funzioni
 
+        /// <summary>
+        /// Verificare se tenerla
+        /// </summary>
         private void TrovaImmaginiBloccoSchermo()
         {
 
@@ -118,7 +121,7 @@ namespace Toro
             try
             {
 
-                //TODO: FAre ricerca solo su certe dimensioni e peso
+                //TODO: Fare ricerca solo su certe dimensioni e peso
 
 
 
@@ -243,6 +246,13 @@ namespace Toro
             {
                 //TODO: rendere il menu visibile solo se sono presenti i file
                 //TODO: Prendere spunto da Lupo
+
+
+
+
+
+
+
             }
             catch (Exception ex)
             {
