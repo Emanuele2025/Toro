@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.Json;
 using System.Windows.Forms;
-
 namespace Toro
 {
     public partial class FrmImmaginiMS : Form
@@ -15,6 +16,15 @@ namespace Toro
         {
             InitializeComponent();
         }
+        //Dichiarazione API per impostare lo sfondo del Desktop.
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern bool SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+
+        private const int SPI_SETDESKWALLPAPER = 20;
+        private const int SPIF_UPDATEINIFILE = 0x01;
+        private const int SPIF_SENDWININICHANGE = 0x02;
+
+
 
         private void FrmImmaginiMS_Load(object sender, EventArgs e)
         {
@@ -257,6 +267,36 @@ namespace Toro
 
 
 
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
+        }
+
+        private void MniApri_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                //TODO: in base al tab aperto
+                //if (lsbListaFile.SelectedItem == null)
+                //    return;
+
+                //if (lsbListaFile.Items.Count == 0)
+                //{
+                //    Utility.MessaggioInfo("Nessun file presente nella lista.");
+                //    return;
+                //}
+
+                //string percorsoFileDaAprire = Path.Combine(percorsoCartella, lsbListaFile.SelectedItem.ToString());
+                //if (!File.Exists(percorsoFileDaAprire))
+                //{
+                //    return;
+                //}
+                //string argument = "/select, \"" + percorsoFileDaAprire + "\"";
+
+                //Process.Start("explorer.exe", argument);
             }
             catch (Exception ex)
             {

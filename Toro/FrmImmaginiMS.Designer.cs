@@ -47,6 +47,9 @@
             BtnChiudi = new Button();
             CmsMenu = new ContextMenuStrip(components);
             MniSalva = new ToolStripMenuItem();
+            CmsImpostaComeSfondo = new ContextMenuStrip(components);
+            MniImpostaSfondo = new ToolStripMenuItem();
+            MniApri = new ToolStripMenuItem();
             tbcImmaginiMS.SuspendLayout();
             tbpImmagineBing.SuspendLayout();
             tbpImmaginiBlocco.SuspendLayout();
@@ -54,6 +57,7 @@
             tbpContenuti.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PctAnteprimaContenuti).BeginInit();
             CmsMenu.SuspendLayout();
+            CmsImpostaComeSfondo.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -226,16 +230,35 @@
             // 
             // CmsMenu
             // 
-            CmsMenu.Items.AddRange(new ToolStripItem[] { MniSalva });
+            CmsMenu.Items.AddRange(new ToolStripItem[] { MniSalva, MniApri });
             CmsMenu.Name = "CmsMenu";
-            CmsMenu.Size = new Size(102, 26);
+            CmsMenu.Size = new Size(181, 70);
             // 
             // MniSalva
             // 
             MniSalva.Name = "MniSalva";
-            MniSalva.Size = new Size(101, 22);
+            MniSalva.Size = new Size(180, 22);
             MniSalva.Text = "Salva";
             MniSalva.Click += MniSalva_Click;
+            // 
+            // CmsImpostaComeSfondo
+            // 
+            CmsImpostaComeSfondo.Items.AddRange(new ToolStripItem[] { MniImpostaSfondo });
+            CmsImpostaComeSfondo.Name = "contextMenuStrip1";
+            CmsImpostaComeSfondo.Size = new Size(191, 26);
+            // 
+            // MniImpostaSfondo
+            // 
+            MniImpostaSfondo.Name = "MniImpostaSfondo";
+            MniImpostaSfondo.Size = new Size(190, 22);
+            MniImpostaSfondo.Text = "Imposta come sfondo";
+            // 
+            // MniApri
+            // 
+            MniApri.Name = "MniApri";
+            MniApri.Size = new Size(180, 22);
+            MniApri.Text = "Apri Cartella";
+            MniApri.Click += MniApri_Click;
             // 
             // FrmImmaginiMS
             // 
@@ -262,6 +285,7 @@
             tbpContenuti.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PctAnteprimaContenuti).EndInit();
             CmsMenu.ResumeLayout(false);
+            CmsImpostaComeSfondo.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -285,5 +309,8 @@
         private Label label3;
         private PictureBox PctAnteprimaContenuti;
         private ListBox LstNomeFileContenuti;
+        private ContextMenuStrip CmsImpostaComeSfondo;
+        private ToolStripMenuItem MniImpostaSfondo;
+        private ToolStripMenuItem MniApri;
     }
 }
