@@ -41,6 +41,9 @@
             pcbAnteprima = new PictureBox();
             lstboxFile = new ListBox();
             tbpContenuti = new TabPage();
+            label3 = new Label();
+            PctAnteprimaContenuti = new PictureBox();
+            LstNomeFileContenuti = new ListBox();
             BtnChiudi = new Button();
             CmsMenu = new ContextMenuStrip(components);
             MniSalva = new ToolStripMenuItem();
@@ -48,6 +51,8 @@
             tbpImmagineBing.SuspendLayout();
             tbpImmaginiBlocco.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcbAnteprima).BeginInit();
+            tbpContenuti.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PctAnteprimaContenuti).BeginInit();
             CmsMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -170,6 +175,9 @@
             // 
             // tbpContenuti
             // 
+            tbpContenuti.Controls.Add(label3);
+            tbpContenuti.Controls.Add(PctAnteprimaContenuti);
+            tbpContenuti.Controls.Add(LstNomeFileContenuti);
             tbpContenuti.Location = new Point(4, 24);
             tbpContenuti.Name = "tbpContenuti";
             tbpContenuti.Padding = new Padding(3);
@@ -177,6 +185,31 @@
             tbpContenuti.TabIndex = 2;
             tbpContenuti.Text = "Contenuti suggeriti";
             tbpContenuti.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(9, 3);
+            label3.Name = "label3";
+            label3.Size = new Size(40, 15);
+            label3.TabIndex = 5;
+            label3.Text = "Nome";
+            // 
+            // PctAnteprimaContenuti
+            // 
+            PctAnteprimaContenuti.Location = new Point(386, 9);
+            PctAnteprimaContenuti.Name = "PctAnteprimaContenuti";
+            PctAnteprimaContenuti.Size = new Size(397, 347);
+            PctAnteprimaContenuti.TabIndex = 4;
+            PctAnteprimaContenuti.TabStop = false;
+            // 
+            // LstNomeFileContenuti
+            // 
+            LstNomeFileContenuti.FormattingEnabled = true;
+            LstNomeFileContenuti.Location = new Point(9, 21);
+            LstNomeFileContenuti.Name = "LstNomeFileContenuti";
+            LstNomeFileContenuti.Size = new Size(271, 184);
+            LstNomeFileContenuti.TabIndex = 3;
             // 
             // BtnChiudi
             // 
@@ -195,12 +228,12 @@
             // 
             CmsMenu.Items.AddRange(new ToolStripItem[] { MniSalva });
             CmsMenu.Name = "CmsMenu";
-            CmsMenu.Size = new Size(181, 48);
+            CmsMenu.Size = new Size(102, 26);
             // 
             // MniSalva
             // 
             MniSalva.Name = "MniSalva";
-            MniSalva.Size = new Size(180, 22);
+            MniSalva.Size = new Size(101, 22);
             MniSalva.Text = "Salva";
             MniSalva.Click += MniSalva_Click;
             // 
@@ -225,6 +258,9 @@
             tbpImmaginiBlocco.ResumeLayout(false);
             tbpImmaginiBlocco.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcbAnteprima).EndInit();
+            tbpContenuti.ResumeLayout(false);
+            tbpContenuti.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PctAnteprimaContenuti).EndInit();
             CmsMenu.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -246,5 +282,8 @@
         private TextBox TxtPercorsoCartella;
         private ContextMenuStrip CmsMenu;
         private ToolStripMenuItem MniSalva;
+        private Label label3;
+        private PictureBox PctAnteprimaContenuti;
+        private ListBox LstNomeFileContenuti;
     }
 }

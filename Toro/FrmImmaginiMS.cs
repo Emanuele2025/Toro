@@ -238,6 +238,10 @@ namespace Toro
             {
                 CaricaImmaginiDiBloccoSchermo();
             }
+            else if (tbcImmaginiMS?.SelectedTab?.Name == "tbpContenuti")
+            {
+
+            }
         }
 
         private void MniSalva_Click(object sender, EventArgs e)
