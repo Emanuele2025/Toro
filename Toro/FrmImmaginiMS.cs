@@ -28,7 +28,7 @@ namespace Toro
 
         private void FrmImmaginiMS_Load(object sender, EventArgs e)
         {
-            //TODO: fare anche il tab per le immagini di lettura contenuti
+            //TODO: PEr le immagini di windows, non aprirle nelle cartelle ma visualizzarle in altra cartlella così rimangono salvate
             try
             {
                 //Per ora download da bing

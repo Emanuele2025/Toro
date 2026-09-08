@@ -37,6 +37,10 @@
             lblEtichetta = new Label();
             TxtPercorsoCartella = new TextBox();
             tbpImmaginiBlocco = new TabPage();
+            BtnCopiaSfondo = new Button();
+            BtnCercaCartellaPerSfondo = new Button();
+            label4 = new Label();
+            TxtPercorsoFileSfondo = new TextBox();
             label2 = new Label();
             pcbAnteprima = new PictureBox();
             lstboxFile = new ListBox();
@@ -47,9 +51,9 @@
             BtnChiudi = new Button();
             CmsMenu = new ContextMenuStrip(components);
             MniSalva = new ToolStripMenuItem();
+            MniApri = new ToolStripMenuItem();
             CmsImpostaComeSfondo = new ContextMenuStrip(components);
             MniImpostaSfondo = new ToolStripMenuItem();
-            MniApri = new ToolStripMenuItem();
             tbcImmaginiMS.SuspendLayout();
             tbpImmagineBing.SuspendLayout();
             tbpImmaginiBlocco.SuspendLayout();
@@ -141,6 +145,10 @@
             // 
             // tbpImmaginiBlocco
             // 
+            tbpImmaginiBlocco.Controls.Add(BtnCopiaSfondo);
+            tbpImmaginiBlocco.Controls.Add(BtnCercaCartellaPerSfondo);
+            tbpImmaginiBlocco.Controls.Add(label4);
+            tbpImmaginiBlocco.Controls.Add(TxtPercorsoFileSfondo);
             tbpImmaginiBlocco.Controls.Add(label2);
             tbpImmaginiBlocco.Controls.Add(pcbAnteprima);
             tbpImmaginiBlocco.Controls.Add(lstboxFile);
@@ -151,6 +159,43 @@
             tbpImmaginiBlocco.TabIndex = 1;
             tbpImmaginiBlocco.Text = "Immagini di blocco di Windows";
             tbpImmaginiBlocco.UseVisualStyleBackColor = true;
+            // 
+            // BtnCopiaSfondo
+            // 
+            BtnCopiaSfondo.Location = new Point(10, 274);
+            BtnCopiaSfondo.Name = "BtnCopiaSfondo";
+            BtnCopiaSfondo.Size = new Size(109, 23);
+            BtnCopiaSfondo.TabIndex = 11;
+            BtnCopiaSfondo.Text = "Copia e rileva file";
+            BtnCopiaSfondo.UseVisualStyleBackColor = true;
+            // 
+            // BtnCercaCartellaPerSfondo
+            // 
+            BtnCercaCartellaPerSfondo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnCercaCartellaPerSfondo.Location = new Point(321, 234);
+            BtnCercaCartellaPerSfondo.Name = "BtnCercaCartellaPerSfondo";
+            BtnCercaCartellaPerSfondo.Size = new Size(30, 29);
+            BtnCercaCartellaPerSfondo.TabIndex = 10;
+            BtnCercaCartellaPerSfondo.Text = "...";
+            BtnCercaCartellaPerSfondo.TextAlign = ContentAlignment.TopLeft;
+            BtnCercaCartellaPerSfondo.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(15, 216);
+            label4.Name = "label4";
+            label4.Size = new Size(152, 15);
+            label4.TabIndex = 9;
+            label4.Text = "Percorso dove salvare il file:";
+            // 
+            // TxtPercorsoFileSfondo
+            // 
+            TxtPercorsoFileSfondo.Location = new Point(10, 234);
+            TxtPercorsoFileSfondo.Name = "TxtPercorsoFileSfondo";
+            TxtPercorsoFileSfondo.ReadOnly = true;
+            TxtPercorsoFileSfondo.Size = new Size(305, 23);
+            TxtPercorsoFileSfondo.TabIndex = 8;
             // 
             // label2
             // 
@@ -232,14 +277,21 @@
             // 
             CmsMenu.Items.AddRange(new ToolStripItem[] { MniSalva, MniApri });
             CmsMenu.Name = "CmsMenu";
-            CmsMenu.Size = new Size(181, 70);
+            CmsMenu.Size = new Size(140, 48);
             // 
             // MniSalva
             // 
             MniSalva.Name = "MniSalva";
-            MniSalva.Size = new Size(180, 22);
+            MniSalva.Size = new Size(139, 22);
             MniSalva.Text = "Salva";
             MniSalva.Click += MniSalva_Click;
+            // 
+            // MniApri
+            // 
+            MniApri.Name = "MniApri";
+            MniApri.Size = new Size(139, 22);
+            MniApri.Text = "Apri Cartella";
+            MniApri.Click += MniApri_Click;
             // 
             // CmsImpostaComeSfondo
             // 
@@ -252,13 +304,6 @@
             MniImpostaSfondo.Name = "MniImpostaSfondo";
             MniImpostaSfondo.Size = new Size(190, 22);
             MniImpostaSfondo.Text = "Imposta come sfondo";
-            // 
-            // MniApri
-            // 
-            MniApri.Name = "MniApri";
-            MniApri.Size = new Size(180, 22);
-            MniApri.Text = "Apri Cartella";
-            MniApri.Click += MniApri_Click;
             // 
             // FrmImmaginiMS
             // 
@@ -312,5 +357,9 @@
         private ContextMenuStrip CmsImpostaComeSfondo;
         private ToolStripMenuItem MniImpostaSfondo;
         private ToolStripMenuItem MniApri;
+        private Button BtnCopiaSfondo;
+        private Button BtnCercaCartellaPerSfondo;
+        private Label label4;
+        private TextBox TxtPercorsoFileSfondo;
     }
 }
