@@ -179,6 +179,7 @@
             BtnCercaCartellaPerSfondo.Text = "...";
             BtnCercaCartellaPerSfondo.TextAlign = ContentAlignment.TopLeft;
             BtnCercaCartellaPerSfondo.UseVisualStyleBackColor = true;
+            BtnCercaCartellaPerSfondo.Click += BtnCercaCartellaPerSfondo_Click;
             // 
             // label4
             // 
