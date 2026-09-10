@@ -54,6 +54,10 @@
             MniApri = new ToolStripMenuItem();
             CmsImpostaComeSfondo = new ContextMenuStrip(components);
             MniImpostaSfondo = new ToolStripMenuItem();
+            BtnCopiaContenuti = new Button();
+            BtnContenutiSuggeriti = new Button();
+            label5 = new Label();
+            TxtContenutiSuggeriti = new TextBox();
             tbcImmaginiMS.SuspendLayout();
             tbpImmagineBing.SuspendLayout();
             tbpImmaginiBlocco.SuspendLayout();
@@ -225,6 +229,10 @@
             // 
             // tbpContenuti
             // 
+            tbpContenuti.Controls.Add(BtnCopiaContenuti);
+            tbpContenuti.Controls.Add(BtnContenutiSuggeriti);
+            tbpContenuti.Controls.Add(label5);
+            tbpContenuti.Controls.Add(TxtContenutiSuggeriti);
             tbpContenuti.Controls.Add(label3);
             tbpContenuti.Controls.Add(PctAnteprimaContenuti);
             tbpContenuti.Controls.Add(LstNomeFileContenuti);
@@ -306,6 +314,43 @@
             MniImpostaSfondo.Size = new Size(190, 22);
             MniImpostaSfondo.Text = "Imposta come sfondo";
             // 
+            // BtnCopiaContenuti
+            // 
+            BtnCopiaContenuti.Location = new Point(9, 282);
+            BtnCopiaContenuti.Name = "BtnCopiaContenuti";
+            BtnCopiaContenuti.Size = new Size(109, 23);
+            BtnCopiaContenuti.TabIndex = 15;
+            BtnCopiaContenuti.Text = "Copia e rileva file";
+            BtnCopiaContenuti.UseVisualStyleBackColor = true;
+            // 
+            // BtnContenutiSuggeriti
+            // 
+            BtnContenutiSuggeriti.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnContenutiSuggeriti.Location = new Point(320, 242);
+            BtnContenutiSuggeriti.Name = "BtnContenutiSuggeriti";
+            BtnContenutiSuggeriti.Size = new Size(30, 29);
+            BtnContenutiSuggeriti.TabIndex = 14;
+            BtnContenutiSuggeriti.Text = "...";
+            BtnContenutiSuggeriti.TextAlign = ContentAlignment.TopLeft;
+            BtnContenutiSuggeriti.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(14, 224);
+            label5.Name = "label5";
+            label5.Size = new Size(152, 15);
+            label5.TabIndex = 13;
+            label5.Text = "Percorso dove salvare il file:";
+            // 
+            // TxtContenutiSuggeriti
+            // 
+            TxtContenutiSuggeriti.Location = new Point(9, 242);
+            TxtContenutiSuggeriti.Name = "TxtContenutiSuggeriti";
+            TxtContenutiSuggeriti.ReadOnly = true;
+            TxtContenutiSuggeriti.Size = new Size(305, 23);
+            TxtContenutiSuggeriti.TabIndex = 12;
+            // 
             // FrmImmaginiMS
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -362,5 +407,9 @@
         private Button BtnCercaCartellaPerSfondo;
         private Label label4;
         private TextBox TxtPercorsoFileSfondo;
+        private Button BtnCopiaContenuti;
+        private Button BtnContenutiSuggeriti;
+        private Label label5;
+        private TextBox TxtContenutiSuggeriti;
     }
 }
