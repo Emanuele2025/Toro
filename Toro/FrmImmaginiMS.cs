@@ -4,10 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.Marshalling.IIUnknownCacheStrategy;
 namespace Toro
 {
     public partial class FrmImmaginiMS : Form
@@ -23,6 +26,13 @@ namespace Toro
         private const int SPI_SETDESKWALLPAPER = 20;
         private const int SPIF_UPDATEINIFILE = 0x01;
         private const int SPIF_SENDWININICHANGE = 0x02;
+
+        //Campi
+
+        private Image? _currentImage;
+
+        private CancellationTokenSource? _importCancellation;
+
 
 
 
@@ -130,12 +140,43 @@ namespace Toro
 
 
 
-        private void CaricaImmaginiDiBloccoSchermo()
+        private async void CaricaImmaginiDiBloccoSchermo()
         {
             try
             {
 
                 //TODO: Fare ricerca solo su certe dimensioni e peso
+
+              string   spotlightPath = Path.Combine(
+            Environment.GetFolderPath(
+                Environment.SpecialFolder.LocalApplicationData),
+            "Packages",
+            "Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy",
+            "LocalState",
+            "Assets");
+
+
+
+           //     lstboxFile.DisplayMember =
+           //nameof(SpotlightImage.DisplayName);
+
+
+
+                // Crea la cartella di destinazione
+                Directory.CreateDirectory(TxtPercorsoFileSfondo.Text.Trim());
+
+                // Carica nella ListBox le immagini già presenti
+                await LoadDestinationImagesAsync();
+
+                // Aggiorna il testo informativo
+                labelInfo.Text =
+                    $"Immagini archiviate: {lstboxFile.Items.Count}";
+
+
+
+
+
+
 
 
 
@@ -155,7 +196,544 @@ namespace Toro
         }
 
 
+        private async Task ImportSpotlightImagesAsync()
+        {
+            // -----------------------------------------------------
+            // Annulla eventuale importazione precedente
+            // -----------------------------------------------------
 
+            _importCancellation?.Cancel();
+
+            _importCancellation?.Dispose();
+
+            _importCancellation =
+                new CancellationTokenSource();
+
+            CancellationToken cancellationToken =
+                _importCancellation.Token;
+
+            string spotlightPath = Path.Combine(
+           Environment.GetFolderPath(
+               Environment.SpecialFolder.LocalApplicationData),
+           "Packages",
+           "Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy",
+           "LocalState",
+           "Assets");
+            try
+            {
+                SetUiImportingState(true);
+
+
+                // -------------------------------------------------
+                // Verifica cartella Spotlight
+                // -------------------------------------------------
+
+                if (!Directory.Exists(spotlightPath))
+                {
+                    MessageBox.Show(
+                        $"La cartella di Windows Spotlight non è stata trovata:\n\n" +
+                        $"{spotlightPath}",
+                        "Cartella non trovata",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return;
+                }
+
+
+                // -------------------------------------------------
+                // Crea cartella destinazione
+                // -------------------------------------------------
+
+                Directory.CreateDirectory(
+                    TxtPercorsoFileSfondo.Text.Trim());
+
+
+                // -------------------------------------------------
+                // Informazioni iniziali
+                // -------------------------------------------------
+
+                labelInfo.Text =
+                    "Ricerca delle immagini Spotlight...";
+
+
+                // -------------------------------------------------
+                // Esegue l'importazione in background
+                // -------------------------------------------------
+
+                ImportResult result =
+                    await Task.Run(
+                        () => ImportImages(
+                            spotlightPath,
+                            TxtPercorsoFileSfondo.Text.Trim(),
+                            cancellationToken),
+                        cancellationToken);
+
+
+                cancellationToken.ThrowIfCancellationRequested();
+
+
+                // -------------------------------------------------
+                // Ricarica la ListBox
+                // -------------------------------------------------
+
+                await LoadDestinationImagesAsync();
+
+
+                // -------------------------------------------------
+                // Messaggio finale
+                // -------------------------------------------------
+
+                labelInfo.Text =
+                    $"Archiviate: {result.TotalImages}   |   " +
+                    $"Nuove: {result.CopiedImages}   |   " +
+                    $"Già presenti: {result.SkippedImages}";
+
+
+                MessageBox.Show(
+                    $"Importazione completata.\n\n" +
+                    $"Immagini analizzate: {result.TotalFiles}\n" +
+                    $"Immagini 1920 × 1080 > 800 KB: {result.TotalImages}\n" +
+                    $"Nuove immagini copiate: {result.CopiedImages}\n" +
+                    $"Immagini già presenti: {result.SkippedImages}\n\n" +
+                    $"Cartella:\n{TxtPercorsoFileSfondo.Text.Trim()}",
+                    "Importazione completata",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            catch (OperationCanceledException)
+            {
+                labelInfo.Text =
+                    "Importazione annullata.";
+            }
+            catch (Exception ex)
+            {
+                labelInfo.Text =
+                    "Errore durante l'importazione.";
+
+                MessageBox.Show(
+                    $"Si è verificato un errore:\n\n{ex.Message}",
+                    "Errore",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                SetUiImportingState(false);
+            }
+        }
+
+        private static ImportResult ImportImages(
+        string sourceFolder,
+        string destinationFolder,
+        CancellationToken cancellationToken)
+        {
+            ImportResult result = new();
+
+
+            // -----------------------------------------------------
+            // Otteniamo tutti i file di Spotlight
+            // -----------------------------------------------------
+
+            foreach (string sourceFile in
+                     Directory.EnumerateFiles(
+                         sourceFolder,
+                         "*",
+                         SearchOption.TopDirectoryOnly))
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+
+                result.TotalFiles++;
+
+
+                try
+                {
+                    FileInfo fileInfo =
+                        new(sourceFile);
+
+
+                    // ---------------------------------------------
+                    // FILTRO DIMENSIONE
+                    // > 800 KB
+                    // ---------------------------------------------
+
+                    if (fileInfo.Length <= 800 * 1024)
+                        continue;
+
+
+                    // ---------------------------------------------
+                    // APERTURA DELL'IMMAGINE
+                    // ---------------------------------------------
+
+                    using Image image =
+                        Image.FromFile(sourceFile);
+
+
+                    // ---------------------------------------------
+                    // FILTRO RISOLUZIONE
+                    // ---------------------------------------------
+
+                    if (image.Width != 1920 ||
+                        image.Height != 1080)
+                    {
+                        continue;
+                    }
+
+
+                    result.TotalImages++;
+
+
+                    // ---------------------------------------------
+                    // Determina il formato reale
+                    // ---------------------------------------------
+
+                    string extension =
+                        GetImageExtension(image);
+
+
+                    // ---------------------------------------------
+                    // Calcola SHA-256
+                    // ---------------------------------------------
+
+                    string hash =
+                        CalculateSha256(sourceFile);
+
+
+                    // ---------------------------------------------
+                    // Nome destinazione
+                    //
+                    // Esempio:
+                    //
+                    // Spotlight_a83f91....jpg
+                    // ---------------------------------------------
+
+                    string destinationFile =
+                        Path.Combine(
+                            destinationFolder,
+                            $"Spotlight_{hash}{extension}");
+
+
+                    // ---------------------------------------------
+                    // Verifica se è già presente
+                    // ---------------------------------------------
+
+                    if (File.Exists(destinationFile))
+                    {
+                        result.SkippedImages++;
+                        continue;
+                    }
+
+
+                    // ---------------------------------------------
+                    // Copia
+                    // ---------------------------------------------
+
+                    File.Copy(
+                        sourceFile,
+                        destinationFile,
+                        overwrite: false);
+
+
+                    result.CopiedImages++;
+                }
+                catch (OutOfMemoryException)
+                {
+                    // File non riconosciuto come immagine
+                }
+                catch (ArgumentException)
+                {
+                    // Formato immagine non supportato
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    // File non accessibile
+                }
+                catch (IOException)
+                {
+                    // File eventualmente in uso
+                }
+            }
+
+
+            return result;
+        }
+
+        private static string GetImageExtension(
+        Image image)
+        {
+            ImageFormat format =
+                image.RawFormat;
+
+
+            if (format.Guid == ImageFormat.Jpeg.Guid)
+                return ".jpg";
+
+
+            if (format.Guid == ImageFormat.Png.Guid)
+                return ".png";
+
+
+            if (format.Guid == ImageFormat.Gif.Guid)
+                return ".gif";
+
+
+            if (format.Guid == ImageFormat.Bmp.Guid)
+                return ".bmp";
+
+
+            if (format.Guid == ImageFormat.Tiff.Guid)
+                return ".tiff";
+
+
+            if (format.Guid == ImageFormat.Icon.Guid)
+                return ".ico";
+
+
+            // Fallback
+            return ".jpg";
+        }
+
+        private static string CalculateSha256(
+        string filePath)
+        {
+            using SHA256 sha256 =
+                SHA256.Create();
+
+            using FileStream stream =
+                File.OpenRead(filePath);
+
+            byte[] hash =
+                sha256.ComputeHash(stream);
+
+            return Convert.ToHexString(
+                hash).ToLowerInvariant();
+        }
+
+        private async Task LoadDestinationImagesAsync()
+        {
+            try
+            {
+                List<SpotlightImage> images =
+                    await Task.Run(
+                        () => GetDestinationImages());
+
+
+                lstboxFile.BeginUpdate();
+
+                try
+                {
+                    lstboxFile.Items.Clear();
+
+                    foreach (SpotlightImage image in images)
+                    {
+                        lstboxFile.Items.Add(image);
+                    }
+                }
+                finally
+                {
+                    lstboxFile.EndUpdate();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Errore durante il caricamento delle immagini:\n\n" +
+                    $"{ex.Message}",
+                    "Errore",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+
+        private List<SpotlightImage> GetDestinationImages()
+        {
+            List<SpotlightImage> result = [];
+
+
+            if (!Directory.Exists(TxtPercorsoFileSfondo.Text.Trim()))
+                return result;
+
+
+            foreach (string filePath in
+                     Directory.EnumerateFiles(
+                         TxtPercorsoFileSfondo.Text.Trim(),
+                         "*",
+                         SearchOption.TopDirectoryOnly))
+            {
+                try
+                {
+                    FileInfo fileInfo =
+                        new(filePath);
+
+
+                    using Image image =
+                        Image.FromFile(filePath);
+
+
+                    result.Add(
+                        new SpotlightImage
+                        {
+                            FileName =
+                                fileInfo.Name,
+
+                            FullPath =
+                                fileInfo.FullName,
+
+                            FileSize =
+                                fileInfo.Length,
+
+                            Width =
+                                image.Width,
+
+                            Height =
+                                image.Height
+                        });
+                }
+                catch
+                {
+                    // Ignora eventuali file non immagine
+                }
+            }
+
+
+            return result
+                .OrderByDescending(
+                    x => x.FileName)
+                .ToList();
+        }
+
+        private void ListBoxImages_SelectedIndexChanged(
+       object? sender,
+       EventArgs e)
+        {
+            if (lstboxFile.SelectedItem
+                is not SpotlightImage selected)
+            {
+                ClearPreview();
+                return;
+            }
+
+
+            try
+            {
+                // ---------------------------------------------
+                // Carica l'immagine
+                // ---------------------------------------------
+
+                using Image source =
+                    Image.FromFile(
+                        selected.FullPath);
+
+
+                // ---------------------------------------------
+                // Crea una copia indipendente dal file
+                // ---------------------------------------------
+
+                Bitmap preview =
+                    new(
+                        source.Width,
+                        source.Height);
+
+
+                using (Graphics graphics =
+                       Graphics.FromImage(preview))
+                {
+                    graphics.DrawImage(
+                        source,
+                        0,
+                        0,
+                        source.Width,
+                        source.Height);
+                }
+
+
+                // ---------------------------------------------
+                // Sostituisce l'immagine precedente
+                // ---------------------------------------------
+
+                Image? oldImage =
+                    _currentImage;
+
+
+                _currentImage =
+                    preview;
+
+
+                pcbAnteprima.Image =
+                    _currentImage;
+
+
+                oldImage?.Dispose();
+
+
+                // ---------------------------------------------
+                // Informazioni
+                // ---------------------------------------------
+
+                labelInfo.Text =
+                    $"{selected.FileName}    |    " +
+                    $"{selected.Width} × {selected.Height}    |    " +
+                    $"{FormatFileSize(selected.FileSize)}";
+            }
+            catch (Exception ex)
+            {
+                ClearPreview();
+
+
+                MessageBox.Show(
+                    $"Impossibile visualizzare l'immagine:\n\n" +
+                    $"{ex.Message}",
+                    "Errore",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+        }
+
+        private void ClearPreview()
+        {
+            Image? oldImage =
+                _currentImage;
+
+
+            _currentImage = null;
+
+            pcbAnteprima.Image = null;
+
+            oldImage?.Dispose();
+        }
+
+        private void SetUiImportingState(
+        bool importing)
+        {
+            
+
+            lstboxFile.Enabled =
+                !importing;
+
+
+            
+        }
+
+        private static string FormatFileSize(
+        long bytes)
+        {
+            if (bytes >= 1024 * 1024)
+            {
+                double mb =
+                    bytes /
+                    (1024.0 * 1024.0);
+
+                return $"{mb:F2} MB";
+            }
+
+
+            double kb =
+                bytes / 1024.0;
+
+
+            return $"{kb:F0} KB";
+        }
 
         #endregion
 
@@ -331,5 +909,74 @@ namespace Toro
 
             }
         }
+    }
+    public sealed class SpotlightImage
+    {
+        public string FileName { get; init; } =
+            string.Empty;
+
+
+        public string FullPath { get; init; } =
+            string.Empty;
+
+
+        public long FileSize { get; init; }
+
+
+        public int Width { get; init; }
+
+
+        public int Height { get; init; }
+
+
+        // Testo visualizzato nella ListBox
+        public string DisplayName
+        {
+            get
+            {
+                return
+                    $"{FileName}    " +
+                    $"{Width} × {Height}    " +
+                    $"{FormatSize(FileSize)}";
+            }
+        }
+
+
+        private static string FormatSize(
+            long bytes)
+        {
+            if (bytes >= 1024 * 1024)
+            {
+                double mb =
+                    bytes /
+                    (1024.0 * 1024.0);
+
+                return $"{mb:F2} MB";
+            }
+
+
+            double kb =
+                bytes / 1024.0;
+
+
+            return $"{kb:F0} KB";
+        }
+
+
+        public override string ToString()
+        {
+            return DisplayName;
+        }
+    }
+
+    public sealed class ImportResult
+    {
+        public int TotalFiles { get; set; }
+
+        public int TotalImages { get; set; }
+
+        public int CopiedImages { get; set; }
+
+        public int SkippedImages { get; set; }
     }
 }

@@ -45,6 +45,10 @@
             pcbAnteprima = new PictureBox();
             lstboxFile = new ListBox();
             tbpContenuti = new TabPage();
+            BtnCopiaContenuti = new Button();
+            BtnContenutiSuggeriti = new Button();
+            label5 = new Label();
+            TxtContenutiSuggeriti = new TextBox();
             label3 = new Label();
             PctAnteprimaContenuti = new PictureBox();
             LstNomeFileContenuti = new ListBox();
@@ -54,10 +58,7 @@
             MniApri = new ToolStripMenuItem();
             CmsImpostaComeSfondo = new ContextMenuStrip(components);
             MniImpostaSfondo = new ToolStripMenuItem();
-            BtnCopiaContenuti = new Button();
-            BtnContenutiSuggeriti = new Button();
-            label5 = new Label();
-            TxtContenutiSuggeriti = new TextBox();
+            labelInfo = new Label();
             tbcImmaginiMS.SuspendLayout();
             tbpImmagineBing.SuspendLayout();
             tbpImmaginiBlocco.SuspendLayout();
@@ -149,6 +150,7 @@
             // 
             // tbpImmaginiBlocco
             // 
+            tbpImmaginiBlocco.Controls.Add(labelInfo);
             tbpImmaginiBlocco.Controls.Add(BtnCopiaSfondo);
             tbpImmaginiBlocco.Controls.Add(BtnCercaCartellaPerSfondo);
             tbpImmaginiBlocco.Controls.Add(label4);
@@ -244,6 +246,43 @@
             tbpContenuti.Text = "Contenuti suggeriti";
             tbpContenuti.UseVisualStyleBackColor = true;
             // 
+            // BtnCopiaContenuti
+            // 
+            BtnCopiaContenuti.Location = new Point(9, 282);
+            BtnCopiaContenuti.Name = "BtnCopiaContenuti";
+            BtnCopiaContenuti.Size = new Size(109, 23);
+            BtnCopiaContenuti.TabIndex = 15;
+            BtnCopiaContenuti.Text = "Copia e rileva file";
+            BtnCopiaContenuti.UseVisualStyleBackColor = true;
+            // 
+            // BtnContenutiSuggeriti
+            // 
+            BtnContenutiSuggeriti.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnContenutiSuggeriti.Location = new Point(320, 242);
+            BtnContenutiSuggeriti.Name = "BtnContenutiSuggeriti";
+            BtnContenutiSuggeriti.Size = new Size(30, 29);
+            BtnContenutiSuggeriti.TabIndex = 14;
+            BtnContenutiSuggeriti.Text = "...";
+            BtnContenutiSuggeriti.TextAlign = ContentAlignment.TopLeft;
+            BtnContenutiSuggeriti.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(14, 224);
+            label5.Name = "label5";
+            label5.Size = new Size(152, 15);
+            label5.TabIndex = 13;
+            label5.Text = "Percorso dove salvare il file:";
+            // 
+            // TxtContenutiSuggeriti
+            // 
+            TxtContenutiSuggeriti.Location = new Point(9, 242);
+            TxtContenutiSuggeriti.Name = "TxtContenutiSuggeriti";
+            TxtContenutiSuggeriti.ReadOnly = true;
+            TxtContenutiSuggeriti.Size = new Size(305, 23);
+            TxtContenutiSuggeriti.TabIndex = 12;
+            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -314,42 +353,14 @@
             MniImpostaSfondo.Size = new Size(190, 22);
             MniImpostaSfondo.Text = "Imposta come sfondo";
             // 
-            // BtnCopiaContenuti
+            // labelInfo
             // 
-            BtnCopiaContenuti.Location = new Point(9, 282);
-            BtnCopiaContenuti.Name = "BtnCopiaContenuti";
-            BtnCopiaContenuti.Size = new Size(109, 23);
-            BtnCopiaContenuti.TabIndex = 15;
-            BtnCopiaContenuti.Text = "Copia e rileva file";
-            BtnCopiaContenuti.UseVisualStyleBackColor = true;
-            // 
-            // BtnContenutiSuggeriti
-            // 
-            BtnContenutiSuggeriti.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            BtnContenutiSuggeriti.Location = new Point(320, 242);
-            BtnContenutiSuggeriti.Name = "BtnContenutiSuggeriti";
-            BtnContenutiSuggeriti.Size = new Size(30, 29);
-            BtnContenutiSuggeriti.TabIndex = 14;
-            BtnContenutiSuggeriti.Text = "...";
-            BtnContenutiSuggeriti.TextAlign = ContentAlignment.TopLeft;
-            BtnContenutiSuggeriti.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(14, 224);
-            label5.Name = "label5";
-            label5.Size = new Size(152, 15);
-            label5.TabIndex = 13;
-            label5.Text = "Percorso dove salvare il file:";
-            // 
-            // TxtContenutiSuggeriti
-            // 
-            TxtContenutiSuggeriti.Location = new Point(9, 242);
-            TxtContenutiSuggeriti.Name = "TxtContenutiSuggeriti";
-            TxtContenutiSuggeriti.ReadOnly = true;
-            TxtContenutiSuggeriti.Size = new Size(305, 23);
-            TxtContenutiSuggeriti.TabIndex = 12;
+            labelInfo.AutoSize = true;
+            labelInfo.Location = new Point(15, 324);
+            labelInfo.Name = "labelInfo";
+            labelInfo.Size = new Size(38, 15);
+            labelInfo.TabIndex = 12;
+            labelInfo.Text = "label6";
             // 
             // FrmImmaginiMS
             // 
@@ -411,5 +422,6 @@
         private Button BtnContenutiSuggeriti;
         private Label label5;
         private TextBox TxtContenutiSuggeriti;
+        private Label labelInfo;
     }
 }
