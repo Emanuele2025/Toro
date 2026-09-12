@@ -96,6 +96,11 @@ namespace Toro
 
         }
 
+        /// <summary>
+        /// Funzione che permette di scaricare il  file immagine del motore di ricerca bing.
+        /// </summary>
+        /// <param name="percorsoSalvataggio"></param>
+        /// <returns></returns>
         static async Task DownloadImmagine(string percorsoSalvataggio)
         {
             //Percorso di Bing dove estrapolare l'immagine
@@ -144,6 +149,13 @@ namespace Toro
         {
             try
             {
+
+                if (TxtPercorsoFileSfondo.Text.Trim() == "")
+                {
+                    Utility.MessaggioInfo("Selezionare un percorso valido");
+                    return;
+                }
+
 
                 //TODO: Fare ricerca solo su certe dimensioni e peso
 
