@@ -37,6 +37,7 @@
             lblEtichetta = new Label();
             TxtPercorsoCartella = new TextBox();
             tbpImmaginiBlocco = new TabPage();
+            labelInfo = new Label();
             BtnCopiaSfondo = new Button();
             BtnCercaCartellaPerSfondo = new Button();
             label4 = new Label();
@@ -58,7 +59,6 @@
             MniApri = new ToolStripMenuItem();
             CmsImpostaComeSfondo = new ContextMenuStrip(components);
             MniImpostaSfondo = new ToolStripMenuItem();
-            labelInfo = new Label();
             tbcImmaginiMS.SuspendLayout();
             tbpImmagineBing.SuspendLayout();
             tbpImmaginiBlocco.SuspendLayout();
@@ -166,6 +166,14 @@
             tbpImmaginiBlocco.Text = "Immagini di blocco di Windows";
             tbpImmaginiBlocco.UseVisualStyleBackColor = true;
             // 
+            // labelInfo
+            // 
+            labelInfo.AutoSize = true;
+            labelInfo.Location = new Point(15, 324);
+            labelInfo.Name = "labelInfo";
+            labelInfo.Size = new Size(0, 15);
+            labelInfo.TabIndex = 12;
+            // 
             // BtnCopiaSfondo
             // 
             BtnCopiaSfondo.Location = new Point(10, 274);
@@ -174,6 +182,7 @@
             BtnCopiaSfondo.TabIndex = 11;
             BtnCopiaSfondo.Text = "Copia e rileva file";
             BtnCopiaSfondo.UseVisualStyleBackColor = true;
+            BtnCopiaSfondo.Click += BtnCopiaSfondo_Click;
             // 
             // BtnCercaCartellaPerSfondo
             // 
@@ -218,6 +227,7 @@
             pcbAnteprima.Location = new Point(387, 9);
             pcbAnteprima.Name = "pcbAnteprima";
             pcbAnteprima.Size = new Size(397, 347);
+            pcbAnteprima.SizeMode = PictureBoxSizeMode.Zoom;
             pcbAnteprima.TabIndex = 1;
             pcbAnteprima.TabStop = false;
             // 
@@ -228,6 +238,7 @@
             lstboxFile.Name = "lstboxFile";
             lstboxFile.Size = new Size(271, 184);
             lstboxFile.TabIndex = 0;
+            lstboxFile.SelectedIndexChanged += ListBoxImages_SelectedIndexChanged;
             // 
             // tbpContenuti
             // 
@@ -352,15 +363,6 @@
             MniImpostaSfondo.Name = "MniImpostaSfondo";
             MniImpostaSfondo.Size = new Size(190, 22);
             MniImpostaSfondo.Text = "Imposta come sfondo";
-            // 
-            // labelInfo
-            // 
-            labelInfo.AutoSize = true;
-            labelInfo.Location = new Point(15, 324);
-            labelInfo.Name = "labelInfo";
-            labelInfo.Size = new Size(38, 15);
-            labelInfo.TabIndex = 12;
-            labelInfo.Text = "label6";
             // 
             // FrmImmaginiMS
             // 

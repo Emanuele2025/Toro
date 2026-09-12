@@ -48,7 +48,7 @@ namespace Toro
                 //Per ora download da bing
                 this.Text = Utility.TitoloFinestra;
 
-              //  TrovaImmaginiBloccoSchermo();
+                //  TrovaImmaginiBloccoSchermo();
 
 
             }
@@ -159,22 +159,16 @@ namespace Toro
 
                 //TODO: Fare ricerca solo su certe dimensioni e peso
 
-              string   spotlightPath = Path.Combine(
-            Environment.GetFolderPath(
-                Environment.SpecialFolder.LocalApplicationData),
-            "Packages",
-            "Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy",
-            "LocalState",
-            "Assets");
+               
 
 
 
-           //     lstboxFile.DisplayMember =
-           //nameof(SpotlightImage.DisplayName);
+                //     lstboxFile.DisplayMember =
+                //nameof(SpotlightImage.DisplayName);
 
 
 
-                // Crea la cartella di destinazione
+                // Crea la cartella di destinazione nel caso che non c'è
                 Directory.CreateDirectory(TxtPercorsoFileSfondo.Text.Trim());
 
                 // Carica nella ListBox le immagini già presenti
@@ -561,7 +555,13 @@ namespace Toro
         private List<SpotlightImage> GetDestinationImages()
         {
             List<SpotlightImage> result = [];
-
+            string spotlightPath = Path.Combine(
+             Environment.GetFolderPath(
+                 Environment.SpecialFolder.LocalApplicationData),
+             "Packages",
+             "Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy",
+             "LocalState",
+             "Assets");
 
             if (!Directory.Exists(TxtPercorsoFileSfondo.Text.Trim()))
                 return result;
@@ -718,13 +718,13 @@ namespace Toro
         private void SetUiImportingState(
         bool importing)
         {
-            
+
 
             lstboxFile.Enabled =
                 !importing;
 
 
-            
+
         }
 
         private static string FormatFileSize(
@@ -840,7 +840,13 @@ namespace Toro
         {
             if (tbcImmaginiMS?.SelectedTab?.Name == "tbpImmaginiBlocco")
             {
-                CaricaImmaginiDiBloccoSchermo();
+                //TODO: Gestire in futuro il salvataggio del percorso nel local utente.
+                if (TxtPercorsoFileSfondo.Text.Trim() == "")
+                {
+
+                    return;
+                }
+          //      CaricaImmaginiDiBloccoSchermo();
             }
             else if (tbcImmaginiMS?.SelectedTab?.Name == "tbpContenuti")
             {
@@ -919,6 +925,22 @@ namespace Toro
             {
                 Utility.MessaggioErrore(ex.Message);
 
+            }
+        }
+
+        private void BtnCopiaSfondo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //CaricaImmaginiDiBloccoSchermo();
+                ImportSpotlightImagesAsync();
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }
