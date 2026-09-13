@@ -159,7 +159,7 @@ namespace Toro
 
                 //TODO: Fare ricerca solo su certe dimensioni e peso
 
-               
+
 
 
 
@@ -317,11 +317,7 @@ namespace Toro
                 labelInfo.Text =
                     "Errore durante l'importazione.";
 
-                MessageBox.Show(
-                    $"Si è verificato un errore:\n\n{ex.Message}",
-                    "Errore",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
             finally
             {
@@ -846,7 +842,7 @@ namespace Toro
 
                     return;
                 }
-          //      CaricaImmaginiDiBloccoSchermo();
+                //      CaricaImmaginiDiBloccoSchermo();
             }
             else if (tbcImmaginiMS?.SelectedTab?.Name == "tbpContenuti")
             {
@@ -939,8 +935,19 @@ namespace Toro
             }
             catch (Exception ex)
             {
+                Utility.MessaggioErrore(Utility.Errore +  ex.Message);
+            }
+        }
 
-                throw;
+        private void BtnContenutiSuggeriti_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)  
+            {
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
     }

@@ -12,6 +12,23 @@ namespace Toro
 
         public const string TitoloFinestra = "Toro - Strumenti e funzionalità per Windows";
 
+
+        public const string Modifica = "Modifica effettuata con successo. ";
+
+        public const string Inserimento = "Inserimento effettuato con successo. ";
+
+        public const string Errore = "Si è verificato il seguente errore: ";
+
+
+
+
+
+
+
+
+
+
+
         #region Messaggio a video
 
 

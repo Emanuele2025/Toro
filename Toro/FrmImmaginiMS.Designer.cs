@@ -276,6 +276,7 @@
             BtnContenutiSuggeriti.Text = "...";
             BtnContenutiSuggeriti.TextAlign = ContentAlignment.TopLeft;
             BtnContenutiSuggeriti.UseVisualStyleBackColor = true;
+            BtnContenutiSuggeriti.Click += BtnContenutiSuggeriti_Click;
             // 
             // label5
             // 
