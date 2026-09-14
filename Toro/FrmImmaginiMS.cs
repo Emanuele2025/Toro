@@ -54,7 +54,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
 
         }
@@ -85,7 +85,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore: " + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
 
 
@@ -538,12 +538,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    $"Errore durante il caricamento delle immagini:\n\n" +
-                    $"{ex.Message}",
-                    "Errore",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
 
@@ -689,12 +684,7 @@ namespace Toro
                 ClearPreview();
 
 
-                MessageBox.Show(
-                    $"Impossibile visualizzare l'immagine:\n\n" +
-                    $"{ex.Message}",
-                    "Errore",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
 
@@ -800,7 +790,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
             finally
             {
@@ -827,7 +817,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
 
             }
         }
