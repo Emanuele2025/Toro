@@ -68,7 +68,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
 
@@ -98,7 +98,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
 
 
@@ -354,13 +354,13 @@ namespace Toro
             {
                 CalcolaPercentuale(decimal.ToDouble(NudPrimaParte.Value), decimal.ToDouble(NudSecondaParte.Value));
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException exout)
             {
-                Utility.MessaggioErrore("Errore:" + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + exout.Message);
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
 
 
@@ -431,7 +431,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
 
         }

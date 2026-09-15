@@ -38,18 +38,15 @@ namespace Toro
 
         private void FrmImmaginiMS_Load(object sender, EventArgs e)
         {
-            //TODO: PEr le immagini di windows, non aprirle nelle cartelle ma visualizzarle in altra cartlella così rimangono salvate
-
+           
+            //TODO salvare il percorso nella cartella utente
             //Fare la visualizzazione solo quando si fa click sul tab 
 
 
             try
             {
-                //Per ora download da bing
+                
                 this.Text = Utility.TitoloFinestra;
-
-                //  TrovaImmaginiBloccoSchermo();
-
 
             }
             catch (Exception ex)
