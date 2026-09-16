@@ -199,6 +199,11 @@ namespace Toro
         }
 
 
+        #region Gestione schermata di blocco
+
+        #endregion
+
+
         private async Task ImportSpotlightImagesAsync()
         {
             // -----------------------------------------------------
