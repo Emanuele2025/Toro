@@ -38,14 +38,14 @@ namespace Toro
 
         private void FrmImmaginiMS_Load(object sender, EventArgs e)
         {
-           
+
             //TODO salvare il percorso nella cartella utente
             //Fare la visualizzazione solo quando si fa click sul tab 
 
 
             try
             {
-                
+
                 this.Text = Utility.TitoloFinestra;
 
             }
@@ -201,7 +201,7 @@ namespace Toro
 
         #region Gestione schermata di blocco
 
-        #endregion
+       
 
 
         private async Task ImportSpotlightImagesAsync()
@@ -714,7 +714,7 @@ namespace Toro
 
 
         }
-
+        #endregion
         private static string FormatFileSize(
         long bytes)
         {
@@ -735,7 +735,7 @@ namespace Toro
             return $"{kb:F0} KB";
         }
 
-        #endregion
+#endregion
 
 
 
@@ -927,7 +927,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(Utility.Errore +  ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
 
@@ -937,7 +937,7 @@ namespace Toro
             {
 
             }
-            catch (Exception ex)  
+            catch (Exception ex)
             {
                 Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
