@@ -64,34 +64,7 @@ namespace Toro
 
         #region funzioni
 
-        /// <summary>
-        /// Verificare se tenerla
-        /// </summary>
-        private void TrovaImmaginiBloccoSchermo()
-        {
-
-            try
-            {
-                string percorsoImmaginiBloccoSchermo = @"\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets";
-
-
-
-
-
-
-            }
-            catch (Exception ex)
-            {
-                Utility.MessaggioErrore(Utility.Errore + ex.Message);
-            }
-
-
-
-
-
-
-
-        }
+        
 
         /// <summary>
         /// Funzione che permette di scaricare il  file immagine del motore di ricerca bing.
