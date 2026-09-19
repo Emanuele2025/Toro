@@ -64,7 +64,7 @@ namespace Toro
 
         #region funzioni
 
-        
+
 
         /// <summary>
         /// Funzione che permette di scaricare il  file immagine del motore di ricerca bing.
@@ -174,7 +174,7 @@ namespace Toro
 
         #region Gestione schermata di blocco
 
-       
+
 
 
         private async Task ImportSpotlightImagesAsync()
@@ -708,7 +708,7 @@ namespace Toro
             return $"{kb:F0} KB";
         }
 
-#endregion
+        #endregion
 
 
 
@@ -893,6 +893,11 @@ namespace Toro
         {
             try
             {
+                if (TxtPercorsoFileSfondo.Text.Trim() == "")
+                {
+                    Utility.MessaggioInfo("Selezionare una cartella per la copia dei file");
+                    return;
+                }
                 //CaricaImmaginiDiBloccoSchermo();
                 ImportSpotlightImagesAsync();
 
@@ -914,6 +919,51 @@ namespace Toro
             {
                 Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
+        }
+
+        private void MniImpostaSfondo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            try
+            {
+                if (lstboxFile.SelectedIndex < 0)
+                {
+                    Utility.MessaggioInfo("Selezionare un file.");
+                    return;
+                }
+                if (lstboxFile.SelectedItem
+                is not SpotlightImage selected)
+                {
+                     
+                    return;
+                }
+
+
+                string percorsoFileImmagine = selected.FullPath;
+                bool risultato = SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, percorsoFileImmagine, SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
+                if (!risultato)
+                {
+                    throw new Exception("Impossibile impostare l'immagine come sfondo del desktop.");
+                }
+                if (risultato)
+                {
+                    Utility.MessaggioInfo("Immagine impostata come sfondo.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(Utility.Errore +  ex.Message);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
+        }
+
+        private void CmsImpostaComeSfondo_Opening(object sender, CancelEventArgs e)
+        {
+            e.Cancel = (pcbAnteprima.Image == null);
         }
     }
     public sealed class SpotlightImage

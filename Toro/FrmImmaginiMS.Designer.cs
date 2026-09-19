@@ -44,6 +44,8 @@
             TxtPercorsoFileSfondo = new TextBox();
             label2 = new Label();
             pcbAnteprima = new PictureBox();
+            CmsImpostaComeSfondo = new ContextMenuStrip(components);
+            MniImpostaSfondo = new ToolStripMenuItem();
             lstboxFile = new ListBox();
             tbpContenuti = new TabPage();
             BtnCopiaContenuti = new Button();
@@ -57,16 +59,14 @@
             CmsMenu = new ContextMenuStrip(components);
             MniSalva = new ToolStripMenuItem();
             MniApri = new ToolStripMenuItem();
-            CmsImpostaComeSfondo = new ContextMenuStrip(components);
-            MniImpostaSfondo = new ToolStripMenuItem();
             tbcImmaginiMS.SuspendLayout();
             tbpImmagineBing.SuspendLayout();
             tbpImmaginiBlocco.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcbAnteprima).BeginInit();
+            CmsImpostaComeSfondo.SuspendLayout();
             tbpContenuti.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PctAnteprimaContenuti).BeginInit();
             CmsMenu.SuspendLayout();
-            CmsImpostaComeSfondo.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -77,7 +77,7 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(800, 22);
+            label1.Size = new Size(813, 22);
             label1.TabIndex = 1;
             label1.Text = "Toro- Strumenti e funzionalità per Windows - Gestione  Immagini  Microsoft";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -91,7 +91,7 @@
             tbcImmaginiMS.Location = new Point(0, 22);
             tbcImmaginiMS.Name = "tbcImmaginiMS";
             tbcImmaginiMS.SelectedIndex = 0;
-            tbcImmaginiMS.Size = new Size(800, 387);
+            tbcImmaginiMS.Size = new Size(813, 400);
             tbcImmaginiMS.TabIndex = 2;
             tbcImmaginiMS.SelectedIndexChanged += tbcImmaginiMS_SelectedIndexChanged;
             // 
@@ -161,7 +161,7 @@
             tbpImmaginiBlocco.Location = new Point(4, 24);
             tbpImmaginiBlocco.Name = "tbpImmaginiBlocco";
             tbpImmaginiBlocco.Padding = new Padding(3);
-            tbpImmaginiBlocco.Size = new Size(792, 359);
+            tbpImmaginiBlocco.Size = new Size(805, 372);
             tbpImmaginiBlocco.TabIndex = 1;
             tbpImmaginiBlocco.Text = "Immagini di blocco di Windows";
             tbpImmaginiBlocco.UseVisualStyleBackColor = true;
@@ -169,7 +169,7 @@
             // labelInfo
             // 
             labelInfo.AutoSize = true;
-            labelInfo.Location = new Point(15, 324);
+            labelInfo.Location = new Point(9, 350);
             labelInfo.Name = "labelInfo";
             labelInfo.Size = new Size(0, 15);
             labelInfo.TabIndex = 12;
@@ -224,12 +224,27 @@
             // 
             // pcbAnteprima
             // 
+            pcbAnteprima.ContextMenuStrip = CmsImpostaComeSfondo;
             pcbAnteprima.Location = new Point(387, 9);
             pcbAnteprima.Name = "pcbAnteprima";
-            pcbAnteprima.Size = new Size(397, 347);
-            pcbAnteprima.SizeMode = PictureBoxSizeMode.Zoom;
+            pcbAnteprima.Size = new Size(397, 330);
+            pcbAnteprima.SizeMode = PictureBoxSizeMode.StretchImage;
             pcbAnteprima.TabIndex = 1;
             pcbAnteprima.TabStop = false;
+            // 
+            // CmsImpostaComeSfondo
+            // 
+            CmsImpostaComeSfondo.Items.AddRange(new ToolStripItem[] { MniImpostaSfondo });
+            CmsImpostaComeSfondo.Name = "contextMenuStrip1";
+            CmsImpostaComeSfondo.Size = new Size(191, 26);
+            CmsImpostaComeSfondo.Opening += CmsImpostaComeSfondo_Opening;
+            // 
+            // MniImpostaSfondo
+            // 
+            MniImpostaSfondo.Name = "MniImpostaSfondo";
+            MniImpostaSfondo.Size = new Size(190, 22);
+            MniImpostaSfondo.Text = "Imposta come sfondo";
+            MniImpostaSfondo.Click += MniImpostaSfondo_Click;
             // 
             // lstboxFile
             // 
@@ -325,7 +340,7 @@
             BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             BtnChiudi.Image = Properties.Resources.chiudi_16;
             BtnChiudi.ImageAlign = ContentAlignment.MiddleRight;
-            BtnChiudi.Location = new Point(713, 415);
+            BtnChiudi.Location = new Point(726, 451);
             BtnChiudi.Name = "BtnChiudi";
             BtnChiudi.Size = new Size(75, 23);
             BtnChiudi.TabIndex = 6;
@@ -353,23 +368,11 @@
             MniApri.Text = "Apri Cartella";
             MniApri.Click += MniApri_Click;
             // 
-            // CmsImpostaComeSfondo
-            // 
-            CmsImpostaComeSfondo.Items.AddRange(new ToolStripItem[] { MniImpostaSfondo });
-            CmsImpostaComeSfondo.Name = "contextMenuStrip1";
-            CmsImpostaComeSfondo.Size = new Size(191, 26);
-            // 
-            // MniImpostaSfondo
-            // 
-            MniImpostaSfondo.Name = "MniImpostaSfondo";
-            MniImpostaSfondo.Size = new Size(190, 22);
-            MniImpostaSfondo.Text = "Imposta come sfondo";
-            // 
             // FrmImmaginiMS
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(813, 486);
             Controls.Add(BtnChiudi);
             Controls.Add(tbcImmaginiMS);
             Controls.Add(label1);
@@ -386,11 +389,11 @@
             tbpImmaginiBlocco.ResumeLayout(false);
             tbpImmaginiBlocco.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcbAnteprima).EndInit();
+            CmsImpostaComeSfondo.ResumeLayout(false);
             tbpContenuti.ResumeLayout(false);
             tbpContenuti.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PctAnteprimaContenuti).EndInit();
             CmsMenu.ResumeLayout(false);
-            CmsImpostaComeSfondo.ResumeLayout(false);
             ResumeLayout(false);
         }
 
