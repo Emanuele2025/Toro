@@ -51,6 +51,7 @@
             BtnDollariTesto = new Button();
             label5 = new Label();
             TbpOttieniPercentuale = new TabPage();
+            label11 = new Label();
             NudSecondaParte = new NumericUpDown();
             label7 = new Label();
             NudPrimaParte = new NumericUpDown();
@@ -58,6 +59,7 @@
             BtnOttieniPercentuale = new Button();
             label6 = new Label();
             TbpOttieniNumero = new TabPage();
+            label10 = new Label();
             NudPercentuale = new NumericUpDown();
             label8 = new Label();
             NudTotale = new NumericUpDown();
@@ -65,8 +67,6 @@
             BtnOttieniNumero = new Button();
             label9 = new Label();
             BtnChiudi = new Button();
-            label10 = new Label();
-            label11 = new Label();
             tbcConvertitori.SuspendLayout();
             tbpNumeroToRomano.SuspendLayout();
             tbpDaNumeroRomano.SuspendLayout();
@@ -331,7 +331,17 @@
             TbpOttieniPercentuale.Size = new Size(818, 134);
             TbpOttieniPercentuale.TabIndex = 4;
             TbpOttieniPercentuale.Text = "Ottieni Percentuale";
+            TbpOttieniPercentuale.ToolTipText = "Ottiene la percentuale di un determinato numero";
             TbpOttieniPercentuale.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(354, 12);
+            label11.Name = "label11";
+            label11.Size = new Size(56, 15);
+            label11.TabIndex = 30;
+            label11.Text = "Risultato:";
             // 
             // NudSecondaParte
             // 
@@ -404,6 +414,15 @@
             TbpOttieniNumero.ToolTipText = "Ottiene il numero dalla percentuale indicata";
             TbpOttieniNumero.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(355, 10);
+            label10.Name = "label10";
+            label10.Size = new Size(56, 15);
+            label10.TabIndex = 29;
+            label10.Text = "Risultato:";
+            // 
             // NudPercentuale
             // 
             NudPercentuale.Location = new Point(186, 28);
@@ -473,24 +492,6 @@
             BtnChiudi.Text = "Chiudi";
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(355, 10);
-            label10.Name = "label10";
-            label10.Size = new Size(56, 15);
-            label10.TabIndex = 29;
-            label10.Text = "Risultato:";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(354, 12);
-            label11.Name = "label11";
-            label11.Size = new Size(56, 15);
-            label11.TabIndex = 30;
-            label11.Text = "Risultato:";
             // 
             // FrmConvertitori
             // 
