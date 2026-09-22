@@ -872,7 +872,7 @@ namespace Toro
                 //Apro la finestra di dialogo per la selezione della cartella
                 using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
                 {
-                    folderBrowserDialog.Description = "Seleziona la cartella di destinazione per salvare l'immagine di bing";
+                    folderBrowserDialog.Description = "Seleziona la cartella di destinazione per salvare l'immagine di sfondo del blocco del pc.";
                     if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                     {
                         // Imposto il percorso selezionato nella casella di testo
@@ -884,7 +884,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(ex.Message);
+                Utility.MessaggioErrore(Utility.Errore +   ex.Message);
 
             }
         }
@@ -913,6 +913,30 @@ namespace Toro
         {
             try
             {
+
+                try
+                {
+                    //Apro la finestra di dialogo per la selezione della cartella
+                    using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+                    {
+                        folderBrowserDialog.Description = "Seleziona la cartella di destinazione per salvare l'immagine contenuti suggeriti";
+                        if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            // Imposto il percorso selezionato nella casella di testo
+                            TxtContenutiSuggeriti.Text = folderBrowserDialog.SelectedPath;
+                        }
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    Utility.MessaggioErrore(ex.Message);
+
+                }
+
+
+
 
             }
             catch (Exception ex)
