@@ -884,7 +884,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(Utility.Errore +   ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
 
             }
         }
@@ -958,7 +958,7 @@ namespace Toro
                 if (lstboxFile.SelectedItem
                 is not SpotlightImage selected)
                 {
-                     
+
                     return;
                 }
 
@@ -977,7 +977,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(Utility.Errore +  ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
             finally
             {
@@ -988,6 +988,27 @@ namespace Toro
         private void CmsImpostaComeSfondo_Opening(object sender, CancelEventArgs e)
         {
             e.Cancel = (pcbAnteprima.Image == null);
+        }
+
+        private void BtnCopiaContenuti_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TxtPercorsoFileSfondo.Text.Trim() == "")
+                {
+                    Utility.MessaggioInfo("Selezionare una cartella per la copia dei file");
+                    return;
+                }
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
+            }
         }
     }
     public sealed class SpotlightImage

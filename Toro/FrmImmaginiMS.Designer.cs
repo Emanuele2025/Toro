@@ -104,7 +104,7 @@
             tbpImmagineBing.Location = new Point(4, 24);
             tbpImmagineBing.Name = "tbpImmagineBing";
             tbpImmagineBing.Padding = new Padding(3);
-            tbpImmagineBing.Size = new Size(792, 359);
+            tbpImmagineBing.Size = new Size(805, 372);
             tbpImmagineBing.TabIndex = 0;
             tbpImmagineBing.Text = "Immagini da Bing";
             tbpImmagineBing.UseVisualStyleBackColor = true;
@@ -267,7 +267,7 @@
             tbpContenuti.Location = new Point(4, 24);
             tbpContenuti.Name = "tbpContenuti";
             tbpContenuti.Padding = new Padding(3);
-            tbpContenuti.Size = new Size(792, 359);
+            tbpContenuti.Size = new Size(805, 372);
             tbpContenuti.TabIndex = 2;
             tbpContenuti.Text = "Contenuti suggeriti";
             tbpContenuti.UseVisualStyleBackColor = true;
@@ -280,6 +280,7 @@
             BtnCopiaContenuti.TabIndex = 15;
             BtnCopiaContenuti.Text = "Copia e rileva file";
             BtnCopiaContenuti.UseVisualStyleBackColor = true;
+            BtnCopiaContenuti.Click += BtnCopiaContenuti_Click;
             // 
             // BtnContenutiSuggeriti
             // 
