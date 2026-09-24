@@ -248,6 +248,7 @@
             // 
             // lstboxFile
             // 
+            lstboxFile.ContextMenuStrip = CmsMenu;
             lstboxFile.FormattingEnabled = true;
             lstboxFile.Location = new Point(10, 21);
             lstboxFile.Name = "lstboxFile";

@@ -840,24 +840,37 @@ namespace Toro
             try
             {
 
-                //TODO: in base al tab aperto
-                //if (lsbListaFile.SelectedItem == null)
-                //    return;
 
-                //if (lsbListaFile.Items.Count == 0)
-                //{
-                //    Utility.MessaggioInfo("Nessun file presente nella lista.");
-                //    return;
-                //}
+                string percorsoFileImmagine = "";
+                if (tbcImmaginiMS.SelectedTab.Name == "tbpImmaginiBlocco")
+                {
+                    if (lstboxFile.SelectedIndex < 0)
+                    {
+                        Utility.MessaggioInfo("Selezionare un file.");
+                        return;
+                    }
+                    if (lstboxFile.SelectedItem
+                    is not SpotlightImage selected)
+                    {
 
-                //string percorsoFileDaAprire = Path.Combine(percorsoCartella, lsbListaFile.SelectedItem.ToString());
-                //if (!File.Exists(percorsoFileDaAprire))
-                //{
-                //    return;
-                //}
-                //string argument = "/select, \"" + percorsoFileDaAprire + "\"";
+                        return;
+                    }
 
-                //Process.Start("explorer.exe", argument);
+
+                    percorsoFileImmagine = selected.FullPath;
+
+                }
+
+
+
+
+                if (!File.Exists(percorsoFileImmagine))
+                {
+                    return;
+                }
+                string argument = "/select, \"" + percorsoFileImmagine + "\"";
+
+                Process.Start("explorer.exe", argument);
             }
             catch (Exception ex)
             {
