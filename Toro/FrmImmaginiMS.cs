@@ -963,20 +963,43 @@ namespace Toro
             Cursor.Current = Cursors.WaitCursor;
             try
             {
-                if (lstboxFile.SelectedIndex < 0)
+                string percorsoFileImmagine = "";
+                if (tbcImmaginiMS.SelectedTab.Name == "tbpImmaginiBlocco")
+                {
+
+
+
+
+                    if (lstboxFile.SelectedIndex < 0)
+                    {
+                        Utility.MessaggioInfo("Selezionare un file.");
+                        return;
+                    }
+                    if (lstboxFile.SelectedItem
+                    is not SpotlightImage selected)
+                    {
+
+                        return;
+                    }
+
+
+                      percorsoFileImmagine = selected.FullPath;
+                    
+                }
+                else
+                {
+                    if (PctAnteprimaContenuti.Image == null)
+                    {
+                        Utility.MessaggioInfo("Selezionare un file.");
+                        return;
+                    }
+                }
+                if (string.IsNullOrWhiteSpace(percorsoFileImmagine))
                 {
                     Utility.MessaggioInfo("Selezionare un file.");
                     return;
                 }
-                if (lstboxFile.SelectedItem
-                is not SpotlightImage selected)
-                {
 
-                    return;
-                }
-
-
-                string percorsoFileImmagine = selected.FullPath;
                 bool risultato = SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, percorsoFileImmagine, SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);
                 if (!risultato)
                 {
