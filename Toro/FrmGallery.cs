@@ -33,7 +33,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore($"Errore nel caricamento immagini: {ex.Message}");
+                Utility.MessaggioErrore( Utility.Errore + ex.Message);
             }
         }
 
