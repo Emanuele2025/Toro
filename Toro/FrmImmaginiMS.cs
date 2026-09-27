@@ -815,25 +815,8 @@ namespace Toro
             }
         }
 
-        private void MniSalva_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //TODO: rendere il menu visibile solo se sono presenti i file
-                //TODO: Prendere spunto da Lupo
-
-
-
-
-
-
-
-            }
-            catch (Exception ex)
-            {
-                Utility.MessaggioErrore(Utility.Errore + ex.Message);
-            }
-        }
+      
+        
 
         private void MniApri_Click(object sender, EventArgs e)
         {
@@ -902,7 +885,7 @@ namespace Toro
             }
         }
 
-        private void BtnCopiaSfondo_Click(object sender, EventArgs e)
+        private    void BtnCopiaSfondo_Click(object sender, EventArgs e)
         {
             try
             {

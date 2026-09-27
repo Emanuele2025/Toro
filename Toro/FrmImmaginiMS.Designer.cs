@@ -48,7 +48,6 @@
             MniImpostaSfondo = new ToolStripMenuItem();
             lstboxFile = new ListBox();
             CmsMenu = new ContextMenuStrip(components);
-            MniSalva = new ToolStripMenuItem();
             MniApri = new ToolStripMenuItem();
             tbpContenuti = new TabPage();
             BtnCopiaContenuti = new Button();
@@ -236,7 +235,7 @@
             // 
             CmsImpostaComeSfondo.Items.AddRange(new ToolStripItem[] { MniImpostaSfondo });
             CmsImpostaComeSfondo.Name = "contextMenuStrip1";
-            CmsImpostaComeSfondo.Size = new Size(191, 48);
+            CmsImpostaComeSfondo.Size = new Size(191, 26);
             CmsImpostaComeSfondo.Opening += CmsImpostaComeSfondo_Opening;
             // 
             // MniImpostaSfondo
@@ -258,21 +257,14 @@
             // 
             // CmsMenu
             // 
-            CmsMenu.Items.AddRange(new ToolStripItem[] { MniSalva, MniApri });
+            CmsMenu.Items.AddRange(new ToolStripItem[] { MniApri });
             CmsMenu.Name = "CmsMenu";
-            CmsMenu.Size = new Size(140, 48);
-            // 
-            // MniSalva
-            // 
-            MniSalva.Name = "MniSalva";
-            MniSalva.Size = new Size(139, 22);
-            MniSalva.Text = "Salva";
-            MniSalva.Click += MniSalva_Click;
+            CmsMenu.Size = new Size(181, 48);
             // 
             // MniApri
             // 
             MniApri.Name = "MniApri";
-            MniApri.Size = new Size(139, 22);
+            MniApri.Size = new Size(180, 22);
             MniApri.Text = "Apri Cartella";
             MniApri.Click += MniApri_Click;
             // 
@@ -416,7 +408,6 @@
         private Label lblEtichetta;
         private TextBox TxtPercorsoCartella;
         private ContextMenuStrip CmsMenu;
-        private ToolStripMenuItem MniSalva;
         private Label label3;
         private PictureBox PctAnteprimaContenuti;
         private ListBox LstNomeFileContenuti;
