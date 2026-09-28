@@ -885,7 +885,7 @@ namespace Toro
             }
         }
 
-        private    void BtnCopiaSfondo_Click(object sender, EventArgs e)
+        private async void BtnCopiaSfondo_Click(object sender, EventArgs e)
         {
             try
             {
@@ -895,7 +895,7 @@ namespace Toro
                     return;
                 }
                 //CaricaImmaginiDiBloccoSchermo();
-                ImportSpotlightImagesAsync();
+                await ImportSpotlightImagesAsync();
 
 
             }
