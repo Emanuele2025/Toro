@@ -1019,7 +1019,7 @@ namespace Toro
                     return;
                 }
 
-
+                RilevaImmaginiSuggerite();
 
 
 
@@ -1029,6 +1029,33 @@ namespace Toro
                 Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
+
+        private void RilevaImmaginiSuggerite()
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
+            }
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
     }
     public sealed class SpotlightImage
     {
