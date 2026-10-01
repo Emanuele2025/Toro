@@ -1034,6 +1034,11 @@ namespace Toro
         {
             try
             {
+                string percorsoImmaginiSuggerite = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\AppData\Local\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\LocalCache\Microsoft\IrisService";
+
+
+
+
 
             }
             catch (Exception ex)
