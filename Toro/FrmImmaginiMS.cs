@@ -125,13 +125,7 @@ namespace Toro
                     Utility.MessaggioInfo("Selezionare un percorso valido");
                     return;
                 }
-
-
-                //TODO: Fare ricerca solo su certe dimensioni e peso
-
-
-
-
+                 
 
                 //     lstboxFile.DisplayMember =
                 //nameof(SpotlightImage.DisplayName);
@@ -724,7 +718,6 @@ namespace Toro
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
         private async void BtnScaricaSfondoBing_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
@@ -736,8 +729,6 @@ namespace Toro
                     Utility.MessaggioInfo("Impostare un percorso dove salvare l'immagine.");
                     return;
                 }
-
-
 
                 await DownloadImmagine(TxtPercorsoCartella.Text.Trim());
 
@@ -843,8 +834,6 @@ namespace Toro
                     percorsoFileImmagine = selected.FullPath;
 
                 }
-
-
 
 
                 if (!File.Exists(percorsoFileImmagine))
@@ -1045,8 +1034,6 @@ namespace Toro
             {
                 Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
-
-
 
 
 
