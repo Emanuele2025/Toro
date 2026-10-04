@@ -9,8 +9,11 @@ namespace Toro
     /// </summary>
     public class Configurazione
     {
-        //Percorso del file di configurazione
-        public string PercorsoFileConfigurazione { get; set; } = "";
+        //Percorso della cartella di configurazione
+        private static readonly string PercorsoCartella = Path.Combine(
+           Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Toro");
+
+        private static readonly string PercorsoCartellaFileConfigurazione = Path.Combine(PercorsoCartella, "Torosettings.json");
 
 
 
