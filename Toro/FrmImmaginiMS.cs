@@ -1039,8 +1039,18 @@ namespace Toro
 
         }
 
-
-
+        /// <summary>
+        /// Funzione per verificare la differenza delle immagini, nel caso che hanno lo stesso nome.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public static string CalcolaHash(string filePath)
+        {
+            using var sha = System.Security.Cryptography.SHA256.Create();
+            using var stream = File.OpenRead(filePath);
+            byte[] hashBytes = sha.ComputeHash(stream);
+            return BitConverter.ToString(hashBytes).Replace("-", "");
+        }
 
 
 
