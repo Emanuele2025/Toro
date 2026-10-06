@@ -1019,6 +1019,9 @@ namespace Toro
             }
         }
 
+        /// <summary>
+        /// Funzione per richiamare la vera funzione per il caricamento delle immagini suggerite da Windows
+        /// </summary>
         private void RilevaImmaginiSuggerite()
         {
             try
@@ -1051,7 +1054,9 @@ namespace Toro
             return BitConverter.ToString(hashBytes).Replace("-", "");
         }
 
-
+        /// <summary>
+        /// Funzione per caricare le immagini suggerite di Windows 11, e le confronta con quelle già presenti nella cartella di destinazione. 
+        /// </summary>
         private void CaricaImmaginiConHash()
         {
             string percorsoImmaginiSuggerite = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\AppData\Local\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\LocalCache\Microsoft\IrisService";
@@ -1067,7 +1072,7 @@ namespace Toro
             }
 
             string sorgente = percorsoImmaginiSuggerite;
-            string destinazione = TxtContenutiSuggeriti.Text.Trim();// @"C:\Varie\immaginiContenute";
+            string destinazione = TxtContenutiSuggeriti.Text.Trim(); 
 
             Directory.CreateDirectory(destinazione);
 
