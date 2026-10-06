@@ -125,7 +125,7 @@ namespace Toro
                     Utility.MessaggioInfo("Selezionare un percorso valido");
                     return;
                 }
-                 
+
 
                 //     lstboxFile.DisplayMember =
                 //nameof(SpotlightImage.DisplayName);
@@ -806,8 +806,8 @@ namespace Toro
             }
         }
 
-      
-        
+
+
 
         private void MniApri_Click(object sender, EventArgs e)
         {
@@ -955,8 +955,8 @@ namespace Toro
                     }
 
 
-                      percorsoFileImmagine = selected.FullPath;
-                    
+                    percorsoFileImmagine = selected.FullPath;
+
                 }
                 else
                 {
@@ -1002,7 +1002,7 @@ namespace Toro
         {
             try
             {
-                if (TxtPercorsoFileSfondo.Text.Trim() == "")
+                if (TxtContenutiSuggeriti.Text.Trim() == "")
                 {
                     Utility.MessaggioInfo("Selezionare una cartella per la copia dei file");
                     return;
@@ -1023,9 +1023,8 @@ namespace Toro
         {
             try
             {
-                string percorsoImmaginiSuggerite = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\AppData\Local\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\LocalCache\Microsoft\IrisService";
 
-
+                CaricaImmaginiConHash();
 
 
 
@@ -1053,11 +1052,89 @@ namespace Toro
         }
 
 
+        private void CaricaImmaginiConHash()
+        {
+            string percorsoImmaginiSuggerite = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\AppData\Local\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\LocalCache\Microsoft\IrisService";
+            if (!Directory.Exists(percorsoImmaginiSuggerite))
+            {
+                Utility.MessaggioInfo("Il percorso dei contenuti suggeriti di Windows 11 non esiste, forse non è attivato l'opzione degli sfondi suggeriti da Windows");
+                return;
+            }
+            if (Directory.GetFiles(percorsoImmaginiSuggerite).Count() == 0)
+            {
+                Utility.MessaggioInfo("Non sono presenti file immagini di contenuti suggeriti di Windows. ");
+                return;
+            }
 
+            string sorgente = percorsoImmaginiSuggerite;
+            string destinazione = TxtContenutiSuggeriti.Text.Trim();// @"C:\Varie\immaginiContenute";
 
+            Directory.CreateDirectory(destinazione);
 
+            LstNomeFileContenuti.Items.Clear();
 
+            // Dizionario hash → percorso file
+            Dictionary<string, string> hashEsistenti = new Dictionary<string, string>();
 
+            // Carica hash delle immagini già presenti nella cartella destinazione
+            foreach (var fileDest in Directory.GetFiles(destinazione))
+            {
+                string hash = CalcolaHash(fileDest);
+                if (!hashEsistenti.ContainsKey(hash))
+                    hashEsistenti.Add(hash, fileDest);
+            }
+
+            // Scansiona cartella Windows Spotlight
+            foreach (var file in Directory.GetFiles(sorgente))
+            {
+                try
+                {
+                    FileInfo info = new FileInfo(file);
+
+                    // Filtra per dimensione > 1 MB
+                    if (info.Length < 1_000_000)
+                        continue;
+
+                    using (Image img = Image.FromFile(file))
+                    {
+                        // Filtra per risoluzione
+                        if (img.Width < 1200 || img.Height < 800)
+                            continue;
+                    }
+
+                    // Calcola hash del file sorgente
+                    string hashFile = CalcolaHash(file);
+
+                    // Se già esiste, non copiare
+                    if (hashEsistenti.ContainsKey(hashFile))
+                        continue;
+
+                    // Copia file
+                    string nomeDest = Path.Combine(destinazione, info.Name);
+                    File.Copy(file, nomeDest);
+
+                    // Aggiungi hash alla lista
+                    hashEsistenti.Add(hashFile, nomeDest);
+
+                    // Aggiungi alla ListBox
+                    LstNomeFileContenuti.Items.Add(nomeDest);
+                }
+                catch
+                {
+                    // Ignora file non validi
+                }
+            }
+        }
+
+        
+
+        private void LstNomeFileContenuti_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (LstNomeFileContenuti.SelectedItem is string percorso)
+            {
+                PctAnteprimaContenuti.Image = Image.FromFile(percorso);
+            }
+        }
     }
     public sealed class SpotlightImage
     {

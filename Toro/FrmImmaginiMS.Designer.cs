@@ -259,12 +259,12 @@
             // 
             CmsMenu.Items.AddRange(new ToolStripItem[] { MniApri });
             CmsMenu.Name = "CmsMenu";
-            CmsMenu.Size = new Size(181, 48);
+            CmsMenu.Size = new Size(140, 26);
             // 
             // MniApri
             // 
             MniApri.Name = "MniApri";
-            MniApri.Size = new Size(180, 22);
+            MniApri.Size = new Size(139, 22);
             MniApri.Text = "Apri Cartella";
             MniApri.Click += MniApri_Click;
             // 
@@ -339,6 +339,7 @@
             PctAnteprimaContenuti.Location = new Point(386, 9);
             PctAnteprimaContenuti.Name = "PctAnteprimaContenuti";
             PctAnteprimaContenuti.Size = new Size(397, 347);
+            PctAnteprimaContenuti.SizeMode = PictureBoxSizeMode.CenterImage;
             PctAnteprimaContenuti.TabIndex = 4;
             PctAnteprimaContenuti.TabStop = false;
             // 
@@ -349,6 +350,7 @@
             LstNomeFileContenuti.Name = "LstNomeFileContenuti";
             LstNomeFileContenuti.Size = new Size(271, 184);
             LstNomeFileContenuti.TabIndex = 3;
+            LstNomeFileContenuti.SelectedIndexChanged += LstNomeFileContenuti_SelectedIndexChanged;
             // 
             // BtnChiudi
             // 
