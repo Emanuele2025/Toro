@@ -18,38 +18,35 @@ namespace Toro
 
 
 
-        public (string PercorsoFile, DateTime DataUltimoDownload) OttieniPercorso()
+        public string OttieniCartellaSfondi()
         {
-
+            string percorsoCartellaSfondi = "";
             try
             {
-
-                if (!File.Exists(PercorsoCartellaFileConfigurazione)) return ("", DateTime.MinValue);
-                string FileJson = File.ReadAllText(PercorsoCartellaFileConfigurazione);
-                var Opzioni = new JsonSerializerOptions { ReadCommentHandling = JsonCommentHandling.Skip };
-                var PercorsoSalvato = JsonSerializer.Deserialize<Impostazioni>(FileJson, Opzioni);
-
-                if (PercorsoSalvato != null)
+                if (File.Exists(PercorsoCartellaFileConfigurazione))
                 {
+                    string FileJson = File.ReadAllText(PercorsoCartellaFileConfigurazione);
+                    var Opzioni = new JsonSerializerOptions { ReadCommentHandling = JsonCommentHandling.Skip };
+                    var PercorsoSalvato = JsonSerializer.Deserialize<Impostazioni>(FileJson, Opzioni);
+                    if (PercorsoSalvato != null)
+                    {
 
-                    return (PercorsoSalvato.PercorsoCartellaFileSfondi, PercorsoSalvato.DataUltimoDownload);
+                        percorsoCartellaSfondi = PercorsoSalvato.PercorsoCartellaFileSfondi;
+                    }
+
                 }
-
-
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(ex.Message);
+
+                throw;
             }
-            return ("", DateTime.MinValue);
+        
+        return percorsoCartellaSfondi;
+
+
         }
-
-
-
-
-
-
-
+ 
 
 
     }
