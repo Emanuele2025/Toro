@@ -56,29 +56,35 @@ namespace Toro
 
         private void mniInformazioni_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             FrmInfoToro info = new FrmInfoToro();
             info.ShowDialog();
+            Cursor.Current = Cursors.Default;
         }
 
         private void gestioneFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-   
+            Cursor.Current = Cursors.WaitCursor;
             FrmFile fileForm = new FrmFile();
             fileForm.ShowDialog();
-
+            Cursor.Current = Cursors.Default;
 
         }
 
         private void galleriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             FrmGallery galleria = new FrmGallery();
             galleria.ShowDialog();
+            Cursor.Current = Cursors.Default;
         }
 
         private void MniMicrosoft_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             FrmImmaginiMS frmImmaginiMS = new FrmImmaginiMS();
             frmImmaginiMS.ShowDialog();
+            Cursor.Current = Cursors.Default;
         }
     }
 }
