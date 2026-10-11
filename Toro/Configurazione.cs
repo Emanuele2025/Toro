@@ -31,7 +31,7 @@ namespace Toro
                     if (PercorsoSalvato != null)
                     {
 
-                        percorsoCartellaSfondi = PercorsoSalvato.PercorsoCartellaFileSfondi;
+                        percorsoCartellaSfondi = PercorsoSalvato.PercorsoCartellaFileSfondiSalvati;
                     }
 
                 }
@@ -56,9 +56,9 @@ namespace Toro
         /// <summary>
         /// Percorso 
         /// </summary>
-        public string PercorsoCartellaFileSfondi { get; set; } = "";
+        public string PercorsoCartellaFileSfondiSalvati { get; set; } = "";
 
-        public DateTime DataUltimoDownload { get; set; }
+        public string PercorsoCartellaFileSfondiSuggeritiSalvati { get; set; } = "";
 
     }
 
