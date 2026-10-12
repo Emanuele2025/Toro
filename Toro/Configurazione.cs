@@ -46,8 +46,34 @@ namespace Toro
 
 
         }
- 
 
+        public bool SalvaDati(string percorsoCartellaDownload, DateTime ultimoDownload)
+        {
+            bool esito = false;
+            try
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(PercorsoCartellaFileConfigurazione));
+                Impostazioni impostazioniDaSalvare = new Impostazioni();
+                var Opzioni = new JsonSerializerOptions { WriteIndented = true };
+                impostazioniDaSalvare.PercorsoCartellaFileSfondiSalvati = percorsoCartellaDownload;
+              //  impostazioniDaSalvare.DataUltimoDownload = ultimoDownload;
+
+                string serializzoImpostaioni = JsonSerializer.Serialize(impostazioniDaSalvare, Opzioni);
+
+                File.WriteAllText(PercorsoCartellaFileConfigurazione, serializzoImpostaioni);
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Utility.MessaggioErrore(ex.Message);
+            }
+
+
+            return esito;
+
+        }
 
     }
 
