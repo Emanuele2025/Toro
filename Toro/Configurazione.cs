@@ -38,8 +38,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         
         return percorsoCartellaSfondi;
@@ -67,7 +66,7 @@ namespace Toro
             catch (Exception ex)
             {
 
-                Utility.MessaggioErrore(ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
 
 
