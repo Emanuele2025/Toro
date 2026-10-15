@@ -55,7 +55,7 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 24);
             label1.Name = "label1";
-            label1.Size = new Size(800, 22);
+            label1.Size = new Size(876, 22);
             label1.TabIndex = 0;
             label1.Text = "Toro- Strumenti per Windows - Gestione Hardware ";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -65,7 +65,7 @@
             mnsMenu.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, sistemaToolStripMenuItem, funzionalitàToolStripMenuItem, infoToolStripMenuItem });
             mnsMenu.Location = new Point(0, 0);
             mnsMenu.Name = "mnsMenu";
-            mnsMenu.Size = new Size(800, 24);
+            mnsMenu.Size = new Size(876, 24);
             mnsMenu.TabIndex = 1;
             mnsMenu.Text = "menuStrip1";
             // 
@@ -81,7 +81,7 @@
             mniChiudi.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             mniChiudi.Image = Properties.Resources.chiudi_16;
             mniChiudi.Name = "mniChiudi";
-            mniChiudi.Size = new Size(111, 22);
+            mniChiudi.Size = new Size(180, 22);
             mniChiudi.Text = "Chiudi";
             mniChiudi.Click += mniChiudi_Click;
             // 
@@ -141,6 +141,7 @@
             immaginiToolStripMenuItem.Name = "immaginiToolStripMenuItem";
             immaginiToolStripMenuItem.Size = new Size(180, 22);
             immaginiToolStripMenuItem.Text = "Immagini";
+            immaginiToolStripMenuItem.ToolTipText = "Strumenti per la gestione delle immagini";
             // 
             // galleriaToolStripMenuItem
             // 
@@ -169,7 +170,7 @@
             // 
             mniInformazioni.Image = Properties.Resources.Informazioni;
             mniInformazioni.Name = "mniInformazioni";
-            mniInformazioni.Size = new Size(150, 22);
+            mniInformazioni.Size = new Size(180, 22);
             mniInformazioni.Text = "Informazioni...";
             mniInformazioni.ToolTipText = "Finestra informativa del programma";
             mniInformazioni.Click += mniInformazioni_Click;
@@ -178,7 +179,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(876, 489);
             Controls.Add(label1);
             Controls.Add(mnsMenu);
             Icon = (Icon)resources.GetObject("$this.Icon");

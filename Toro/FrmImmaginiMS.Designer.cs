@@ -106,6 +106,7 @@
             tbpImmagineBing.Size = new Size(805, 372);
             tbpImmagineBing.TabIndex = 0;
             tbpImmagineBing.Text = "Immagini da Bing";
+            tbpImmagineBing.ToolTipText = "Permette di scaricare le immagini da Bing";
             tbpImmagineBing.UseVisualStyleBackColor = true;
             // 
             // BtnScaricaSfondoBing
@@ -163,6 +164,7 @@
             tbpImmaginiBlocco.Size = new Size(805, 372);
             tbpImmaginiBlocco.TabIndex = 1;
             tbpImmaginiBlocco.Text = "Immagini di blocco di Windows";
+            tbpImmaginiBlocco.ToolTipText = "Rileva le immagini di blocco del pc";
             tbpImmaginiBlocco.UseVisualStyleBackColor = true;
             // 
             // labelInfo
@@ -283,6 +285,7 @@
             tbpContenuti.Size = new Size(805, 372);
             tbpContenuti.TabIndex = 2;
             tbpContenuti.Text = "Contenuti suggeriti";
+            tbpContenuti.ToolTipText = "Rileva le immagini dei contenuti suggeriti di Windows, se presenti";
             tbpContenuti.UseVisualStyleBackColor = true;
             // 
             // BtnCopiaContenuti
