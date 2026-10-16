@@ -33,7 +33,7 @@ namespace Toro
 
         private CancellationTokenSource? _importCancellation;
 
-
+        Impostazioni clsImpostazioni = new Impostazioni();
 
 
         private void FrmImmaginiMS_Load(object sender, EventArgs e)
@@ -47,6 +47,9 @@ namespace Toro
             {
 
                 this.Text = Utility.TitoloFinestra;
+
+                //TODO: caricare il percorso rilevo dalle impostazioni e se non presente, visualizzare un messaggio a video quando fai il download
+                //clsImpostazioni
 
             }
             catch (Exception ex)
