@@ -46,9 +46,12 @@
             pcbAnteprima = new PictureBox();
             CmsImpostaComeSfondo = new ContextMenuStrip(components);
             MniImpostaSfondo = new ToolStripMenuItem();
+            MniCopiaImmagineBloccoAppunti = new ToolStripMenuItem();
+            MniCopiaFileBloccoAppunti = new ToolStripMenuItem();
             lstboxFile = new ListBox();
             CmsMenu = new ContextMenuStrip(components);
             MniApri = new ToolStripMenuItem();
+            MniCopiaNomeFileBlocco = new ToolStripMenuItem();
             tbpContenuti = new TabPage();
             BtnCopiaContenuti = new Button();
             BtnContenutiSuggeriti = new Button();
@@ -58,7 +61,6 @@
             PctAnteprimaContenuti = new PictureBox();
             LstNomeFileContenuti = new ListBox();
             BtnChiudi = new Button();
-            MniCopiaImmagineBloccoAppunti = new ToolStripMenuItem();
             tbcImmaginiMS.SuspendLayout();
             tbpImmagineBing.SuspendLayout();
             tbpImmaginiBlocco.SuspendLayout();
@@ -236,7 +238,7 @@
             // 
             // CmsImpostaComeSfondo
             // 
-            CmsImpostaComeSfondo.Items.AddRange(new ToolStripItem[] { MniImpostaSfondo, MniCopiaImmagineBloccoAppunti });
+            CmsImpostaComeSfondo.Items.AddRange(new ToolStripItem[] { MniImpostaSfondo, MniCopiaImmagineBloccoAppunti, MniCopiaFileBloccoAppunti });
             CmsImpostaComeSfondo.Name = "contextMenuStrip1";
             CmsImpostaComeSfondo.Size = new Size(215, 70);
             CmsImpostaComeSfondo.Opening += CmsImpostaComeSfondo_Opening;
@@ -247,6 +249,20 @@
             MniImpostaSfondo.Size = new Size(214, 22);
             MniImpostaSfondo.Text = "Imposta come sfondo";
             MniImpostaSfondo.Click += MniImpostaSfondo_Click;
+            // 
+            // MniCopiaImmagineBloccoAppunti
+            // 
+            MniCopiaImmagineBloccoAppunti.Name = "MniCopiaImmagineBloccoAppunti";
+            MniCopiaImmagineBloccoAppunti.Size = new Size(214, 22);
+            MniCopiaImmagineBloccoAppunti.Text = "Copia immagine (appunti)";
+            MniCopiaImmagineBloccoAppunti.Click += MniCopiaImmagineBloccoAppunti_Click;
+            // 
+            // MniCopiaFileBloccoAppunti
+            // 
+            MniCopiaFileBloccoAppunti.Name = "MniCopiaFileBloccoAppunti";
+            MniCopiaFileBloccoAppunti.Size = new Size(214, 22);
+            MniCopiaFileBloccoAppunti.Text = "Copia file negli appunti";
+            MniCopiaFileBloccoAppunti.Click += MniCopiaFileBloccoAppunti_Click;
             // 
             // lstboxFile
             // 
@@ -260,16 +276,23 @@
             // 
             // CmsMenu
             // 
-            CmsMenu.Items.AddRange(new ToolStripItem[] { MniApri });
+            CmsMenu.Items.AddRange(new ToolStripItem[] { MniApri, MniCopiaNomeFileBlocco });
             CmsMenu.Name = "CmsMenu";
-            CmsMenu.Size = new Size(140, 26);
+            CmsMenu.Size = new Size(159, 48);
             // 
             // MniApri
             // 
             MniApri.Name = "MniApri";
-            MniApri.Size = new Size(139, 22);
+            MniApri.Size = new Size(158, 22);
             MniApri.Text = "Apri Cartella";
             MniApri.Click += MniApri_Click;
+            // 
+            // MniCopiaNomeFileBlocco
+            // 
+            MniCopiaNomeFileBlocco.Name = "MniCopiaNomeFileBlocco";
+            MniCopiaNomeFileBlocco.Size = new Size(158, 22);
+            MniCopiaNomeFileBlocco.Text = "Copia nome file";
+            MniCopiaNomeFileBlocco.Click += MniCopiaNomeFileBlocco_Click;
             // 
             // tbpContenuti
             // 
@@ -369,13 +392,6 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
-            // MniCopiaImmagineBloccoAppunti
-            // 
-            MniCopiaImmagineBloccoAppunti.Name = "MniCopiaImmagineBloccoAppunti";
-            MniCopiaImmagineBloccoAppunti.Size = new Size(214, 22);
-            MniCopiaImmagineBloccoAppunti.Text = "Copia immagine (appunti)";
-            MniCopiaImmagineBloccoAppunti.Click += MniCopiaImmagineBloccoAppunti_Click;
-            // 
             // FrmImmaginiMS
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -390,6 +406,7 @@
             Name = "FrmImmaginiMS";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Toro - Strumenti e funzionalità per Windows";
+            FormClosed += FrmImmaginiMS_FormClosed;
             Load += FrmImmaginiMS_Load;
             tbcImmaginiMS.ResumeLayout(false);
             tbpImmagineBing.ResumeLayout(false);
@@ -437,5 +454,7 @@
         private TextBox TxtContenutiSuggeriti;
         private Label labelInfo;
         private ToolStripMenuItem MniCopiaImmagineBloccoAppunti;
+        private ToolStripMenuItem MniCopiaFileBloccoAppunti;
+        private ToolStripMenuItem MniCopiaNomeFileBlocco;
     }
 }

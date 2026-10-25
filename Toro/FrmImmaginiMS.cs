@@ -1163,6 +1163,54 @@ namespace Toro
                 MessageBox.Show($"Appunti non disponibili: {ex.Message}");
             }
         }
+
+        private void MniCopiaFileBloccoAppunti_Click(object sender, EventArgs e)
+        {
+            if (lstboxFile.SelectedIndex < 0) return;
+
+
+            string percorso = "";
+
+
+
+            if (lstboxFile.SelectedItem
+                    is not SpotlightImage selected)
+            {
+
+                return;
+            }
+
+
+            percorso = selected.FullPath;
+
+
+
+            var collezione = new System.Collections.Specialized.StringCollection();
+            collezione.Add(percorso);
+
+            Clipboard.SetFileDropList(collezione);
+
+            Utility.MessaggioInfo("File copiato negli appunti — puoi incollarlo in Esplora risorse");
+        }
+
+        private void MniCopiaNomeFileBlocco_Click(object sender, EventArgs e)
+        {
+            if (lstboxFile.SelectedItem
+                    is not SpotlightImage selected)
+            {
+
+                return;
+            }
+
+
+
+            Clipboard.SetText(selected.FileName);
+        }
+
+        private void FrmImmaginiMS_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            pcbAnteprima.Image?.Dispose();
+        }
     }
     public sealed class SpotlightImage
     {
