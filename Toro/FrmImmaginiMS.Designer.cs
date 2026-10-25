@@ -58,6 +58,7 @@
             PctAnteprimaContenuti = new PictureBox();
             LstNomeFileContenuti = new ListBox();
             BtnChiudi = new Button();
+            MniCopiaImmagineBloccoAppunti = new ToolStripMenuItem();
             tbcImmaginiMS.SuspendLayout();
             tbpImmagineBing.SuspendLayout();
             tbpImmaginiBlocco.SuspendLayout();
@@ -235,15 +236,15 @@
             // 
             // CmsImpostaComeSfondo
             // 
-            CmsImpostaComeSfondo.Items.AddRange(new ToolStripItem[] { MniImpostaSfondo });
+            CmsImpostaComeSfondo.Items.AddRange(new ToolStripItem[] { MniImpostaSfondo, MniCopiaImmagineBloccoAppunti });
             CmsImpostaComeSfondo.Name = "contextMenuStrip1";
-            CmsImpostaComeSfondo.Size = new Size(191, 26);
+            CmsImpostaComeSfondo.Size = new Size(215, 70);
             CmsImpostaComeSfondo.Opening += CmsImpostaComeSfondo_Opening;
             // 
             // MniImpostaSfondo
             // 
             MniImpostaSfondo.Name = "MniImpostaSfondo";
-            MniImpostaSfondo.Size = new Size(190, 22);
+            MniImpostaSfondo.Size = new Size(214, 22);
             MniImpostaSfondo.Text = "Imposta come sfondo";
             MniImpostaSfondo.Click += MniImpostaSfondo_Click;
             // 
@@ -368,6 +369,13 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
+            // MniCopiaImmagineBloccoAppunti
+            // 
+            MniCopiaImmagineBloccoAppunti.Name = "MniCopiaImmagineBloccoAppunti";
+            MniCopiaImmagineBloccoAppunti.Size = new Size(214, 22);
+            MniCopiaImmagineBloccoAppunti.Text = "Copia immagine (appunti)";
+            MniCopiaImmagineBloccoAppunti.Click += MniCopiaImmagineBloccoAppunti_Click;
+            // 
             // FrmImmaginiMS
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -428,5 +436,6 @@
         private Label label5;
         private TextBox TxtContenutiSuggeriti;
         private Label labelInfo;
+        private ToolStripMenuItem MniCopiaImmagineBloccoAppunti;
     }
 }

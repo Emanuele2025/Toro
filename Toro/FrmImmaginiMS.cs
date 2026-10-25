@@ -112,7 +112,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(Utility.Errore +  ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
 
@@ -1075,7 +1075,7 @@ namespace Toro
             }
 
             string sorgente = percorsoImmaginiSuggerite;
-            string destinazione = TxtContenutiSuggeriti.Text.Trim(); 
+            string destinazione = TxtContenutiSuggeriti.Text.Trim();
 
             Directory.CreateDirectory(destinazione);
 
@@ -1134,13 +1134,33 @@ namespace Toro
             }
         }
 
-        
+
 
         private void LstNomeFileContenuti_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (LstNomeFileContenuti.SelectedItem is string percorso)
             {
                 PctAnteprimaContenuti.Image = Image.FromFile(percorso);
+            }
+        }
+
+        private void MniCopiaImmagineBloccoAppunti_Click(object sender, EventArgs e)
+        {
+            if (pcbAnteprima.Image == null)
+            {
+                MessageBox.Show("Nessuna immagine selezionata.");
+                return;
+            }
+
+            try
+            {
+                Clipboard.SetImage(pcbAnteprima.Image);
+                Utility.MessaggioInfo("Immagine copiata negli appunti ✓");
+            }
+            catch (ExternalException ex)
+            {
+                // Gli appunti possono essere occupati da un'altra app
+                MessageBox.Show($"Appunti non disponibili: {ex.Message}");
             }
         }
     }
