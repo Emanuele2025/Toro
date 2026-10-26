@@ -1170,20 +1170,13 @@ namespace Toro
 
 
             string percorso = "";
-
-
-
-            if (lstboxFile.SelectedItem
-                    is not SpotlightImage selected)
+            if (lstboxFile.SelectedItem    is not SpotlightImage selected)
             {
 
                 return;
             }
 
-
             percorso = selected.FullPath;
-
-
 
             var collezione = new System.Collections.Specialized.StringCollection();
             collezione.Add(percorso);
