@@ -40,7 +40,7 @@ namespace Toro
                 
                 //TODO: prossime funzionalità
                 //Info Microfono audio ed altoparlanti 
-                //Info stampanti
+                
                 //Info monitor, vedere tipo di monitor, marca, etc
                 //Info scheda madre come marca, prouttore, modello etc
  
@@ -68,8 +68,12 @@ namespace Toro
                //  LoadPrinters();
                 GetInternet(); //OK
                                // GetInfoSchedaRete();
-            //    RilevaSchedeRete(); //OK
-                                    //  Rete();
+                               //    RilevaSchedeRete(); //OK
+                               //  Rete();
+
+                GetInformazioniSchedaMadre();
+
+
 
             }
             catch (Exception ex)
@@ -838,6 +842,32 @@ namespace Toro
         }
 
 
+
+        private void GetInformazioniSchedaMadre()
+        {
+
+            try
+            {
+                string idSChedaMadre = "";
+                using var searcher = new ManagementObjectSearcher("SELECT SerialNumber FROM Win32_BaseBoard");
+                foreach (ManagementObject obj in searcher.Get())
+                    idSChedaMadre = obj["SerialNumber"]?.ToString()?.Trim() ?? "";
+
+
+                TxtIDSchedaMadre.Text = idSChedaMadre;
+
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore: " + ex.Message);
+            }
+
+
+
+
+
+        }
 
 
 

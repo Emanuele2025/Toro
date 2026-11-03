@@ -131,6 +131,8 @@
             dtgStampante = new DataGridView();
             tbpRete = new TabPage();
             dtgDatiSchedaRete = new DataGridView();
+            TxtIDSchedaMadre = new TextBox();
+            label43 = new Label();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -264,6 +266,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(label43);
+            groupBox2.Controls.Add(TxtIDSchedaMadre);
             groupBox2.Controls.Add(TxtInternet);
             groupBox2.Controls.Add(label50);
             groupBox2.Controls.Add(TxtIPComputer);
@@ -1153,6 +1157,23 @@
             dtgDatiSchedaRete.Size = new Size(1094, 350);
             dtgDatiSchedaRete.TabIndex = 0;
             // 
+            // TxtIDSchedaMadre
+            // 
+            TxtIDSchedaMadre.Location = new Point(175, 230);
+            TxtIDSchedaMadre.Name = "TxtIDSchedaMadre";
+            TxtIDSchedaMadre.ReadOnly = true;
+            TxtIDSchedaMadre.Size = new Size(342, 23);
+            TxtIDSchedaMadre.TabIndex = 14;
+            // 
+            // label43
+            // 
+            label43.AutoSize = true;
+            label43.Location = new Point(5, 230);
+            label43.Name = "label43";
+            label43.Size = new Size(157, 15);
+            label43.TabIndex = 15;
+            label43.Text = "Identificativo Scheda Madre:";
+            // 
             // FrmInformazioniPC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1298,5 +1319,7 @@
         private DataGridView dtgStampante;
         private TabPage tbpRete;
         private DataGridView dtgDatiSchedaRete;
+        private TextBox TxtIDSchedaMadre;
+        private Label label43;
     }
 }
