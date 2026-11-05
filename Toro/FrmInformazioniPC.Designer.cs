@@ -135,6 +135,8 @@
             dtgDatiSchedaRete = new DataGridView();
             TbpAudio = new TabPage();
             DtgDatiAudio = new DataGridView();
+            TbpDriverAudio = new TabPage();
+            DtgDriverAudio = new DataGridView();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -152,6 +154,8 @@
             ((System.ComponentModel.ISupportInitialize)dtgDatiSchedaRete).BeginInit();
             TbpAudio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DtgDatiAudio).BeginInit();
+            TbpDriverAudio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DtgDriverAudio).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -192,6 +196,7 @@
             tbcSezioni.Controls.Add(tbpStampanti);
             tbcSezioni.Controls.Add(tbpRete);
             tbcSezioni.Controls.Add(TbpAudio);
+            tbcSezioni.Controls.Add(TbpDriverAudio);
             tbcSezioni.Location = new Point(0, 25);
             tbcSezioni.Name = "tbcSezioni";
             tbcSezioni.SelectedIndex = 0;
@@ -1199,6 +1204,26 @@
             DtgDatiAudio.Size = new Size(1100, 271);
             DtgDatiAudio.TabIndex = 0;
             // 
+            // TbpDriverAudio
+            // 
+            TbpDriverAudio.Controls.Add(DtgDriverAudio);
+            TbpDriverAudio.Location = new Point(4, 24);
+            TbpDriverAudio.Name = "TbpDriverAudio";
+            TbpDriverAudio.Size = new Size(1100, 356);
+            TbpDriverAudio.TabIndex = 10;
+            TbpDriverAudio.Text = "Driver Audio";
+            TbpDriverAudio.UseVisualStyleBackColor = true;
+            // 
+            // DtgDriverAudio
+            // 
+            DtgDriverAudio.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            DtgDriverAudio.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DtgDriverAudio.Dock = DockStyle.Top;
+            DtgDriverAudio.Location = new Point(0, 0);
+            DtgDriverAudio.Name = "DtgDriverAudio";
+            DtgDriverAudio.Size = new Size(1100, 208);
+            DtgDriverAudio.TabIndex = 0;
+            // 
             // FrmInformazioniPC
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1238,6 +1263,8 @@
             ((System.ComponentModel.ISupportInitialize)dtgDatiSchedaRete).EndInit();
             TbpAudio.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)DtgDatiAudio).EndInit();
+            TbpDriverAudio.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)DtgDriverAudio).EndInit();
             ResumeLayout(false);
         }
 
@@ -1350,5 +1377,7 @@
         private Label label43;
         private TabPage TbpAudio;
         private DataGridView DtgDatiAudio;
+        private TabPage TbpDriverAudio;
+        private DataGridView DtgDriverAudio;
     }
 }

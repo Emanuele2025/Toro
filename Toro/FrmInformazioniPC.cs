@@ -143,6 +143,10 @@ namespace Toro
                     case "TbpAudio":
                         GetAudio();
                         break;
+                    case "TbpDriverAudio":
+                        GetDriverAudio();
+                        break;
+                        
                     default:
                         break;
                 }
@@ -497,10 +501,10 @@ namespace Toro
                     rigaNuova["Status"] = device["Status"]?.ToString() ?? "";
                     rigaNuova["DeviceID"] = device["DeviceID"]?.ToString() ?? "";
                     dttDatiAudio.Rows.Add(rigaNuova);
-                    //MessageBox.Show("Name: " + device["Name"]);
+                     
                     //MessageBox.Show("Manufacturer: " + device["Manufacturer"]);
                     //MessageBox.Show("Status: " + device["Status"]);
-                    //MessageBox.Show("DeviceID: " + device["DeviceID"]);
+                    
 
                 }
                 DtgDatiAudio.DataSource = dttDatiAudio;
@@ -517,7 +521,47 @@ namespace Toro
 
         }
 
+        private void GetDriverAudio()
+        {
+            try
+            {
+                DataTable dttDatiAudio = new DataTable();
+                dttDatiAudio.Columns.Add("DeviceName");
+                dttDatiAudio.Columns.Add("DriverProviderName");
+                dttDatiAudio.Columns.Add("DriverVersion");
+                dttDatiAudio.Columns.Add("InfName");
 
+                var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PnPSignedDriver WHERE DeviceClass = 'MEDIA'");
+
+                foreach (ManagementObject driver in searcher.Get())
+                {
+                    DataRow rigaNuova = dttDatiAudio.NewRow();
+                    rigaNuova["DeviceName"] = driver["DeviceName"]?.ToString() ?? "";
+                    rigaNuova["DriverProviderName"] = driver["DriverProviderName"]?.ToString() ?? "";
+                    rigaNuova["DriverVersion"] = driver["DriverVersion"]?.ToString() ?? "";
+                    rigaNuova["InfName"] = driver["InfName"]?.ToString() ?? "";
+                    dttDatiAudio.Rows.Add(rigaNuova);
+                 //   MessageBox.Show("DeviceName: " + driver["DeviceName"]);
+                 // MessageBox.Show("DriverProviderName: " + driver["DriverProviderName"]);
+                 //  MessageBox.Show("DriverVersion: " + driver["DriverVersion"]);
+                 //   MessageBox.Show("InfName: " + driver["InfName"]);
+
+                }
+
+                DtgDriverAudio.DataSource = dttDatiAudio;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        
+        
+        
+        
+        
+        
+        }
 
 
 
