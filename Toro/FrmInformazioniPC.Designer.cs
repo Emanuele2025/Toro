@@ -39,6 +39,8 @@
             label2 = new Label();
             tbpSistema = new TabPage();
             groupBox2 = new GroupBox();
+            label43 = new Label();
+            TxtIDSchedaMadre = new TextBox();
             TxtInternet = new TextBox();
             label50 = new Label();
             TxtIPComputer = new TextBox();
@@ -131,8 +133,8 @@
             dtgStampante = new DataGridView();
             tbpRete = new TabPage();
             dtgDatiSchedaRete = new DataGridView();
-            TxtIDSchedaMadre = new TextBox();
-            label43 = new Label();
+            TbpAudio = new TabPage();
+            DtgDatiAudio = new DataGridView();
             tbcSezioni.SuspendLayout();
             tbpVideo.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -148,6 +150,8 @@
             ((System.ComponentModel.ISupportInitialize)dtgStampante).BeginInit();
             tbpRete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatiSchedaRete).BeginInit();
+            TbpAudio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DtgDatiAudio).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -187,6 +191,7 @@
             tbcSezioni.Controls.Add(tbpCamera);
             tbcSezioni.Controls.Add(tbpStampanti);
             tbcSezioni.Controls.Add(tbpRete);
+            tbcSezioni.Controls.Add(TbpAudio);
             tbcSezioni.Location = new Point(0, 25);
             tbcSezioni.Name = "tbcSezioni";
             tbcSezioni.SelectedIndex = 0;
@@ -289,6 +294,23 @@
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "Informaioni Sistema ";
+            // 
+            // label43
+            // 
+            label43.AutoSize = true;
+            label43.Location = new Point(5, 230);
+            label43.Name = "label43";
+            label43.Size = new Size(157, 15);
+            label43.TabIndex = 15;
+            label43.Text = "Identificativo Scheda Madre:";
+            // 
+            // TxtIDSchedaMadre
+            // 
+            TxtIDSchedaMadre.Location = new Point(175, 230);
+            TxtIDSchedaMadre.Name = "TxtIDSchedaMadre";
+            TxtIDSchedaMadre.ReadOnly = true;
+            TxtIDSchedaMadre.Size = new Size(342, 23);
+            TxtIDSchedaMadre.TabIndex = 14;
             // 
             // TxtInternet
             // 
@@ -1157,22 +1179,25 @@
             dtgDatiSchedaRete.Size = new Size(1094, 350);
             dtgDatiSchedaRete.TabIndex = 0;
             // 
-            // TxtIDSchedaMadre
+            // TbpAudio
             // 
-            TxtIDSchedaMadre.Location = new Point(175, 230);
-            TxtIDSchedaMadre.Name = "TxtIDSchedaMadre";
-            TxtIDSchedaMadre.ReadOnly = true;
-            TxtIDSchedaMadre.Size = new Size(342, 23);
-            TxtIDSchedaMadre.TabIndex = 14;
+            TbpAudio.Controls.Add(DtgDatiAudio);
+            TbpAudio.Location = new Point(4, 24);
+            TbpAudio.Name = "TbpAudio";
+            TbpAudio.Size = new Size(1100, 356);
+            TbpAudio.TabIndex = 9;
+            TbpAudio.Text = "Audio";
+            TbpAudio.UseVisualStyleBackColor = true;
             // 
-            // label43
+            // DtgDatiAudio
             // 
-            label43.AutoSize = true;
-            label43.Location = new Point(5, 230);
-            label43.Name = "label43";
-            label43.Size = new Size(157, 15);
-            label43.TabIndex = 15;
-            label43.Text = "Identificativo Scheda Madre:";
+            DtgDatiAudio.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            DtgDatiAudio.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DtgDatiAudio.Dock = DockStyle.Top;
+            DtgDatiAudio.Location = new Point(0, 0);
+            DtgDatiAudio.Name = "DtgDatiAudio";
+            DtgDatiAudio.Size = new Size(1100, 271);
+            DtgDatiAudio.TabIndex = 0;
             // 
             // FrmInformazioniPC
             // 
@@ -1211,6 +1236,8 @@
             ((System.ComponentModel.ISupportInitialize)dtgStampante).EndInit();
             tbpRete.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dtgDatiSchedaRete).EndInit();
+            TbpAudio.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)DtgDatiAudio).EndInit();
             ResumeLayout(false);
         }
 
@@ -1321,5 +1348,7 @@
         private DataGridView dtgDatiSchedaRete;
         private TextBox TxtIDSchedaMadre;
         private Label label43;
+        private TabPage TbpAudio;
+        private DataGridView DtgDatiAudio;
     }
 }

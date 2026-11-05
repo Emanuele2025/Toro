@@ -37,13 +37,13 @@ namespace Toro
             Cursor.Current = Cursors.WaitCursor;
             try
             {
-                
+
                 //TODO: prossime funzionalità
                 //Info Microfono audio ed altoparlanti 
-                
+
                 //Info monitor, vedere tipo di monitor, marca, etc
                 //Info scheda madre come marca, prouttore, modello etc
- 
+
                 this.Text = Utility.TitoloFinestra;
 
 
@@ -51,10 +51,10 @@ namespace Toro
                 TxtNomePC.Text = Environment.MachineName;
                 txtNomeUtente.Text = Environment.UserName;
                 VarieInformazioni();
-            //    GetInfoRAM(); //OK
-            //    GetInfoSchedaGrafica(); //OK
+                //    GetInfoRAM(); //OK
+                //    GetInfoSchedaGrafica(); //OK
                 GetInfoPC();
-           //     GetCpuDetails(); //OK
+                //     GetCpuDetails(); //OK
                 var ip = GetLocalIPv4();
 
                 if (ip != null)
@@ -62,10 +62,10 @@ namespace Toro
                 else
                     TxtIPComputer.Text = "Nessun indirizzo IPv4 disponibile.";
 
-              //  GetInfoWebCam(); //OK
+                //  GetInfoWebCam(); //OK
 
-              //  GetStampanti(); //OK
-               //  LoadPrinters();
+                //  GetStampanti(); //OK
+                //  LoadPrinters();
                 GetInternet(); //OK
                                // GetInfoSchedaRete();
                                //    RilevaSchedeRete(); //OK
@@ -121,7 +121,7 @@ namespace Toro
 
                         break;
                     case "tbpStampanti":
-                         GetStampanti();
+                        GetStampanti();
                         break;
                     case "tbpRete":
                         RilevaSchedeRete();
@@ -139,6 +139,9 @@ namespace Toro
                     case "tbpSchedaGrafica":
                         GetInfoSchedaGrafica();
 
+                        break;
+                    case "TbpAudio":
+                        GetAudio();
                         break;
                     default:
                         break;
@@ -318,7 +321,7 @@ namespace Toro
             }
             catch (ManagementException exME)
             {
-                Utility.MessaggioErrore(Utility.Errore +  exME.Message);
+                Utility.MessaggioErrore(Utility.Errore + exME.Message);
 
             }
             catch (Exception ex)
@@ -421,7 +424,7 @@ namespace Toro
                 TxtVelocitaCPU.Text = "";
 
                 TxtIdProcessore.Text = "";
-                
+
 
                 var searcher = new ManagementObjectSearcher("select * from Win32_Processor");
                 //var cpuInfo = "";
@@ -469,6 +472,56 @@ namespace Toro
                 _ => $"Sconosciuto (codice {type})"
             };
         }
+
+
+
+
+        private void GetAudio()
+        {
+
+            try
+            {
+                DataTable dttDatiAudio = new DataTable();
+                dttDatiAudio.Columns.Add("Name");
+                dttDatiAudio.Columns.Add("Manufacturer");
+                dttDatiAudio.Columns.Add("Status");
+                dttDatiAudio.Columns.Add("DeviceID");
+
+                var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_SoundDevice");
+
+                foreach (ManagementObject device in searcher.Get())
+                {
+                    DataRow rigaNuova = dttDatiAudio.NewRow();
+                    rigaNuova["Name"] = device["Name"]?.ToString() ?? "";
+                    rigaNuova["Manufacturer"] = device["Manufacturer"]?.ToString() ?? "";
+                    rigaNuova["Status"] = device["Status"]?.ToString() ?? "";
+                    rigaNuova["DeviceID"] = device["DeviceID"]?.ToString() ?? "";
+                    dttDatiAudio.Rows.Add(rigaNuova);
+                    //MessageBox.Show("Name: " + device["Name"]);
+                    //MessageBox.Show("Manufacturer: " + device["Manufacturer"]);
+                    //MessageBox.Show("Status: " + device["Status"]);
+                    //MessageBox.Show("DeviceID: " + device["DeviceID"]);
+
+                }
+                DtgDatiAudio.DataSource = dttDatiAudio;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
+
+        }
+
+
+
+
+
+
 
 
         #endregion
@@ -1092,7 +1145,7 @@ namespace Toro
                     if (existingPrinter != null)
                     {
                         existingPrinter.NomeDriver = printer["DriverName"]?.ToString();
-                      //  existingPrinter.Descrizione = printer["Description"]?.ToString();
+                        //  existingPrinter.Descrizione = printer["Description"]?.ToString();
                         existingPrinter.Stato = printer["Status"]?.ToString();
                         //existingPrinter.Modello = printer["Model"]?.ToString();
                         existingPrinter.NumeroLavoro = Convert.ToInt32(printer["JobCountSinceLastReset"] ?? 0);
