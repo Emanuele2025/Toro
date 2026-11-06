@@ -488,9 +488,9 @@ namespace Toro
             try
             {
                 DataTable dttDatiAudio = new DataTable();
-                dttDatiAudio.Columns.Add("Name");
+                dttDatiAudio.Columns.Add("Nome");
                 dttDatiAudio.Columns.Add("Manufacturer");
-                dttDatiAudio.Columns.Add("Status");
+                dttDatiAudio.Columns.Add("Stato");
                 dttDatiAudio.Columns.Add("DeviceID");
 
                 var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_SoundDevice");
@@ -498,9 +498,9 @@ namespace Toro
                 foreach (ManagementObject device in searcher.Get())
                 {
                     DataRow rigaNuova = dttDatiAudio.NewRow();
-                    rigaNuova["Name"] = device["Name"]?.ToString() ?? "";
+                    rigaNuova["Nome"] = device["Name"]?.ToString() ?? "";
                     rigaNuova["Manufacturer"] = device["Manufacturer"]?.ToString() ?? "";
-                    rigaNuova["Status"] = device["Status"]?.ToString() ?? "";
+                    rigaNuova["Stato"] = device["Status"]?.ToString() ?? "";
                     rigaNuova["DeviceID"] = device["DeviceID"]?.ToString() ?? "";
                     dttDatiAudio.Rows.Add(rigaNuova);
                     
