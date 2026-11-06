@@ -478,7 +478,9 @@ namespace Toro
         }
 
 
-
+        /// <summary>
+        /// Metodo che restituisce informazioni sull'audio, casse e microfono installate sul pc
+        /// </summary>
 
         private void GetAudio()
         {
@@ -501,19 +503,15 @@ namespace Toro
                     rigaNuova["Status"] = device["Status"]?.ToString() ?? "";
                     rigaNuova["DeviceID"] = device["DeviceID"]?.ToString() ?? "";
                     dttDatiAudio.Rows.Add(rigaNuova);
-                     
-                    //MessageBox.Show("Manufacturer: " + device["Manufacturer"]);
-                    //MessageBox.Show("Status: " + device["Status"]);
                     
 
                 }
                 DtgDatiAudio.DataSource = dttDatiAudio;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore("Errore: " + ex.Message);
             }
 
 
