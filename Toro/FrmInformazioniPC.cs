@@ -514,9 +514,6 @@ namespace Toro
                 Utility.MessaggioErrore("Errore: " + ex.Message);
             }
 
-
-
-
         }
 
         private void GetDriverAudio()
