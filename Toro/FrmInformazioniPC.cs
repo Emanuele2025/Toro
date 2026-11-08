@@ -787,7 +787,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore: " + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
 
 
@@ -810,15 +810,12 @@ namespace Toro
             catch (ManagementException exMe)
             {
 
-                Utility.MessaggioErrore("Errore: " + exMe.Message);
+                Utility.MessaggioErrore(Utility.Errore + exMe.Message);
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore: " + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
-
-
-
 
         }
 
