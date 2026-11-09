@@ -431,24 +431,24 @@ namespace Toro
 
 
                 var searcher = new ManagementObjectSearcher("select * from Win32_Processor");
-                //var cpuInfo = "";
+                
 
                 foreach (ManagementObject obj in searcher.Get())
                 {
                     TxtNomeCPU.Text += obj["Name"]?.ToString();
-                    //cpuInfo += $"Nome CPU: {obj["Name"]}\n";
+                   
                     TxtProduttoreCPU.Text += obj["Manufacturer"]?.ToString();
-                    // cpuInfo += $"Produttore: {obj["Manufacturer"]}\n";
+                    
                     TxtDescrizioneCPU.Text += obj["Description"]?.ToString();
-                    // cpuInfo += $"Descrizione: {obj["Description"]}\n";
+                    
                     TxtNumeroCore.Text += obj["NumberOfCores"]?.ToString();
-                    //  cpuInfo += $"Numero Core: {obj["NumberOfCores"]}\n";
+                    
                     TxtNumeroLogici.Text += obj["NumberOfLogicalProcessors"]?.ToString();
-                    //     cpuInfo += $"Numero Logici: {obj["NumberOfLogicalProcessors"]}\n";
+                   
                     TxtVelocitaCPU.Text += obj["MaxClockSpeed"]?.ToString();
-                    //    cpuInfo += $"Velocità (MHz): {obj["MaxClockSpeed"]}\n";
+                   
                     TxtIdProcessore.Text += obj["ProcessorId"]?.ToString();
-                    // cpuInfo += $"ID Processore: {obj["ProcessorId"]}\n";
+                   
                 }
             }
             catch (Exception ex)
@@ -949,7 +949,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore: " + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
 
 
@@ -1193,11 +1193,13 @@ namespace Toro
             }
             catch (UnauthorizedAccessException)
             {
-                Console.WriteLine("Accesso negato a WMI. Eseguire come amministratore per ottenere informazioni complete.");
+                Utility.MessaggioErrore("Accesso negato a WMI. Eseguire come amministratore per ottenere informazioni complete.");
+               // Console.WriteLine("Accesso negato a WMI. Eseguire come amministratore per ottenere informazioni complete.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Errore nell'accesso a WMI: {ex.Message}");
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
+               // Console.WriteLine($"Errore nell'accesso a WMI: {ex.Message}");
             }
         }
         bool DeterminePrinterStatus(ManagementObject printer)
