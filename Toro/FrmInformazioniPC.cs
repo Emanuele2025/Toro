@@ -360,12 +360,12 @@ namespace Toro
             }
             catch (ManagementException exME)
             {
-                Utility.MessaggioErrore("Errore: " + exME.Message);
+                Utility.MessaggioErrore(Utility.Errore + exME.Message);
 
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore: " + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
 
 
