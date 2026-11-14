@@ -1016,10 +1016,6 @@ namespace Toro
         #region Gestione stampante
 
 
-
-
-
-
         private List<DtoStampante> GetPrinters()
         {
             var listaStampanti = new List<DtoStampante>();
@@ -1130,7 +1126,7 @@ namespace Toro
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"Errore nel recupero dettagli stampante {printerName}: {ex.Message}");
+                        Utility.MessaggioErrore(Utility.Errore + ex.Message);
                     }
                 }
 
@@ -1139,7 +1135,8 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Errore nel recupero stampanti: {ex.Message}");
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
+                 
             }
 
             return printers;
