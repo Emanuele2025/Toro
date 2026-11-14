@@ -1146,22 +1146,58 @@ namespace Toro
 
         private void MniCopiaImmagineBloccoAppunti_Click(object sender, EventArgs e)
         {
-            if (pcbAnteprima.Image == null)
-            {
-                MessageBox.Show("Nessuna immagine selezionata.");
-                return;
-            }
-
             try
             {
-                Clipboard.SetImage(pcbAnteprima.Image);
-                Utility.MessaggioInfo("Immagine copiata negli appunti ✓");
+
+
+
+                if (tbcImmaginiMS?.SelectedTab?.Name == "tbpImmaginiBlocco")
+                {
+
+                    if (pcbAnteprima.Image == null)
+                    {
+                        Utility.MessaggioInfo("Nessuna immagine selezionata.");
+                        return;
+                    }
+                    Clipboard.SetImage(pcbAnteprima.Image);
+                    Utility.MessaggioInfo("Immagine copiata negli appunti ✓");
+
+
+                }
+                else
+                {
+                    if (PctAnteprimaContenuti.Image == null)
+                    {
+                        Utility.MessaggioInfo("Nessuna immagine selezionata.");
+                        return;
+                    }
+                    Clipboard.SetImage(PctAnteprimaContenuti.Image);
+                    Utility.MessaggioInfo("Immagine copiata negli appunti ✓");
+                }
+
             }
             catch (ExternalException ex)
             {
                 // Gli appunti possono essere occupati da un'altra app
                 MessageBox.Show($"Appunti non disponibili: {ex.Message}");
             }
+
+            //if (pcbAnteprima.Image == null)
+            //{
+            //    MessageBox.Show("Nessuna immagine selezionata.");
+            //    return;
+            //}
+
+            //try
+            //{
+            //    Clipboard.SetImage(pcbAnteprima.Image);
+            //    Utility.MessaggioInfo("Immagine copiata negli appunti ✓");
+            //}
+            //catch (ExternalException ex)
+            //{
+            //    // Gli appunti possono essere occupati da un'altra app
+            //    MessageBox.Show($"Appunti non disponibili: {ex.Message}");
+            //}
         }
 
         private void MniCopiaFileBloccoAppunti_Click(object sender, EventArgs e)
@@ -1170,7 +1206,7 @@ namespace Toro
 
 
             string percorso = "";
-            if (lstboxFile.SelectedItem    is not SpotlightImage selected)
+            if (lstboxFile.SelectedItem is not SpotlightImage selected)
             {
 
                 return;
