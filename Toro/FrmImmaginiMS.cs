@@ -806,6 +806,14 @@ namespace Toro
             else if (tbcImmaginiMS?.SelectedTab?.Name == "tbpContenuti")
             {
 
+                //TODO: Gestire in futuro il salvataggio del percorso nel local utente.
+                if (TxtContenutiSuggeriti.Text.Trim() == "")
+                {
+
+                    return;
+                }
+                
+
             }
         }
 
@@ -1274,7 +1282,7 @@ namespace Toro
             catch (ExternalException ex)
             {
                 // Gli appunti possono essere occupati da un'altra app
-                MessageBox.Show($"Appunti non disponibili: {ex.Message}");
+                Utility.MessaggioErrore($"Appunti non disponibili: {ex.Message}");
             }
 
 
