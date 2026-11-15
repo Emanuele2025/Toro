@@ -1202,24 +1202,86 @@ namespace Toro
 
         private void MniCopiaFileBloccoAppunti_Click(object sender, EventArgs e)
         {
-            if (lstboxFile.SelectedIndex < 0) return;
+            //if (lstboxFile.SelectedIndex < 0) return;
 
 
-            string percorso = "";
-            if (lstboxFile.SelectedItem is not SpotlightImage selected)
+            //string percorso = "";
+            //if (lstboxFile.SelectedItem is not SpotlightImage selected)
+            //{
+
+            //    return;
+            //}
+
+            //percorso = selected.FullPath;
+
+            //var collezione = new System.Collections.Specialized.StringCollection();
+            //collezione.Add(percorso);
+
+            //Clipboard.SetFileDropList(collezione);
+
+            //Utility.MessaggioInfo("File copiato negli appunti — puoi incollarlo in Esplora risorse");
+
+            try
             {
 
-                return;
+
+
+                if (tbcImmaginiMS?.SelectedTab?.Name == "tbpImmaginiBlocco")
+                {
+
+                    if (lstboxFile.SelectedIndex < 0) return;
+
+
+                    string percorso = "";
+                    if (lstboxFile.SelectedItem is not SpotlightImage selected)
+                    {
+
+                        return;
+                    }
+
+                    percorso = selected.FullPath;
+
+                    var collezione = new System.Collections.Specialized.StringCollection();
+                    collezione.Add(percorso);
+
+                    Clipboard.SetFileDropList(collezione);
+
+                    Utility.MessaggioInfo("File copiato negli appunti — puoi incollarlo in Esplora risorse");
+
+
+                }
+                else
+                {
+                    if (LstNomeFileContenuti.SelectedIndex < 0) return;
+
+                    if (LstNomeFileContenuti.SelectedItem is string percorso)
+                    {
+                        PctAnteprimaContenuti.Image = Image.FromFile(percorso);
+                        var collezione = new System.Collections.Specialized.StringCollection();
+                        collezione.Add(percorso);
+
+                        Clipboard.SetFileDropList(collezione);
+
+                        Utility.MessaggioInfo("File copiato negli appunti — puoi incollarlo in Esplora risorse");
+
+
+                    }
+
+                   
+                }
+
+            }
+            catch (ExternalException ex)
+            {
+                // Gli appunti possono essere occupati da un'altra app
+                MessageBox.Show($"Appunti non disponibili: {ex.Message}");
             }
 
-            percorso = selected.FullPath;
 
-            var collezione = new System.Collections.Specialized.StringCollection();
-            collezione.Add(percorso);
 
-            Clipboard.SetFileDropList(collezione);
 
-            Utility.MessaggioInfo("File copiato negli appunti — puoi incollarlo in Esplora risorse");
+
+
         }
 
         private void MniCopiaNomeFileBlocco_Click(object sender, EventArgs e)
