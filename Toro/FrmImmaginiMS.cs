@@ -815,6 +815,10 @@ namespace Toro
                 
 
             }
+            else
+            {
+                //Finestra tab per il download
+            }
         }
 
 
@@ -894,6 +898,10 @@ namespace Toro
                     Utility.MessaggioInfo("Selezionare una cartella per la copia dei file");
                     return;
                 }
+                //TODO: Mettere condizione che verifica se la cartella è salvata nelle impostazioni, altrimenti visualizza un messaggio a video
+
+
+
                 //CaricaImmaginiDiBloccoSchermo();
                 await ImportSpotlightImagesAsync();
 
@@ -1190,44 +1198,12 @@ namespace Toro
                 MessageBox.Show($"Appunti non disponibili: {ex.Message}");
             }
 
-            //if (pcbAnteprima.Image == null)
-            //{
-            //    MessageBox.Show("Nessuna immagine selezionata.");
-            //    return;
-            //}
-
-            //try
-            //{
-            //    Clipboard.SetImage(pcbAnteprima.Image);
-            //    Utility.MessaggioInfo("Immagine copiata negli appunti ✓");
-            //}
-            //catch (ExternalException ex)
-            //{
-            //    // Gli appunti possono essere occupati da un'altra app
-            //    MessageBox.Show($"Appunti non disponibili: {ex.Message}");
-            //}
+           
         }
 
         private void MniCopiaFileBloccoAppunti_Click(object sender, EventArgs e)
         {
-            //if (lstboxFile.SelectedIndex < 0) return;
-
-
-            //string percorso = "";
-            //if (lstboxFile.SelectedItem is not SpotlightImage selected)
-            //{
-
-            //    return;
-            //}
-
-            //percorso = selected.FullPath;
-
-            //var collezione = new System.Collections.Specialized.StringCollection();
-            //collezione.Add(percorso);
-
-            //Clipboard.SetFileDropList(collezione);
-
-            //Utility.MessaggioInfo("File copiato negli appunti — puoi incollarlo in Esplora risorse");
+            
 
             try
             {
