@@ -680,10 +680,13 @@ namespace Toro
         private void BtnAvviaCopiaPreferiti_Click(object sender, EventArgs e)
         {
             try
-
             {
-
-                string destinazione = @"C:\varie";
+                if (TxtPercorsoSalvarePreferiti.Text.Trim() == "")
+                {
+                    Utility.MessaggioInfo("Indicare la cartella dove salvare i preferiti di Edge e Chrome");
+                    return;
+                }
+                string destinazione = TxtPercorsoSalvarePreferiti.Text.Trim();
 
                 Directory.CreateDirectory(destinazione);
 
@@ -761,7 +764,7 @@ namespace Toro
 
                 MessageBox.Show(
 
-                    "Accesso negato. Verificare i permessi sulla cartella  C:\\varie.",
+                    "Accesso negato. Verificare i permessi sulla cartella  " + TxtPercorsoSalvarePreferiti.Text.Trim(),
 
 
                     "Errore",
