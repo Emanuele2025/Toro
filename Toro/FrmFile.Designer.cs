@@ -67,7 +67,7 @@
             TbpPreferiti = new TabPage();
             BtnTrovaCartellaSalvaPreferiti = new Button();
             BtnAvviaCopiaPreferiti = new Button();
-            textBox1 = new TextBox();
+            TxtPercorsoSalvarePreferiti = new TextBox();
             label8 = new Label();
             BtnChiudi = new Button();
             tbcFile.SuspendLayout();
@@ -466,7 +466,7 @@
             // 
             TbpPreferiti.Controls.Add(BtnTrovaCartellaSalvaPreferiti);
             TbpPreferiti.Controls.Add(BtnAvviaCopiaPreferiti);
-            TbpPreferiti.Controls.Add(textBox1);
+            TbpPreferiti.Controls.Add(TxtPercorsoSalvarePreferiti);
             TbpPreferiti.Controls.Add(label8);
             TbpPreferiti.Location = new Point(4, 24);
             TbpPreferiti.Name = "TbpPreferiti";
@@ -498,13 +498,13 @@
             BtnAvviaCopiaPreferiti.UseVisualStyleBackColor = true;
             BtnAvviaCopiaPreferiti.Click += BtnAvviaCopiaPreferiti_Click;
             // 
-            // textBox1
+            // TxtPercorsoSalvarePreferiti
             // 
-            textBox1.Location = new Point(17, 32);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(555, 23);
-            textBox1.TabIndex = 18;
+            TxtPercorsoSalvarePreferiti.Location = new Point(17, 32);
+            TxtPercorsoSalvarePreferiti.Name = "TxtPercorsoSalvarePreferiti";
+            TxtPercorsoSalvarePreferiti.ReadOnly = true;
+            TxtPercorsoSalvarePreferiti.Size = new Size(555, 23);
+            TxtPercorsoSalvarePreferiti.TabIndex = 18;
             // 
             // label8
             // 
@@ -604,7 +604,7 @@
         private TabPage TbpPreferiti;
         private Button BtnTrovaCartellaSalvaPreferiti;
         private Button BtnAvviaCopiaPreferiti;
-        private TextBox textBox1;
+        private TextBox TxtPercorsoSalvarePreferiti;
         private Label label8;
     }
 }

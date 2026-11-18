@@ -822,7 +822,7 @@ namespace Toro
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
                     // Imposto il percorso selezionato nella casella di testo
-                    TxtPercorsoVCF.Text = folderBrowserDialog.SelectedPath;
+                    TxtPercorsoSalvarePreferiti.Text = folderBrowserDialog.SelectedPath;
                 }
             }
         }
