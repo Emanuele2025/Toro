@@ -676,5 +676,155 @@ namespace Toro
                 Utility.MessaggioErrore(ex.Message);
             }
         }
+
+        private void BtnAvviaCopiaPreferiti_Click(object sender, EventArgs e)
+        {
+            try
+
+            {
+
+                string destinazione = @"C:\varie";
+
+                Directory.CreateDirectory(destinazione);
+
+
+
+                string localAppData = Environment.GetFolderPath(
+
+                    Environment.SpecialFolder.LocalApplicationData);
+
+
+
+                string chromeBookmarks = Path.Combine(
+
+                    localAppData,
+
+                    "Google",
+
+                    "Chrome",
+
+                    "User Data",
+
+                    "Default",
+
+                    "Bookmarks");
+
+
+
+                string edgeBookmarks = Path.Combine(
+
+                    localAppData,
+
+                    "Microsoft",
+
+                    "Edge",
+
+                    "User Data",
+
+                    "Default",
+
+                    "Bookmarks");
+
+
+
+                CopiaFileSeEsiste(
+
+                    chromeBookmarks,
+
+                    Path.Combine(destinazione, "Chrome_Bookmarks"));
+
+
+
+                CopiaFileSeEsiste(
+
+                    edgeBookmarks,
+
+                    Path.Combine(destinazione, "Edge_Bookmarks"));
+
+
+
+                MessageBox.Show(
+
+                    "Copia completata.",
+
+                    "Informazione",
+
+                    MessageBoxButtons.OK,
+
+                    MessageBoxIcon.Information);
+
+            }
+
+            catch (UnauthorizedAccessException)
+
+            {
+
+                MessageBox.Show(
+
+                    "Accesso negato. Verificare i permessi sulla cartella  C:\\varie.",
+
+
+                    "Errore",
+
+                    MessageBoxButtons.OK,
+
+                    MessageBoxIcon.Error);
+
+            }
+
+            catch (IOException ex)
+
+            {
+
+                MessageBox.Show(
+
+                    $"Errore durante la copia:\n{ex.Message}",
+
+                    "Errore",
+
+                    MessageBoxButtons.OK,
+
+                    MessageBoxIcon.Error);
+
+            }
+        }
+
+        private static void CopiaFileSeEsiste(string origine, string destinazione)
+
+        {
+
+            if (!File.Exists(origine))
+
+            {
+
+                return;
+
+            }
+
+
+
+            File.Copy(
+
+                origine,
+
+                destinazione,
+
+                overwrite: true);
+
+        }
+
+        private void BtnTrovaCartellaSalvaPreferiti_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+            {
+                folderBrowserDialog.Description = "Seleziona la cartella dove si trovano i file vcf";
+
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Imposto il percorso selezionato nella casella di testo
+                    TxtPercorsoVCF.Text = folderBrowserDialog.SelectedPath;
+                }
+            }
+        }
     }
 }

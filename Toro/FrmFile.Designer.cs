@@ -64,6 +64,11 @@
             label5 = new Label();
             TxtPercorsoNomeFileDaNascondere = new TextBox();
             label6 = new Label();
+            TbpPreferiti = new TabPage();
+            BtnTrovaCartellaSalvaPreferiti = new Button();
+            BtnAvviaCopiaPreferiti = new Button();
+            textBox1 = new TextBox();
+            label8 = new Label();
             BtnChiudi = new Button();
             tbcFile.SuspendLayout();
             tbpLeggiCertificatiPdf.SuspendLayout();
@@ -74,6 +79,7 @@
             TbpHacker.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
+            TbpPreferiti.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -95,6 +101,7 @@
             tbcFile.Controls.Add(tbpLeggiVCF);
             tbcFile.Controls.Add(tbpEstrapolaFileP7m);
             tbcFile.Controls.Add(TbpHacker);
+            tbcFile.Controls.Add(TbpPreferiti);
             tbcFile.Dock = DockStyle.Top;
             tbcFile.Location = new Point(0, 22);
             tbcFile.Multiline = true;
@@ -455,6 +462,59 @@
             label6.TabIndex = 27;
             label6.Text = "Seleziona il file Microsoft Word che si vuole inserire dentro al file immagine";
             // 
+            // TbpPreferiti
+            // 
+            TbpPreferiti.Controls.Add(BtnTrovaCartellaSalvaPreferiti);
+            TbpPreferiti.Controls.Add(BtnAvviaCopiaPreferiti);
+            TbpPreferiti.Controls.Add(textBox1);
+            TbpPreferiti.Controls.Add(label8);
+            TbpPreferiti.Location = new Point(4, 24);
+            TbpPreferiti.Name = "TbpPreferiti";
+            TbpPreferiti.Size = new Size(955, 377);
+            TbpPreferiti.TabIndex = 4;
+            TbpPreferiti.Text = "Copia Preferiti";
+            TbpPreferiti.ToolTipText = "Copia i preferiti in una cartella";
+            TbpPreferiti.UseVisualStyleBackColor = true;
+            // 
+            // BtnTrovaCartellaSalvaPreferiti
+            // 
+            BtnTrovaCartellaSalvaPreferiti.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnTrovaCartellaSalvaPreferiti.Location = new Point(578, 32);
+            BtnTrovaCartellaSalvaPreferiti.Name = "BtnTrovaCartellaSalvaPreferiti";
+            BtnTrovaCartellaSalvaPreferiti.Size = new Size(30, 29);
+            BtnTrovaCartellaSalvaPreferiti.TabIndex = 20;
+            BtnTrovaCartellaSalvaPreferiti.Text = "...";
+            BtnTrovaCartellaSalvaPreferiti.TextAlign = ContentAlignment.TopLeft;
+            BtnTrovaCartellaSalvaPreferiti.UseVisualStyleBackColor = true;
+            BtnTrovaCartellaSalvaPreferiti.Click += BtnTrovaCartellaSalvaPreferiti_Click;
+            // 
+            // BtnAvviaCopiaPreferiti
+            // 
+            BtnAvviaCopiaPreferiti.Location = new Point(17, 58);
+            BtnAvviaCopiaPreferiti.Name = "BtnAvviaCopiaPreferiti";
+            BtnAvviaCopiaPreferiti.Size = new Size(117, 23);
+            BtnAvviaCopiaPreferiti.TabIndex = 19;
+            BtnAvviaCopiaPreferiti.Text = "Avvia Copia";
+            BtnAvviaCopiaPreferiti.UseVisualStyleBackColor = true;
+            BtnAvviaCopiaPreferiti.Click += BtnAvviaCopiaPreferiti_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(17, 32);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(555, 23);
+            textBox1.TabIndex = 18;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(17, 14);
+            label8.Name = "label8";
+            label8.Size = new Size(171, 15);
+            label8.TabIndex = 17;
+            label8.Text = "Percorso dove salvare i preferiti";
+            // 
             // BtnChiudi
             // 
             BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -497,6 +557,8 @@
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            TbpPreferiti.ResumeLayout(false);
+            TbpPreferiti.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -539,5 +601,10 @@
         private Button BtnRilevaFile;
         private TextBox TxtImmagineConWord;
         private Label label7;
+        private TabPage TbpPreferiti;
+        private Button BtnTrovaCartellaSalvaPreferiti;
+        private Button BtnAvviaCopiaPreferiti;
+        private TextBox textBox1;
+        private Label label8;
     }
 }
