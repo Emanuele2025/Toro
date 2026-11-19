@@ -70,6 +70,8 @@
             TxtPercorsoSalvarePreferiti = new TextBox();
             label8 = new Label();
             BtnChiudi = new Button();
+            TbpElencoPreferitiSiti = new TabPage();
+            DgvElencoPreferiti = new DataGridView();
             tbcFile.SuspendLayout();
             tbpLeggiCertificatiPdf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgCertificatiFilePdf).BeginInit();
@@ -80,6 +82,8 @@
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             TbpPreferiti.SuspendLayout();
+            TbpElencoPreferitiSiti.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DgvElencoPreferiti).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -102,6 +106,7 @@
             tbcFile.Controls.Add(tbpEstrapolaFileP7m);
             tbcFile.Controls.Add(TbpHacker);
             tbcFile.Controls.Add(TbpPreferiti);
+            tbcFile.Controls.Add(TbpElencoPreferitiSiti);
             tbcFile.Dock = DockStyle.Top;
             tbcFile.Location = new Point(0, 22);
             tbcFile.Multiline = true;
@@ -528,6 +533,25 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
+            // TbpElencoPreferitiSiti
+            // 
+            TbpElencoPreferitiSiti.Controls.Add(DgvElencoPreferiti);
+            TbpElencoPreferitiSiti.Location = new Point(4, 24);
+            TbpElencoPreferitiSiti.Name = "TbpElencoPreferitiSiti";
+            TbpElencoPreferitiSiti.Size = new Size(955, 377);
+            TbpElencoPreferitiSiti.TabIndex = 5;
+            TbpElencoPreferitiSiti.Text = "Elenco Preferiti";
+            TbpElencoPreferitiSiti.UseVisualStyleBackColor = true;
+            // 
+            // DgvElencoPreferiti
+            // 
+            DgvElencoPreferiti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgvElencoPreferiti.Dock = DockStyle.Top;
+            DgvElencoPreferiti.Location = new Point(0, 0);
+            DgvElencoPreferiti.Name = "DgvElencoPreferiti";
+            DgvElencoPreferiti.Size = new Size(955, 285);
+            DgvElencoPreferiti.TabIndex = 0;
+            // 
             // FrmFile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -559,6 +583,8 @@
             groupBox1.PerformLayout();
             TbpPreferiti.ResumeLayout(false);
             TbpPreferiti.PerformLayout();
+            TbpElencoPreferitiSiti.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)DgvElencoPreferiti).EndInit();
             ResumeLayout(false);
         }
 
@@ -606,5 +632,7 @@
         private Button BtnAvviaCopiaPreferiti;
         private TextBox TxtPercorsoSalvarePreferiti;
         private Label label8;
+        private TabPage TbpElencoPreferitiSiti;
+        private DataGridView DgvElencoPreferiti;
     }
 }

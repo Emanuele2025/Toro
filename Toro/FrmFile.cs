@@ -25,7 +25,7 @@ namespace Toro
             try
             {
                 this.Text = Utility.TitoloFinestra;
-
+                CaricaPreferiti();
 
 
 
@@ -319,7 +319,24 @@ namespace Toro
 
 
 
+        private void CaricaPreferiti()
+        {
 
+            try
+            {
+               // DgvElencoPreferiti
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        
+        
+        
+        
+        
+        }
 
 
         #endregion
