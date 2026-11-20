@@ -32,7 +32,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore: " + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
             finally
             {
@@ -111,8 +111,10 @@ namespace Toro
 
                         foreach (var firma in cms.SignerInfos)
                         {
+                            if (firma.Certificate == null)
+                                continue;
 
-                            X509Certificate2 cert = firma?.Certificate;
+                            X509Certificate2 cert = firma.Certificate;
                             if (cert != null)
                             {
                                 DtoFirmaDigitale dtoCertificato = new DtoFirmaDigitale()
@@ -324,12 +326,17 @@ namespace Toro
 
             try
             {
-               // DgvElencoPreferiti
+
+
+
+
+                // DgvElencoPreferiti
+
+
             }
             catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore(Utility.Errore +  ex.Message);
             }
         
         
