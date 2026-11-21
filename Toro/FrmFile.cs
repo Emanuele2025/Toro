@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Security.Cryptography.Pkcs;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Toro.Modelli;
@@ -327,7 +328,43 @@ namespace Toro
             try
             {
 
+                DgvElencoPreferiti.AutoGenerateColumns = false;
+                DgvElencoPreferiti.Columns.Clear();
+                DgvElencoPreferiti.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "colBrowser",
+                    HeaderText = "Browser",
+                    DataPropertyName = "Browser",
+                    Width = 80
+                });
+                DgvElencoPreferiti.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "colNome",
+                    HeaderText = "Nome",
+                    DataPropertyName = "Nome",
+                    Width = 250
+                });
+                DgvElencoPreferiti.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "colUrl",
+                    HeaderText = "Sito",
+                    DataPropertyName = "Url",
+                    Width = 400
+                });
+                DgvElencoPreferiti.ReadOnly = true;
+                DgvElencoPreferiti.AllowUserToAddRows = false;
 
+                var lista = new List<Preferito>();
+
+                string localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+
+                string chromePath = Path.Combine(localAppData, @"Google\Chrome\User Data\Default\Bookmarks");
+                string edgePath = Path.Combine(localAppData, @"Microsoft\Edge\User Data\Default\Bookmarks");
+
+                CaricaDaFile(chromePath, "Chrome", lista);
+                CaricaDaFile(edgePath, "Edge", lista);
+
+                DgvElencoPreferiti.DataSource = lista;
 
 
                 // DgvElencoPreferiti
@@ -344,6 +381,63 @@ namespace Toro
         
         
         }
+
+        private void CaricaDaFile(string percorso, string browser, List<Preferito> lista)
+        {
+            if (!File.Exists(percorso))
+                return;
+
+            try
+            {
+                // I file possono essere aperti dal browser: usiamo una copia per evitare errori di accesso.
+                string copia = Path.GetTempFileName();
+                File.Copy(percorso, copia, true);
+
+                string json = File.ReadAllText(copia);
+                File.Delete(copia);
+
+                using JsonDocument doc = JsonDocument.Parse(json);
+                if (doc.RootElement.TryGetProperty("roots", out JsonElement roots))
+                {
+                    foreach (JsonProperty radice in roots.EnumerateObject())
+                    {
+                        EstraiRicorsivo(radice.Value, browser, lista);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Errore leggendo i preferiti di {browser}: {ex.Message}");
+            }
+        }
+
+
+        private void EstraiRicorsivo(JsonElement nodo, string browser, List<Preferito> lista)
+        {
+            if (nodo.ValueKind != JsonValueKind.Object)
+                return;
+
+            if (nodo.TryGetProperty("type", out JsonElement tipo))
+            {
+                if (tipo.GetString() == "url")
+                {
+                    string nome = nodo.TryGetProperty("name", out JsonElement n) ? n.GetString() : "";
+                    string url = nodo.TryGetProperty("url", out JsonElement u) ? u.GetString() : "";
+                    lista.Add(new Preferito { Browser = browser, Nome = nome, Url = url });
+                    return;
+                }
+            }
+
+            if (nodo.TryGetProperty("children", out JsonElement figli) && figli.ValueKind == JsonValueKind.Array)
+            {
+                foreach (JsonElement figlio in figli.EnumerateArray())
+                {
+                    EstraiRicorsivo(figlio, browser, lista);
+                }
+            }
+        }
+
+
 
 
         #endregion
