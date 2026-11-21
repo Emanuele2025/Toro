@@ -229,7 +229,7 @@ namespace Toro
             catch (Exception ex)
             {
 
-                MessageBox.Show("Errore: " + ex.Message);
+                MessageBox.Show(Utility.Errore + ex.Message);
 
             }
 
@@ -312,7 +312,7 @@ namespace Toro
             catch (Exception ex)
             {
 
-                MessageBox.Show("Errore: " + ex.Message);
+                MessageBox.Show(Utility.Errore + ex.Message);
 
             }
 
