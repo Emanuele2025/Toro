@@ -407,7 +407,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Errore leggendo i preferiti di {browser}: {ex.Message}");
+                Utility.MessaggioInfo($"Errore leggendo i preferiti di {browser}: {ex.Message}");
             }
         }
 
