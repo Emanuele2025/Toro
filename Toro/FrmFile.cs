@@ -382,6 +382,13 @@ namespace Toro
         
         }
 
+
+        /// <summary>
+        /// Funzione per il rilevamento dei preferiti da file
+        /// </summary>
+        /// <param name="percorso"></param>
+        /// <param name="browser"></param>
+        /// <param name="lista"></param>
         private void CaricaDaFile(string percorso, string browser, List<Preferito> lista)
         {
             if (!File.Exists(percorso))
@@ -407,11 +414,16 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioInfo($"Errore leggendo i preferiti di {browser}: {ex.Message}");
+                Utility.MessaggioErrore($"Errore leggendo i preferiti di {browser}: {ex.Message}");
             }
         }
 
-
+        /// <summary>
+        /// Crea l'oggetto list contenenti nomi, siti browser
+        /// </summary>
+        /// <param name="nodo"></param>
+        /// <param name="browser"></param>
+        /// <param name="lista"></param>
         private void EstraiRicorsivo(JsonElement nodo, string browser, List<Preferito> lista)
         {
             if (nodo.ValueKind != JsonValueKind.Object)
