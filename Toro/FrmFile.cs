@@ -321,7 +321,9 @@ namespace Toro
         }
 
 
-
+        /// <summary>
+        /// Funzione per caricare i preferiti nella griglia
+        /// </summary>
         private void CaricaPreferiti()
         {
 
@@ -365,10 +367,7 @@ namespace Toro
                 CaricaDaFile(edgePath, "Edge", lista);
 
                 DgvElencoPreferiti.DataSource = lista;
-
-
-                // DgvElencoPreferiti
-
+ 
 
             }
             catch (Exception ex)
@@ -414,7 +413,7 @@ namespace Toro
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore($"Errore leggendo i preferiti di {browser}: {ex.Message}");
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
 
