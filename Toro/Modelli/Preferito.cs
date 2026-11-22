@@ -6,8 +6,8 @@ namespace Toro.Modelli
 {
     public class Preferito
     {
-        public string Browser { get; set; }
-        public string Nome { get; set; }
-        public string Url { get; set; }
+        public string Browser { get; set; } = "";
+        public string Nome { get; set; } = "";
+        public string Url { get; set; } = "";
     }
 }

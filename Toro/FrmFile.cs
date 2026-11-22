@@ -418,7 +418,7 @@ namespace Toro
         }
 
         /// <summary>
-        /// Crea l'oggetto list contenenti nomi, siti browser
+        /// Crea l'oggetto list contenenti nomi, siti e nome browser
         /// </summary>
         /// <param name="nodo"></param>
         /// <param name="browser"></param>
