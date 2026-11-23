@@ -40,8 +40,8 @@ namespace Toro
         {
             //TODO
             //Icone
-            //Cursor per le voci menu
-            //Logo del toro per il programma
+             
+             
             //FARE:
             
             //Vedere se salva impostazioni
