@@ -193,6 +193,7 @@ namespace Toro
             //TODO: fare come verifica https://emanuelemattei.blogspot.com/2018/10/net-rilevare-le-coordinate-gps-di-un.html
             try
             {
+                this.Text = Utility.TitoloFinestra;
                 Cursor.Current = Cursors.WaitCursor;
                 foreach (DriveInfo InfoUnita in DriveInfo.GetDrives())
                 {

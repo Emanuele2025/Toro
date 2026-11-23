@@ -22,7 +22,7 @@ namespace Toro
         {
             try
             {
-
+                this.Text = Utility.TitoloFinestra;
 
 
 
